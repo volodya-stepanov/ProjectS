@@ -2,12 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f996e41e-f78d-442a-bace-c49e36561405" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/DataModels/FormulaModel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/DataModels/TaskModel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectS.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/App.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/App.form" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/App.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/DataModels/ExpressionModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DataModels/ExpressionModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/App$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/App$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/App.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/App.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/DataModels/ExpressionModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/DataModels/ExpressionModel.class" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -20,25 +23,32 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pom.xml">
+        <entry file="file://$PROJECT_DIR$/src/main/java/App.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="408">
-              <caret line="27" column="35" selection-start-line="27" selection-start-column="21" selection-end-line="27" selection-end-column="35" />
+            <state relative-caret-position="157">
+              <caret line="56" selection-start-line="56" selection-end-line="56" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/App.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/DataModels/TaskModel.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="174">
-              <caret line="83" selection-start-line="83" selection-end-line="83" />
+            <state relative-caret-position="153">
+              <caret line="142" column="33" selection-start-line="142" selection-start-column="33" selection-end-line="142" selection-end-column="33" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#1300#1437#0" expanded="true" />
-                <element signature="e#1436#1437#0" expanded="true" />
-                <element signature="e#1450#1778#0" expanded="true" />
-                <element signature="e#1777#1778#0" expanded="true" />
+                <element signature="docComment;field#Description#0;class#TaskModel#0" />
+                <element signature="docComment;field#FormulaString#0;class#TaskModel#0" />
+                <element signature="docComment;method#TaskModel#0;class#TaskModel#0" />
+                <element signature="method#TaskModel#0;class#TaskModel#0" />
+                <element signature="docComment;method#getDescription#0;class#TaskModel#0" />
+                <element signature="docComment;method#setDescription#0;class#TaskModel#0" />
+                <element signature="docComment;method#getFormulaString#0;class#TaskModel#0" />
+                <element signature="docComment;method#setFormulaString#0;class#TaskModel#0" />
               </folding>
             </state>
           </provider>
@@ -60,10 +70,13 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/App.form" />
         <option value="$PROJECT_DIR$/src/main/Arithmetic.g4" />
         <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/App.form" />
+        <option value="$PROJECT_DIR$/src/main/java/DataModels/FormulaModel.java" />
+        <option value="$PROJECT_DIR$/src/main/java/DataModels/ExpressionModel.java" />
         <option value="$PROJECT_DIR$/src/main/java/App.java" />
+        <option value="$PROJECT_DIR$/src/main/java/DataModels/TaskModel.java" />
       </list>
     </option>
   </component>
@@ -88,11 +101,6 @@
             <path>
               <item name="ProjectS" type="b2602c69:ProjectViewProjectNode" />
               <item name="ProjectS" type="462c0819:PsiDirectoryNode" />
-              <item name="gen" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ProjectS" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ProjectS" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -107,6 +115,14 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ProjectS" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ProjectS" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="DataModels" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -124,8 +140,8 @@
     <property name="$PROJECT_DIR$/src/main/Arithmetic.g4::/lib-dir" value="D:\version-control\ProjectS\src\main" />
     <property name="$PROJECT_DIR$/src/main/Arithmetic.g4::/output-dir" value="D:\version-control\ProjectS\src\main" />
     <property name="$PROJECT_DIR$/src/main/Arithmetic.g4::/package" value="com.razrabotkin" />
-    <property name="UI_DESIGNER_EDITOR_MODE.PaletteManager.SHOW" value="false" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1548697912329" />
+    <property name="UI_DESIGNER_EDITOR_MODE.PaletteManager.SHOW" value="true" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1548711475370" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.0" />
@@ -175,7 +191,7 @@
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.15204236" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.15431164" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -184,8 +200,8 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.32922733" />
-      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.39934534" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.3289689" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.39934534" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -210,21 +226,9 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/App.java</url>
-          <line>51</line>
+          <line>53</line>
           <properties />
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/App.java</url>
-          <line>66</line>
-          <properties />
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/App.java</url>
-          <line>69</line>
-          <properties />
-          <option name="timeStamp" value="3" />
+          <option name="timeStamp" value="5" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
@@ -261,27 +265,69 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/App.form">
-      <provider editor-type-id="ui-designer" />
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
+        <state relative-caret-position="459">
           <caret line="27" column="35" selection-start-line="27" selection-start-column="21" selection-end-line="27" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/App.form">
+      <provider selected="true" editor-type-id="ui-designer" />
+      <provider editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gen/ArithmeticLexer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/DataModels/FormulaModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="59" selection-start-line="3" selection-start-column="59" selection-end-line="3" selection-end-column="59" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/DataModels/NumberModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="39" selection-start-line="5" selection-start-column="39" selection-end-line="5" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/DataModels/ExpressionModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="41" selection-start-line="7" selection-start-column="41" selection-end-line="7" selection-end-column="41" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/App.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="174">
-          <caret line="83" selection-start-line="83" selection-end-line="83" />
+        <state relative-caret-position="157">
+          <caret line="56" selection-start-line="56" selection-end-line="56" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1300#1437#0" expanded="true" />
-            <element signature="e#1436#1437#0" expanded="true" />
-            <element signature="e#1450#1778#0" expanded="true" />
-            <element signature="e#1777#1778#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/DataModels/TaskModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="142" column="33" selection-start-line="142" selection-start-column="33" selection-end-line="142" selection-end-column="33" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="docComment;field#Description#0;class#TaskModel#0" />
+            <element signature="docComment;field#FormulaString#0;class#TaskModel#0" />
+            <element signature="docComment;method#TaskModel#0;class#TaskModel#0" />
+            <element signature="method#TaskModel#0;class#TaskModel#0" />
+            <element signature="docComment;method#getDescription#0;class#TaskModel#0" />
+            <element signature="docComment;method#setDescription#0;class#TaskModel#0" />
+            <element signature="docComment;method#getFormulaString#0;class#TaskModel#0" />
+            <element signature="docComment;method#setFormulaString#0;class#TaskModel#0" />
           </folding>
         </state>
       </provider>

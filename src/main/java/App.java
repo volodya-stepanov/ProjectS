@@ -1,3 +1,4 @@
+import DataModels.TaskModel;
 import org.antlr.v4.runtime.CharStreams;
 import org.antlr.v4.runtime.CommonTokenStream;
 import org.antlr.v4.runtime.tree.ParseTree;
@@ -5,8 +6,6 @@ import org.antlr.v4.runtime.tree.ParseTreeWalker;
 import org.docx4j.openpackaging.exceptions.Docx4JException;
 import org.docx4j.openpackaging.exceptions.InvalidFormatException;
 import org.docx4j.openpackaging.packages.WordprocessingMLPackage;
-import org.docx4j.openpackaging.parts.WordprocessingML.MainDocumentPart;
-import org.docx4j.wml.Document;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -17,8 +16,9 @@ import java.awt.event.KeyEvent;
 public class App {
     private JButton button_msg;
     private JPanel panelMain;
-    private JTextField text_field_equation;
+    private JTextField text_field_formula;
     private JLabel label_result;
+    private JTextField text_field_description;
 
     public static void main(String[] args) {
         // Это мой первый код, написанный в этом приложении. Код написан 9 января 2019 года в 19:50 и взят из урока, расположенного по ссылке: https://youtu.be/5vSyylPPEko
@@ -32,23 +32,33 @@ public class App {
     public App() {
         button_msg.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                handleDocument();
+                handleTask();
             }
         });
-        text_field_equation.addKeyListener(new KeyAdapter() {
+        text_field_formula.addKeyListener(new KeyAdapter() {
             @Override
             public void keyPressed(KeyEvent e) {
                 int code = e.getKeyCode();
 
                 if (code == 10){
-                    String expression = text_field_equation.getText();
-                    parseExpression(expression);
+                    handleTask();
                 }
             }
         });
     }
 
-    private void parseExpression(String expression){
+    /**
+     * Выполняет считывание исходных данных, создание задания и его обработку
+     */
+    private void handleTask(){
+        String description = text_field_description.getText();
+        String formula = text_field_formula.getText();
+        TaskModel task = new TaskModel(description, formula);
+        task.save();
+    }
+
+    private void parseFormula(String expression){
+        //TODO: Если этот метод поместить в класс TaskModel, то класс ArithmeticLexer и другие классы почему-то не видны
         ArithmeticLexer lexer = new ArithmeticLexer(CharStreams.fromString(expression));
         CommonTokenStream tokens = new CommonTokenStream(lexer);
         ArithmeticParser parser = new ArithmeticParser(tokens);
@@ -63,27 +73,6 @@ public class App {
 
 
 
-        // Создать пакет
-        WordprocessingMLPackage wordMLPackage = null;
 
-        try {
-            wordMLPackage = WordprocessingMLPackage.createPackage();
-
-//            Document document = createIt();
-//            document.getBody();
-//            MainDocumentPart mainDocumentPart = wordMLPackage.getMainDocumentPart();
-//            //mainDocumentPart.addParagraphOfText("Волдя");
-//            mainDocumentPart.setJaxbElement(document);
-
-        } catch (InvalidFormatException e) {
-            e.printStackTrace();
-        }
-
-        // Сохранить его
-        try {
-            wordMLPackage.save(new java.io.File("D:\\Test\\Test.docx") );
-        } catch (Docx4JException e) {
-            e.printStackTrace();
-        }
     }
 }

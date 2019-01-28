@@ -5,7 +5,7 @@ import java.util.ArrayList;
 /**
  * Выражение
  */
-public class ExpressionModel {
+public class ExpressionModel extends FormulaModel{
 
     /**
      * Члены
