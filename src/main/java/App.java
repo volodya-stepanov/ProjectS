@@ -2,6 +2,11 @@ import org.antlr.v4.runtime.CharStreams;
 import org.antlr.v4.runtime.CommonTokenStream;
 import org.antlr.v4.runtime.tree.ParseTree;
 import org.antlr.v4.runtime.tree.ParseTreeWalker;
+import org.docx4j.openpackaging.exceptions.Docx4JException;
+import org.docx4j.openpackaging.exceptions.InvalidFormatException;
+import org.docx4j.openpackaging.packages.WordprocessingMLPackage;
+import org.docx4j.openpackaging.parts.WordprocessingML.MainDocumentPart;
+import org.docx4j.wml.Document;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -27,7 +32,7 @@ public class App {
     public App() {
         button_msg.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-
+                handleDocument();
             }
         });
         text_field_equation.addKeyListener(new KeyAdapter() {
@@ -52,5 +57,33 @@ public class App {
         ArithmeticWalker arithmeticWalker = new ArithmeticWalker();
         parseTreeWalker.walk(arithmeticWalker, tree);
         label_result.setText(arithmeticWalker.CurrentEquation.toString());
+    }
+
+    private void handleDocument(){
+
+
+
+        // Создать пакет
+        WordprocessingMLPackage wordMLPackage = null;
+
+        try {
+            wordMLPackage = WordprocessingMLPackage.createPackage();
+
+//            Document document = createIt();
+//            document.getBody();
+//            MainDocumentPart mainDocumentPart = wordMLPackage.getMainDocumentPart();
+//            //mainDocumentPart.addParagraphOfText("Волдя");
+//            mainDocumentPart.setJaxbElement(document);
+
+        } catch (InvalidFormatException e) {
+            e.printStackTrace();
+        }
+
+        // Сохранить его
+        try {
+            wordMLPackage.save(new java.io.File("D:\\Test\\Test.docx") );
+        } catch (Docx4JException e) {
+            e.printStackTrace();
+        }
     }
 }
