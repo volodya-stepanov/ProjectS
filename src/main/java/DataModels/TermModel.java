@@ -5,7 +5,7 @@ import java.util.ArrayList;
 /**
  * Член
  */
-public class TermModel {
+public class TermModel extends FormulaModel {
 
     /**
      * Множители

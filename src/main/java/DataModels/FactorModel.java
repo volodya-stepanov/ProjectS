@@ -3,7 +3,7 @@ package DataModels;
 /**
  * Множитель (атом со знаком, возведённый в степень)
  */
-public class FactorModel {
+public class FactorModel extends FormulaModel {
 
     /**
      * Основание степени

@@ -3,7 +3,7 @@ package DataModels;
 /**
  * Атом со знаком
  */
-public class SignedAtomModel {
+public class SignedAtomModel extends FormulaModel {
     private boolean IsNegative = false;
 
     private AtomModel Atom;

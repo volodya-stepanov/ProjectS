@@ -1,3 +1,4 @@
+import DataModels.FormulaModel;
 import DataModels.TaskModel;
 import org.antlr.v4.runtime.CharStreams;
 import org.antlr.v4.runtime.CommonTokenStream;
@@ -52,21 +53,24 @@ public class App {
      */
     private void handleTask(){
         String description = text_field_description.getText();
-        String formula = text_field_formula.getText();
-        TaskModel task = new TaskModel(description, formula);
+        String formulaString = text_field_formula.getText();
+        TaskModel task = new TaskModel(description, formulaString);
+        FormulaModel formula = parseFormula(formulaString);
+        task.setFormula(formula);
         task.save();
     }
 
-    private void parseFormula(String expression){
+    private FormulaModel parseFormula(String expression){
         //TODO: Если этот метод поместить в класс TaskModel, то класс ArithmeticLexer и другие классы почему-то не видны
         ArithmeticLexer lexer = new ArithmeticLexer(CharStreams.fromString(expression));
         CommonTokenStream tokens = new CommonTokenStream(lexer);
         ArithmeticParser parser = new ArithmeticParser(tokens);
-        ParseTree tree = parser.equation();   // Здесь переключаются правила!
+        ParseTree tree = parser.atom();   // Здесь переключаются правила!
         ParseTreeWalker parseTreeWalker = new ParseTreeWalker();
         ArithmeticWalker arithmeticWalker = new ArithmeticWalker();
         parseTreeWalker.walk(arithmeticWalker, tree);
-        label_result.setText(arithmeticWalker.CurrentEquation.toString());
+        //label_result.setText(arithmeticWalker.CurrentEquation.toString());
+        return arithmeticWalker.mCurrentAtom;
     }
 
     private void handleDocument(){

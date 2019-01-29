@@ -2,15 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f996e41e-f78d-442a-bace-c49e36561405" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/DataModels/FormulaModel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/DataModels/TaskModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/App.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/App.form" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/App.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/DataModels/AtomModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DataModels/AtomModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/DataModels/EquationModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DataModels/EquationModel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/DataModels/ExpressionModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DataModels/ExpressionModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/App$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/App$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/App.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/App.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/DataModels/ExpressionModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/DataModels/ExpressionModel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/DataModels/FactorModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DataModels/FactorModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/DataModels/FormulaModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DataModels/FormulaModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/DataModels/NumberModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DataModels/NumberModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/DataModels/SignedAtomModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DataModels/SignedAtomModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/DataModels/TaskModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DataModels/TaskModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/DataModels/TermModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DataModels/TermModel.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -25,8 +26,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/App.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="157">
-              <caret line="56" selection-start-line="56" selection-end-line="56" />
+            <state relative-caret-position="193">
+              <caret line="72" column="45" lean-forward="true" selection-start-line="72" selection-start-column="45" selection-end-line="72" selection-end-column="45" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -34,21 +35,59 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/DataModels/TaskModel.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="142" column="33" selection-start-line="142" selection-start-column="33" selection-end-line="142" selection-end-column="33" />
+            <state relative-caret-position="170">
+              <caret line="252" selection-start-line="252" selection-end-line="252" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="docComment;field#Description#0;class#TaskModel#0" />
-                <element signature="docComment;field#FormulaString#0;class#TaskModel#0" />
                 <element signature="docComment;method#TaskModel#0;class#TaskModel#0" />
                 <element signature="method#TaskModel#0;class#TaskModel#0" />
                 <element signature="docComment;method#getDescription#0;class#TaskModel#0" />
                 <element signature="docComment;method#setDescription#0;class#TaskModel#0" />
                 <element signature="docComment;method#getFormulaString#0;class#TaskModel#0" />
                 <element signature="docComment;method#setFormulaString#0;class#TaskModel#0" />
+                <element signature="method#addHeader#0;class#TaskModel#0" />
+                <element signature="e#7468#7469#0" expanded="true" />
+                <element signature="e#7497#7498#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/DataModels/AtomModel.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="210">
+              <caret line="36" selection-start-line="36" selection-end-line="36" />
+              <folding>
+                <element signature="e#736#737#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/DataModels/NumberModel.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="359">
+              <caret line="50" column="8" selection-start-line="50" selection-start-column="8" selection-end-line="50" selection-end-column="8" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/DataModels/FormulaModel.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="170">
+              <caret line="13" column="91" lean-forward="true" selection-start-line="13" selection-start-column="8" selection-end-line="13" selection-end-column="91" />
+              <folding>
+                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -63,6 +102,13 @@
       </list>
     </option>
   </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>CTText</find>
+      <find>text2</find>
+      <find>text3</find>
+    </findStrings>
+  </component>
   <component name="Git.Settings">
     <option name="ROOT_SYNC" value="DONT_SYNC" />
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -73,10 +119,16 @@
         <option value="$PROJECT_DIR$/src/main/Arithmetic.g4" />
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/java/App.form" />
-        <option value="$PROJECT_DIR$/src/main/java/DataModels/FormulaModel.java" />
-        <option value="$PROJECT_DIR$/src/main/java/DataModels/ExpressionModel.java" />
+        <option value="$PROJECT_DIR$/src/main/java/DataModels/EquationModel.java" />
+        <option value="$PROJECT_DIR$/src/main/java/DataModels/FactorModel.java" />
+        <option value="$PROJECT_DIR$/src/main/java/DataModels/SignedAtomModel.java" />
+        <option value="$PROJECT_DIR$/src/main/java/DataModels/TermModel.java" />
         <option value="$PROJECT_DIR$/src/main/java/App.java" />
+        <option value="$PROJECT_DIR$/src/main/java/DataModels/ExpressionModel.java" />
+        <option value="$PROJECT_DIR$/src/main/java/DataModels/AtomModel.java" />
         <option value="$PROJECT_DIR$/src/main/java/DataModels/TaskModel.java" />
+        <option value="$PROJECT_DIR$/src/main/java/DataModels/FormulaModel.java" />
+        <option value="$PROJECT_DIR$/src/main/java/DataModels/NumberModel.java" />
       </list>
     </option>
   </component>
@@ -124,12 +176,20 @@
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="DataModels" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="ProjectS" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ProjectS" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="App" type="e9f4de52:FormNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -141,7 +201,7 @@
     <property name="$PROJECT_DIR$/src/main/Arithmetic.g4::/output-dir" value="D:\version-control\ProjectS\src\main" />
     <property name="$PROJECT_DIR$/src/main/Arithmetic.g4::/package" value="com.razrabotkin" />
     <property name="UI_DESIGNER_EDITOR_MODE.PaletteManager.SHOW" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1548711475370" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1548801186885" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.0" />
@@ -189,9 +249,8 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.15431164" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2526475" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -200,7 +259,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.3289689" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.47135842" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39934534" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -225,10 +284,28 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/App.java</url>
-          <line>53</line>
+          <url>file://$PROJECT_DIR$/src/main/java/DataModels/TaskModel.java</url>
+          <line>194</line>
           <properties />
-          <option name="timeStamp" value="5" />
+          <option name="timeStamp" value="11" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/DataModels/TaskModel.java</url>
+          <line>94</line>
+          <properties />
+          <option name="timeStamp" value="14" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/DataModels/AtomModel.java</url>
+          <line>36</line>
+          <properties />
+          <option name="timeStamp" value="15" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/DataModels/TaskModel.java</url>
+          <line>249</line>
+          <properties />
+          <option name="timeStamp" value="16" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
@@ -248,13 +325,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
           <caret line="11" column="35" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/DataModels/AtomModel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
         </state>
       </provider>
     </entry>
@@ -283,51 +353,135 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/DataModels/FormulaModel.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/DataModels/RelOpModel.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="59" selection-start-line="3" selection-start-column="59" selection-end-line="3" selection-end-column="59" />
+        <state relative-caret-position="85">
+          <caret line="5" column="12" selection-start-line="5" selection-start-column="12" selection-end-line="5" selection-end-column="12" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/DataModels/NumberModel.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/DataModels/EquationModel.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
-          <caret line="5" column="39" selection-start-line="5" selection-start-column="39" selection-end-line="5" selection-end-column="39" />
+          <caret line="5" column="48" selection-start-line="5" selection-start-column="48" selection-end-line="5" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/DataModels/FactorModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="46" selection-start-line="5" selection-start-column="46" selection-end-line="5" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/DataModels/SignedAtomModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="50" selection-start-line="5" selection-start-column="50" selection-end-line="5" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/DataModels/TermModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="44" selection-start-line="7" selection-start-column="44" selection-end-line="7" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/DataModels/VariableModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/docx4j/docx4j/6.1.1/docx4j-6.1.1.jar!/org/docx4j/wml/Text.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="27" column="13" selection-start-line="27" selection-start-column="13" selection-end-line="27" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/docx4j/docx4j/6.1.1/docx4j-6.1.1.jar!/org/docx4j/math/CTText.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="23" column="13" selection-start-line="23" selection-start-column="13" selection-end-line="23" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/docx4j/docx4j/6.1.1/docx4j-6.1.1.jar!/org/docx4j/math/CTR.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="27" column="13" selection-start-line="27" selection-start-column="13" selection-end-line="27" selection-end-column="13" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/DataModels/ExpressionModel.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="41" selection-start-line="7" selection-start-column="41" selection-end-line="7" selection-end-column="41" />
+        <state relative-caret-position="221">
+          <caret line="42" column="4" selection-start-line="42" selection-start-column="4" selection-end-line="42" selection-end-column="4" />
+          <folding>
+            <element signature="method#toString#0;class#ExpressionModel#0" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/App.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="157">
-          <caret line="56" selection-start-line="56" selection-end-line="56" />
+        <state relative-caret-position="193">
+          <caret line="72" column="45" lean-forward="true" selection-start-line="72" selection-start-column="45" selection-end-line="72" selection-end-column="45" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/DataModels/AtomModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="36" selection-start-line="36" selection-end-line="36" />
+          <folding>
+            <element signature="e#736#737#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/DataModels/TaskModel.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="142" column="33" selection-start-line="142" selection-start-column="33" selection-end-line="142" selection-end-column="33" />
+        <state relative-caret-position="170">
+          <caret line="252" selection-start-line="252" selection-end-line="252" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="docComment;field#Description#0;class#TaskModel#0" />
-            <element signature="docComment;field#FormulaString#0;class#TaskModel#0" />
             <element signature="docComment;method#TaskModel#0;class#TaskModel#0" />
             <element signature="method#TaskModel#0;class#TaskModel#0" />
             <element signature="docComment;method#getDescription#0;class#TaskModel#0" />
             <element signature="docComment;method#setDescription#0;class#TaskModel#0" />
             <element signature="docComment;method#getFormulaString#0;class#TaskModel#0" />
             <element signature="docComment;method#setFormulaString#0;class#TaskModel#0" />
+            <element signature="method#addHeader#0;class#TaskModel#0" />
+            <element signature="e#7468#7469#0" expanded="true" />
+            <element signature="e#7497#7498#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/DataModels/FormulaModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="13" column="91" lean-forward="true" selection-start-line="13" selection-start-column="8" selection-end-line="13" selection-end-column="91" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/DataModels/NumberModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="359">
+          <caret line="50" column="8" selection-start-line="50" selection-start-column="8" selection-end-line="50" selection-end-column="8" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>

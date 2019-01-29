@@ -3,7 +3,7 @@ package DataModels;
 /**
  * Уравнение
  */
-public class EquationModel {
+public class EquationModel extends FormulaModel {
 
     /**
      * Левая часть

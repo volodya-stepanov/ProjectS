@@ -1,9 +1,11 @@
 package DataModels;
 
+import org.docx4j.math.CTR;
+
 /**
  * Атом
  */
-public class AtomModel {
+public class AtomModel extends FormulaModel {
     /**
      * Выражение (число, переменная или выражение в скобках)
      */
@@ -28,5 +30,10 @@ public class AtomModel {
     @Override
     public String toString() {
         return mExpression.toString();
+    }
+
+    @Override
+    public CTR toOpenXML() {
+        return mExpression.toOpenXML();
     }
 }
