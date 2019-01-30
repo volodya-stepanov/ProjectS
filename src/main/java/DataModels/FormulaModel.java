@@ -10,10 +10,16 @@ import java.math.BigInteger;
  * Модель формулы - уравнения, выражения, переменной и т.д.
  */
 public abstract class FormulaModel {
-    public CTR toOpenXML(){
+
+    /**
+     * Возвращает формулу в формате OpenXML для записи в документ
+     * @return
+     */
+    public JAXBElement toOpenXML(){
         org.docx4j.wml.ObjectFactory wmlObjectFactory = new org.docx4j.wml.ObjectFactory();
         org.docx4j.math.ObjectFactory mathObjectFactory = new org.docx4j.math.ObjectFactory();
         CTR r = mathObjectFactory.createCTR();
+        JAXBElement<org.docx4j.math.CTR> rWrapped = mathObjectFactory.createCTOMathR(r);
         // Create object for rPr (wrapped in JAXBElement)
         RPr rpr = wmlObjectFactory.createRPr();
         JAXBElement<RPr> rprWrapped = wmlObjectFactory.createSdtPrRPr(rpr);
@@ -37,6 +43,6 @@ public abstract class FormulaModel {
         rpr.setSzCs(hpsmeasure4);
         hpsmeasure4.setVal( BigInteger.valueOf( 28) );
 
-        return r;
+        return rWrapped;
     }
 }

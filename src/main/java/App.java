@@ -65,12 +65,12 @@ public class App {
         ArithmeticLexer lexer = new ArithmeticLexer(CharStreams.fromString(expression));
         CommonTokenStream tokens = new CommonTokenStream(lexer);
         ArithmeticParser parser = new ArithmeticParser(tokens);
-        ParseTree tree = parser.atom();   // Здесь переключаются правила!
+        ParseTree tree = parser.factor();   // Здесь переключаются правила!
         ParseTreeWalker parseTreeWalker = new ParseTreeWalker();
         ArithmeticWalker arithmeticWalker = new ArithmeticWalker();
         parseTreeWalker.walk(arithmeticWalker, tree);
         //label_result.setText(arithmeticWalker.CurrentEquation.toString());
-        return arithmeticWalker.mCurrentAtom;
+        return arithmeticWalker.CurrentFactor;
     }
 
     private void handleDocument(){

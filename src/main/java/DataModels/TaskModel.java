@@ -1,5 +1,6 @@
 package DataModels;
 
+import Helpers.ClassHelper;
 import org.docx4j.XmlUtils;
 import org.docx4j.math.CTOMath;
 import org.docx4j.math.CTOMathPara;
@@ -247,10 +248,9 @@ public class TaskModel {
         CTOMath omath = mathObjectFactory.createCTOMath();
         omathpara.getOMath().add( omath);
         // Create object for r (wrapped in JAXBElement)
-        CTR r = Formula.toOpenXML();
-        JAXBElement<org.docx4j.math.CTR> rWrapped = mathObjectFactory.createCTOMathR(r);
-        omath.getEGOMathElements().add( rWrapped);
 
+        JAXBElement rWrapped = Formula.toOpenXML();
+        omath.getEGOMathElements().add( rWrapped);
 
         // Create object for bookmarkStart (wrapped in JAXBElement)
         CTBookmark bookmark = wmlObjectFactory.createCTBookmark();

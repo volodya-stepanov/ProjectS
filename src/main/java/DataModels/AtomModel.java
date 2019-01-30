@@ -2,6 +2,8 @@ package DataModels;
 
 import org.docx4j.math.CTR;
 
+import javax.xml.bind.JAXBElement;
+
 /**
  * Атом
  */
@@ -33,7 +35,7 @@ public class AtomModel extends FormulaModel {
     }
 
     @Override
-    public CTR toOpenXML() {
+    public JAXBElement toOpenXML() {
         return mExpression.toOpenXML();
     }
 }

@@ -1,5 +1,6 @@
 package DataModels;
 
+import Helpers.ClassHelper;
 import org.docx4j.math.CTR;
 import org.docx4j.wml.*;
 
@@ -43,14 +44,17 @@ public class NumberModel extends ExpressionModel{
     }
 
     @Override
-    public CTR toOpenXML() {
+    public JAXBElement toOpenXML() {
+        // Создаём элемент text (OpenXML). Присваиваем ему значение, получаемое в результате вызова метода toString()
         org.docx4j.wml.ObjectFactory wmlObjectFactory = new org.docx4j.wml.ObjectFactory();
         Text text = wmlObjectFactory.createText();
         text.setValue(toString());
 
-        CTR r = super.toOpenXML();
+        // Получаем элемент rWrapped (OpenXML), извлекаем из него элемент r, добавляем к нему элемент text и возвращаем его
+        JAXBElement<org.docx4j.math.CTR> rWrapped = super.toOpenXML();
+        CTR r = rWrapped.getValue();
         r.getContent().add(text);
 
-        return r;
+        return rWrapped;
     }
 }

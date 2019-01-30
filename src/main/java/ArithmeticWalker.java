@@ -85,7 +85,9 @@ public class ArithmeticWalker implements ArithmeticListener{
     }
 
     public void exitFactor(ArithmeticParser.FactorContext ctx) {
-        CurrentTerm.Factors.add(CurrentFactor);
+        if (CurrentTerm != null) {
+            CurrentTerm.Factors.add(CurrentFactor);
+        }
     }
 
     public void enterSignedAtom(ArithmeticParser.SignedAtomContext ctx) {
@@ -102,11 +104,12 @@ public class ArithmeticWalker implements ArithmeticListener{
         mCurrentSignedAtom.setAtom(mCurrentAtom);
 
         //TODO: При выходе из всех узлов занулить текущие узлы
-
-        if (CurrentFactor.getBase() == null){
-            CurrentFactor.setBase(mCurrentSignedAtom);
-        } else {
-            CurrentFactor.setExponent(mCurrentSignedAtom);
+        if (CurrentFactor!=null) {
+            if (CurrentFactor.getBase() == null) {
+                CurrentFactor.setBase(mCurrentSignedAtom);
+            } else {
+                CurrentFactor.setExponent(mCurrentSignedAtom);
+            }
         }
     }
 
