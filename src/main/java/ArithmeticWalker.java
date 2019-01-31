@@ -1,4 +1,4 @@
-import DataModels.*;
+import DataModels.Formulas.*;
 import org.antlr.v4.runtime.ParserRuleContext;
 import org.antlr.v4.runtime.tree.ErrorNode;
 import org.antlr.v4.runtime.tree.TerminalNode;
@@ -41,20 +41,24 @@ public class ArithmeticWalker implements ArithmeticListener{
         int j = 1;
 
         // Расставляем знаки перед членами
-        for (int i = 1; i < ctx.children.size(); i+=2){
-            String sign = ctx.children.get(i).getText();
-            if (sign.contains("+")) {
-                CurrentExpression.Terms.get(j).setMathOperation(MathOpModel.Plus);
-            } else if(sign.contains("-")){
-                CurrentExpression.Terms.get(j).setMathOperation(MathOpModel.Minus);
+        if (CurrentExpression!=null && CurrentExpression.Terms.size() > 0) {
+            for (int i = 1; i < ctx.children.size(); i += 2) {
+                String sign = ctx.children.get(i).getText();
+                if (sign.contains("+")) {
+                    CurrentExpression.Terms.get(j).setMathOperation(MathOpModel.Plus);
+                } else if (sign.contains("-")) {
+                    CurrentExpression.Terms.get(j).setMathOperation(MathOpModel.Minus);
+                }
+                j++;
             }
-            j++;
         }
 
-        if (CurrentEquation.getLeftSide() == null){
-            CurrentEquation.setLeftSide(CurrentExpression);
-        } else {
-            CurrentEquation.setRightSide(CurrentExpression);
+        if (CurrentEquation != null) {
+            if (CurrentEquation.getLeftSide() == null) {
+                CurrentEquation.setLeftSide(CurrentExpression);
+            } else {
+                CurrentEquation.setRightSide(CurrentExpression);
+            }
         }
     }
 
@@ -76,7 +80,9 @@ public class ArithmeticWalker implements ArithmeticListener{
             j++;
         }
 
-        CurrentExpression.Terms.add(CurrentTerm);
+        if (CurrentExpression != null) {
+            CurrentExpression.Terms.add(CurrentTerm);
+        }
     }
 
     public void enterFactor(ArithmeticParser.FactorContext ctx) {

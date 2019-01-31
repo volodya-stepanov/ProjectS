@@ -1,12 +1,11 @@
-import DataModels.FormulaModel;
-import DataModels.TaskModel;
+import DataModels.Objects.DocumentModel;
+import DataModels.Formulas.FormulaModel;
+import DataModels.Tasks.QuadraticEquation;
+import DataModels.Tasks.TaskModel;
 import org.antlr.v4.runtime.CharStreams;
 import org.antlr.v4.runtime.CommonTokenStream;
 import org.antlr.v4.runtime.tree.ParseTree;
 import org.antlr.v4.runtime.tree.ParseTreeWalker;
-import org.docx4j.openpackaging.exceptions.Docx4JException;
-import org.docx4j.openpackaging.exceptions.InvalidFormatException;
-import org.docx4j.openpackaging.packages.WordprocessingMLPackage;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -21,6 +20,8 @@ public class App {
     private JLabel label_result;
     private JTextField text_field_description;
 
+    private DocumentModel currentDocument;
+
     public static void main(String[] args) {
         // Это мой первый код, написанный в этом приложении. Код написан 9 января 2019 года в 19:50 и взят из урока, расположенного по ссылке: https://youtu.be/5vSyylPPEko
         JFrame frame = new JFrame("App");
@@ -31,6 +32,8 @@ public class App {
     }
 
     public App() {
+        currentDocument = new DocumentModel("D:\\Test\\Test.docx");
+
         button_msg.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 handleTask();
@@ -52,12 +55,18 @@ public class App {
      * Выполняет считывание исходных данных, создание задания и его обработку
      */
     private void handleTask(){
+        // Получаем описание и формулу, введенные пользователем
         String description = text_field_description.getText();
         String formulaString = text_field_formula.getText();
-        TaskModel task = new TaskModel(description, formulaString);
+
+        // Создаём задание
+        QuadraticEquation equation = new QuadraticEquation(currentDocument, description, formulaString);
+
+        // Парсим формулу и устанавливаем её документу
         FormulaModel formula = parseFormula(formulaString);
-        task.setFormula(formula);
-        task.save();
+        equation.setFormula(formula);
+        equation.solve();
+        equation.saveToDocument();
     }
 
     private FormulaModel parseFormula(String expression){
@@ -65,18 +74,11 @@ public class App {
         ArithmeticLexer lexer = new ArithmeticLexer(CharStreams.fromString(expression));
         CommonTokenStream tokens = new CommonTokenStream(lexer);
         ArithmeticParser parser = new ArithmeticParser(tokens);
-        ParseTree tree = parser.factor();   // Здесь переключаются правила!
+        ParseTree tree = parser.equation();   // Здесь переключаются правила!
         ParseTreeWalker parseTreeWalker = new ParseTreeWalker();
         ArithmeticWalker arithmeticWalker = new ArithmeticWalker();
         parseTreeWalker.walk(arithmeticWalker, tree);
         //label_result.setText(arithmeticWalker.CurrentEquation.toString());
-        return arithmeticWalker.CurrentFactor;
-    }
-
-    private void handleDocument(){
-
-
-
-
+        return arithmeticWalker.CurrentEquation;
     }
 }
