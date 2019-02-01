@@ -1,5 +1,6 @@
 package DataModels.Formulas;
 
+import Helpers.ClassHelper;
 import org.docx4j.math.CTR;
 import org.docx4j.wml.*;
 
@@ -12,14 +13,10 @@ import java.util.ArrayList;
  */
 public class TermModel extends FormulaModel {
 
-    /**
-     * Множители
-     */
+    /** Множители */
     public ArrayList<FactorModel> Factors;
 
-    /**
-     * Математическая операция, которая стоит перед членом (плюс или минус)
-     */
+    /** Математическая операция, которая стоит перед членом (плюс или минус) */
     private MathOpModel MathOperation;
 
     /**
@@ -28,14 +25,6 @@ public class TermModel extends FormulaModel {
     public TermModel(){
         Factors = new ArrayList<FactorModel>();
         MathOperation = MathOpModel.None;
-    }
-
-    public MathOpModel getMathOperation() {
-        return MathOperation;
-    }
-
-    public void setMathOperation(MathOpModel mathOperation) {
-        MathOperation = mathOperation;
     }
 
     @Override
@@ -96,9 +85,15 @@ public class TermModel extends FormulaModel {
 
             // В зависимости от знака, стоящего перед множителем, добавляем соответствующий в ArrayList, который будет записан в документ
             if (factorModel.getMathOperation().equals(MathOpModel.Multiply)){
-                Text text = wmlObjectFactory.createText();
-                text.setValue("∙");
-                r.getContent().add(text);
+                // Знак умножения ставим только в том случае, если следующий множитель - число. Перед переменными знак умножения не ставим
+                // Определяем тип множителя
+                Object obj = factorModel.getBase().getAtom().getExpression();
+                ClassHelper helper = new ClassHelper();
+                if (helper.isTypeOf(obj, NumberModel.class)) {
+                    Text text = wmlObjectFactory.createText();
+                    text.setValue("∙");
+                    r.getContent().add(text);
+                }
             } else if (factorModel.getMathOperation().equals(MathOpModel.Divide)){
                 Text text = wmlObjectFactory.createText();
                 text.setValue(":");
@@ -114,5 +109,18 @@ public class TermModel extends FormulaModel {
         }
 
         return arrayList;
+    }
+
+
+
+
+
+
+    public MathOpModel getMathOperation() {
+        return MathOperation;
+    }
+
+    public void setMathOperation(MathOpModel mathOperation) {
+        MathOperation = mathOperation;
     }
 }

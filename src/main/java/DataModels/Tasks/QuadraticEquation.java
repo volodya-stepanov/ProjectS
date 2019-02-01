@@ -2,6 +2,7 @@ package DataModels.Tasks;
 
 import DataModels.Formulas.*;
 import DataModels.Objects.DocumentModel;
+import Helpers.ClassHelper;
 
 public class QuadraticEquation extends TaskModel{
 
@@ -68,9 +69,10 @@ public class QuadraticEquation extends TaskModel{
 
             FactorModel firstFactor = term.Factors.get(0);
 
+
+
             // Если член имеет два множителя
             if (term.Factors.size() == 2){
-
 
                 FactorModel secondFactor = term.Factors.get(1);
 
@@ -113,15 +115,60 @@ public class QuadraticEquation extends TaskModel{
             }
             // Иначе (если член имеет только один множитель)
             else {
-                // Извлекаем значение коэффициента
-                NumberModel coefCNumberModel = (NumberModel)firstFactor.getBase().getAtom().getExpression();
+                // Определяем тип этого множителя - число или переменная
+                Object obj = firstFactor.getBase().getAtom().getExpression();
+                ClassHelper helper = new ClassHelper();
 
-                // Полученное число - значение коэффициента C
-                CoefC = coefCNumberModel.getValue();
+                // Если это переменная
+                if (helper.isTypeOf(obj, VariableModel.class)){
 
-                // Если перед членом стоит минус, меняем знак коэффициента C
-                if (isNegative) {
-                    CoefC = -CoefC;
+                    // Если эта переменная имеет степень
+                    if (firstFactor.getExponent()!=null){
+
+                        // Извлекаем показатель степени
+                        NumberModel exponentNumberModel = (NumberModel)firstFactor.getExponent().getAtom().getExpression();
+
+                        // Если показатель степени равен двум
+                        if(exponentNumberModel.getValue() == 2){
+
+                            // Коэффициент A равен 1
+                            CoefA = 1;
+
+                            // Если перед членом стоит минус, меняем знак коэффициента A
+                            if (isNegative) {
+                                CoefA = -CoefA;
+                            }
+                        } else {
+                            System.out.println("Множитель имеет степень, но показатель степени не равен двум");
+                        }
+                    }
+                    // Иначе (если второй множитель не имеет степени)
+                    else{
+                        // Коэффициент B равен 1
+                        CoefB = 1;
+
+                        // Если перед членом стоит минус, меняем знак коэффициента B
+                        if (isNegative) {
+                            CoefB = -CoefB;
+                        }
+                    }
+                }
+                // Иначе (если множитель - число)
+                else if (helper.isTypeOf(obj, NumberModel.class)){
+                    // Извлекаем значение коэффициента
+                    NumberModel coefCNumberModel = (NumberModel)firstFactor.getBase().getAtom().getExpression();
+
+                    // Полученное число - значение коэффициента C
+                    CoefC = coefCNumberModel.getValue();
+
+                    // Если перед членом стоит минус, меняем знак коэффициента C
+                    if (isNegative) {
+                        CoefC = -CoefC;
+                    }
+                }
+                // Иначе (если множитель - не число и не переменная)
+                else {
+                    System.out.println("Множитель - не число и не переменная");
                 }
             }
         }

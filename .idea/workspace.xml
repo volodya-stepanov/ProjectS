@@ -2,47 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f996e41e-f78d-442a-bace-c49e36561405" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/DataModels/Formulas/EquationModel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/DataModels/Formulas/ExpressionModel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/DataModels/Formulas/TermModel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/DataModels/Objects/DocumentModel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/DataModels/SolutionBlocks/FormulaBlock.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/DataModels/SolutionBlocks/SolutionBlock.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/DataModels/SolutionBlocks/TextBlock.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/DataModels/Tasks/QuadraticEquation.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/App.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/App.form" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/App.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ArithmeticWalker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ArithmeticWalker.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/DataModels/AtomModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DataModels/Formulas/AtomModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/DataModels/EquationModel.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/DataModels/ExpressionModel.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/DataModels/FactorModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DataModels/Formulas/FactorModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/DataModels/FormulaModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DataModels/Formulas/FormulaModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/DataModels/MathOpModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DataModels/Formulas/MathOpModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/DataModels/NumberModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DataModels/Formulas/NumberModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/DataModels/RelOpModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DataModels/Formulas/RelOpModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/DataModels/SignedAtomModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DataModels/Formulas/SignedAtomModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/DataModels/TaskModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DataModels/Tasks/TaskModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/DataModels/TermModel.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/DataModels/VariableModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DataModels/Formulas/VariableModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/App$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/App$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/App$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/App$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/App.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/App.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ArithmeticWalker.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ArithmeticWalker.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/DataModels/AtomModel.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/DataModels/EquationModel$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/DataModels/EquationModel.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/DataModels/ExpressionModel.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/DataModels/FactorModel.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/DataModels/FormulaModel.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/DataModels/MathOpModel.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/DataModels/NumberModel.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/DataModels/RelOpModel.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/DataModels/SignedAtomModel.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/DataModels/TaskModel.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/DataModels/TermModel.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/DataModels/VariableModel.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/DataModels/Formulas/TermModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DataModels/Formulas/TermModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/DataModels/Tasks/QuadraticEquation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DataModels/Tasks/QuadraticEquation.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -52,72 +14,42 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="DockManager">
+    <window id="1">
+      <content type="file-editors">
+        <state>
+          <leaf>
+            <file pinned="false" current-in-tab="true">
+              <entry file="file://$PROJECT_DIR$/src/main/java/DataModels/Formulas/TermModel.java">
+                <provider selected="true" editor-type-id="text-editor">
+                  <state relative-caret-position="87">
+                    <caret line="92" selection-start-line="92" selection-end-line="92" />
+                    <folding>
+                      <element signature="imports" expanded="true" />
+                      <element signature="docComment;method#TermModel#0;class#TermModel#0" />
+                      <element signature="method#TermModel#0;class#TermModel#0" />
+                      <element signature="method#toString#0;class#TermModel#0" />
+                      <element signature="e#4326#4327#0" expanded="true" />
+                      <element signature="e#4434#4435#0" expanded="true" />
+                    </folding>
+                  </state>
+                </provider>
+              </entry>
+            </file>
+          </leaf>
+        </state>
+      </content>
+    </window>
+  </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/App.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="189">
-              <caret line="67" column="25" selection-start-line="67" selection-start-column="25" selection-end-line="67" selection-end-column="25" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/DataModels/Tasks/QuadraticEquation.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/DataModels/Formulas/FactorModel.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="208">
-              <caret line="86" selection-start-line="86" selection-end-line="86" />
+            <state relative-caret-position="-774">
+              <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="docComment;method#QuadraticEquation#0;class#QuadraticEquation#0" />
-                <element signature="method#saveToDocument#0;class#QuadraticEquation#0" />
-                <element signature="docComment;method#findCoefficients#0;class#QuadraticEquation#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/DataModels/Tasks/TaskModel.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="44" column="23" selection-start-line="44" selection-start-column="23" selection-end-line="44" selection-end-column="23" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="docComment;method#TaskModel#0;class#TaskModel#0" />
-                <element signature="method#TaskModel#0;class#TaskModel#0" />
-                <element signature="docComment;method#solve#0;class#TaskModel#0" />
-                <element signature="method#solve#0;class#TaskModel#0" />
-                <element signature="docComment;method#saveToDocument#0;class#TaskModel#0" />
-                <element signature="method#saveToDocument#0;class#TaskModel#0" />
-                <element signature="docComment;method#getDescription#0;class#TaskModel#0" />
-                <element signature="docComment;method#setDescription#0;class#TaskModel#0" />
-                <element signature="docComment;method#getFormulaString#0;class#TaskModel#0" />
-                <element signature="docComment;method#setFormulaString#0;class#TaskModel#0" />
-                <element signature="docComment;method#setFormula#0;class#TaskModel#0" />
-                <element signature="docComment;method#getFormula#0;class#TaskModel#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/App.form">
-          <provider selected="true" editor-type-id="ui-designer" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/ArithmeticWalker.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="106">
-              <caret line="40" selection-start-line="40" selection-end-line="40" />
-              <folding>
-                <element signature="e#1158#1159#0" expanded="true" />
-                <element signature="e#1215#1216#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -176,16 +108,18 @@
         <option value="$PROJECT_DIR$/src/main/java/DataModels/SolutionBlocks/TextBlock.java" />
         <option value="$PROJECT_DIR$/src/main/java/DataModels/SolutionBlocks/FormulaBlock.java" />
         <option value="$PROJECT_DIR$/src/main/java/DataModels/Tasks/TaskModel.java" />
-        <option value="$PROJECT_DIR$/src/main/java/DataModels/Tasks/QuadraticEquation.java" />
         <option value="$PROJECT_DIR$/src/main/java/App.form" />
         <option value="$PROJECT_DIR$/src/main/java/App.java" />
+        <option value="$PROJECT_DIR$/src/main/java/DataModels/Tasks/QuadraticEquation.java" />
+        <option value="$PROJECT_DIR$/src/main/java/DataModels/Formulas/TermModel.java" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-7" />
+  <component name="ProjectFrameBounds">
+    <option name="x" value="-23" />
+    <option name="y" value="53" />
     <option name="width" value="854" />
-    <option name="height" value="1017" />
+    <option name="height" value="788" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -193,6 +127,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -233,22 +169,12 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="DataModels" type="462c0819:PsiDirectoryNode" />
-              <item name="Tasks" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ProjectS" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ProjectS" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="App" type="e9f4de52:FormNode" />
+              <item name="Formulas" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -260,7 +186,7 @@
     <property name="$PROJECT_DIR$/src/main/Arithmetic.g4::/output-dir" value="D:\version-control\ProjectS\src\main" />
     <property name="$PROJECT_DIR$/src/main/Arithmetic.g4::/package" value="com.razrabotkin" />
     <property name="UI_DESIGNER_EDITOR_MODE.PaletteManager.SHOW" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1548975253623" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1549010051249" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.0" />
@@ -307,9 +233,10 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <frame x="-23" y="53" width="854" height="788" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.19818456" />
+      <window_info content_ui="combo" id="Project" order="0" weight="0.20121029" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -319,7 +246,7 @@
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.47135842" />
-      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.39934534" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.39934534" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -374,9 +301,15 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/DataModels/Tasks/QuadraticEquation.java</url>
-          <line>56</line>
+          <line>57</line>
           <properties />
           <option name="timeStamp" value="38" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/DataModels/Tasks/QuadraticEquation.java</url>
+          <line>158</line>
+          <properties />
+          <option name="timeStamp" value="39" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
@@ -493,16 +426,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/DataModels/Formulas/FactorModel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-7">
-          <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/DataModels/Formulas/FormulaModel.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-7">
@@ -543,17 +466,6 @@
           <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
           <folding>
             <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/DataModels/Formulas/TermModel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#toOpenXML#0;class#TermModel#0" />
           </folding>
         </state>
       </provider>
@@ -621,24 +533,19 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/App.form">
-      <provider selected="true" editor-type-id="ui-designer" />
-      <provider editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ArithmeticWalker.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/App.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="106">
-          <caret line="40" selection-start-line="40" selection-end-line="40" />
+        <state relative-caret-position="206">
+          <caret line="68" selection-start-line="68" selection-end-line="68" />
           <folding>
-            <element signature="e#1158#1159#0" expanded="true" />
-            <element signature="e#1215#1216#0" expanded="true" />
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/DataModels/Tasks/TaskModel.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
+        <state relative-caret-position="527">
           <caret line="44" column="23" selection-start-line="44" selection-start-column="23" selection-end-line="44" selection-end-column="23" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -658,25 +565,58 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/App.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/App.form">
+      <provider editor-type-id="text-editor" />
+      <provider selected="true" editor-type-id="ui-designer" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ArithmeticWalker.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="189">
-          <caret line="67" column="25" selection-start-line="67" selection-start-column="25" selection-end-line="67" selection-end-column="25" />
+        <state relative-caret-position="561">
+          <caret line="40" selection-start-line="40" selection-end-line="40" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="e#1158#1159#0" expanded="true" />
+            <element signature="e#1215#1216#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/DataModels/Tasks/QuadraticEquation.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="208">
-          <caret line="86" selection-start-line="86" selection-end-line="86" />
+        <state relative-caret-position="308">
+          <caret line="167" selection-start-line="167" selection-end-line="167" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="docComment;method#QuadraticEquation#0;class#QuadraticEquation#0" />
             <element signature="method#saveToDocument#0;class#QuadraticEquation#0" />
+            <element signature="e#1382#1383#0" expanded="true" />
+            <element signature="e#1416#1417#0" expanded="true" />
             <element signature="docComment;method#findCoefficients#0;class#QuadraticEquation#0" />
+            <element signature="e#3382#3875#1" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/DataModels/Formulas/FactorModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-774">
+          <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/DataModels/Formulas/TermModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="87">
+          <caret line="92" selection-start-line="92" selection-end-line="92" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="docComment;method#TermModel#0;class#TermModel#0" />
+            <element signature="method#TermModel#0;class#TermModel#0" />
+            <element signature="method#toString#0;class#TermModel#0" />
+            <element signature="e#4326#4327#0" expanded="true" />
+            <element signature="e#4434#4435#0" expanded="true" />
           </folding>
         </state>
       </provider>
