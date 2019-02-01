@@ -7,17 +7,40 @@ import java.util.ArrayList;
  * Атом
  */
 public class AtomModel extends FormulaModel {
+    /** Выражение (число, переменная или выражение в скобках) */
+    private ExpressionModel Expression;
+
     /**
-     * Выражение (число, переменная или выражение в скобках)
+     * Инициализирует экземпляр класса
+     * @param parent Родитель
      */
-    private ExpressionModel mExpression;
+    public AtomModel(SignedAtomModel parent) {
+        super(parent);
+    }
+
+    @Override
+    public String toString() {
+        return Expression.toString();
+    }
+
+    @Override
+    public ArrayList<JAXBElement> toOpenXML() {
+        return Expression.toOpenXML();
+    }
+
+
+
+
+
+
+
 
     /**
      * Возвращает выражение
      * @return Выражение
      */
     public ExpressionModel getExpression() {
-        return mExpression;
+        return Expression;
     }
 
     /**
@@ -25,16 +48,6 @@ public class AtomModel extends FormulaModel {
      * @param mExpression Выражение
      */
     public void setExpression(ExpressionModel mExpression) {
-        this.mExpression = mExpression;
-    }
-
-    @Override
-    public String toString() {
-        return mExpression.toString();
-    }
-
-    @Override
-    public ArrayList<JAXBElement> toOpenXML() {
-        return mExpression.toOpenXML();
+        this.Expression = mExpression;
     }
 }

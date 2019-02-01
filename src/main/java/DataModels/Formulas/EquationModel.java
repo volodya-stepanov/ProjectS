@@ -6,6 +6,7 @@ import org.docx4j.wml.*;
 import javax.xml.bind.JAXBElement;
 import java.math.BigInteger;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 /**
  * Уравнение
@@ -17,8 +18,10 @@ public class EquationModel extends FormulaModel {
 
     /**
      * Инициализирует экземпляр класса
+     * @param parent Родитель
      */
-    public EquationModel(){
+    public EquationModel(FormulaModel parent){
+        super(parent);
         Expressions = new ArrayList<ExpressionModel>();
     }
 

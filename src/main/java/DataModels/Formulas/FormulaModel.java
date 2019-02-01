@@ -1,20 +1,37 @@
 package DataModels.Formulas;
 
+import com.sun.istack.internal.Nullable;
 import org.docx4j.math.CTR;
 import org.docx4j.wml.*;
 
 import javax.xml.bind.JAXBElement;
 import java.math.BigInteger;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 /**
  * Модель формулы - уравнения, выражения, переменной и т.д.
  */
 public abstract class FormulaModel {
 
+    /** Родитель */
+    private FormulaModel Parent;
+
+    /** Хэш-таблица для хранения значений переменных */
+    protected HashMap<String, Double> VariablesHashMap;
+
+    /**
+     * Инициализирует экземпляр класса
+     * @param parent Родитель - формула, в которую входит данная формула
+     */
+    protected FormulaModel(@Nullable FormulaModel parent) {
+        VariablesHashMap = new HashMap<String, Double>();
+        Parent = parent;
+    }
+
     /**
      * Возвращает формулу в формате OpenXML для записи в документ
-     * @return
+     * @return Формула в формате OpenXML для записи в документ
      */
     public ArrayList<JAXBElement> toOpenXML(){
         ArrayList<JAXBElement> arrayList = new ArrayList<JAXBElement>();
@@ -49,5 +66,29 @@ public abstract class FormulaModel {
         arrayList.add(rWrapped);
 
         return arrayList;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+    public FormulaModel getParent() {
+        return Parent;
+    }
+
+    public void setParent(FormulaModel parent) {
+        Parent = parent;
+    }
+
+    public HashMap<String, Double> getVariablesHashMap(){
+        return VariablesHashMap;
     }
 }

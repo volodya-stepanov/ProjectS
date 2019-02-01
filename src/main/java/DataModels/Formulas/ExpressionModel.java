@@ -18,8 +18,12 @@ public class ExpressionModel extends FormulaModel{
     /** Операция отношения, стоящая перед выражением, если оно является частью уравнения */
     private RelOpModel Relation;
 
-    /** Инициализирует экземпляр класса */
-    public ExpressionModel(){
+    /**
+     * Инициализирует экземпляр класса
+     * @param parent Родитель
+     */
+    public ExpressionModel(FormulaModel parent){
+        super(parent);
         Terms = new ArrayList<TermModel>();
     }
 

@@ -10,16 +10,16 @@ import java.util.ArrayList;
  * Переменная
  */
 public class VariableModel extends ExpressionModel{
-    /**
-     * Имя переменной
-     */
+    /** Имя переменной */
     private String mValue;
 
     /**
      * Инициализирует экземпляр класса
+     * @param parent Родитель
      * @param value Значение
      */
-    public VariableModel(String value) {
+    public VariableModel(AtomModel parent, String value) {
+        super(parent);
         mValue = value;
     }
 

@@ -14,64 +14,21 @@ import java.util.ArrayList;
  */
 public class FactorModel extends FormulaModel {
 
-    /**
-     * Основание степени
-     */
+    /** Основание степени */
     private SignedAtomModel Base;
 
-    /**
-     * Показатель степени
-     */
+    /** Показатель степени */
     private SignedAtomModel Exponent;
 
-    /**
-     * Математическая операция, которая стоит перед множителем (умножить или разделить)
-     */
+    /** Математическая операция, которая стоит перед множителем (умножить или разделить) */
     private MathOpModel MathOperation;
 
     /**
-     * Задаёт основание степени
-     * @param base Основание степени
+     * Инициализиурет экземпляр класса
+     * @param parent Родитель
      */
-    public void setBase(SignedAtomModel base) {
-        Base = base;
-    }
-
-    /**
-     * Возвращает основание степени
-     * @return Основание степени
-     */
-    public SignedAtomModel getBase() {
-        return Base;
-    }
-
-    /**
-     * Задаёт показатель степени
-     * @param exponent Показатель степени
-     */
-    public void setExponent(SignedAtomModel exponent) {
-        Exponent = exponent;
-    }
-
-    /**
-     * Возвращает показатель степени
-     * @return Показатель степени
-     */
-    public SignedAtomModel getExponent(){
-        return Exponent;
-    }
-
-
-
-    public MathOpModel getMathOperation() {
-        return MathOperation;
-    }
-
-    public void setMathOperation(MathOpModel mathOperation) {
-        MathOperation = mathOperation;
-    }
-
-    public FactorModel(){
+    public FactorModel(TermModel parent){
+        super(parent);
         MathOperation = MathOpModel.None;
     }
 
@@ -169,4 +126,52 @@ public class FactorModel extends FormulaModel {
 
         return false;
     }
+
+
+
+
+
+
+
+
+    /**
+     * Задаёт основание степени
+     * @param base Основание степени
+     */
+    public void setBase(SignedAtomModel base) {
+        Base = base;
+    }
+
+    /**
+     * Возвращает основание степени
+     * @return Основание степени
+     */
+    public SignedAtomModel getBase() {
+        return Base;
+    }
+
+    /**
+     * Задаёт показатель степени
+     * @param exponent Показатель степени
+     */
+    public void setExponent(SignedAtomModel exponent) {
+        Exponent = exponent;
+    }
+
+    /**
+     * Возвращает показатель степени
+     * @return Показатель степени
+     */
+    public SignedAtomModel getExponent(){
+        return Exponent;
+    }
+
+    public MathOpModel getMathOperation() {
+        return MathOperation;
+    }
+
+    public void setMathOperation(MathOpModel mathOperation) {
+        MathOperation = mathOperation;
+    }
+
 }

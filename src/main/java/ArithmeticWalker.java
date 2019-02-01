@@ -6,9 +6,9 @@ import org.antlr.v4.runtime.tree.TerminalNode;
 public class ArithmeticWalker implements ArithmeticListener{
 
     //TODO: Поменять на private, убрать букву m
-    public AtomModel mCurrentAtom;
+    public AtomModel CurrentAtom;
 
-    public SignedAtomModel mCurrentSignedAtom;
+    public SignedAtomModel CurrentSignedAtom;
 
     public FactorModel CurrentFactor;
 
@@ -19,7 +19,7 @@ public class ArithmeticWalker implements ArithmeticListener{
     public EquationModel CurrentEquation;
 
     public void enterEquation(ArithmeticParser.EquationContext ctx) {
-        CurrentEquation = new EquationModel();
+        CurrentEquation = new EquationModel(null);
     }
 
     public void exitEquation(ArithmeticParser.EquationContext ctx) {
@@ -34,7 +34,7 @@ public class ArithmeticWalker implements ArithmeticListener{
     }
 
     public void enterExpression(ArithmeticParser.ExpressionContext ctx) {
-        CurrentExpression = new ExpressionModel();
+        CurrentExpression = new ExpressionModel(CurrentEquation);
     }
 
     public void exitExpression(ArithmeticParser.ExpressionContext ctx) {
@@ -64,7 +64,7 @@ public class ArithmeticWalker implements ArithmeticListener{
     }
 
     public void enterTerm(ArithmeticParser.TermContext ctx) {
-        CurrentTerm = new TermModel();
+        CurrentTerm = new TermModel(CurrentExpression);
     }
 
     public void exitTerm(ArithmeticParser.TermContext ctx) {
@@ -87,7 +87,7 @@ public class ArithmeticWalker implements ArithmeticListener{
     }
 
     public void enterFactor(ArithmeticParser.FactorContext ctx) {
-        CurrentFactor = new FactorModel();
+        CurrentFactor = new FactorModel(CurrentTerm);
 
     }
 
@@ -98,7 +98,7 @@ public class ArithmeticWalker implements ArithmeticListener{
     }
 
     public void enterSignedAtom(ArithmeticParser.SignedAtomContext ctx) {
-        mCurrentSignedAtom = new SignedAtomModel();
+        CurrentSignedAtom = new SignedAtomModel(CurrentFactor);
 
     }
 
@@ -106,22 +106,22 @@ public class ArithmeticWalker implements ArithmeticListener{
         // TODO: Следующий фрагмент кода, возможно, нужно перенести в выход из атома
         String text = ctx.getText();
         if (text.contains("-")){
-            mCurrentSignedAtom.setNegative(true);
+            CurrentSignedAtom.setNegative(true);
         }
-        mCurrentSignedAtom.setAtom(mCurrentAtom);
+        CurrentSignedAtom.setAtom(CurrentAtom);
 
         //TODO: При выходе из всех узлов занулить текущие узлы
         if (CurrentFactor!=null) {
             if (CurrentFactor.getBase() == null) {
-                CurrentFactor.setBase(mCurrentSignedAtom);
+                CurrentFactor.setBase(CurrentSignedAtom);
             } else {
-                CurrentFactor.setExponent(mCurrentSignedAtom);
+                CurrentFactor.setExponent(CurrentSignedAtom);
             }
         }
     }
 
     public void enterAtom(ArithmeticParser.AtomContext ctx) {
-        mCurrentAtom = new AtomModel();
+        CurrentAtom = new AtomModel(CurrentSignedAtom);
     }
 
     public void exitAtom(ArithmeticParser.AtomContext ctx) {
@@ -134,7 +134,7 @@ public class ArithmeticWalker implements ArithmeticListener{
 
     public void exitScientific(ArithmeticParser.ScientificContext ctx) {
         double value = Double.parseDouble(ctx.getText());
-        mCurrentAtom.setExpression(new NumberModel(value));
+        CurrentAtom.setExpression(new NumberModel(CurrentAtom, value));
     }
 
     public void enterVariable(ArithmeticParser.VariableContext ctx) {
@@ -143,7 +143,7 @@ public class ArithmeticWalker implements ArithmeticListener{
 
     public void exitVariable(ArithmeticParser.VariableContext ctx) {
         String value = ctx.getText();
-        mCurrentAtom.setExpression(new VariableModel(value));
+        CurrentAtom.setExpression(new VariableModel(CurrentAtom, value));
     }
 
     public void enterRelop(ArithmeticParser.RelopContext ctx) {

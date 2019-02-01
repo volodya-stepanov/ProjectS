@@ -10,24 +10,19 @@ import java.util.ArrayList;
  * Атом со знаком
  */
 public class SignedAtomModel extends FormulaModel {
+
+    /** Признак того, что атом отрицательный */
     private boolean IsNegative = false;
 
+    /** Атом (число, переменная или выражение в скобках), перед которым стоит знак */
     private AtomModel Atom;
 
-    public void setNegative(boolean negative) {
-        IsNegative = negative;
-    }
-
-    public boolean isNegative(){
-        return IsNegative;
-    }
-
-    public void setAtom(AtomModel atom) {
-        Atom = atom;
-    }
-
-    public AtomModel getAtom(){
-        return Atom;
+    /**
+     * Инициализирует экземпляр класса
+     * @param parent Родитель
+     */
+    public SignedAtomModel(FactorModel parent) {
+        super(parent);
     }
 
     @Override
@@ -54,5 +49,34 @@ public class SignedAtomModel extends FormulaModel {
             r.getContent().add(text);
         }
         return arrayList;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    public void setNegative(boolean negative) {
+        IsNegative = negative;
+    }
+
+    public boolean isNegative(){
+        return IsNegative;
+    }
+
+    public void setAtom(AtomModel atom) {
+        Atom = atom;
+    }
+
+    public AtomModel getAtom(){
+        return Atom;
     }
 }

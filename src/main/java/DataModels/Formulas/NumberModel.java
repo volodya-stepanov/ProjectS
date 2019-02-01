@@ -13,25 +13,17 @@ import java.util.ArrayList;
  */
 public class NumberModel extends ExpressionModel{
 
-    /**
-     * Значение
-     */
+    /** Значение */
     private double mValue;
 
     /**
      * Инициализирует экземпляр класса
+     * @param parent Родитель
      * @param value Значение
      */
-    public NumberModel(double value) {
+    public NumberModel(AtomModel parent, double value) {
+        super(parent);
         mValue = value;
-    }
-
-    /**
-     * Возвращает значение
-     * @return Значение
-     */
-    public double getValue() {
-        return mValue;
     }
 
     @Override
@@ -56,5 +48,16 @@ public class NumberModel extends ExpressionModel{
             r.getContent().add(text);
         }
         return arrayList;
+    }
+
+
+
+
+    /**
+     * Возвращает значение
+     * @return Значение
+     */
+    public double getValue() {
+        return mValue;
     }
 }

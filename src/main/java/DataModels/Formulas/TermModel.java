@@ -21,8 +21,10 @@ public class TermModel extends FormulaModel {
 
     /**
      * Инициализирует экземпляр класса
+     * @param parent Родитель
      */
-    public TermModel(){
+    public TermModel(ExpressionModel parent){
+        super(parent);
         Factors = new ArrayList<FactorModel>();
         MathOperation = MathOpModel.None;
     }

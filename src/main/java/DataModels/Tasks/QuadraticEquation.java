@@ -6,15 +6,6 @@ import Helpers.ClassHelper;
 
 public class QuadraticEquation extends TaskModel{
 
-    /** Первый коэффициент */
-    private double CoefA;
-
-    /** Второй коэффициент */
-    private double CoefB;
-
-    /** Свободный член */
-    private double CoefC;
-
     /**
      * Инициализирует экземпляр класса
      *
@@ -47,11 +38,13 @@ public class QuadraticEquation extends TaskModel{
 
     @Override
     public void solve() {
+        Formula.getVariablesHashMap().put("c", 0.0);
+
         findCoefficients();
     }
 
     /**
-     * Находит коэффициенты квадратного уравнения
+     * Находит коэффициенты квадратного уравнения и записывает их в хэш-таблицу VariablesHashMap объекта Formula
      */
     private void findCoefficients() {
         // Приводим формулу к типу квадратного уравнения
@@ -89,12 +82,15 @@ public class QuadraticEquation extends TaskModel{
                         NumberModel coefANumberModel = (NumberModel)firstFactor.getBase().getAtom().getExpression();
 
                         // Полученное число - значение коэффициента A
-                        CoefA = coefANumberModel.getValue();
+                        double coefA = coefANumberModel.getValue();
 
                         // Если перед членом стоит минус, меняем знак коэффициента A
                         if (isNegative) {
-                            CoefA = -CoefA;
+                            coefA = -coefA;
                         }
+
+                        // Заносим значение коэффициента в хэш-таблицу
+                        Formula.getVariablesHashMap().put("a", coefA);
                     } else {
                         System.out.println("Множитель имеет степень, но показатель степени не равен двум");
                     }
@@ -105,12 +101,15 @@ public class QuadraticEquation extends TaskModel{
                     NumberModel coefBNumberModel = (NumberModel)firstFactor.getBase().getAtom().getExpression();
 
                     // Полученное число - значение коэффициента B
-                    CoefB = coefBNumberModel.getValue();
+                    double coefB = coefBNumberModel.getValue();
 
                     // Если перед членом стоит минус, меняем знак коэффициента B
                     if (isNegative) {
-                        CoefB = -CoefB;
+                        coefB = -coefB;
                     }
+
+                    // Заносим значение коэффициента в хэш-таблицу
+                    Formula.getVariablesHashMap().put("b", coefB);
                 }
             }
             // Иначе (если член имеет только один множитель)
@@ -132,12 +131,15 @@ public class QuadraticEquation extends TaskModel{
                         if(exponentNumberModel.getValue() == 2){
 
                             // Коэффициент A равен 1
-                            CoefA = 1;
+                            double coefA = 1;
 
                             // Если перед членом стоит минус, меняем знак коэффициента A
                             if (isNegative) {
-                                CoefA = -CoefA;
+                                coefA = -coefA;
                             }
+
+                            // Заносим значение коэффициента в хэш-таблицу
+                            Formula.getVariablesHashMap().put("a", coefA);
                         } else {
                             System.out.println("Множитель имеет степень, но показатель степени не равен двум");
                         }
@@ -145,12 +147,15 @@ public class QuadraticEquation extends TaskModel{
                     // Иначе (если второй множитель не имеет степени)
                     else{
                         // Коэффициент B равен 1
-                        CoefB = 1;
+                        double coefB = 1;
 
                         // Если перед членом стоит минус, меняем знак коэффициента B
                         if (isNegative) {
-                            CoefB = -CoefB;
+                            coefB = -coefB;
                         }
+
+                        // Заносим значение коэффициента в хэш-таблицу
+                        Formula.getVariablesHashMap().put("b", coefB);
                     }
                 }
                 // Иначе (если множитель - число)
@@ -159,12 +164,15 @@ public class QuadraticEquation extends TaskModel{
                     NumberModel coefCNumberModel = (NumberModel)firstFactor.getBase().getAtom().getExpression();
 
                     // Полученное число - значение коэффициента C
-                    CoefC = coefCNumberModel.getValue();
+                    double coefC = coefCNumberModel.getValue();
 
                     // Если перед членом стоит минус, меняем знак коэффициента C
                     if (isNegative) {
-                        CoefC = -CoefC;
+                        coefC = -coefC;
                     }
+
+                    // Заносим значение коэффициента в хэш-таблицу
+                    Formula.getVariablesHashMap().put("c", coefC);
                 }
                 // Иначе (если множитель - не число и не переменная)
                 else {
