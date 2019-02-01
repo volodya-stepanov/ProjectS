@@ -12,14 +12,13 @@ import java.util.ArrayList;
  */
 public class ExpressionModel extends FormulaModel{
 
-    /**
-     * Члены
-     */
+    /** Члены */
     public ArrayList<TermModel> Terms;
 
-    /**
-     * Инициализирует экземпляр класса
-     */
+    /** Операция отношения, стоящая перед выражением, если оно является частью уравнения */
+    private RelOpModel Relation;
+
+    /** Инициализирует экземпляр класса */
     public ExpressionModel(){
         Terms = new ArrayList<TermModel>();
     }
@@ -100,5 +99,24 @@ public class ExpressionModel extends FormulaModel{
         }
 
         return arrayList;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+    public RelOpModel getRelation() {
+        return Relation;
+    }
+
+    public void setRelation(RelOpModel relation) {
+        Relation = relation;
     }
 }

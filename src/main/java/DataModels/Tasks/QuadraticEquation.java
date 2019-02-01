@@ -58,7 +58,7 @@ public class QuadraticEquation extends TaskModel{
         EquationModel quadraticEquation = (EquationModel) Formula;
 
         // Перебираем члены выражения, стоящего в левой части
-        for (TermModel term : quadraticEquation.getLeftSide().Terms){
+        for (TermModel term : quadraticEquation.Expressions.get(0).Terms){
 
             // Определяем знак, стоящий перед членом
             boolean isNegative = false;

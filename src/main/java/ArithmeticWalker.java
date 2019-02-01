@@ -25,11 +25,11 @@ public class ArithmeticWalker implements ArithmeticListener{
     public void exitEquation(ArithmeticParser.EquationContext ctx) {
         String sign = ctx.getChild(1).getText();
         if (sign.contains("=")){
-            CurrentEquation.setRelation(RelOpModel.Equals);
+            CurrentEquation.Expressions.get(1).setRelation(RelOpModel.Equals);
         } else if (sign.contains(">")){
-            CurrentEquation.setRelation(RelOpModel.GreaterThan);
+            CurrentEquation.Expressions.get(1).setRelation(RelOpModel.GreaterThan);
         } else if (sign.contains("<")){
-            CurrentEquation.setRelation(RelOpModel.LessThan);
+            CurrentEquation.Expressions.get(1).setRelation(RelOpModel.LessThan);
         }
     }
 
@@ -54,11 +54,12 @@ public class ArithmeticWalker implements ArithmeticListener{
         }
 
         if (CurrentEquation != null) {
-            if (CurrentEquation.getLeftSide() == null) {
-                CurrentEquation.setLeftSide(CurrentExpression);
-            } else {
-                CurrentEquation.setRightSide(CurrentExpression);
-            }
+//            if (CurrentEquation.getLeftSide() == null) {
+//                CurrentEquation.setLeftSide(CurrentExpression);
+//            } else {
+//                CurrentEquation.setRightSide(CurrentExpression);
+//            }
+            CurrentEquation.Expressions.add(CurrentExpression);
         }
     }
 
