@@ -113,4 +113,31 @@ public class EquationModel extends FormulaModel {
 
         return arrayList;
     }
+
+    public FormulaModel copy(FormulaModel parent) {
+
+        EquationModel equation = new EquationModel(null);
+
+        for (ExpressionModel expression : Expressions){
+            equation.Expressions.add((ExpressionModel) expression.copy(this));
+        }
+
+        return equation;
+    }
+
+    public boolean canSolve() {
+        return false;
+    }
+
+    public void solve() {
+
+    }
+
+    protected double getValue() {
+        return 0;
+    }
+
+    protected void setValue(double value) {
+
+    }
 }

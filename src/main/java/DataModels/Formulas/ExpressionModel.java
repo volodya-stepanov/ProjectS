@@ -105,17 +105,75 @@ public class ExpressionModel extends FormulaModel{
         return arrayList;
     }
 
+    @Override
+    public boolean isNumber() {
+        // Выражение является числом тогда, когда оно состоит только из одного члена, и этот член является числом
+        return Terms.size() == 1 && Terms.get(0).isNumber();
+    }
 
+    public FormulaModel copy(FormulaModel parent) {
+        ExpressionModel expression = new ExpressionModel(Parent);
+        expression.setRelation(Relation);
 
+        for (TermModel term : Terms){
+            expression.Terms.add((TermModel) term.copy(expression));
+        }
 
+        return expression;
+    }
 
+    public boolean canSolve() {
+        boolean canSolve = true;
 
+        for (TermModel term : Terms){
+            if (!term.isNumber()){
+                canSolve = false;
+                break;
+            }
+        }
 
+        return canSolve;
+    }
 
+    public void solve() {
+        if(canSolve()){
+            double result = Terms.get(0).getValue();
 
+            for(int i = 1; i < Terms.size(); i++){
+                TermModel term = Terms.get(i);
+                if (term.getMathOperation().equals(MathOpModel.Plus)) {
+                    result += term.getValue();
+                } else if (term.getMathOperation().equals(MathOpModel.Minus)) {
+                    result -= term.getValue();
+                }
+            }
 
+            setValue(result);
+        } else {
+            for(TermModel term : Terms){
+                term.solve();
+            }
+        }
+    }
 
+    protected double getValue() {
+        if (isNumber()){
+            return Terms.get(0).getValue();
+        } else {
+            System.out.println("Не удаётся получить значение, так как выражение не является числом");
+            return 0;
+        }
+    }
 
+    protected void setValue(double value) {
+        Terms.get(0).setValue(value);
+
+        for (int i = Terms.size() - 1; i > 0; i--){
+            Terms.remove(i);
+        }
+    }
+
+    // Методы-мутаторы
     public RelOpModel getRelation() {
         return Relation;
     }

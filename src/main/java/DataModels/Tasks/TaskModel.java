@@ -23,7 +23,7 @@ public abstract class TaskModel {
     protected DocumentModel Document;
 
     /** Массив блоков решения для записи в документ */
-    protected ArrayList<SolutionBlock> SolutionBlocksList;
+    protected ArrayList<SolutionBlock> SolutionBlocks;
 
     /**
      * Инициализирует экземпляр класса
@@ -36,11 +36,11 @@ public abstract class TaskModel {
         Description = description;
         FormulaString = formulaString;
 
-        SolutionBlocksList = new ArrayList<SolutionBlock>();
+        SolutionBlocks = new ArrayList<SolutionBlock>();
     }
 
     /**
-     * Решает данное задание и заполняет массив SolutionBlocksList блоками решения
+     * Решает данное задание и заполняет массив SolutionBlocks блоками решения
      */
     public void solve(){
         // TODO:

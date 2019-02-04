@@ -50,14 +50,31 @@ public class NumberModel extends ExpressionModel{
         return arrayList;
     }
 
+    @Override
+    public boolean isNumber() {
+        return true;
+    }
 
+    public FormulaModel copy(FormulaModel parent) {
+        NumberModel number = new NumberModel((AtomModel) parent, mValue);
 
+        return number;
+    }
 
+    public boolean canSolve() {
+        return true;
+    }
+
+    // Методы-мутаторы
     /**
      * Возвращает значение
      * @return Значение
      */
     public double getValue() {
         return mValue;
+    }
+
+    public void setValue(double value) {
+        mValue = value;
     }
 }

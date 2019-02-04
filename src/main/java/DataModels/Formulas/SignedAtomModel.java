@@ -51,19 +51,34 @@ public class SignedAtomModel extends FormulaModel {
         return arrayList;
     }
 
+    @Override
+    public boolean isNumber() {
+        return Atom.isNumber();
+    }
 
+    public FormulaModel copy(FormulaModel parent) {
+        SignedAtomModel signedAtom = new SignedAtomModel((FactorModel) parent);
 
+        signedAtom.setNegative(IsNegative);
 
+        signedAtom.setAtom((AtomModel) Atom.copy(signedAtom));
 
+        return signedAtom;
+    }
 
+    public boolean canSolve() {
+        return Atom.isNumber();
+    }
 
+    public void solve() {
+        if (canSolve()){
 
+        } else {
+            Atom.solve();
+        }
+    }
 
-
-
-
-
-
+    // Методы-мутаторы
     public void setNegative(boolean negative) {
         IsNegative = negative;
     }
@@ -78,5 +93,24 @@ public class SignedAtomModel extends FormulaModel {
 
     public AtomModel getAtom(){
         return Atom;
+    }
+
+    public double getValue() {
+        if (isNumber()){
+            NumberModel number = (NumberModel) Atom.getExpression();
+            if (IsNegative){
+                return -number.getValue();
+            } else {
+                return number.getValue();
+            }
+        } else {
+            System.out.println("Не удаётся получить значение, так как выражение не является числом");
+            return 0;
+        }
+    }
+
+    public void setValue(double value){
+        Atom.setValue(value);
+        IsNegative = false;
     }
 }

@@ -113,16 +113,80 @@ public class TermModel extends FormulaModel {
         return arrayList;
     }
 
+    @Override
+    public boolean isNumber() {
+        // Произведение считается числом тогда, когда оно имеет только один множитель, и он является числом
+        return Factors.size() == 1 && Factors.get(0).isNumber();
+    }
 
+    public FormulaModel copy(FormulaModel parent) {
+        TermModel term = new TermModel((ExpressionModel) parent);
+        term.setMathOperation(MathOperation);
 
+        for (FactorModel factor : Factors){
+            term.Factors.add((FactorModel) factor.copy(term));
+        }
 
+        return term;
+    }
 
+    public boolean canSolve() {
+        boolean canSolve = true;
 
+        for (FactorModel factor : Factors){
+            if (!factor.isNumber()){
+                canSolve = false;
+                break;
+            }
+        }
+
+        return canSolve;
+    }
+
+    public void solve() {
+        if(canSolve()){
+            double result = Factors.get(0).getValue();
+
+            for(int i = 1; i < Factors.size(); i++){
+                FactorModel factor = Factors.get(i);
+                if (factor.getMathOperation().equals(MathOpModel.Multiply)) {
+                    result *= factor.getValue();
+                } else if (factor.getMathOperation().equals(MathOpModel.Divide)){
+                    result /= factor.getValue();
+                }
+            }
+
+            setValue(result);
+        } else {
+            for(FactorModel factor : Factors){
+                factor.solve();
+            }
+        }
+    }
+
+    // Методы-мутаторы
     public MathOpModel getMathOperation() {
         return MathOperation;
     }
 
     public void setMathOperation(MathOpModel mathOperation) {
         MathOperation = mathOperation;
+    }
+
+    public double getValue() {
+        if (isNumber()){
+            return Factors.get(0).getValue();
+        } else {
+            System.out.println("Не удаётся получить значение, так как выражение не является числом");
+            return 0;
+        }
+    }
+
+    public void setValue(double value) {
+        Factors.get(0).setValue(value);
+
+        for (int i = Factors.size() - 1; i > 0; i--){
+            Factors.remove(i);
+        }
     }
 }

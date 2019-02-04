@@ -11,7 +11,7 @@ import java.util.ArrayList;
  */
 public class VariableModel extends ExpressionModel{
     /** Имя переменной */
-    private String mValue;
+    private String Name;
 
     /**
      * Инициализирует экземпляр класса
@@ -20,20 +20,14 @@ public class VariableModel extends ExpressionModel{
      */
     public VariableModel(AtomModel parent, String value) {
         super(parent);
-        mValue = value;
+        Name = value;
     }
 
-    /**
-     * Возвращает значение
-     * @return Значение
-     */
-    public String getValue() {
-        return mValue;
-    }
+
 
     @Override
     public String toString() {
-        return mValue;
+        return Name;
     }
 
     @Override
@@ -61,5 +55,60 @@ public class VariableModel extends ExpressionModel{
         //  Если просто напечатать в ворде текст шрифтом Cambria Math, то он отображается совершенно по-другому.
         //  Мой вариант решения задачи - попытаться открыть исходники для редактирования и добавить туда наконец этот несчастный атрибут.
         //  Если не получится - просто сделать шрифтом Times New Roman.
+    }
+
+    @Override
+    public boolean isNumber() {
+        return false;
+    }
+
+    public FormulaModel copy(FormulaModel parent) {
+        VariableModel variable = new VariableModel((AtomModel) parent, Name);
+
+        return variable;
+    }
+
+    public boolean canSolve() {
+        return false;
+    }
+
+    public void solve(){
+        // Получаем уравнение-родитель
+        EquationModel equation = getEquation();
+
+        // Из таблицы переменных, которая в нем находится, пытаемся извлечь значение переменной по её имени
+        Double value = equation.getVariablesHashMap().get(Name);
+
+        // Если это сделать удалось,
+        if (value != null){
+            // берем атом-родитель и заменяем в нем данную переменную на числовое значение
+            AtomModel parent = (AtomModel) Parent;
+            parent.setExpression(new NumberModel(parent, value));
+            // TODO: Если значение отрицательное, возможно, стоит пробросить минус в SignedAtom, а в NumberModel держать только модуль числа
+            // TODO: Если значение отрицательное, необходимо взять основание степени в скобки!
+        } else {
+            System.out.println("Не удалось найти значение переменной в таблице");
+        }
+    }
+
+    @Override
+    protected EquationModel getEquation() {
+        AtomModel atom = (AtomModel) getParent();
+        SignedAtomModel signedAtom = (SignedAtomModel) atom.getParent();
+        FactorModel factor = (FactorModel) signedAtom.getParent();
+        TermModel term = (TermModel) factor.getParent();
+        ExpressionModel expression = (ExpressionModel) term.getParent();
+        EquationModel equation = (EquationModel) expression.getParent();
+        return equation;
+
+    }
+
+    // Методы-мутаторы
+    /**
+     * Возвращает значение
+     * @return Значение
+     */
+    public String getName() {
+        return Name;
     }
 }

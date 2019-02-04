@@ -15,7 +15,7 @@ import java.util.HashMap;
 public abstract class FormulaModel {
 
     /** Родитель */
-    private FormulaModel Parent;
+    protected FormulaModel Parent;
 
     /** Хэш-таблица для хранения значений переменных */
     protected HashMap<String, Double> VariablesHashMap;
@@ -68,15 +68,39 @@ public abstract class FormulaModel {
         return arrayList;
     }
 
+    /**
+     * Определяет, состоит ли формула только из одного элемента, являющегося числом
+     * @return Истина, если формула состоит только из одного элемента, являющегося числом, иначе ложь
+     */
+    public boolean isNumber(){
+        return false;
+    }
+
+    /**
+     * Создаёт и возвращает точно такой же объект, как и сама эта формула.
+     * @param parent Родитель
+     * @return Объект того же класса, что и текущая формула, с такими же значениями полей
+     */
+    public abstract FormulaModel copy(@Nullable FormulaModel parent);
+
+    /**
+     * Определяет, можно ли вычислить значение данной формулы
+     * @return Истина, если все операнды являются числами, иначе ложь
+     */
+    public abstract boolean canSolve();
+
+    public abstract void solve();
+
+    /**
+     * Возвращает уравнение, которое является родителем для данной формулы
+     * @return Уравнение, которое является родителем для данной формулы
+     */
+    protected EquationModel getEquation(){
+        return null;
+    }
 
 
-
-
-
-
-
-
-
+    // TODO: в кских случаях использовать абстрактные методв, а каких - обычные?
 
 
 
@@ -91,4 +115,20 @@ public abstract class FormulaModel {
     public HashMap<String, Double> getVariablesHashMap(){
         return VariablesHashMap;
     }
+
+    public void setVariablesHashMap(HashMap<String, Double> variablesHashMap){
+        VariablesHashMap = variablesHashMap;
+    }
+
+    /**
+     * Возвращает числовое значение формулы в том случае, когда для неё выполняется условие isNumber()
+     * @return Числовое значение формулы
+     */
+    protected abstract double getValue();
+
+    /**
+     * Устанавливает формуле числовое значение при решении
+     * @param value Значение
+     */
+    protected abstract void setValue(double value);
 }
