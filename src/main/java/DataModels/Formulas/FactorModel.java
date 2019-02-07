@@ -1,5 +1,6 @@
 package DataModels.Formulas;
 
+import DataModels.Objects.DocumentHelper;
 import Helpers.ClassHelper;
 import org.docx4j.math.*;
 import org.docx4j.math.ObjectFactory;
@@ -42,6 +43,16 @@ public class FactorModel extends FormulaModel {
         exponentAtom.setExpression(exponentNumber);
     }
 
+    public FactorModel(TermModel parent, double value) {
+        this(parent);
+        setValue(value);
+    }
+
+    public FactorModel(TermModel parent, String name) {
+        this(parent);
+        setName(name);
+    }
+
     @Override
     public String toString() {
         if (showExponent()){
@@ -58,132 +69,10 @@ public class FactorModel extends FormulaModel {
 
     @Override
     public ArrayList<JAXBElement> toOpenXML() {
+        DocumentHelper helper = new DocumentHelper();
+
         if (showExponent()){
-            org.docx4j.math.ObjectFactory mathObjectFactory = new org.docx4j.math.ObjectFactory();
-            CTSSup ssup = mathObjectFactory.createCTSSup();
-            JAXBElement<org.docx4j.math.CTSSup> ssupWrapped = mathObjectFactory.createCTOMathSSup(ssup);
-            // Create object for e
-            CTOMathArg omatharg = mathObjectFactory.createCTOMathArg();
-            ssup.setE(omatharg);
-            // Create object for r (wrapped in JAXBElement)
-            org.docx4j.wml.ObjectFactory wmlObjectFactory = new org.docx4j.wml.ObjectFactory();
-
-            // Заполняем основание степени
-            if (Base.isNumber()){
-                NumberModel number = (NumberModel) Base.getAtom().getExpression();
-                if (number.getValue() < 0){
-                    CTD d = mathObjectFactory.createCTD();
-                    JAXBElement<org.docx4j.math.CTD> dWrapped = mathObjectFactory.createCTOMathArgD(d);
-                    omatharg.getEGOMathElements().add( dWrapped);
-                    // Create object for e
-                    CTOMathArg omatharg2 = mathObjectFactory.createCTOMathArg();
-                    d.getE().add( omatharg2);
-                    // Create object for r (wrapped in JAXBElement)
-
-                    // Получаем массив элементов rWrapped (OpenXML), из каждого элемента извлекаем элемент r, добавляем к нему элемент text и возвращаем его
-                    ArrayList<JAXBElement> arrayList1 = Base.toOpenXML();
-                    for (JAXBElement<org.docx4j.math.CTR> rWrapped : arrayList1){
-                        omatharg2.getEGOMathElements().add( rWrapped);
-                    }
-
-//                    CTR r = mathObjectFactory.createCTR();
-//                    JAXBElement<org.docx4j.math.CTR> rWrapped = mathObjectFactory.createCTOMathArgR(r);
-//                    omatharg2.getEGOMathElements().add( rWrapped);
-//                    // Create object for rPr (wrapped in JAXBElement)
-//                    RPr rpr = wmlObjectFactory.createRPr();
-//                    JAXBElement<org.docx4j.wml.RPr> rprWrapped = wmlObjectFactory.createSdtPrRPr(rpr);
-//                    r.getContent().add( rprWrapped);
-//                    // Create object for rFonts
-//                    RFonts rfonts = wmlObjectFactory.createRFonts();
-//                    rpr.setRFonts(rfonts);
-//                    rfonts.setAscii( "Cambria Math");
-//                    rfonts.setCs( "Times New Roman");
-//                    rfonts.setHAnsi( "Cambria Math");
-//                    // Create object for sz
-//                    HpsMeasure hpsmeasure = wmlObjectFactory.createHpsMeasure();
-//                    rpr.setSz(hpsmeasure);
-//                    hpsmeasure.setVal( BigInteger.valueOf( 28) );
-//                    // Create object for szCs
-//                    HpsMeasure hpsmeasure2 = wmlObjectFactory.createHpsMeasure();
-//                    rpr.setSzCs(hpsmeasure2);
-//                    hpsmeasure2.setVal( BigInteger.valueOf( 28) );
-//                    // Create object for t
-//                    Text text = wmlObjectFactory.createText();
-//                    r.getContent().add( text);
-//                    text.setValue( "-5");
-                    // Create object for dPr
-                    CTDPr dpr = mathObjectFactory.createCTDPr();
-                    d.setDPr(dpr);
-                    // Create object for ctrlPr
-                    CTCtrlPr ctrlpr = mathObjectFactory.createCTCtrlPr();
-                    dpr.setCtrlPr(ctrlpr);
-                    // Create object for rPr
-                    RPr rpr2 = wmlObjectFactory.createRPr();
-                    ctrlpr.setRPr(rpr2);
-                    // Create object for rFonts
-                    RFonts rfonts2 = wmlObjectFactory.createRFonts();
-                    rpr2.setRFonts(rfonts2);
-                    rfonts2.setAscii( "Cambria Math");
-                    rfonts2.setCs( "Times New Roman");
-                    rfonts2.setHAnsi( "Cambria Math");
-                    // Create object for sz
-                    HpsMeasure hpsmeasure3 = wmlObjectFactory.createHpsMeasure();
-                    rpr2.setSz(hpsmeasure3);
-                    hpsmeasure3.setVal( BigInteger.valueOf( 28) );
-                    // Create object for i
-                    BooleanDefaultTrue booleandefaulttrue = wmlObjectFactory.createBooleanDefaultTrue();
-                    rpr2.setI(booleandefaulttrue);
-                    // Create object for szCs
-                    HpsMeasure hpsmeasure4 = wmlObjectFactory.createHpsMeasure();
-                    rpr2.setSzCs(hpsmeasure4);
-                    hpsmeasure4.setVal( BigInteger.valueOf( 28) );
-                } else {
-                    // Получаем массив элементов rWrapped (OpenXML), из каждого элемента извлекаем элемент r, добавляем к нему элемент text и возвращаем его
-                    ArrayList<JAXBElement> arrayList1 = Base.toOpenXML();
-                    for (JAXBElement<org.docx4j.math.CTR> rWrapped : arrayList1){
-                        omatharg.getEGOMathElements().add( rWrapped);
-                    }
-                }
-            } else {
-                // Получаем массив элементов rWrapped (OpenXML), из каждого элемента извлекаем элемент r, добавляем к нему элемент text и возвращаем его
-                ArrayList<JAXBElement> arrayList1 = Base.toOpenXML();
-                for (JAXBElement<org.docx4j.math.CTR> rWrapped : arrayList1){
-                    omatharg.getEGOMathElements().add( rWrapped);
-                }
-            }
-
-            // Create object for sup
-            CTOMathArg omatharg2 = mathObjectFactory.createCTOMathArg();
-            ssup.setSup(omatharg2);
-            // Create object for r (wrapped in JAXBElement)
-
-            // Получаем массив элементов rWrapped (OpenXML), из каждого элемента извлекаем элемент r, добавляем к нему элемент text и возвращаем его
-            ArrayList<JAXBElement> arrayList2 = Exponent.toOpenXML();
-            for (JAXBElement<org.docx4j.math.CTR> rWrapped : arrayList2){
-                omatharg2.getEGOMathElements().add( rWrapped);
-            }
-
-            // Create object for sSupPr
-            CTSSupPr ssuppr = mathObjectFactory.createCTSSupPr();
-            ssup.setSSupPr(ssuppr);
-            // Create object for ctrlPr
-            CTCtrlPr ctrlpr = mathObjectFactory.createCTCtrlPr();
-            ssuppr.setCtrlPr(ctrlpr);
-            // Create object for rPr
-            RPr rpr3 = wmlObjectFactory.createRPr();
-            ctrlpr.setRPr(rpr3);
-            // Create object for rFonts
-            RFonts rfonts3 = wmlObjectFactory.createRFonts();
-            rpr3.setRFonts(rfonts3);
-            rfonts3.setAscii( "Cambria Math");
-            rfonts3.setHAnsi( "Cambria Math");
-            // Create object for i
-            BooleanDefaultTrue booleandefaulttrue = wmlObjectFactory.createBooleanDefaultTrue();
-            rpr3.setI(booleandefaulttrue);
-
-            ArrayList<JAXBElement> arrayList = new ArrayList<JAXBElement>();
-            arrayList.add(ssupWrapped);
-            return arrayList;
+            return helper.createPower(Base, Exponent);
         } else{
             return Base.toOpenXML();
         }
@@ -337,6 +226,20 @@ public class FactorModel extends FormulaModel {
     }
 
     public void setValue(double value) {
+        if (Base == null){
+            Base = new SignedAtomModel(this);
+        }
+
         Base.setValue(value);
+        Exponent.setValue(1);
+    }
+
+    private void setName(String name) {
+        if (Base == null){
+            Base = new SignedAtomModel(this);
+        }
+
+        Base.setName(name);
+        Exponent.setValue(1);
     }
 }

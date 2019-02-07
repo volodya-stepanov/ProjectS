@@ -1,9 +1,11 @@
 package DataModels.Formulas;
 
+import DataModels.Objects.DocumentHelper;
 import org.docx4j.math.CTR;
 import org.docx4j.wml.Text;
 
 import javax.xml.bind.JAXBElement;
+import java.beans.Expression;
 import java.util.ArrayList;
 
 /**
@@ -25,29 +27,49 @@ public class SignedAtomModel extends FormulaModel {
         super(parent);
     }
 
+    /**
+     * Определяет, нужно ли брать в скобки данную формулу
+     * @return Истина, если данную формулу нужно брать в скобки, иначе ложь
+     */
+    private boolean needParenthesis(){
+        return isNegative() && Atom.isNumber() && Atom.getValue() < 0;
+    }
+
     @Override
     public String toString() {
         String str = "";
         if (IsNegative){
             str = "-";
         }
+
+        if (needParenthesis()) {
+            str += "(";
+        }
+
         str += Atom.toString();
+
+        if (needParenthesis()) {
+            str += ")";
+        }
+
         return str;
     }
 
     @Override
     public ArrayList<JAXBElement> toOpenXML() {
-        // Создаём элемент text (OpenXML). Присваиваем ему значение, получаемое в результате вызова метода toString()
-        org.docx4j.wml.ObjectFactory wmlObjectFactory = new org.docx4j.wml.ObjectFactory();
-        Text text = wmlObjectFactory.createText();
-        text.setValue(toString());
-
-        // Получаем массив элементов rWrapped (OpenXML), из каждого элемента извлекаем элемент r, добавляем к нему элемент text и возвращаем его
-        ArrayList<JAXBElement> arrayList = super.toOpenXML();
-        for (JAXBElement<org.docx4j.math.CTR> rWrapped : arrayList){
-            CTR r = rWrapped.getValue();
-            r.getContent().add(text);
+        DocumentHelper helper = new DocumentHelper();
+//        return helper.createRunArray(toString()); Вот сдесь собака зарыта!
+        ArrayList<JAXBElement> arrayList = new ArrayList<JAXBElement>();
+        if (isNegative()){
+            arrayList.add(helper.createRun("-"));
         }
+
+        if (needParenthesis()){
+            arrayList.addAll(helper.createParenthesis(Atom.toOpenXML()));
+        } else {
+            arrayList.addAll(Atom.toOpenXML());
+        }
+
         return arrayList;
     }
 
@@ -97,11 +119,14 @@ public class SignedAtomModel extends FormulaModel {
 
     public double getValue() {
         if (isNumber()){
-            NumberModel number = (NumberModel) Atom.getExpression();
+            //NumberModel number = (NumberModel) Atom.getExpression();
+            double value = Atom.getValue();
             if (IsNegative){
-                return -number.getValue();
+                //return -number.getValue();
+                return -value;
             } else {
-                return number.getValue();
+                //return number.getValue();
+                return value;
             }
         } else {
             System.out.println("Не удаётся получить значение, так как выражение не является числом");
@@ -110,7 +135,20 @@ public class SignedAtomModel extends FormulaModel {
     }
 
     public void setValue(double value){
+        if (Atom == null){
+            Atom = new AtomModel(this);
+        }
+
         Atom.setValue(value);
+        IsNegative = false;
+    }
+
+    public void setName(String name) {
+        if (Atom == null){
+            Atom = new AtomModel(this);
+        }
+
+        Atom.setName(name);
         IsNegative = false;
     }
 }

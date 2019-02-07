@@ -1,5 +1,6 @@
 package DataModels.Formulas;
 
+import DataModels.Objects.DocumentHelper;
 import org.docx4j.math.CTR;
 import org.docx4j.wml.Text;
 
@@ -32,18 +33,21 @@ public class VariableModel extends ExpressionModel{
 
     @Override
     public ArrayList<JAXBElement> toOpenXML() {
-        // Создаём элемент text (OpenXML). Присваиваем ему значение, получаемое в результате вызова метода toString()
-        org.docx4j.wml.ObjectFactory wmlObjectFactory = new org.docx4j.wml.ObjectFactory();
-        Text text = wmlObjectFactory.createText();
-        text.setValue(toString());
+        DocumentHelper helper =  new DocumentHelper();
+        return helper.createRunArray(toString());
 
-        // Получаем массив элементов rWrapped (OpenXML), из каждого элемента извлекаем элемент r, добавляем к нему элемент text и возвращаем его
-        ArrayList<JAXBElement> arrayList = super.toOpenXML();
-        for (JAXBElement<org.docx4j.math.CTR> rWrapped : arrayList){
-            CTR r = rWrapped.getValue();
-            r.getContent().add(text);
-        }
-        return arrayList;
+//        // Создаём элемент text (OpenXML). Присваиваем ему значение, получаемое в результате вызова метода toString()
+//        org.docx4j.wml.ObjectFactory wmlObjectFactory = new org.docx4j.wml.ObjectFactory();
+//        Text text = wmlObjectFactory.createText();
+//        text.setValue(toString());
+//
+//        // Получаем массив элементов rWrapped (OpenXML), из каждого элемента извлекаем элемент r, добавляем к нему элемент text и возвращаем его
+//        ArrayList<JAXBElement> arrayList = super.toOpenXML();
+//        for (JAXBElement<org.docx4j.math.CTR> rWrapped : arrayList){
+//            CTR r = rWrapped.getValue();
+//            r.getContent().add(text);
+//        }
+//        return arrayList;
 
         // TODO: Разобраться с тем, что переменные в формулах не ставятся курсивом.
         //  Дело в том, что буква переменной должна иметь тип CTText.
@@ -93,13 +97,15 @@ public class VariableModel extends ExpressionModel{
 
     @Override
     protected EquationModel getEquation() {
-        AtomModel atom = (AtomModel) getParent();
-        SignedAtomModel signedAtom = (SignedAtomModel) atom.getParent();
-        FactorModel factor = (FactorModel) signedAtom.getParent();
-        TermModel term = (TermModel) factor.getParent();
-        ExpressionModel expression = (ExpressionModel) term.getParent();
-        EquationModel equation = (EquationModel) expression.getParent();
-        return equation;
+        return super.getEquation();
+
+//        AtomModel atom = (AtomModel) getParent();
+//        SignedAtomModel signedAtom = (SignedAtomModel) atom.getParent();
+//        FactorModel factor = (FactorModel) signedAtom.getParent();
+//        TermModel term = (TermModel) factor.getParent();
+//        ExpressionModel expression = (ExpressionModel) term.getParent();
+//        EquationModel equation = (EquationModel) expression.getParent();
+//        return equation;
 
     }
 

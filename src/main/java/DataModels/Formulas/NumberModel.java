@@ -1,5 +1,6 @@
 package DataModels.Formulas;
 
+import DataModels.Objects.DocumentHelper;
 import org.docx4j.math.CTR;
 import org.docx4j.wml.*;
 
@@ -28,26 +29,16 @@ public class NumberModel extends ExpressionModel{
 
     @Override
     public String toString() {
-        NumberFormat nf = DecimalFormat.getInstance();
-        nf.setMaximumFractionDigits(0);
+        NumberFormat nf = new DecimalFormat("#.######");
+        //nf.setMaximumFractionDigits(0);
         String str = nf.format(mValue);
         return str;
     }
 
     @Override
     public ArrayList<JAXBElement> toOpenXML() {
-        // Создаём элемент text (OpenXML). Присваиваем ему значение, получаемое в результате вызова метода toString()
-        org.docx4j.wml.ObjectFactory wmlObjectFactory = new org.docx4j.wml.ObjectFactory();
-        Text text = wmlObjectFactory.createText();
-        text.setValue(toString());
-
-        // Получаем массив элементов rWrapped (OpenXML), из каждого элемента извлекаем элемент r, добавляем к нему элемент text и возвращаем его
-        ArrayList<JAXBElement> arrayList = super.toOpenXML();
-        for (JAXBElement<org.docx4j.math.CTR> rWrapped : arrayList){
-            CTR r = rWrapped.getValue();
-            r.getContent().add(text);
-        }
-        return arrayList;
+        DocumentHelper helper =  new DocumentHelper();
+        return helper.createRunArray(toString());
     }
 
     @Override

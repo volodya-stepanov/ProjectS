@@ -1,5 +1,7 @@
 package DataModels.Formulas;
 
+import org.docx4j.wml.Numbering;
+
 import javax.xml.bind.JAXBElement;
 import java.util.ArrayList;
 
@@ -47,7 +49,9 @@ public class AtomModel extends FormulaModel {
 
     public void solve() {
         if(canSolve()){
-
+            //TODO: Вот сюда заходит программа, когда нужно вычислить квадратный корень, а здесь ничего нет.
+            System.out.println("Программа решила, что значение этого атома можно вычислить");
+            Expression.solve();
         } else {
             Expression.solve();
         }
@@ -63,10 +67,14 @@ public class AtomModel extends FormulaModel {
     }
 
     protected void setValue(double value) {
-        NumberModel number = (NumberModel) Expression;
-        number.setValue(value);
+        if (Expression == null){
+            Expression = new NumberModel(this, value);
+        } else {
+            //NumberModel number = (NumberModel) Expression;
+            //number.setValue(value);
+            Expression.setValue(value);
+        }
     }
-
 
     // Методы-мутаторы
     /**
@@ -83,5 +91,14 @@ public class AtomModel extends FormulaModel {
      */
     public void setExpression(ExpressionModel mExpression) {
         this.Expression = mExpression;
+    }
+
+    public void setName(String name) {
+        if (Expression == null){
+            Expression = new VariableModel(this, name);
+        } else {
+            VariableModel variable = (VariableModel) Expression;
+            variable.setName(name);
+        }
     }
 }

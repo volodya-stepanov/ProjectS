@@ -1,11 +1,9 @@
 package DataModels.Formulas;
 
+import DataModels.Objects.DocumentHelper;
 import Helpers.ClassHelper;
-import org.docx4j.math.CTR;
-import org.docx4j.wml.*;
 
 import javax.xml.bind.JAXBElement;
-import java.math.BigInteger;
 import java.util.ArrayList;
 
 /**
@@ -27,6 +25,16 @@ public class TermModel extends FormulaModel {
         super(parent);
         Factors = new ArrayList<FactorModel>();
         MathOperation = MathOpModel.None;
+    }
+
+    public TermModel(ExpressionModel parent, double value) {
+        this(parent);
+        setValue(value);
+    }
+
+    public TermModel(ExpressionModel parent, String name) {
+        this(parent);
+        setName(name);
     }
 
     @Override
@@ -51,58 +59,31 @@ public class TermModel extends FormulaModel {
     @Override
     public ArrayList<JAXBElement> toOpenXML() {
 
+        DocumentHelper documentHelper = new DocumentHelper();
+
         // Создаём ArrayList для возврата из этого метода
         ArrayList<JAXBElement> arrayList = new ArrayList<JAXBElement>();
 
         // Перебираем множители
         for (FactorModel factorModel : Factors){
 
-            // Создаём JAXBElement со знаком для подставления в произведение
-            org.docx4j.wml.ObjectFactory wmlObjectFactory = new org.docx4j.wml.ObjectFactory();
-            org.docx4j.math.ObjectFactory mathObjectFactory = new org.docx4j.math.ObjectFactory();
-            CTR r = mathObjectFactory.createCTR();
-            JAXBElement<org.docx4j.math.CTR> rWrappedSign = mathObjectFactory.createCTOMathR(r);
-            // Create object for rPr (wrapped in JAXBElement)
-            RPr rpr = wmlObjectFactory.createRPr();
-            JAXBElement<RPr> rprWrapped = wmlObjectFactory.createSdtPrRPr(rpr);
-            r.getContent().add( rprWrapped);
-            // Create object for rFonts
-            RFonts rfonts2 = wmlObjectFactory.createRFonts();
-            rpr.setRFonts(rfonts2);
-            rfonts2.setAscii( "Cambria Math");
-            rfonts2.setCs( "Times New Roman");
-            rfonts2.setHAnsi( "Cambria Math");
-            // Create object for lang
-            CTLanguage language2 = wmlObjectFactory.createCTLanguage();
-            rpr.setLang(language2);
-            language2.setVal( "en-US");
-            // Create object for sz
-            HpsMeasure hpsmeasure3 = wmlObjectFactory.createHpsMeasure();
-            rpr.setSz(hpsmeasure3);
-            hpsmeasure3.setVal( BigInteger.valueOf( 28) );
-            // Create object for szCs
-            HpsMeasure hpsmeasure4 = wmlObjectFactory.createHpsMeasure();
-            rpr.setSzCs(hpsmeasure4);
-            hpsmeasure4.setVal( BigInteger.valueOf( 28) );
-
             // В зависимости от знака, стоящего перед множителем, добавляем соответствующий в ArrayList, который будет записан в документ
             if (factorModel.getMathOperation().equals(MathOpModel.Multiply)){
                 // Знак умножения ставим только в том случае, если следующий множитель - число. Перед переменными знак умножения не ставим
                 // Определяем тип множителя
                 Object obj = factorModel.getBase().getAtom().getExpression();
-                ClassHelper helper = new ClassHelper();
-                if (helper.isTypeOf(obj, NumberModel.class)) {
-                    Text text = wmlObjectFactory.createText();
-                    text.setValue("∙");
-                    r.getContent().add(text);
+                ClassHelper classHelper = new ClassHelper();
+                if (classHelper.isTypeOf(obj, NumberModel.class)) {
+                    JAXBElement signElement = documentHelper.createRun("∙");
+                    arrayList.add(signElement);
                 }
             } else if (factorModel.getMathOperation().equals(MathOpModel.Divide)){
-                Text text = wmlObjectFactory.createText();
-                text.setValue(":");
-                r.getContent().add(text);
-            }
+                // С помощью метода createFraction() получаем JAXB-элемент, представляющий собой дробь
+                arrayList = createFraction(arrayList, factorModel);
 
-            arrayList.add(rWrappedSign);
+                // TODO: Костыль. Цикл прерывается принудительно, так как в противном случае после выполнения метода createFraction элемент, перед со знаком деления остаётся в массиве и добавляется к дроби в качестве множителя
+                break;
+            }
 
             // Теперь добавляем в массива все элементы массива, возвращенного методом toOpenXML() множителя
             for (JAXBElement rWrapped : factorModel.toOpenXML()){
@@ -110,6 +91,37 @@ public class TermModel extends FormulaModel {
             }
         }
 
+        return arrayList;
+    }
+
+    /**
+     * Разделяет массив множителей на два массива: числитель и знаменатель.
+     * Генерирует массив JAXB-элементов с дробью и заменяет им исходный массив JAXB-элементов-множителей
+     *
+     * @param arrayList Массив JAXB-элементов (множителей), сформированнй ранее
+     * @param factor Множитель, перед которым стоит знак деления и который будет помещён в знаменатель
+     * @return Массив JAXB-элементов, представляющий дробь
+     */
+    private ArrayList<JAXBElement> createFraction(ArrayList<JAXBElement> arrayList, FactorModel factor) {
+        // Создаём массив, в котором будут храниться все элементы, относящиеся к числителю
+        ArrayList<JAXBElement> numeratorArrayList = new ArrayList<JAXBElement>();
+
+        // Добавляем в массив числителя все элементы массива, сгенерированного методом toOpenXML() ранее для всех множителей
+        numeratorArrayList.addAll(arrayList);
+
+        // Создаём массив, в котором будут храниться все элементы, относящиеся к числителю
+        ArrayList<JAXBElement> denominatorArrayList = new ArrayList<JAXBElement>();
+
+        // Добавляем в массив знаменателя все элементы массива, сгенерированного методом toOpenXML() для множителя, перед которым стоит знак деления
+        denominatorArrayList.addAll(factor.toOpenXML());
+
+        // Создаём JAXB-элемент с дробью
+        DocumentHelper helper = new DocumentHelper();
+        JAXBElement fractionElement = helper.createFraction(numeratorArrayList, denominatorArrayList);
+
+        // Удаляем из исходного массива все элементы (множители) и добавляем туда элемент с дробью. Возвращаем массив.
+        arrayList.clear();
+        arrayList.add(fractionElement);
         return arrayList;
     }
 
@@ -183,10 +195,12 @@ public class TermModel extends FormulaModel {
     }
 
     public void setValue(double value) {
-        Factors.get(0).setValue(value);
+        Factors.clear();
+        Factors.add(new FactorModel(this, value));
+    }
 
-        for (int i = Factors.size() - 1; i > 0; i--){
-            Factors.remove(i);
-        }
+    public void setName(String name) {
+        Factors.clear();
+        Factors.add(new FactorModel(this, name));
     }
 }

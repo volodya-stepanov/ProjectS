@@ -1,5 +1,6 @@
 package DataModels.Formulas;
 
+import Helpers.ClassHelper;
 import org.docx4j.math.CTR;
 import org.docx4j.wml.*;
 
@@ -25,11 +26,51 @@ public class ExpressionModel extends FormulaModel{
     public ExpressionModel(FormulaModel parent){
         super(parent);
         Terms = new ArrayList<TermModel>();
+        Relation = RelOpModel.None;
+    }
+
+    public ExpressionModel(EquationModel parent, String name) {
+        this(parent);
+        setName(name);
+    }
+
+    /**
+     * Определяет, нужно ли брать данное выражение в скобки в методе toString()
+     * @return Истина, если данное выражение нужно брать в скобки в методе toString(), иначе ложь
+     */
+    private boolean needParenthesis(){
+        // Выражение нужно брать в скобки в следующих случаях:
+        // 1. Когда оно не единственное в массиве множителей члена
+        // 2. Когда оно не единственное в массиве членов родительского выражения
+        ClassHelper helper = new ClassHelper();
+
+        if (helper.isTypeOf(Parent, AtomModel.class)){
+            AtomModel atom = (AtomModel) Parent;
+            SignedAtomModel signedAtom = (SignedAtomModel) atom.getParent();
+            FactorModel factor = (FactorModel) signedAtom.getParent();
+            TermModel term = (TermModel) factor.getParent();
+
+            if (term.Factors.size() > 1){
+                return true;
+            }
+
+            ExpressionModel expression = (ExpressionModel) term.getParent();
+
+            if (expression.Terms.size() > 1){
+                return true;
+            }
+        }
+
+        return false;
     }
 
     @Override
     public String toString() {
         String str = "";
+
+        if (needParenthesis()){
+            str += "(";
+        }
 
         for (int i = 0; i < Terms.size(); i++){
             TermModel termModel = Terms.get(i);
@@ -41,6 +82,10 @@ public class ExpressionModel extends FormulaModel{
             }
 
             str += termModel.toString();
+        }
+
+        if (needParenthesis()){
+            str += ")";
         }
 
         return str;
@@ -156,7 +201,7 @@ public class ExpressionModel extends FormulaModel{
         }
     }
 
-    protected double getValue() {
+    public double getValue() {
         if (isNumber()){
             return Terms.get(0).getValue();
         } else {
@@ -166,11 +211,13 @@ public class ExpressionModel extends FormulaModel{
     }
 
     protected void setValue(double value) {
-        Terms.get(0).setValue(value);
+        Terms.clear();
+        Terms.add(new TermModel(this, value));
+    }
 
-        for (int i = Terms.size() - 1; i > 0; i--){
-            Terms.remove(i);
-        }
+    protected void setName(String name) {
+        Terms.clear();
+        Terms.add(new TermModel(this, name));
     }
 
     // Методы-мутаторы

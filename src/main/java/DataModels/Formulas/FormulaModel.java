@@ -1,10 +1,12 @@
 package DataModels.Formulas;
 
+import Helpers.ClassHelper;
 import com.sun.istack.internal.Nullable;
 import org.docx4j.math.CTR;
 import org.docx4j.wml.*;
 
 import javax.xml.bind.JAXBElement;
+import java.awt.*;
 import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -96,7 +98,13 @@ public abstract class FormulaModel {
      * @return Уравнение, которое является родителем для данной формулы
      */
     protected EquationModel getEquation(){
-        return null;
+        ClassHelper helper = new ClassHelper();
+
+        if (helper.isTypeOf(Parent, EquationModel.class)) {
+            return (EquationModel) Parent;
+        }
+
+        return Parent.getEquation();
     }
 
 

@@ -5,6 +5,11 @@ package DataModels.Formulas;
  */
 public enum RelOpModel {
     /**
+     * Нет знака
+     */
+    None,
+
+    /**
      * Равно
      */
     Equals,
