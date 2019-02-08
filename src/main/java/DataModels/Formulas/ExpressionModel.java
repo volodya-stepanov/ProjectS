@@ -34,6 +34,11 @@ public class ExpressionModel extends FormulaModel{
         setName(name);
     }
 
+    public ExpressionModel(EquationModel parent, String name, String index) {
+        this(parent);
+        setName(name, index);
+    }
+
     /**
      * Определяет, нужно ли брать данное выражение в скобки в методе toString()
      * @return Истина, если данное выражение нужно брать в скобки в методе toString(), иначе ложь
@@ -218,6 +223,11 @@ public class ExpressionModel extends FormulaModel{
     protected void setName(String name) {
         Terms.clear();
         Terms.add(new TermModel(this, name));
+    }
+
+    protected void setName(String name, String index) {
+        Terms.clear();
+        Terms.add(new TermModel(this, name, index));
     }
 
     // Методы-мутаторы

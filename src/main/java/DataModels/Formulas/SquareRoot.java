@@ -1,6 +1,6 @@
 package DataModels.Formulas;
 
-import DataModels.Objects.DocumentHelper;
+import Helpers.DocumentHelper;
 
 import javax.xml.bind.JAXBElement;
 import java.util.ArrayList;

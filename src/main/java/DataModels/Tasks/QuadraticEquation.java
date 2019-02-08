@@ -7,7 +7,14 @@ import DataModels.SolutionBlocks.SolutionBlock;
 import DataModels.SolutionBlocks.TextBlock;
 import Helpers.ClassHelper;
 
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
+import java.util.ArrayList;
+
 public class QuadraticEquation extends TaskModel{
+
+    /** Массив ответов на это уравнение */
+    private ArrayList<Double> Answers;
 
     /**
      * Инициализирует экземпляр класса
@@ -18,6 +25,7 @@ public class QuadraticEquation extends TaskModel{
      */
     public QuadraticEquation(DocumentModel document, String description, String formulaString) {
         super(document, description, formulaString);
+        Answers = new ArrayList<Double>();
     }
 
     @Override
@@ -42,6 +50,23 @@ public class QuadraticEquation extends TaskModel{
                 }
             }
 
+            // Добавляем в документ ответ
+            String answer;
+            NumberFormat nf = new DecimalFormat("#.######");
+
+            if (Answers.size() == 2){
+                String x1 = nf.format(Answers.get(0));
+                String x2 = nf.format(Answers.get(1));
+                answer = "x1 = " + x1 + "; x2 = " + x2 + ".";
+            } else if (Answers.size() == 1) {
+                String x = nf.format(Answers.get(0));
+                answer = "x1,2 = " + x + ".";
+            } else {
+                answer = "Нет корней.";
+            }
+
+            Document.addAnswer(answer);
+
             Document.addBreak();
 
             if (Document.save()){
@@ -64,11 +89,20 @@ public class QuadraticEquation extends TaskModel{
         double discriminant = findDiscriminant();
 
         if (discriminant > 0){
-            findX1();
+            SolutionBlocks.add(new TextBlock("Дискриминант больше нуля, следовательно, уравнение имеет два корня"));
+            double x1 = findX1();
+            double x2 = findX2();
+
+            Answers.add(x1);
+            Answers.add(x2);
+        } else if (discriminant == 0){
+            SolutionBlocks.add(new TextBlock("Дискриминант равен нулю, следовательно, уравнение имеет один корень"));
+            double x = findX();
+            Answers.add(x);
+        } else {
+            SolutionBlocks.add(new TextBlock("Дискриминант меньше нуля, следовательно, уравнение не имеет действительных корней"));
         }
     }
-
-
 
     /**
      * Находит коэффициенты квадратного уравнения и записывает их в хэш-таблицу VariablesHashMap объекта Formula
@@ -338,6 +372,29 @@ public class QuadraticEquation extends TaskModel{
         return value;
     }
 
+    private double findX() {
+        EquationModel xFormula = generateXFormula();
+
+        // TODO: Некрасиво, что приходится перекидывать таблицу значений из одного уравнения в другое.
+        //  Возможно, можно держать в уравнении ссылку на задание, к которому оно принадлежит, а таблцу - уже в самом задании
+        xFormula.setVariablesHashMap(Formula.getVariablesHashMap());
+
+        while (!xFormula.Expressions.get(xFormula.Expressions.size()-1).isNumber()) {
+            ExpressionModel lastExpression = xFormula.Expressions.get(xFormula.Expressions.size()-1);
+
+            // Копируем правую часть и добавляем её к уравнению
+            ExpressionModel newExpression = (ExpressionModel) lastExpression.copy(xFormula);
+
+            newExpression.solve();
+
+            xFormula.Expressions.add(newExpression);
+        }
+
+        SolutionBlocks.add(new FormulaBlock(xFormula));
+
+        return xFormula.Expressions.get(xFormula.Expressions.size()-1).getValue();
+    }
+
     private double findX1() {
         EquationModel x1Formula = generateX1Formula();
 
@@ -361,13 +418,36 @@ public class QuadraticEquation extends TaskModel{
         return x1Formula.Expressions.get(x1Formula.Expressions.size()-1).getValue();
     }
 
+    private double findX2() {
+        EquationModel x2Formula = generateX2Formula();
+
+        // TODO: Некрасиво, что приходится перекидывать таблицу значений из одного уравнения в другое.
+        //  Возможно, можно держать в уравнении ссылку на задание, к которому оно принадлежит, а таблцу - уже в самом задании
+        x2Formula.setVariablesHashMap(Formula.getVariablesHashMap());
+
+        while (!x2Formula.Expressions.get(x2Formula.Expressions.size()-1).isNumber()) {
+            ExpressionModel lastExpression = x2Formula.Expressions.get(x2Formula.Expressions.size()-1);
+
+            // Копируем правую часть и добавляем её к уравнению
+            ExpressionModel newExpression = (ExpressionModel) lastExpression.copy(x2Formula);
+
+            newExpression.solve();
+
+            x2Formula.Expressions.add(newExpression);
+        }
+
+        SolutionBlocks.add(new FormulaBlock(x2Formula));
+
+        return x2Formula.Expressions.get(x2Formula.Expressions.size()-1).getValue();
+    }
+
     private EquationModel generateX1Formula() {
         // Само уравнение "x1 = (-b + sqrt(D)) / (2 * a)"
         EquationModel x1Formula = new EquationModel(null);
         x1Formula.setVariablesHashMap(Formula.getVariablesHashMap());
 
         // Левая часть
-        ExpressionModel expression1 = new ExpressionModel(x1Formula, "x1");
+        ExpressionModel expression1 = new ExpressionModel(x1Formula, "x", "1");
         x1Formula.Expressions.add(expression1);
 
         // Правая часть
@@ -444,5 +524,158 @@ public class QuadraticEquation extends TaskModel{
         term5.Factors.add(factor7);
 
         return x1Formula;
+    }
+
+    private EquationModel generateX2Formula() {
+        // Само уравнение "x2 = (-b + sqrt(D)) / (2 * a)"
+        EquationModel x2Formula = new EquationModel(null);
+        x2Formula.setVariablesHashMap(Formula.getVariablesHashMap());
+
+        // Левая часть
+        ExpressionModel expression1 = new ExpressionModel(x2Formula, "x", "2");
+        x2Formula.Expressions.add(expression1);
+
+        // Правая часть
+        ExpressionModel expression2 = new ExpressionModel(x2Formula);
+        expression2.setRelation(RelOpModel.Equals);
+        x2Formula.Expressions.add(expression2);
+
+        // Первый и единственный член: дробь
+        TermModel term2 = new TermModel(expression2);
+        expression2.Terms.add(term2);
+
+        // Первый "множитель" - числитель дроби
+        FactorModel factor3 = new FactorModel(term2);
+        term2.Factors.add(factor3);
+
+        SignedAtomModel signedAtom2 = new SignedAtomModel(factor3);
+        factor3.setBase(signedAtom2);
+
+        AtomModel atom2 = new AtomModel(signedAtom2);
+        signedAtom2.setAtom(atom2);
+
+        ExpressionModel expression3 = new ExpressionModel(atom2);
+        atom2.setExpression(expression3);
+
+        // Первый член "-b"
+        TermModel term3 = new TermModel(expression3);
+        expression3.Terms.add(term3);
+
+        // Член создаём с помощью метода setName, который автоматически выстраивает всю иерархию донизу, а в самом низу создаёт переменную с именем b
+        term3.setName("b");
+        // Выуживаем атом со знаком, чтобы установить ему знак минус
+        term3.Factors.get(0).getBase().setNegative(true);
+
+        // Второй член - "+ sqrt(D)"
+        TermModel term4 = new TermModel(expression3);
+        term4.setMathOperation(MathOpModel.Minus);
+        expression3.Terms.add(term4);
+
+        FactorModel factor4 = new FactorModel(term4);
+        term4.Factors.add(factor4);
+
+        SignedAtomModel signedAtom3 = new SignedAtomModel(factor4);
+        factor4.setBase(signedAtom3);
+
+        AtomModel atom1 = new AtomModel(signedAtom3);
+        signedAtom3.setAtom(atom1);
+
+        SquareRoot squareRoot1 = new SquareRoot(atom1, "D");
+        atom1.setExpression(squareRoot1);
+
+        // Второй "множитель" - знаменатель дроби
+        FactorModel factor5 = new FactorModel(term2);
+        factor5.setMathOperation(MathOpModel.Divide);
+        term2.Factors.add(factor5);
+
+        SignedAtomModel signedAtom4 = new SignedAtomModel(factor5);
+        factor5.setBase(signedAtom4);
+
+        AtomModel atom3 = new AtomModel(signedAtom4);
+        signedAtom4.setAtom(atom3);
+
+        ExpressionModel expression4 = new ExpressionModel(atom3);
+        atom3.setExpression(expression4);
+
+        // Первый и единственный член "2*a"
+        TermModel term5 = new TermModel(expression4);
+        expression4.Terms.add(term5);
+
+        FactorModel factor6 = new FactorModel(term5, 2);
+        term5.Factors.add(factor6);
+
+        FactorModel factor7 = new FactorModel(term5, "a");
+        factor7.setMathOperation(MathOpModel.Multiply);
+        term5.Factors.add(factor7);
+
+        return x2Formula;
+    }
+
+    private EquationModel generateXFormula() {
+        // Само уравнение "x = (-b) / (2 * a)"
+        EquationModel x2Formula = new EquationModel(null);
+        x2Formula.setVariablesHashMap(Formula.getVariablesHashMap());
+
+        // Левая часть
+        ExpressionModel expression1 = new ExpressionModel(x2Formula, "x");
+        x2Formula.Expressions.add(expression1);
+
+        // Правая часть
+        ExpressionModel expression2 = new ExpressionModel(x2Formula);
+        expression2.setRelation(RelOpModel.Equals);
+        x2Formula.Expressions.add(expression2);
+
+        // Первый и единственный член: дробь
+        TermModel term2 = new TermModel(expression2);
+        expression2.Terms.add(term2);
+
+        // Первый "множитель" - числитель дроби
+        FactorModel factor3 = new FactorModel(term2);
+        term2.Factors.add(factor3);
+
+        SignedAtomModel signedAtom2 = new SignedAtomModel(factor3);
+        factor3.setBase(signedAtom2);
+
+        AtomModel atom2 = new AtomModel(signedAtom2);
+        signedAtom2.setAtom(atom2);
+
+        ExpressionModel expression3 = new ExpressionModel(atom2);
+        atom2.setExpression(expression3);
+
+        // Первый и единственный член "-b"
+        TermModel term3 = new TermModel(expression3);
+        expression3.Terms.add(term3);
+
+        // Член создаём с помощью метода setName, который автоматически выстраивает всю иерархию донизу, а в самом низу создаёт переменную с именем b
+        term3.setName("b");
+        // Выуживаем атом со знаком, чтобы установить ему знак минус
+        term3.Factors.get(0).getBase().setNegative(true);
+
+        // Второй "множитель" - знаменатель дроби
+        FactorModel factor5 = new FactorModel(term2);
+        factor5.setMathOperation(MathOpModel.Divide);
+        term2.Factors.add(factor5);
+
+        SignedAtomModel signedAtom4 = new SignedAtomModel(factor5);
+        factor5.setBase(signedAtom4);
+
+        AtomModel atom3 = new AtomModel(signedAtom4);
+        signedAtom4.setAtom(atom3);
+
+        ExpressionModel expression4 = new ExpressionModel(atom3);
+        atom3.setExpression(expression4);
+
+        // Первый и единственный член "2*a"
+        TermModel term5 = new TermModel(expression4);
+        expression4.Terms.add(term5);
+
+        FactorModel factor6 = new FactorModel(term5, 2);
+        term5.Factors.add(factor6);
+
+        FactorModel factor7 = new FactorModel(term5, "a");
+        factor7.setMathOperation(MathOpModel.Multiply);
+        term5.Factors.add(factor7);
+
+        return x2Formula;
     }
 }

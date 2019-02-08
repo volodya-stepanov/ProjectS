@@ -1,4 +1,4 @@
-package DataModels.Objects;
+package Helpers;
 
 import DataModels.Formulas.FactorModel;
 import DataModels.Formulas.NumberModel;
@@ -321,5 +321,56 @@ public class DocumentHelper {
         rad.setDeg(omatharg2);
 
         return arrayList;
+    }
+
+    /**
+     * Создаёт выражение с нижним индексом
+     * @param base Основание
+     * @param subscript Нижний индекв
+     * @return JAXB-элемент с нижним индексом для вставки в формулу
+     */
+    public JAXBElement createSubscript (JAXBElement base, JAXBElement subscript){
+        CTSSub ssub = MathObjectFactory.createCTSSub();
+        JAXBElement<CTSSub> ssubWrapped = MathObjectFactory.createCTOMathSSub(ssub);
+
+        // Добавляем основание
+        CTOMathArg omatharg = MathObjectFactory.createCTOMathArg();
+        ssub.setE(omatharg);
+        omatharg.getEGOMathElements().add(base);
+
+        // Добавляем нижний индекс
+        CTOMathArg omatharg2 = MathObjectFactory.createCTOMathArg();
+        ssub.setSub(omatharg2);
+        omatharg2.getEGOMathElements().add(subscript);
+
+        // Устанавливаем свойства полученного выражения
+        // Create object for sSubPr
+        CTSSubPr ssubpr = MathObjectFactory.createCTSSubPr();
+        ssub.setSSubPr(ssubpr);
+        // Create object for ctrlPr
+        CTCtrlPr ctrlpr = MathObjectFactory.createCTCtrlPr();
+        ssubpr.setCtrlPr(ctrlpr);
+        // Create object for rPr
+        RPr rpr3 = WmlObjectFactory.createRPr();
+        ctrlpr.setRPr(rpr3);
+        // Create object for rFonts
+        RFonts rfonts3 = WmlObjectFactory.createRFonts();
+        rpr3.setRFonts(rfonts3);
+        rfonts3.setAscii( "Cambria Math");
+        rfonts3.setCs( "Times New Roman");
+        rfonts3.setHAnsi( "Cambria Math");
+        // Create object for sz
+        HpsMeasure hpsmeasure5 = WmlObjectFactory.createHpsMeasure();
+        rpr3.setSz(hpsmeasure5);
+        hpsmeasure5.setVal( BigInteger.valueOf( 28) );
+        // Create object for i
+        BooleanDefaultTrue booleandefaulttrue = WmlObjectFactory.createBooleanDefaultTrue();
+        rpr3.setI(booleandefaulttrue);
+        // Create object for szCs
+        HpsMeasure hpsmeasure6 = WmlObjectFactory.createHpsMeasure();
+        rpr3.setSzCs(hpsmeasure6);
+        hpsmeasure6.setVal( BigInteger.valueOf( 28) );
+
+        return ssubWrapped;
     }
 }

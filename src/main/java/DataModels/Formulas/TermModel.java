@@ -1,6 +1,6 @@
 package DataModels.Formulas;
 
-import DataModels.Objects.DocumentHelper;
+import Helpers.DocumentHelper;
 import Helpers.ClassHelper;
 
 import javax.xml.bind.JAXBElement;
@@ -35,6 +35,11 @@ public class TermModel extends FormulaModel {
     public TermModel(ExpressionModel parent, String name) {
         this(parent);
         setName(name);
+    }
+
+    public TermModel(ExpressionModel parent, String name, String index) {
+        this(parent);
+        setName(name, index);
     }
 
     @Override
@@ -202,5 +207,10 @@ public class TermModel extends FormulaModel {
     public void setName(String name) {
         Factors.clear();
         Factors.add(new FactorModel(this, name));
+    }
+
+    public void setName(String name, String index) {
+        Factors.clear();
+        Factors.add(new FactorModel(this, name, index));
     }
 }

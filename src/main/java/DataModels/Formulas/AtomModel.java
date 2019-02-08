@@ -101,4 +101,13 @@ public class AtomModel extends FormulaModel {
             variable.setName(name);
         }
     }
+
+    public void setName(String name, String index) {
+        if (Expression == null){
+            Expression = new VariableModel(this, name, index);
+        } else {
+            VariableModel variable = (VariableModel) Expression;
+            variable.setName(name, index);
+        }
+    }
 }

@@ -1,13 +1,9 @@
 package DataModels.Formulas;
 
-import DataModels.Objects.DocumentHelper;
+import Helpers.DocumentHelper;
 import Helpers.ClassHelper;
-import org.docx4j.math.*;
-import org.docx4j.math.ObjectFactory;
-import org.docx4j.wml.*;
 
 import javax.xml.bind.JAXBElement;
-import java.math.BigInteger;
 import java.util.ArrayList;
 
 /**
@@ -51,6 +47,11 @@ public class FactorModel extends FormulaModel {
     public FactorModel(TermModel parent, String name) {
         this(parent);
         setName(name);
+    }
+
+    public FactorModel(TermModel parent, String name, String index) {
+        this(parent);
+        setName(name, index);
     }
 
     @Override
@@ -240,6 +241,15 @@ public class FactorModel extends FormulaModel {
         }
 
         Base.setName(name);
+        Exponent.setValue(1);
+    }
+
+    private void setName(String name, String index) {
+        if (Base == null){
+            Base = new SignedAtomModel(this);
+        }
+
+        Base.setName(name, index);
         Exponent.setValue(1);
     }
 }

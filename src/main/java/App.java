@@ -35,7 +35,9 @@ public class App {
 
         button_msg.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                handleTask();
+                //handleTask();
+                CreateTaskForm form = new CreateTaskForm();
+
             }
         });
         text_field_formula.addKeyListener(new KeyAdapter() {

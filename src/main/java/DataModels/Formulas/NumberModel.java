@@ -1,8 +1,6 @@
 package DataModels.Formulas;
 
-import DataModels.Objects.DocumentHelper;
-import org.docx4j.math.CTR;
-import org.docx4j.wml.*;
+import Helpers.DocumentHelper;
 
 import javax.xml.bind.JAXBElement;
 import java.text.DecimalFormat;
@@ -30,7 +28,6 @@ public class NumberModel extends ExpressionModel{
     @Override
     public String toString() {
         NumberFormat nf = new DecimalFormat("#.######");
-        //nf.setMaximumFractionDigits(0);
         String str = nf.format(mValue);
         return str;
     }

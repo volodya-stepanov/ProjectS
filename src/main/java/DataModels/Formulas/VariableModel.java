@@ -1,8 +1,6 @@
 package DataModels.Formulas;
 
-import DataModels.Objects.DocumentHelper;
-import org.docx4j.math.CTR;
-import org.docx4j.wml.Text;
+import Helpers.DocumentHelper;
 
 import javax.xml.bind.JAXBElement;
 import java.util.ArrayList;
@@ -14,40 +12,57 @@ public class VariableModel extends ExpressionModel{
     /** Имя переменной */
     private String Name;
 
+    /** Подстрочный индекс в имени переменной */
+    private String Index;
+
     /**
      * Инициализирует экземпляр класса
      * @param parent Родитель
-     * @param value Значение
+     * @param name Имя переменной
      */
-    public VariableModel(AtomModel parent, String value) {
+    public VariableModel(AtomModel parent, String name) {
         super(parent);
-        Name = value;
+        Name = name;
+        Index = "";
     }
 
-
+    /**
+     * Инициализирует экземпляр класса
+     * @param parent Родитель
+     * @param name Имя переменной
+     * @param index Подстрочный индекс переменной
+     */
+    public VariableModel(AtomModel parent, String name, String index) {
+        this(parent, name);
+        Index = index;
+    }
 
     @Override
     public String toString() {
-        return Name;
+        return Name + Index;
     }
 
     @Override
     public ArrayList<JAXBElement> toOpenXML() {
         DocumentHelper helper =  new DocumentHelper();
-        return helper.createRunArray(toString());
 
-//        // Создаём элемент text (OpenXML). Присваиваем ему значение, получаемое в результате вызова метода toString()
-//        org.docx4j.wml.ObjectFactory wmlObjectFactory = new org.docx4j.wml.ObjectFactory();
-//        Text text = wmlObjectFactory.createText();
-//        text.setValue(toString());
-//
-//        // Получаем массив элементов rWrapped (OpenXML), из каждого элемента извлекаем элемент r, добавляем к нему элемент text и возвращаем его
-//        ArrayList<JAXBElement> arrayList = super.toOpenXML();
-//        for (JAXBElement<org.docx4j.math.CTR> rWrapped : arrayList){
-//            CTR r = rWrapped.getValue();
-//            r.getContent().add(text);
-//        }
-//        return arrayList;
+        ArrayList<JAXBElement> arrayList = new ArrayList<JAXBElement>();
+
+        JAXBElement base = helper.createRun(Name);
+
+        // Если переменная с нижним индексом, создаём соответствующее выражение и добавляем его в arrayList
+        if (!Index.equals("")){
+            JAXBElement index = helper.createRun(Index);
+            JAXBElement element = helper.createSubscript(base, index);
+            arrayList.add(element);
+        }
+
+        // Иначе добавляем в arrayList только элемент основания
+        else {
+            arrayList.add(base);
+        }
+
+        return arrayList;
 
         // TODO: Разобраться с тем, что переменные в формулах не ставятся курсивом.
         //  Дело в том, что буква переменной должна иметь тип CTText.
@@ -97,16 +112,7 @@ public class VariableModel extends ExpressionModel{
 
     @Override
     protected EquationModel getEquation() {
-        return super.getEquation();
-
-//        AtomModel atom = (AtomModel) getParent();
-//        SignedAtomModel signedAtom = (SignedAtomModel) atom.getParent();
-//        FactorModel factor = (FactorModel) signedAtom.getParent();
-//        TermModel term = (TermModel) factor.getParent();
-//        ExpressionModel expression = (ExpressionModel) term.getParent();
-//        EquationModel equation = (EquationModel) expression.getParent();
-//        return equation;
-
+        return super.getEquation(); // TODO: Возможно, этот метод вообще не нужен
     }
 
     // Методы-мутаторы
@@ -116,5 +122,10 @@ public class VariableModel extends ExpressionModel{
      */
     public String getName() {
         return Name;
+    }
+
+    public void setName(String name, String index) {
+        setName(name);
+        Index = index;
     }
 }

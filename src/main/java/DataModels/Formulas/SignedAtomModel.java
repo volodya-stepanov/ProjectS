@@ -1,11 +1,8 @@
 package DataModels.Formulas;
 
-import DataModels.Objects.DocumentHelper;
-import org.docx4j.math.CTR;
-import org.docx4j.wml.Text;
+import Helpers.DocumentHelper;
 
 import javax.xml.bind.JAXBElement;
-import java.beans.Expression;
 import java.util.ArrayList;
 
 /**
@@ -149,6 +146,15 @@ public class SignedAtomModel extends FormulaModel {
         }
 
         Atom.setName(name);
+        IsNegative = false;
+    }
+
+    public void setName(String name, String index) {
+        if (Atom == null){
+            Atom = new AtomModel(this);
+        }
+
+        Atom.setName(name, index);
         IsNegative = false;
     }
 }
