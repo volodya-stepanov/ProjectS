@@ -6,20 +6,21 @@ import org.antlr.v4.runtime.CommonTokenStream;
 import org.antlr.v4.runtime.tree.ParseTree;
 import org.antlr.v4.runtime.tree.ParseTreeWalker;
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import java.net.URL;
+
+import static com.sun.org.apache.xerces.internal.utils.SecuritySupport.getResourceAsStream;
 
 public class App {
-    private JButton button_msg;
     private JPanel panelMain;
-    private JTextField text_field_formula;
-    private JLabel label_result;
-    private JTextField text_field_description;
-
-    private DocumentModel currentDocument;
+    private JTree tree1;
+    private JEditorPane editorPane1;
 
     public static void main(String[] args) {
         // Это мой первый код, написанный в этом приложении. Код написан 9 января 2019 года в 19:50 и взят из урока, расположенного по ссылке: https://youtu.be/5vSyylPPEko
@@ -27,59 +28,84 @@ public class App {
         frame.setContentPane(new App().panelMain);
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         frame.pack();
+        frame.setExtendedState(JFrame.MAXIMIZED_BOTH);  // Для отображения на весь экран
         frame.setVisible(true);
+
+        JMenuBar menuBar = new JMenuBar();
+
+        JMenu fileMenu = new JMenu("Файл");
+        JMenu editMenu = new JMenu("Правка");
+        JMenu searchMenu = new JMenu("Поиск");
+        JMenu helpMenu = new JMenu("Справка");
+
+        JMenu createMenu = new JMenu("Создать");
+        JMenuItem createDocMenuItem = new JMenuItem("Документ");
+
+        // TODO: Не получилось задать иконки пунктам меню
+//        String path = "ic_file.png";
+//        URL imgURL = App.class.getResource(path);
+//        ImageIcon icon = new ImageIcon(imgURL);
+//
+//        createDocMenuItem.setIcon(icon);
+
+        JMenuItem createTaskMenuItem = new JMenuItem("Задание");
+
+        createTaskMenuItem.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                CreateTaskForm form = new CreateTaskForm();
+            }
+        });
+
+        createMenu.add(createDocMenuItem);
+        createMenu.add(createTaskMenuItem);
+
+        JMenuItem openMenuItem = new JMenuItem("Открыть");
+        // Toolkit.getDefaultToolkit().getMenuShortcutKeyMask() возвращает Ctrl
+        openMenuItem.setAccelerator(KeyStroke.getKeyStroke('O', Toolkit.getDefaultToolkit ().getMenuShortcutKeyMask()));
+
+
+        JMenuItem saveMenuItem = new JMenuItem("Сохранить");
+        JMenuItem saveAsMenuItem = new JMenuItem("Сохранить как...");
+        JMenuItem exitMenuItem = new JMenuItem("Выход");
+
+        exitMenuItem.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                System.exit(1);
+            }
+        });
+
+        JMenuItem undoMenuItem = new JMenuItem("Отменить");
+        JMenuItem redoMenuItem = new JMenuItem("Повторить");
+        JMenuItem cutMenuItem = new JMenuItem("Вырезать");
+        JMenuItem copyMenuItem = new JMenuItem("Копировать");
+        JMenuItem pasteMenuItem = new JMenuItem("Вставить");
+
+        fileMenu.add(createMenu);
+        fileMenu.add(openMenuItem);
+        fileMenu.addSeparator();
+        fileMenu.add(saveMenuItem);
+        fileMenu.add(saveAsMenuItem);
+        fileMenu.addSeparator();
+        fileMenu.add(exitMenuItem);
+
+        editMenu.add(undoMenuItem);
+        editMenu.add(redoMenuItem);
+        editMenu.addSeparator();
+        editMenu.add(cutMenuItem);
+        editMenu.add(copyMenuItem);
+        editMenu.add(pasteMenuItem);
+
+        menuBar.add(fileMenu);
+        menuBar.add(editMenu);
+        menuBar.add(searchMenu);
+        menuBar.add(helpMenu);
+
+        frame.setJMenuBar(menuBar);
     }
 
     public App() {
-        currentDocument = new DocumentModel("D:\\Test\\Test.docx");
-
-        button_msg.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                //handleTask();
-                CreateTaskForm form = new CreateTaskForm();
-
-            }
-        });
-        text_field_formula.addKeyListener(new KeyAdapter() {
-            @Override
-            public void keyPressed(KeyEvent e) {
-                int code = e.getKeyCode();
-
-                if (code == 10){
-                    handleTask();
-                }
-            }
-        });
+        // CreateTaskForm form = new CreateTaskForm();
     }
 
-    /**
-     * Выполняет считывание исходных данных, создание задания и его обработку
-     */
-    private void handleTask(){
-        // Получаем описание и формулу, введенные пользователем
-        String description = text_field_description.getText();
-        String formulaString = text_field_formula.getText();
 
-        // Создаём задание
-        QuadraticEquation equation = new QuadraticEquation(currentDocument, description, formulaString);
-
-        // Парсим формулу и устанавливаем её документу
-        FormulaModel formula = parseFormula(formulaString);
-        equation.setFormula(formula);
-        equation.solve();
-        equation.saveToDocument();
-    }
-
-    private FormulaModel parseFormula(String expression){
-        //TODO: Если этот метод поместить в класс TaskModel, то класс ArithmeticLexer и другие классы почему-то не видны
-        ArithmeticLexer lexer = new ArithmeticLexer(CharStreams.fromString(expression));
-        CommonTokenStream tokens = new CommonTokenStream(lexer);
-        ArithmeticParser parser = new ArithmeticParser(tokens);
-        ParseTree tree = parser.equation();   // Здесь переключаются правила!
-        ParseTreeWalker parseTreeWalker = new ParseTreeWalker();
-        ArithmeticWalker arithmeticWalker = new ArithmeticWalker();
-        parseTreeWalker.walk(arithmeticWalker, tree);
-        //label_result.setText(arithmeticWalker.CurrentEquation.toString());
-        return arithmeticWalker.CurrentEquation;
-    }
 }

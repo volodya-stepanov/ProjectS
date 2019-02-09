@@ -2,33 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f996e41e-f78d-442a-bace-c49e36561405" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/CreateTaskForm.form" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/CreateTaskForm.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ic_file.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/App.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/App.form" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/App.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/DataModels/Formulas/AtomModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DataModels/Formulas/AtomModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/DataModels/Formulas/ExpressionModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DataModels/Formulas/ExpressionModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/DataModels/Formulas/FactorModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DataModels/Formulas/FactorModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/DataModels/Formulas/NumberModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DataModels/Formulas/NumberModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/DataModels/Formulas/SignedAtomModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DataModels/Formulas/SignedAtomModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/DataModels/Formulas/SquareRoot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DataModels/Formulas/SquareRoot.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/DataModels/Formulas/TermModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DataModels/Formulas/TermModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/DataModels/Formulas/VariableModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DataModels/Formulas/VariableModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/DataModels/Objects/DocumentHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Helpers/DocumentHelper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/DataModels/Tasks/QuadraticEquation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DataModels/Tasks/QuadraticEquation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/CreateTaskForm.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/CreateTaskForm.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/CreateTaskForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/CreateTaskForm.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/App$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/App$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/App$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/App$2.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/App.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/App.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/DataModels/Formulas/AtomModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/DataModels/Formulas/AtomModel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/DataModels/Formulas/ExpressionModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/DataModels/Formulas/ExpressionModel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/DataModels/Formulas/FactorModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/DataModels/Formulas/FactorModel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/DataModels/Formulas/NumberModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/DataModels/Formulas/NumberModel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/DataModels/Formulas/SignedAtomModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/DataModels/Formulas/SignedAtomModel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/DataModels/Formulas/SquareRoot.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/DataModels/Formulas/SquareRoot.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/DataModels/Formulas/TermModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/DataModels/Formulas/TermModel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/DataModels/Formulas/VariableModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/DataModels/Formulas/VariableModel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/DataModels/Objects/DocumentHelper.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/DataModels/Tasks/QuadraticEquation.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/DataModels/Tasks/QuadraticEquation.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/CreateTaskForm.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/CreateTaskForm.class" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -41,15 +25,33 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/App.form">
+          <provider selected="true" editor-type-id="ui-designer" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/App.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="129">
-              <caret line="25" column="8" lean-forward="true" selection-start-line="25" selection-start-column="8" selection-end-line="29" selection-end-column="31" />
+            <state relative-caret-position="325">
+              <caret line="27" column="41" lean-forward="true" selection-start-line="27" selection-start-column="41" selection-end-line="27" selection-end-column="41" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#1286#1438#0" expanded="true" />
-                <element signature="e#1437#1438#0" expanded="true" />
-                <element signature="method#parseFormula#0;class#App#0" />
+                <element signature="e#1971#2134#0" expanded="true" />
+                <element signature="e#2133#2134#0" expanded="true" />
+                <element signature="e#2716#2851#0" expanded="true" />
+                <element signature="e#2850#2851#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="jar://C:/Program Files/Java/jdk1.8.0_25/src.zip!/javax/swing/ImageIcon.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="114">
+              <caret line="216" selection-start-line="216" selection-end-line="216" />
+              <folding>
+                <element signature="e#6757#6758#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -58,8 +60,17 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/CreateTaskForm.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="43">
-              <caret line="4" column="46" selection-start-line="4" selection-start-column="46" selection-end-line="4" selection-end-column="46" />
+            <state relative-caret-position="374">
+              <caret line="22" lean-forward="true" selection-start-line="22" selection-end-line="22" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#1226#1422#0" expanded="true" />
+                <element signature="e#1421#1422#0" expanded="true" />
+                <element signature="e#1467#1709#0" expanded="true" />
+                <element signature="e#1708#1709#0" expanded="true" />
+                <element signature="docComment;method#handleTask#0;class#CreateTaskForm#0" />
+                <element signature="method#parseFormula#0;class#CreateTaskForm#0" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -126,7 +137,6 @@
         <option value="$PROJECT_DIR$/src/main/java/DataModels/SolutionBlocks/SolutionBlock.java" />
         <option value="$PROJECT_DIR$/src/main/java/DataModels/SolutionBlocks/TextBlock.java" />
         <option value="$PROJECT_DIR$/src/main/java/DataModels/SolutionBlocks/FormulaBlock.java" />
-        <option value="$PROJECT_DIR$/src/main/java/App.form" />
         <option value="$PROJECT_DIR$/src/main/java/DataModels/Tasks/TaskModel.java" />
         <option value="$PROJECT_DIR$/src/main/java/DataModels/Formulas/EquationModel.java" />
         <option value="$PROJECT_DIR$/src/main/java/DataModels/Objects/ParseHelper.java" />
@@ -146,14 +156,18 @@
         <option value="$PROJECT_DIR$/src/main/java/DataModels/Formulas/VariableModel.java" />
         <option value="$PROJECT_DIR$/src/main/java/DataModels/Formulas/NumberModel.java" />
         <option value="$PROJECT_DIR$/src/main/java/DataModels/Tasks/QuadraticEquation.java" />
+        <option value="$PROJECT_DIR$/src/main/java/CreateTaskForm.form" />
+        <option value="$PROJECT_DIR$/src/main/java/App.form" />
         <option value="$PROJECT_DIR$/src/main/java/App.java" />
         <option value="$PROJECT_DIR$/src/main/java/CreateTaskForm.java" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="width" value="683" />
-    <option name="height" value="728" />
+  <component name="ProjectFrameBounds" extendedState="7">
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="1382" />
+    <option name="height" value="744" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -161,6 +175,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -186,19 +201,10 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="ProjectS" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ProjectS" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="CreateTaskForm" type="e9f4de52:FormNode" />
-            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
       <pane id="Scope" />
     </panes>
   </component>
@@ -211,7 +217,7 @@
     <property name="$PROJECT_DIR$/src/main/Arithmetic.g4::/output-dir" value="D:\version-control\ProjectS\src\main" />
     <property name="$PROJECT_DIR$/src/main/Arithmetic.g4::/package" value="com.razrabotkin" />
     <property name="UI_DESIGNER_EDITOR_MODE.PaletteManager.SHOW" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1549658568291" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1549711537219" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
@@ -221,6 +227,9 @@
   <component name="RecentsManager">
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\version-control\ProjectS\src\main\java" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\version-control\ProjectS\src\main" />
@@ -269,7 +278,7 @@
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.23676248" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.23676248" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -278,7 +287,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32569557" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.4893617" />
+      <window_info anchor="bottom" auto_hide="true" id="Run" order="2" type="SLIDING" weight="0.4893617" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39770868" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -288,7 +297,7 @@
       <window_info anchor="bottom" id="Terminal" order="9" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" weight="0.32922733" />
       <window_info anchor="bottom" id="ANTLR Preview" order="11" />
-      <window_info anchor="bottom" id="Messages" order="12" weight="0.3207856" />
+      <window_info anchor="bottom" id="Messages" order="12" type="SLIDING" weight="0.31932774" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -466,10 +475,6 @@
           </folding>
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/App.form">
-      <provider editor-type-id="text-editor" />
-      <provider selected="true" editor-type-id="ui-designer" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/DataModels/Tasks/TaskModel.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -802,23 +807,50 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/CreateTaskForm.form">
       <provider selected="true" editor-type-id="ui-designer" />
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ic_file.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_25/src.zip!/javax/swing/ImageIcon.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="114">
+          <caret line="216" selection-start-line="216" selection-end-line="216" />
+          <folding>
+            <element signature="e#6757#6758#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/App.form">
+      <provider editor-type-id="text-editor" />
+      <provider selected="true" editor-type-id="ui-designer" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/App.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="129">
-          <caret line="25" column="8" lean-forward="true" selection-start-line="25" selection-start-column="8" selection-end-line="29" selection-end-column="31" />
+        <state relative-caret-position="325">
+          <caret line="27" column="41" lean-forward="true" selection-start-line="27" selection-start-column="41" selection-end-line="27" selection-end-column="41" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1286#1438#0" expanded="true" />
-            <element signature="e#1437#1438#0" expanded="true" />
-            <element signature="method#parseFormula#0;class#App#0" />
+            <element signature="e#1971#2134#0" expanded="true" />
+            <element signature="e#2133#2134#0" expanded="true" />
+            <element signature="e#2716#2851#0" expanded="true" />
+            <element signature="e#2850#2851#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/CreateTaskForm.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="43">
-          <caret line="4" column="46" selection-start-line="4" selection-start-column="46" selection-end-line="4" selection-end-column="46" />
+        <state relative-caret-position="374">
+          <caret line="22" lean-forward="true" selection-start-line="22" selection-end-line="22" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1226#1422#0" expanded="true" />
+            <element signature="e#1421#1422#0" expanded="true" />
+            <element signature="e#1467#1709#0" expanded="true" />
+            <element signature="e#1708#1709#0" expanded="true" />
+            <element signature="docComment;method#handleTask#0;class#CreateTaskForm#0" />
+            <element signature="method#parseFormula#0;class#CreateTaskForm#0" />
+          </folding>
         </state>
       </provider>
     </entry>
