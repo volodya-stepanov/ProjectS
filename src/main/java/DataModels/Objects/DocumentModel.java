@@ -19,7 +19,7 @@ import java.util.ArrayList;
  */
 public class DocumentModel {
     /** Список заданий */
-    private ArrayList<TaskModel> Tasks;
+    public ArrayList<TaskModel> Tasks;
 
     /** Путь к файлу */
     private String Path;
@@ -37,8 +37,9 @@ public class DocumentModel {
      * Инициализирует экземпляр класса
      */
     public DocumentModel(){
-        Tasks = new ArrayList<TaskModel>();
         WmlObjectFactory = new org.docx4j.wml.ObjectFactory();
+
+        Tasks = new ArrayList<TaskModel>();
     }
 
     /**

@@ -10,6 +10,9 @@ import java.util.ArrayList;
  */
 public abstract class TaskModel {
 
+    /** Постоянное название задания для отображения в дереве заданий */
+    protected String DisplayName;
+
     /** Описание (текстовая часть) задания */
     protected String Description;
 
@@ -22,8 +25,11 @@ public abstract class TaskModel {
     /** Документ, в котором содержится данное задание */
     protected DocumentModel Document;
 
+    /** Ответ в виде строки для отображения и вставки в документ */
+    protected String Answer;
+
     /** Массив блоков решения для записи в документ */
-    protected ArrayList<SolutionBlock> SolutionBlocks;
+    public ArrayList<SolutionBlock> SolutionBlocks;
 
     /**
      * Инициализирует экземпляр класса
@@ -53,10 +59,27 @@ public abstract class TaskModel {
 
     }
 
+    @Override
+    public String toString() {
+        return DisplayName;
+    }
 
+    // Методы-мутаторы
+    /**
+     * Возвращает постоянное название задания для отображения в дереве заданий
+     * @return Постоянное название задания для отображения в дереве заданий
+     */
+    public String getDisplayName() {
+        return DisplayName;
+    }
 
-
-
+    /**
+     * Задаёт постоянное название задания для отображения в дереве заданий
+     * @param displayName Постоянное название задания для отображения в дереве заданий
+     */
+    public void setDisplayName(String displayName) {
+        DisplayName = displayName;
+    }
 
     /**
      * Возвращает описание (текстовую часть) задания
@@ -72,6 +95,22 @@ public abstract class TaskModel {
      */
     public void setDescription(String description) {
         Description = description;
+    }
+
+    /**
+     * Возвращает ответ в виде строки для отображения и вставки в документ
+     * @return Ответ в виде строки для отображения и вставки в документ
+     */
+    public String getAnswer() {
+        return Answer;
+    }
+
+    /**
+     * Задаёт ответ в виде строки для отображения и вставки в документ
+     * @param answer Ответ в виде строки для отображения и вставки в документ
+     */
+    public void setAnswer(String answer) {
+        Answer = answer;
     }
 
     /**

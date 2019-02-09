@@ -25,6 +25,7 @@ public class QuadraticEquation extends TaskModel{
      */
     public QuadraticEquation(DocumentModel document, String description, String formulaString) {
         super(document, description, formulaString);
+        DisplayName = "Квадратное уравнение";
         Answers = new ArrayList<Double>();
     }
 
@@ -51,21 +52,20 @@ public class QuadraticEquation extends TaskModel{
             }
 
             // Добавляем в документ ответ
-            String answer;
             NumberFormat nf = new DecimalFormat("#.######");
 
             if (Answers.size() == 2){
                 String x1 = nf.format(Answers.get(0));
                 String x2 = nf.format(Answers.get(1));
-                answer = "x1 = " + x1 + "; x2 = " + x2 + ".";
+                Answer = "x1 = " + x1 + "; x2 = " + x2 + ".";
             } else if (Answers.size() == 1) {
                 String x = nf.format(Answers.get(0));
-                answer = "x1,2 = " + x + ".";
+                Answer = "x1,2 = " + x + ".";
             } else {
-                answer = "Нет корней.";
+                Answer = "Нет корней.";
             }
 
-            Document.addAnswer(answer);
+            Document.addAnswer(Answer);
 
             Document.addBreak();
 

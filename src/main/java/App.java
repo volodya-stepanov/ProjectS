@@ -1,6 +1,11 @@
 import DataModels.Objects.DocumentModel;
 import DataModels.Formulas.FormulaModel;
+import DataModels.SolutionBlocks.FormulaBlock;
+import DataModels.SolutionBlocks.SolutionBlock;
+import DataModels.SolutionBlocks.TextBlock;
 import DataModels.Tasks.QuadraticEquation;
+import DataModels.Tasks.TaskModel;
+import Helpers.ClassHelper;
 import org.antlr.v4.runtime.CharStreams;
 import org.antlr.v4.runtime.CommonTokenStream;
 import org.antlr.v4.runtime.tree.ParseTree;
@@ -8,6 +13,15 @@ import org.antlr.v4.runtime.tree.ParseTreeWalker;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
+import javax.swing.event.TreeSelectionEvent;
+import javax.swing.event.TreeSelectionListener;
+import javax.swing.text.BadLocationException;
+import javax.swing.text.Document;
+import javax.swing.text.SimpleAttributeSet;
+import javax.swing.text.StyleConstants;
+import javax.swing.tree.DefaultMutableTreeNode;
+import javax.swing.tree.DefaultTreeModel;
+import javax.swing.tree.TreePath;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -19,19 +33,40 @@ import static com.sun.org.apache.xerces.internal.utils.SecuritySupport.getResour
 
 public class App {
     private JPanel panelMain;
-    private JTree tree1;
-    private JEditorPane editorPane1;
+    private JTree tree;
+    private JTextPane textPane1;
+    private JMenuBar menuBar;
+
+    public DocumentModel CurrentDocument;
 
     public static void main(String[] args) {
         // Это мой первый код, написанный в этом приложении. Код написан 9 января 2019 года в 19:50 и взят из урока, расположенного по ссылке: https://youtu.be/5vSyylPPEko
-        JFrame frame = new JFrame("App");
-        frame.setContentPane(new App().panelMain);
+        JFrame frame = new JFrame("Систематика");
+
+        App app = new App();
+
+        frame.setContentPane(app.panelMain);
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         frame.pack();
         frame.setExtendedState(JFrame.MAXIMIZED_BOTH);  // Для отображения на весь экран
         frame.setVisible(true);
 
-        JMenuBar menuBar = new JMenuBar();
+        frame.setJMenuBar(app.menuBar);
+    }
+
+    public App() {
+        // CreateTaskForm form = new CreateTaskForm();
+        CurrentDocument = new DocumentModel("D:\\Test\\Test.docx");
+
+        createMenu();
+
+        createTree();
+
+        createTextPane();
+    }
+
+    private void createMenu() {
+        menuBar = new JMenuBar();
 
         JMenu fileMenu = new JMenu("Файл");
         JMenu editMenu = new JMenu("Правка");
@@ -52,7 +87,9 @@ public class App {
 
         createTaskMenuItem.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                CreateTaskForm form = new CreateTaskForm();
+                CreateTaskForm form = new CreateTaskForm(App.this);
+
+
             }
         });
 
@@ -74,6 +111,13 @@ public class App {
             }
         });
 
+        JMenuItem updateMenuItem = new JMenuItem("Обновить");
+        updateMenuItem.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                refreshTree();
+            }
+        });
+
         JMenuItem undoMenuItem = new JMenuItem("Отменить");
         JMenuItem redoMenuItem = new JMenuItem("Повторить");
         JMenuItem cutMenuItem = new JMenuItem("Вырезать");
@@ -88,6 +132,7 @@ public class App {
         fileMenu.addSeparator();
         fileMenu.add(exitMenuItem);
 
+        editMenu.add(updateMenuItem);
         editMenu.add(undoMenuItem);
         editMenu.add(redoMenuItem);
         editMenu.addSeparator();
@@ -100,12 +145,112 @@ public class App {
         menuBar.add(searchMenu);
         menuBar.add(helpMenu);
 
-        frame.setJMenuBar(menuBar);
+
     }
 
-    public App() {
-        // CreateTaskForm form = new CreateTaskForm();
+    private void createTree(){
+        int hashcode = App.this.hashCode();
+        System.out.println("Зашли в метод создания дерева. Хэш-код: " + String.valueOf(hashcode));
+
+        // Создаём корневой узел
+        DefaultMutableTreeNode root = new DefaultMutableTreeNode("Работа №1");
+
+        // Создаём дочерние узлы
+        DefaultMutableTreeNode node1 = new DefaultMutableTreeNode("Квадратное уравнение");
+        DefaultMutableTreeNode node2 = new DefaultMutableTreeNode("Производная");
+        DefaultMutableTreeNode node3 = new DefaultMutableTreeNode("Неопределённый интеграл");
+
+        // Добавляем дочерние узлы к корневому
+        root.add(node1);
+        root.add(node2);
+        root.add(node3);
+
+        // Создаём дерево с нужным корнем
+        ((DefaultTreeModel)tree.getModel()).setRoot(root);
+
+        tree.getSelectionModel().addTreeSelectionListener(new TreeSelectionListener() {
+            public void valueChanged(TreeSelectionEvent e) {
+                DefaultMutableTreeNode selectedNode = (DefaultMutableTreeNode) tree.getLastSelectedPathComponent();
+
+                TaskModel selectedTask = (TaskModel) selectedNode.getUserObject();
+
+                fillTextPane(selectedTask);
+            }
+        });
+
+        //refreshTree();
     }
 
 
+
+    public void refreshTree(){
+        System.out.println("Зашли в метод обновления дерева");
+
+        // Создаём корневой узел
+        DefaultMutableTreeNode root = new DefaultMutableTreeNode("Работа №1");
+
+        for(TaskModel task : CurrentDocument.Tasks){
+            DefaultMutableTreeNode node = new DefaultMutableTreeNode(task);
+            root.add(node);
+        }
+
+        // Создаём дерево с нужным корнем
+        ((DefaultTreeModel)tree.getModel()).setRoot(root);
+        ((DefaultTreeModel)tree.getModel()).reload();
+
+        tree.setVisible(false);
+        tree.revalidate();
+        tree.setVisible(true);
+
+
+        System.out.println("Обновили дерево");
+    }
+
+    private void createTextPane(){
+        SimpleAttributeSet headerSet = new SimpleAttributeSet();
+        StyleConstants.setBold(headerSet, true);
+        textPane1.setCharacterAttributes(headerSet, true);
+        textPane1.setText("Решите квадратное уравнение: \n\n");
+
+        SimpleAttributeSet bodySet = new SimpleAttributeSet();
+        Document doc = textPane1.getStyledDocument();
+        try {
+            doc.insertString(doc.getLength(), "Сдесь будет уравнение ", bodySet);
+        } catch (BadLocationException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void fillTextPane(TaskModel selectedTask) {
+        SimpleAttributeSet headerSet = new SimpleAttributeSet();
+        SimpleAttributeSet bodySet = new SimpleAttributeSet();
+
+        StyleConstants.setBold(headerSet, true);
+        textPane1.setCharacterAttributes(headerSet, true);
+        textPane1.setText(selectedTask.getDescription() + "\n\n");
+
+        Document doc = textPane1.getStyledDocument();
+        try {
+            doc.insertString(doc.getLength(), selectedTask.getFormula().toString() + "\n\n", bodySet);
+            doc.insertString(doc.getLength(), "Решение\n\n", headerSet);
+
+            ClassHelper helper = new ClassHelper();
+
+            for (SolutionBlock solutionBlock : selectedTask.SolutionBlocks){
+                if (helper.isTypeOf(solutionBlock, TextBlock.class)){
+                    TextBlock textBlock = (TextBlock) solutionBlock;
+                    doc.insertString(doc.getLength(), textBlock.getValue() + "\n\n", bodySet);
+                } else if (helper.isTypeOf(solutionBlock, FormulaBlock.class)){
+                    FormulaBlock formulaBlock = (FormulaBlock) solutionBlock;
+                    doc.insertString(doc.getLength(), formulaBlock.getFormula() + "\n\n", bodySet);
+                }
+            }
+
+            doc.insertString(doc.getLength(), "Ответ: ", headerSet);
+            doc.insertString(doc.getLength(), selectedTask.getAnswer(), bodySet);
+
+        } catch (BadLocationException e) {
+            e.printStackTrace();
+        }
+    }
 }

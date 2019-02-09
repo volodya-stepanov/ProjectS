@@ -2,17 +2,22 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f996e41e-f78d-442a-bace-c49e36561405" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/ic_file.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/App.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/App.form" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/App.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/CreateTaskForm.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/CreateTaskForm.form" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/CreateTaskForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/CreateTaskForm.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/DataModels/Objects/DocumentModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DataModels/Objects/DocumentModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/DataModels/Tasks/QuadraticEquation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DataModels/Tasks/QuadraticEquation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/DataModels/Tasks/TaskModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DataModels/Tasks/TaskModel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/App$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/App$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/App$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/App$2.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/App.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/App.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/CreateTaskForm$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/CreateTaskForm$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/CreateTaskForm$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/CreateTaskForm$2.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/CreateTaskForm.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/CreateTaskForm.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/DataModels/Objects/DocumentModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/DataModels/Objects/DocumentModel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/DataModels/Tasks/QuadraticEquation.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/DataModels/Tasks/QuadraticEquation.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/DataModels/Tasks/TaskModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/DataModels/Tasks/TaskModel.class" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -29,47 +34,104 @@
           <provider selected="true" editor-type-id="ui-designer" />
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/App.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="325">
-              <caret line="27" column="41" lean-forward="true" selection-start-line="27" selection-start-column="41" selection-end-line="27" selection-end-column="41" />
+            <state relative-caret-position="328">
+              <caret line="249" column="81" selection-start-line="249" selection-start-column="81" selection-end-line="249" selection-end-column="81" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#1971#2134#0" expanded="true" />
-                <element signature="e#2133#2134#0" expanded="true" />
-                <element signature="e#2716#2851#0" expanded="true" />
-                <element signature="e#2850#2851#0" expanded="true" />
+                <element signature="method#createMenu#0;class#App#0" />
+                <element signature="e#2780#2953#0" expanded="true" />
+                <element signature="e#2952#2953#0" expanded="true" />
+                <element signature="e#3535#3670#0" expanded="true" />
+                <element signature="e#3669#3670#0" expanded="true" />
+                <element signature="e#3777#3911#0" expanded="true" />
+                <element signature="e#3910#3911#0" expanded="true" />
+                <element signature="e#5725#6116#0" expanded="true" />
+                <element signature="e#6115#6116#0" expanded="true" />
+                <element signature="method#refreshTree#0;class#App#0" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="jar://C:/Program Files/Java/jdk1.8.0_25/src.zip!/javax/swing/ImageIcon.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/DataModels/Objects/DocumentModel.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="114">
-              <caret line="216" selection-start-line="216" selection-end-line="216" />
+            <state relative-caret-position="195">
+              <caret line="21" column="25" selection-start-line="21" selection-start-column="25" selection-end-line="21" selection-end-column="25" />
               <folding>
-                <element signature="e#6757#6758#0" expanded="true" />
+                <element signature="imports" expanded="true" />
+                <element signature="docComment;method#DocumentModel#0;class#DocumentModel#0" />
+                <element signature="docComment;method#DocumentModel#1;class#DocumentModel#0" />
+                <element signature="method#DocumentModel#1;class#DocumentModel#0" />
+                <element signature="docComment;method#create#0;class#DocumentModel#0" />
+                <element signature="method#create#0;class#DocumentModel#0" />
+                <element signature="docComment;method#createDocument#0;class#DocumentModel#0" />
+                <element signature="method#createDocument#0;class#DocumentModel#0" />
+                <element signature="docComment;method#addText#0;class#DocumentModel#0" />
+                <element signature="method#addText#0;class#DocumentModel#0" />
+                <element signature="docComment;method#addBreak#0;class#DocumentModel#0" />
+                <element signature="method#addBreak#0;class#DocumentModel#0" />
+                <element signature="method#addAnswer#0;class#DocumentModel#0" />
+                <element signature="docComment;method#addFormula#0;class#DocumentModel#0" />
+                <element signature="method#addFormula#0;class#DocumentModel#0" />
+                <element signature="docComment;method#save#0;class#DocumentModel#0" />
+                <element signature="method#save#0;class#DocumentModel#0" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/CreateTaskForm.java">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/DataModels/Tasks/TaskModel.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="374">
-              <caret line="22" lean-forward="true" selection-start-line="22" selection-end-line="22" />
+            <state relative-caret-position="1280">
+              <caret line="111" column="39" selection-start-line="111" selection-start-column="39" selection-end-line="111" selection-end-column="39" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#1226#1422#0" expanded="true" />
-                <element signature="e#1421#1422#0" expanded="true" />
-                <element signature="e#1467#1709#0" expanded="true" />
-                <element signature="e#1708#1709#0" expanded="true" />
-                <element signature="docComment;method#handleTask#0;class#CreateTaskForm#0" />
-                <element signature="method#parseFormula#0;class#CreateTaskForm#0" />
+                <element signature="docComment;method#TaskModel#0;class#TaskModel#0" />
+                <element signature="method#TaskModel#0;class#TaskModel#0" />
+                <element signature="docComment;method#solve#0;class#TaskModel#0" />
+                <element signature="method#solve#0;class#TaskModel#0" />
+                <element signature="docComment;method#saveToDocument#0;class#TaskModel#0" />
+                <element signature="method#saveToDocument#0;class#TaskModel#0" />
+                <element signature="e#1647#1648#0" expanded="true" />
+                <element signature="e#1686#1687#0" expanded="true" />
+                <element signature="docComment;method#getDescription#0;class#TaskModel#0" />
+                <element signature="docComment;method#setDescription#0;class#TaskModel#0" />
+                <element signature="e#2884#2885#0" expanded="true" />
+                <element signature="e#2918#2919#0" expanded="true" />
+                <element signature="e#3098#3099#0" expanded="true" />
+                <element signature="e#3139#3140#0" expanded="true" />
+                <element signature="docComment;method#getFormulaString#0;class#TaskModel#0" />
+                <element signature="docComment;method#setFormulaString#0;class#TaskModel#0" />
+                <element signature="docComment;method#setFormula#0;class#TaskModel#0" />
+                <element signature="docComment;method#getFormula#0;class#TaskModel#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/DataModels/Tasks/QuadraticEquation.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="140">
+              <caret line="59" column="22" selection-start-line="59" selection-start-column="22" selection-end-line="59" selection-end-column="22" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="docComment;method#QuadraticEquation#0;class#QuadraticEquation#0" />
+                <element signature="method#solve#0;class#QuadraticEquation#0" />
+                <element signature="docComment;method#findCoefficients#0;class#QuadraticEquation#0" />
+                <element signature="method#findCoefficients#0;class#QuadraticEquation#0" />
+                <element signature="docComment;method#findDiscriminant#0;class#QuadraticEquation#0" />
+                <element signature="method#findDiscriminant#0;class#QuadraticEquation#0" />
+                <element signature="method#findX#0;class#QuadraticEquation#0" />
+                <element signature="method#findX1#0;class#QuadraticEquation#0" />
+                <element signature="method#findX2#0;class#QuadraticEquation#0" />
+                <element signature="method#generateX1Formula#0;class#QuadraticEquation#0" />
+                <element signature="method#generateXFormula#0;class#QuadraticEquation#0" />
               </folding>
             </state>
           </provider>
@@ -108,6 +170,11 @@
       <find>factor6</find>
       <find>setn</find>
       <find>toope</find>
+      <find>CurrentDocument</find>
+      <find>tree</find>
+      <find>createTree</find>
+      <find>solutionB</find>
+      <find>answer</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -137,7 +204,6 @@
         <option value="$PROJECT_DIR$/src/main/java/DataModels/SolutionBlocks/SolutionBlock.java" />
         <option value="$PROJECT_DIR$/src/main/java/DataModels/SolutionBlocks/TextBlock.java" />
         <option value="$PROJECT_DIR$/src/main/java/DataModels/SolutionBlocks/FormulaBlock.java" />
-        <option value="$PROJECT_DIR$/src/main/java/DataModels/Tasks/TaskModel.java" />
         <option value="$PROJECT_DIR$/src/main/java/DataModels/Formulas/EquationModel.java" />
         <option value="$PROJECT_DIR$/src/main/java/DataModels/Objects/ParseHelper.java" />
         <option value="$PROJECT_DIR$/src/main/java/Helpers/ParseHelper.java" />
@@ -155,19 +221,20 @@
         <option value="$PROJECT_DIR$/src/main/java/Helpers/DocumentHelper.java" />
         <option value="$PROJECT_DIR$/src/main/java/DataModels/Formulas/VariableModel.java" />
         <option value="$PROJECT_DIR$/src/main/java/DataModels/Formulas/NumberModel.java" />
-        <option value="$PROJECT_DIR$/src/main/java/DataModels/Tasks/QuadraticEquation.java" />
         <option value="$PROJECT_DIR$/src/main/java/CreateTaskForm.form" />
-        <option value="$PROJECT_DIR$/src/main/java/App.form" />
-        <option value="$PROJECT_DIR$/src/main/java/App.java" />
+        <option value="$PROJECT_DIR$/src/main/java/AppFrame.java" />
+        <option value="$PROJECT_DIR$/src/main/java/DataModels/Objects/DocumentModel.java" />
         <option value="$PROJECT_DIR$/src/main/java/CreateTaskForm.java" />
+        <option value="$PROJECT_DIR$/src/main/java/App.form" />
+        <option value="$PROJECT_DIR$/src/main/java/DataModels/Tasks/TaskModel.java" />
+        <option value="$PROJECT_DIR$/src/main/java/DataModels/Tasks/QuadraticEquation.java" />
+        <option value="$PROJECT_DIR$/src/main/java/App.java" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
-    <option name="x" value="-8" />
-    <option name="y" value="-8" />
-    <option name="width" value="1382" />
-    <option name="height" value="744" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="width" value="683" />
+    <option name="height" value="728" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -201,6 +268,23 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="ProjectS" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ProjectS" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="DataModels" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ProjectS" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ProjectS" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="DataModels" type="462c0819:PsiDirectoryNode" />
+              <item name="Tasks" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -217,7 +301,7 @@
     <property name="$PROJECT_DIR$/src/main/Arithmetic.g4::/output-dir" value="D:\version-control\ProjectS\src\main" />
     <property name="$PROJECT_DIR$/src/main/Arithmetic.g4::/package" value="com.razrabotkin" />
     <property name="UI_DESIGNER_EDITOR_MODE.PaletteManager.SHOW" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1549711537219" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1549742974447" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
@@ -278,7 +362,7 @@
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.23676248" />
+      <window_info content_ui="combo" id="Project" order="0" weight="0.25945538" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -287,8 +371,8 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32569557" />
-      <window_info anchor="bottom" auto_hide="true" id="Run" order="2" type="SLIDING" weight="0.4893617" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.39770868" />
+      <window_info anchor="bottom" auto_hide="true" id="Run" order="2" type="SLIDING" weight="0.50252104" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.62356794" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -370,6 +454,12 @@
           <line>387</line>
           <properties />
           <option name="timeStamp" value="59" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/App.java</url>
+          <line>172</line>
+          <properties />
+          <option name="timeStamp" value="69" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
@@ -472,27 +562,6 @@
             <element signature="e#452#453#0" expanded="true" />
             <element signature="e#504#505#0" expanded="true" />
             <element signature="e#537#538#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/DataModels/Tasks/TaskModel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="561">
-          <caret line="38" column="8" selection-start-line="38" selection-start-column="8" selection-end-line="38" selection-end-column="8" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="docComment;method#TaskModel#0;class#TaskModel#0" />
-            <element signature="docComment;method#solve#0;class#TaskModel#0" />
-            <element signature="method#solve#0;class#TaskModel#0" />
-            <element signature="docComment;method#saveToDocument#0;class#TaskModel#0" />
-            <element signature="method#saveToDocument#0;class#TaskModel#0" />
-            <element signature="docComment;method#getDescription#0;class#TaskModel#0" />
-            <element signature="docComment;method#setDescription#0;class#TaskModel#0" />
-            <element signature="docComment;method#getFormulaString#0;class#TaskModel#0" />
-            <element signature="docComment;method#setFormulaString#0;class#TaskModel#0" />
-            <element signature="docComment;method#setFormula#0;class#TaskModel#0" />
-            <element signature="docComment;method#getFormula#0;class#TaskModel#0" />
           </folding>
         </state>
       </provider>
@@ -741,33 +810,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/DataModels/Objects/DocumentModel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="427">
-          <caret line="269" column="4" selection-start-line="269" selection-start-column="4" selection-end-line="269" selection-end-column="4" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="docComment;method#DocumentModel#0;class#DocumentModel#0" />
-            <element signature="method#DocumentModel#0;class#DocumentModel#0" />
-            <element signature="docComment;method#DocumentModel#1;class#DocumentModel#0" />
-            <element signature="method#DocumentModel#1;class#DocumentModel#0" />
-            <element signature="docComment;method#create#0;class#DocumentModel#0" />
-            <element signature="method#create#0;class#DocumentModel#0" />
-            <element signature="docComment;method#createDocument#0;class#DocumentModel#0" />
-            <element signature="method#createDocument#0;class#DocumentModel#0" />
-            <element signature="docComment;method#addText#0;class#DocumentModel#0" />
-            <element signature="method#addText#0;class#DocumentModel#0" />
-            <element signature="docComment;method#addBreak#0;class#DocumentModel#0" />
-            <element signature="method#addBreak#0;class#DocumentModel#0" />
-            <element signature="method#addAnswer#0;class#DocumentModel#0" />
-            <element signature="docComment;method#addFormula#0;class#DocumentModel#0" />
-            <element signature="method#addFormula#0;class#DocumentModel#0" />
-            <element signature="docComment;method#save#0;class#DocumentModel#0" />
-            <element signature="method#save#0;class#DocumentModel#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/DataModels/Formulas/NumberModel.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="151">
@@ -778,28 +820,6 @@
             <element signature="docComment;method#NumberModel#0;class#NumberModel#0" />
             <element signature="method#copy#0;class#NumberModel#0" />
             <element signature="docComment;method#getValue#0;class#NumberModel#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/DataModels/Tasks/QuadraticEquation.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="123">
-          <caret line="535" column="4" lean-forward="true" selection-start-line="535" selection-start-column="4" selection-end-line="535" selection-end-column="4" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="docComment;method#QuadraticEquation#0;class#QuadraticEquation#0" />
-            <element signature="method#QuadraticEquation#0;class#QuadraticEquation#0" />
-            <element signature="method#solve#0;class#QuadraticEquation#0" />
-            <element signature="docComment;method#findCoefficients#0;class#QuadraticEquation#0" />
-            <element signature="method#findCoefficients#0;class#QuadraticEquation#0" />
-            <element signature="docComment;method#findDiscriminant#0;class#QuadraticEquation#0" />
-            <element signature="method#findDiscriminant#0;class#QuadraticEquation#0" />
-            <element signature="method#findX#0;class#QuadraticEquation#0" />
-            <element signature="method#findX1#0;class#QuadraticEquation#0" />
-            <element signature="method#findX2#0;class#QuadraticEquation#0" />
-            <element signature="method#generateX1Formula#0;class#QuadraticEquation#0" />
-            <element signature="method#generateXFormula#0;class#QuadraticEquation#0" />
           </folding>
         </state>
       </provider>
@@ -820,36 +840,122 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/App.form">
-      <provider editor-type-id="text-editor" />
-      <provider selected="true" editor-type-id="ui-designer" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/App.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/AppFrame.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="325">
-          <caret line="27" column="41" lean-forward="true" selection-start-line="27" selection-start-column="41" selection-end-line="27" selection-end-column="41" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1971#2134#0" expanded="true" />
-            <element signature="e#2133#2134#0" expanded="true" />
-            <element signature="e#2716#2851#0" expanded="true" />
-            <element signature="e#2850#2851#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="34">
+          <caret line="2" column="15" selection-start-line="2" selection-start-column="15" selection-end-line="2" selection-end-column="15" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/CreateTaskForm.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="22" lean-forward="true" selection-start-line="22" selection-end-line="22" />
+        <state relative-caret-position="-513">
+          <caret line="37" selection-start-line="37" selection-end-line="37" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1226#1422#0" expanded="true" />
-            <element signature="e#1421#1422#0" expanded="true" />
-            <element signature="e#1467#1709#0" expanded="true" />
-            <element signature="e#1708#1709#0" expanded="true" />
+            <element signature="e#1119#1315#0" expanded="true" />
+            <element signature="e#1314#1315#0" expanded="true" />
             <element signature="docComment;method#handleTask#0;class#CreateTaskForm#0" />
             <element signature="method#parseFormula#0;class#CreateTaskForm#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/App.form">
+      <provider editor-type-id="text-editor" />
+      <provider selected="true" editor-type-id="ui-designer" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/DataModels/Objects/DocumentModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="21" column="25" selection-start-line="21" selection-start-column="25" selection-end-line="21" selection-end-column="25" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="docComment;method#DocumentModel#0;class#DocumentModel#0" />
+            <element signature="docComment;method#DocumentModel#1;class#DocumentModel#0" />
+            <element signature="method#DocumentModel#1;class#DocumentModel#0" />
+            <element signature="docComment;method#create#0;class#DocumentModel#0" />
+            <element signature="method#create#0;class#DocumentModel#0" />
+            <element signature="docComment;method#createDocument#0;class#DocumentModel#0" />
+            <element signature="method#createDocument#0;class#DocumentModel#0" />
+            <element signature="docComment;method#addText#0;class#DocumentModel#0" />
+            <element signature="method#addText#0;class#DocumentModel#0" />
+            <element signature="docComment;method#addBreak#0;class#DocumentModel#0" />
+            <element signature="method#addBreak#0;class#DocumentModel#0" />
+            <element signature="method#addAnswer#0;class#DocumentModel#0" />
+            <element signature="docComment;method#addFormula#0;class#DocumentModel#0" />
+            <element signature="method#addFormula#0;class#DocumentModel#0" />
+            <element signature="docComment;method#save#0;class#DocumentModel#0" />
+            <element signature="method#save#0;class#DocumentModel#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/DataModels/Tasks/TaskModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1280">
+          <caret line="111" column="39" selection-start-line="111" selection-start-column="39" selection-end-line="111" selection-end-column="39" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="docComment;method#TaskModel#0;class#TaskModel#0" />
+            <element signature="method#TaskModel#0;class#TaskModel#0" />
+            <element signature="docComment;method#solve#0;class#TaskModel#0" />
+            <element signature="method#solve#0;class#TaskModel#0" />
+            <element signature="docComment;method#saveToDocument#0;class#TaskModel#0" />
+            <element signature="method#saveToDocument#0;class#TaskModel#0" />
+            <element signature="e#1647#1648#0" expanded="true" />
+            <element signature="e#1686#1687#0" expanded="true" />
+            <element signature="docComment;method#getDescription#0;class#TaskModel#0" />
+            <element signature="docComment;method#setDescription#0;class#TaskModel#0" />
+            <element signature="e#2884#2885#0" expanded="true" />
+            <element signature="e#2918#2919#0" expanded="true" />
+            <element signature="e#3098#3099#0" expanded="true" />
+            <element signature="e#3139#3140#0" expanded="true" />
+            <element signature="docComment;method#getFormulaString#0;class#TaskModel#0" />
+            <element signature="docComment;method#setFormulaString#0;class#TaskModel#0" />
+            <element signature="docComment;method#setFormula#0;class#TaskModel#0" />
+            <element signature="docComment;method#getFormula#0;class#TaskModel#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/DataModels/Tasks/QuadraticEquation.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="140">
+          <caret line="59" column="22" selection-start-line="59" selection-start-column="22" selection-end-line="59" selection-end-column="22" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="docComment;method#QuadraticEquation#0;class#QuadraticEquation#0" />
+            <element signature="method#solve#0;class#QuadraticEquation#0" />
+            <element signature="docComment;method#findCoefficients#0;class#QuadraticEquation#0" />
+            <element signature="method#findCoefficients#0;class#QuadraticEquation#0" />
+            <element signature="docComment;method#findDiscriminant#0;class#QuadraticEquation#0" />
+            <element signature="method#findDiscriminant#0;class#QuadraticEquation#0" />
+            <element signature="method#findX#0;class#QuadraticEquation#0" />
+            <element signature="method#findX1#0;class#QuadraticEquation#0" />
+            <element signature="method#findX2#0;class#QuadraticEquation#0" />
+            <element signature="method#generateX1Formula#0;class#QuadraticEquation#0" />
+            <element signature="method#generateXFormula#0;class#QuadraticEquation#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/App.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="328">
+          <caret line="249" column="81" selection-start-line="249" selection-start-column="81" selection-end-line="249" selection-end-column="81" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#createMenu#0;class#App#0" />
+            <element signature="e#2780#2953#0" expanded="true" />
+            <element signature="e#2952#2953#0" expanded="true" />
+            <element signature="e#3535#3670#0" expanded="true" />
+            <element signature="e#3669#3670#0" expanded="true" />
+            <element signature="e#3777#3911#0" expanded="true" />
+            <element signature="e#3910#3911#0" expanded="true" />
+            <element signature="e#5725#6116#0" expanded="true" />
+            <element signature="e#6115#6116#0" expanded="true" />
+            <element signature="method#refreshTree#0;class#App#0" />
           </folding>
         </state>
       </provider>

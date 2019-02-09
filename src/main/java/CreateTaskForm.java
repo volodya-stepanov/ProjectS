@@ -19,17 +19,16 @@ public class CreateTaskForm {
     private JLabel label_result;
     private JTextField text_field_description;
 
+    private App App;
     private DocumentModel CurrentDocument;
 
     public CreateTaskForm(){
-        JFrame frame = new JFrame("Create Task");
+        final JFrame frame = new JFrame("Create Task");
         frame.setContentPane(panelMain);
-        frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        frame.setDefaultCloseOperation(WindowConstants.HIDE_ON_CLOSE);
         frame.pack();
         frame.setLocationRelativeTo(null);  // Для отображения в центре экрана
         frame.setVisible(true);
-
-        CurrentDocument = new DocumentModel("D:\\Test\\Test.docx");
 
         button_msg.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
@@ -45,9 +44,16 @@ public class CreateTaskForm {
 
                 if (code == 10){
                     handleTask();
+
                 }
             }
         });
+    }
+
+    public CreateTaskForm(App app) {
+        this();
+        App = app;
+        CurrentDocument = app.CurrentDocument;
     }
 
     /**
@@ -66,6 +72,13 @@ public class CreateTaskForm {
         equation.setFormula(formula);
         equation.solve();
         equation.saveToDocument();
+
+        CurrentDocument.Tasks.add(equation);
+
+        App.refreshTree();
+
+        // TODO: Не работает кнопка закрытия
+        //System.exit(1);
     }
 
     private FormulaModel parseFormula(String expression){
