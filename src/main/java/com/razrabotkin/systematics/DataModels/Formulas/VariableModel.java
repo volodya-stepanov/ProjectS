@@ -124,6 +124,10 @@ public class VariableModel extends ExpressionModel{
         return Name;
     }
 
+    public void setName(String name) {
+        Name = name;
+    }
+
     public void setName(String name, String index) {
         setName(name);
         Index = index;

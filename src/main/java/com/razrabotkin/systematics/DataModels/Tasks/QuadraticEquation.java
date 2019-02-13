@@ -6,6 +6,7 @@ import com.razrabotkin.systematics.DataModels.SolutionBlocks.FormulaBlock;
 import com.razrabotkin.systematics.DataModels.SolutionBlocks.SolutionBlock;
 import com.razrabotkin.systematics.DataModels.SolutionBlocks.TextBlock;
 import com.razrabotkin.systematics.Helpers.ClassHelper;
+import com.razrabotkin.systematics.Helpers.ParseHelper;
 
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
@@ -15,6 +16,9 @@ public class QuadraticEquation extends TaskModel{
 
     /** Массив ответов на это уравнение */
     private ArrayList<Double> Answers;
+
+    /** Для генерации формул */
+    private ParseHelper Helper;
 
     /**
      * Инициализирует экземпляр класса
@@ -27,6 +31,7 @@ public class QuadraticEquation extends TaskModel{
         super(document, description, formulaString);
         DisplayName = "Квадратное уравнение";
         Answers = new ArrayList<Double>();
+        Helper = new ParseHelper();
     }
 
     @Override
@@ -247,108 +252,11 @@ public class QuadraticEquation extends TaskModel{
      * Вычисляет дискриминант, ход решения записывает в массив SolutionBlocks, а результат - в хэш-таблицу VariablesHashMap
      */
     private double findDiscriminant(){
-        EquationModel dFormula = new EquationModel(null);
+        EquationModel dFormula = Helper.parseEquation("D = b^2 - 4*a*c");
 
         // TODO: Некрасиво, что приходится перекидывать таблицу значений из одного уравнения в другое.
         //  Возможно, можно держать в уравнении ссылку на задание, к которому оно принадлежит, а таблцу - уже в самом задании
         dFormula.setVariablesHashMap(Formula.getVariablesHashMap());
-
-        // Левая часть
-        ExpressionModel expression1 = new ExpressionModel(dFormula);
-        dFormula.Expressions.add(expression1);
-
-        TermModel term1 = new TermModel(expression1);
-        expression1.Terms.add(term1);
-
-        FactorModel factor1 = new FactorModel(term1);
-        term1.Factors.add(factor1);
-
-        SignedAtomModel signedAtom1 = new SignedAtomModel(factor1);
-        factor1.setBase(signedAtom1);
-
-        AtomModel atom1 = new AtomModel(signedAtom1);
-        signedAtom1.setAtom(atom1);
-
-        VariableModel variableModel1 = new VariableModel(atom1, "D");
-        atom1.setExpression(variableModel1);
-
-        // Правая часть
-        ExpressionModel expression2 = new ExpressionModel(dFormula);
-        expression2.setRelation(RelOpModel.Equals);
-        dFormula.Expressions.add(expression2);
-
-        // Первый член: b^2
-        TermModel term2 = new TermModel(expression2);
-        expression2.Terms.add(term2);
-
-        FactorModel factor3 = new FactorModel(term2);
-        term2.Factors.add(factor3);
-
-        // Добавляем основание степени: b
-        SignedAtomModel signedAtom2 = new SignedAtomModel(factor3);
-        factor3.setBase(signedAtom2);
-
-        AtomModel atom2 = new AtomModel(signedAtom2);
-        signedAtom2.setAtom(atom2);
-
-        VariableModel variableModel2 = new VariableModel(atom2, "b");
-        atom2.setExpression(variableModel2);
-
-        // Добавляем показатель степени: 2
-        SignedAtomModel signedAtom3 = new SignedAtomModel(factor3);
-        factor3.setExponent(signedAtom3);
-
-        AtomModel atom3 = new AtomModel(signedAtom3);
-        signedAtom3.setAtom(atom3);
-
-        NumberModel numberModel1 = new NumberModel(atom3, 2.0);
-        atom3.setExpression(numberModel1);
-
-        // Второй член: -4*a*c
-        TermModel term3 = new TermModel(expression2);
-        term3.setMathOperation(MathOpModel.Minus);
-        expression2.Terms.add(term3);
-
-        // Первый член: 4
-        FactorModel factor4 = new FactorModel(term3);
-        term3.Factors.add(factor4);
-
-        SignedAtomModel signedAtom4 = new SignedAtomModel(factor4);
-        factor4.setBase(signedAtom4);
-
-        AtomModel atom4 = new AtomModel(signedAtom4);
-        signedAtom4.setAtom(atom4);
-
-        NumberModel numberModel2 = new NumberModel(atom4, 4);
-        atom4.setExpression(numberModel2);
-
-        // Второй член: a
-        FactorModel factor5 = new FactorModel(term3);
-        factor5.setMathOperation(MathOpModel.Multiply);
-        term3.Factors.add(factor5);
-
-        SignedAtomModel signedAtom5 = new SignedAtomModel(factor5);
-        factor5.setBase(signedAtom5);
-
-        AtomModel atom5 = new AtomModel(signedAtom5);
-        signedAtom5.setAtom(atom5);
-
-        VariableModel variableModel3 = new VariableModel(atom5, "a");
-        atom5.setExpression(variableModel3);
-
-        // Третий член: c
-        FactorModel factor6 = new FactorModel(term3);
-        factor6.setMathOperation(MathOpModel.Multiply);
-        term3.Factors.add(factor6);
-
-        SignedAtomModel signedAtom6 = new SignedAtomModel(factor6);
-        factor6.setBase(signedAtom6);
-
-        AtomModel atom7 = new AtomModel(signedAtom6);
-        signedAtom6.setAtom(atom7);
-
-        VariableModel variableModel4 = new VariableModel(atom7, "c");
-        atom7.setExpression(variableModel4);
 
         // TODO: Всё это нужно перенести в EquationModel
 
@@ -373,7 +281,7 @@ public class QuadraticEquation extends TaskModel{
     }
 
     private double findX() {
-        EquationModel xFormula = generateXFormula();
+        EquationModel xFormula = Helper.parseEquation("x = -b/(2*a)");
 
         // TODO: Некрасиво, что приходится перекидывать таблицу значений из одного уравнения в другое.
         //  Возможно, можно держать в уравнении ссылку на задание, к которому оно принадлежит, а таблцу - уже в самом задании

@@ -1,5 +1,6 @@
 package com.razrabotkin.systematics.Helpers;
 
+import com.razrabotkin.systematics.DataModels.Formulas.EquationModel;
 import com.razrabotkin.systematics.DataModels.Formulas.ExpressionModel;
 import com.razrabotkin.systematics.ArithmeticWalker;
 import com.razrabotkin.systematics.gen.ArithmeticLexer;
@@ -16,7 +17,18 @@ import org.antlr.v4.runtime.tree.ParseTreeWalker;
  */
 public class ParseHelper {
 
-    public ExpressionModel parse(String expression){
+    public EquationModel parseEquation(String equation){
+        ArithmeticLexer lexer = new ArithmeticLexer(CharStreams.fromString(equation));
+        CommonTokenStream tokens = new CommonTokenStream(lexer);
+        ArithmeticParser parser = new ArithmeticParser(tokens);
+        ParseTree tree = parser.equation();   // Здесь переключаются правила!
+        ParseTreeWalker parseTreeWalker = new ParseTreeWalker();
+        ArithmeticWalker arithmeticWalker = new ArithmeticWalker();
+        parseTreeWalker.walk(arithmeticWalker, tree);
+        return arithmeticWalker.CurrentEquation;
+    }
+
+    public ExpressionModel parseExpression(String expression){
         ArithmeticLexer lexer = new ArithmeticLexer(CharStreams.fromString(expression));
         CommonTokenStream tokens = new CommonTokenStream(lexer);
         ArithmeticParser parser = new ArithmeticParser(tokens);

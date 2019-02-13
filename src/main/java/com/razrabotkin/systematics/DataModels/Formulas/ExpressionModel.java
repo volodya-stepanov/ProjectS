@@ -220,7 +220,7 @@ public class ExpressionModel extends FormulaModel{
         Terms.add(new TermModel(this, value));
     }
 
-    protected void setName(String name) {
+    public void setName(String name) {
         Terms.clear();
         Terms.add(new TermModel(this, name));
     }
