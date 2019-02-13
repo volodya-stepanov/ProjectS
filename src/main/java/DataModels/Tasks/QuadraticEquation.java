@@ -51,20 +51,6 @@ public class QuadraticEquation extends TaskModel{
                 }
             }
 
-            // Добавляем в документ ответ
-            NumberFormat nf = new DecimalFormat("#.######");
-
-            if (Answers.size() == 2){
-                String x1 = nf.format(Answers.get(0));
-                String x2 = nf.format(Answers.get(1));
-                Answer = "x1 = " + x1 + "; x2 = " + x2 + ".";
-            } else if (Answers.size() == 1) {
-                String x = nf.format(Answers.get(0));
-                Answer = "x1,2 = " + x + ".";
-            } else {
-                Answer = "Нет корней.";
-            }
-
             Document.addAnswer(Answer);
 
             Document.addBreak();
@@ -101,6 +87,20 @@ public class QuadraticEquation extends TaskModel{
             Answers.add(x);
         } else {
             SolutionBlocks.add(new TextBlock("Дискриминант меньше нуля, следовательно, уравнение не имеет действительных корней"));
+        }
+
+        // Добавляем в документ ответ
+        NumberFormat nf = new DecimalFormat("#.######");
+
+        if (Answers.size() == 2){
+            String x1 = nf.format(Answers.get(0));
+            String x2 = nf.format(Answers.get(1));
+            Answer = "x1 = " + x1 + "; x2 = " + x2 + ".";
+        } else if (Answers.size() == 1) {
+            String x = nf.format(Answers.get(0));
+            Answer = "x1,2 = " + x + ".";
+        } else {
+            Answer = "Нет корней.";
         }
     }
 

@@ -21,9 +21,10 @@ public class CreateTaskForm {
 
     private App App;
     private DocumentModel CurrentDocument;
+    final JFrame frame;
 
     public CreateTaskForm(){
-        final JFrame frame = new JFrame("Create Task");
+        frame = new JFrame("Create Task");
         frame.setContentPane(panelMain);
         frame.setDefaultCloseOperation(WindowConstants.HIDE_ON_CLOSE);
         frame.pack();
@@ -34,7 +35,7 @@ public class CreateTaskForm {
             public void actionPerformed(ActionEvent e) {
                 handleTask();
                 //CreateTaskForm form = new CreateTaskForm();
-
+                frame.setVisible(false);
             }
         });
         text_field_formula.addKeyListener(new KeyAdapter() {
@@ -71,7 +72,7 @@ public class CreateTaskForm {
         FormulaModel formula = parseFormula(formulaString);
         equation.setFormula(formula);
         equation.solve();
-        equation.saveToDocument();
+        //equation.saveToDocument();
 
         CurrentDocument.Tasks.add(equation);
 

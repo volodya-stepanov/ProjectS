@@ -35,6 +35,8 @@ public class App {
     private JPanel panelMain;
     private JTree tree;
     private JTextPane textPane1;
+    private JButton createTaskButton;
+    private JButton saveButton;
     private JMenuBar menuBar;
 
     public DocumentModel CurrentDocument;
@@ -63,6 +65,16 @@ public class App {
         createTree();
 
         createTextPane();
+        createTaskButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                createTask();
+            }
+        });
+        saveButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                save();
+            }
+        });
     }
 
     private void createMenu() {
@@ -87,9 +99,8 @@ public class App {
 
         createTaskMenuItem.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                CreateTaskForm form = new CreateTaskForm(App.this);
 
-
+                createTask();
             }
         });
 
@@ -102,6 +113,12 @@ public class App {
 
 
         JMenuItem saveMenuItem = new JMenuItem("Сохранить");
+        saveMenuItem.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                save();
+            }
+        });
+
         JMenuItem saveAsMenuItem = new JMenuItem("Сохранить как...");
         JMenuItem exitMenuItem = new JMenuItem("Выход");
 
@@ -148,6 +165,10 @@ public class App {
 
     }
 
+    private void createTask() {
+        CreateTaskForm form = new CreateTaskForm(App.this);
+    }
+
     private void createTree(){
         int hashcode = App.this.hashCode();
         System.out.println("Зашли в метод создания дерева. Хэш-код: " + String.valueOf(hashcode));
@@ -161,10 +182,8 @@ public class App {
         DefaultMutableTreeNode node3 = new DefaultMutableTreeNode("Неопределённый интеграл");
 
         // Добавляем дочерние узлы к корневому
-        root.add(node1);
-        root.add(node2);
-        root.add(node3);
-
+//
+        
         // Создаём дерево с нужным корнем
         ((DefaultTreeModel)tree.getModel()).setRoot(root);
 
@@ -210,15 +229,15 @@ public class App {
         SimpleAttributeSet headerSet = new SimpleAttributeSet();
         StyleConstants.setBold(headerSet, true);
         textPane1.setCharacterAttributes(headerSet, true);
-        textPane1.setText("Решите квадратное уравнение: \n\n");
+        //textPane1.setText("Решите квадратное уравнение: \n\n");
 
         SimpleAttributeSet bodySet = new SimpleAttributeSet();
         Document doc = textPane1.getStyledDocument();
-        try {
-            doc.insertString(doc.getLength(), "Сдесь будет уравнение ", bodySet);
-        } catch (BadLocationException e) {
-            e.printStackTrace();
-        }
+//        try {
+//            //doc.insertString(doc.getLength(), "Сдесь будет уравнение ", bodySet);
+//        } catch (BadLocationException e) {
+//            e.printStackTrace();
+//        }
     }
 
     private void fillTextPane(TaskModel selectedTask) {
@@ -251,6 +270,12 @@ public class App {
 
         } catch (BadLocationException e) {
             e.printStackTrace();
+        }
+    }
+
+    private void save(){
+        for (TaskModel task : CurrentDocument.Tasks){
+            task.saveToDocument();
         }
     }
 }
