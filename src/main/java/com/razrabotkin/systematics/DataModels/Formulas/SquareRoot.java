@@ -10,7 +10,7 @@ import java.util.ArrayList;
  */
 public class SquareRoot extends ExpressionModel {
     /** Подкоренное выражение */
-    private ExpressionModel RadicalExpression;
+    private SignedAtomModel RadicalExpression;
 
     /**
      * Инициализирует экземпляр класса
@@ -28,13 +28,13 @@ public class SquareRoot extends ExpressionModel {
      */
     public SquareRoot(FormulaModel parent, double value){
         this(parent);
-        RadicalExpression = new ExpressionModel(this);
+        RadicalExpression = new SignedAtomModel(this);
         RadicalExpression.setValue(value);
     }
 
     public SquareRoot(FormulaModel parent, String name) {
         this(parent);
-        RadicalExpression = new ExpressionModel(this);
+        RadicalExpression = new SignedAtomModel(this);
         RadicalExpression.setName(name);
     }
 
@@ -58,7 +58,7 @@ public class SquareRoot extends ExpressionModel {
     public FormulaModel copy(FormulaModel parent) {
         SquareRoot squareRoot = new SquareRoot(parent);
 
-        squareRoot.setRadicalExpression((ExpressionModel) RadicalExpression.copy(squareRoot));
+        squareRoot.setRadicalExpression((SignedAtomModel) RadicalExpression.copy(squareRoot));
 
         return squareRoot;
     }
@@ -80,11 +80,11 @@ public class SquareRoot extends ExpressionModel {
     }
 
     // Методы-мутаторы
-    public void setRadicalExpression(ExpressionModel radicalExpression) {
+    public void setRadicalExpression(SignedAtomModel radicalExpression) {
         RadicalExpression = radicalExpression;
     }
 
-    public ExpressionModel getRadicalExpression() {
+    public SignedAtomModel getRadicalExpression() {
         return RadicalExpression;
     }
 }

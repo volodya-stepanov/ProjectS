@@ -33,6 +33,7 @@ public class ArithmeticWalker implements ArithmeticListener {
     ClassHelper Helper;
 
     HashMap<ParserRuleContext, FormulaModel> NodesHashMap;
+    private SquareRoot CurrentSqrt;
 
     public ArithmeticWalker(){
         CurrentAtoms = new ArrayList<AtomModel>();
@@ -125,7 +126,7 @@ public class ArithmeticWalker implements ArithmeticListener {
             if (sign.contains("*")) {
                 term.Factors.get(j).setMathOperation(MathOpModel.Multiply);
             } else if(sign.contains("/")){
-                term.Factors.get(j).setMathOperation(MathOpModel.Divide);
+                term.Factors.get(j).setMathOperation(MathOpModel.Divide);   //TODO: Вот здесь индекс выходит за пределы массива!
             }
             j++;
         }
@@ -136,8 +137,13 @@ public class ArithmeticWalker implements ArithmeticListener {
     }
 
     public void enterFactor(ArithmeticParser.FactorContext ctx) {
-        CurrentFactor = new FactorModel(CurrentTerm);
-        NodesHashMap.put(ctx, CurrentFactor);
+        //CurrentFactor = new FactorModel(CurrentTerm);
+        // TODO: Переделать всё вот таким же образом, избавившись от CurrentXxx
+        ArithmeticParser.TermContext termContext = (ArithmeticParser.TermContext) ctx.getParent();
+        TermModel currentTerm = (TermModel) NodesHashMap.get(termContext);
+        FactorModel currentFactor = new FactorModel(currentTerm);
+
+        NodesHashMap.put(ctx, currentFactor);
     }
 
     public void exitFactor(ArithmeticParser.FactorContext ctx) {
@@ -151,26 +157,38 @@ public class ArithmeticWalker implements ArithmeticListener {
     }
 
     public void enterSignedAtom(ArithmeticParser.SignedAtomContext ctx) {
-        CurrentSignedAtom = new SignedAtomModel(CurrentFactor);
+        if (Helper.isTypeOf(ctx.parent, ArithmeticParser.FactorContext.class)){
+            FactorModel factor = (FactorModel) NodesHashMap.get(ctx.getParent());
+            CurrentSignedAtom = new SignedAtomModel(factor);
+        } else if (Helper.isTypeOf(ctx.parent, ArithmeticParser.SqrtContext.class)){
+            CurrentSignedAtom = new SignedAtomModel(CurrentSqrt);
+        }
+
         NodesHashMap.put(ctx, CurrentSignedAtom);
     }
 
     public void exitSignedAtom(ArithmeticParser.SignedAtomContext ctx) {
         SignedAtomModel signedAtom = (SignedAtomModel) NodesHashMap.get(ctx);
-        FactorModel factor = (FactorModel) signedAtom.getParent();
 
         String text = ctx.getText();
-        if (text.contains("-")){
+        if (text.contains("-")){    //TODO: Вот из-за этого выражения в формуле дискриминанта появляется лишний минус!
             signedAtom.setNegative(true);
         }
 
-        //TODO: При выходе из всех узлов занулить текущие узлы
-        if (factor!=null) {
-            if (factor.getBase() == null) {
-                factor.setBase(signedAtom);
-            } else {
-                factor.setExponent(signedAtom);
+        if (Helper.isTypeOf(signedAtom.getParent(), FactorModel.class)) {
+            FactorModel factor = (FactorModel) signedAtom.getParent();
+
+            //TODO: При выходе из всех узлов занулить текущие узлы
+            if (factor!=null) {
+                if (factor.getBase() == null) {
+                    factor.setBase(signedAtom);
+                } else {
+                    factor.setExponent(signedAtom);
+                }
             }
+        } else if (Helper.isTypeOf(signedAtom.getParent(), SquareRoot.class)) {
+            SquareRoot sqrt = (SquareRoot) signedAtom.getParent();
+            sqrt.setRadicalExpression(signedAtom);
         }
     }
 
@@ -187,7 +205,7 @@ public class ArithmeticWalker implements ArithmeticListener {
 
         signedAtom.setAtom(atom);
 
-        CurrentAtoms.remove(atom);
+        CurrentAtoms.remove(atom);  //TODO: Удалить
     }
 
     public void enterScientific(ArithmeticParser.ScientificContext ctx) {
@@ -225,6 +243,18 @@ public class ArithmeticWalker implements ArithmeticListener {
 
     public void exitRelop(ArithmeticParser.RelopContext ctx) {
 
+    }
+
+    public void enterSqrt(ArithmeticParser.SqrtContext ctx) {
+        CurrentSqrt = new SquareRoot(CurrentAtom);
+        NodesHashMap.put(ctx, CurrentSqrt);
+    }
+
+    public void exitSqrt(ArithmeticParser.SqrtContext ctx) {
+        SquareRoot sqrt = (SquareRoot) NodesHashMap.get(ctx);
+        AtomModel atom = (AtomModel) sqrt.getParent();
+
+        atom.setExpression(sqrt);
     }
 
     public void visitTerminal(TerminalNode terminalNode) {

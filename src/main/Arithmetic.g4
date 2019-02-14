@@ -62,6 +62,7 @@ atom
    : scientific
    | variable
    | LPAREN expression RPAREN
+   | sqrt
    ;
 
 // Число в экспоненциальной записи
@@ -81,7 +82,15 @@ relop
    | LT
    ;
 
+// Квадратный корень: ключевое слово sqrt, открывающая скобка, атом со знаком, закрывающая скобка
+sqrt
+   : SQRT LPAREN signedAtom RPAREN;
+
 // Правила лексера
+// Квадратный корень
+SQRT
+    : 'sqrt';
+
 // Переменная. Состоит из одного валидного символа начала и нуля или более валидных символов
 VARIABLE
    : VALID_ID_START VALID_ID_CHAR*

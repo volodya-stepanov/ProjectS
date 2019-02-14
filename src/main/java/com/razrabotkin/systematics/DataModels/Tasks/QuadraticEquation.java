@@ -304,7 +304,7 @@ public class QuadraticEquation extends TaskModel{
     }
 
     private double findX1() {
-        EquationModel x1Formula = generateX1Formula();
+        EquationModel x1Formula = Helper.parseEquation("x = (-b+sqrt(D))/(2*a)");
 
         // TODO: Некрасиво, что приходится перекидывать таблицу значений из одного уравнения в другое.
         //  Возможно, можно держать в уравнении ссылку на задание, к которому оно принадлежит, а таблцу - уже в самом задании
@@ -327,7 +327,7 @@ public class QuadraticEquation extends TaskModel{
     }
 
     private double findX2() {
-        EquationModel x2Formula = generateX2Formula();
+        EquationModel x2Formula = Helper.parseEquation("x = (-b-sqrt(D))/(2*a)");
 
         // TODO: Некрасиво, что приходится перекидывать таблицу значений из одного уравнения в другое.
         //  Возможно, можно держать в уравнении ссылку на задание, к которому оно принадлежит, а таблцу - уже в самом задании

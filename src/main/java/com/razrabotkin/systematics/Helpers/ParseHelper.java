@@ -22,6 +22,7 @@ public class ParseHelper {
         CommonTokenStream tokens = new CommonTokenStream(lexer);
         ArithmeticParser parser = new ArithmeticParser(tokens);
         ParseTree tree = parser.equation();   // Здесь переключаются правила!
+        System.out.println(tree.toStringTree());
         ParseTreeWalker parseTreeWalker = new ParseTreeWalker();
         ArithmeticWalker arithmeticWalker = new ArithmeticWalker();
         parseTreeWalker.walk(arithmeticWalker, tree);

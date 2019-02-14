@@ -25,7 +25,7 @@
           </grid>
         </constraints>
         <properties>
-          <text value="4*x^2+20*x+25=0"/>
+          <text value="x1=(-b+sqrt(D))/(2*a)"/>
         </properties>
       </component>
       <component id="12327" class="javax.swing.JButton" binding="button_msg">

@@ -20,7 +20,7 @@ public class SignedAtomModel extends FormulaModel {
      * Инициализирует экземпляр класса
      * @param parent Родитель
      */
-    public SignedAtomModel(FactorModel parent) {
+    public SignedAtomModel(FormulaModel parent) {
         super(parent);
     }
 
