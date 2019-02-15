@@ -1,6 +1,5 @@
 package com.razrabotkin.systematics;
 
-import com.razrabotkin.systematics.App;
 import com.razrabotkin.systematics.DataModels.Formulas.FormulaModel;
 import com.razrabotkin.systematics.DataModels.Objects.DocumentModel;
 import com.razrabotkin.systematics.DataModels.Tasks.QuadraticEquation;
@@ -97,7 +96,7 @@ public class CreateTaskForm {
         ParseTreeWalker parseTreeWalker = new ParseTreeWalker();
         ArithmeticWalker arithmeticWalker = new ArithmeticWalker();
         parseTreeWalker.walk(arithmeticWalker, tree);
-        //label_result.setText(arithmeticWalker.CurrentEquation.toString());
-        return arithmeticWalker.CurrentEquation;
+        //label_result.setText(arithmeticWalker.Equation.toString());
+        return arithmeticWalker.Equation;
     }
 }

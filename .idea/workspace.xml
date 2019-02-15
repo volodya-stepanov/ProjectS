@@ -3,40 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="f996e41e-f78d-442a-bace-c49e36561405" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/Arithmetic.g4" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Arithmetic.g4" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/razrabotkin/systematics/ArithmeticWalker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/razrabotkin/systematics/ArithmeticWalker.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/razrabotkin/systematics/CreateTaskForm.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/razrabotkin/systematics/CreateTaskForm.form" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/razrabotkin/systematics/CreateTaskForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/razrabotkin/systematics/CreateTaskForm.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/razrabotkin/systematics/DataModels/Formulas/SignedAtomModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/razrabotkin/systematics/DataModels/Formulas/SignedAtomModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/razrabotkin/systematics/DataModels/Formulas/SquareRoot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/razrabotkin/systematics/DataModels/Formulas/SquareRoot.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/razrabotkin/systematics/DataModels/Tasks/QuadraticEquation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/razrabotkin/systematics/DataModels/Tasks/QuadraticEquation.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/razrabotkin/systematics/Helpers/ParseHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/razrabotkin/systematics/Helpers/ParseHelper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/razrabotkin/systematics/gen/Arithmetic.interp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/razrabotkin/systematics/gen/Arithmetic.tokens" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/razrabotkin/systematics/gen/ArithmeticBaseListener.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/razrabotkin/systematics/gen/ArithmeticLexer.interp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/razrabotkin/systematics/gen/ArithmeticLexer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/razrabotkin/systematics/gen/ArithmeticLexer.tokens" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/razrabotkin/systematics/gen/ArithmeticListener.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/razrabotkin/systematics/gen/ArithmeticParser.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/razrabotkin/systematics/ArithmeticWalker.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/razrabotkin/systematics/ArithmeticWalker.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/razrabotkin/systematics/CreateTaskForm.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/razrabotkin/systematics/CreateTaskForm.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/razrabotkin/systematics/DataModels/Formulas/FactorModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/razrabotkin/systematics/DataModels/Formulas/FactorModel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/razrabotkin/systematics/DataModels/Formulas/SignedAtomModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/razrabotkin/systematics/DataModels/Formulas/SignedAtomModel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/razrabotkin/systematics/DataModels/Formulas/SquareRoot.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/razrabotkin/systematics/DataModels/Formulas/SquareRoot.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/razrabotkin/systematics/DataModels/Tasks/QuadraticEquation.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/razrabotkin/systematics/DataModels/Tasks/QuadraticEquation.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/razrabotkin/systematics/gen/ArithmeticBaseListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/razrabotkin/systematics/gen/ArithmeticBaseListener.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/razrabotkin/systematics/gen/ArithmeticLexer.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/razrabotkin/systematics/gen/ArithmeticLexer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/razrabotkin/systematics/gen/ArithmeticListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/razrabotkin/systematics/gen/ArithmeticListener.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/razrabotkin/systematics/gen/ArithmeticParser$AtomContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/razrabotkin/systematics/gen/ArithmeticParser$AtomContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/razrabotkin/systematics/gen/ArithmeticParser$ExpressionContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/razrabotkin/systematics/gen/ArithmeticParser$ExpressionContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/razrabotkin/systematics/gen/ArithmeticParser$FactorContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/razrabotkin/systematics/gen/ArithmeticParser$FactorContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/razrabotkin/systematics/gen/ArithmeticParser$RelopContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/razrabotkin/systematics/gen/ArithmeticParser$RelopContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/razrabotkin/systematics/gen/ArithmeticParser$ScientificContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/razrabotkin/systematics/gen/ArithmeticParser$ScientificContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/razrabotkin/systematics/gen/ArithmeticParser$SignedAtomContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/razrabotkin/systematics/gen/ArithmeticParser$SignedAtomContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/razrabotkin/systematics/gen/ArithmeticParser$TermContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/razrabotkin/systematics/gen/ArithmeticParser$TermContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/razrabotkin/systematics/gen/ArithmeticParser$VariableContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/razrabotkin/systematics/gen/ArithmeticParser$VariableContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/razrabotkin/systematics/gen/ArithmeticParser.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/razrabotkin/systematics/gen/ArithmeticParser.class" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -48,89 +17,35 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/razrabotkin/systematics/DataModels/Tasks/QuadraticEquation.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="168">
-              <caret line="306" selection-start-line="306" selection-end-line="306" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="docComment;method#QuadraticEquation#0;class#QuadraticEquation#0" />
-                <element signature="method#QuadraticEquation#0;class#QuadraticEquation#0" />
-                <element signature="method#saveToDocument#0;class#QuadraticEquation#0" />
-                <element signature="method#solve#0;class#QuadraticEquation#0" />
-                <element signature="docComment;method#findCoefficients#0;class#QuadraticEquation#0" />
-                <element signature="method#findCoefficients#0;class#QuadraticEquation#0" />
-                <element signature="docComment;method#findDiscriminant#0;class#QuadraticEquation#0" />
-                <element signature="method#findDiscriminant#0;class#QuadraticEquation#0" />
-                <element signature="method#generateXFormula#0;class#QuadraticEquation#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/razrabotkin/systematics/CreateTaskForm.form">
-          <provider selected="true" editor-type-id="ui-designer" />
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/razrabotkin/systematics/ArithmeticWalker.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="96">
-              <caret line="173" column="118" selection-start-line="173" selection-start-column="118" selection-end-line="173" selection-end-column="118" />
+            <state relative-caret-position="-264">
+              <caret line="330" column="19" selection-start-line="330" selection-start-column="19" selection-end-line="330" selection-end-column="19" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="method#enterVariable#0;class#ArithmeticWalker#0" />
-                <element signature="method#exitVariable#0;class#ArithmeticWalker#0" />
+                <element signature="method#ArithmeticWalker#0;class#ArithmeticWalker#0" />
+                <element signature="method#enterEquation#0;class#ArithmeticWalker#0" />
+                <element signature="docComment;method#exitEquation#0;class#ArithmeticWalker#0" />
+                <element signature="docComment;method#enterExpression#0;class#ArithmeticWalker#0" />
+                <element signature="docComment;method#exitExpression#0;class#ArithmeticWalker#0" />
+                <element signature="docComment;method#exitTerm#0;class#ArithmeticWalker#0" />
+                <element signature="docComment;method#enterFactor#0;class#ArithmeticWalker#0" />
+                <element signature="method#enterFactor#0;class#ArithmeticWalker#0" />
+                <element signature="docComment;method#exitFactor#0;class#ArithmeticWalker#0" />
+                <element signature="method#enterSignedAtom#0;class#ArithmeticWalker#0" />
+                <element signature="docComment;method#exitSignedAtom#0;class#ArithmeticWalker#0" />
+                <element signature="method#exitSignedAtom#0;class#ArithmeticWalker#0" />
+                <element signature="docComment;method#enterAtom#0;class#ArithmeticWalker#0" />
+                <element signature="method#enterAtom#0;class#ArithmeticWalker#0" />
+                <element signature="docComment;method#exitAtom#0;class#ArithmeticWalker#0" />
+                <element signature="docComment;method#enterVariable#0;class#ArithmeticWalker#0" />
                 <element signature="method#enterRelop#0;class#ArithmeticWalker#0" />
+                <element signature="method#exitRelop#0;class#ArithmeticWalker#0" />
                 <element signature="method#visitTerminal#0;class#ArithmeticWalker#0" />
                 <element signature="method#visitErrorNode#0;class#ArithmeticWalker#0" />
                 <element signature="method#enterEveryRule#0;class#ArithmeticWalker#0" />
                 <element signature="method#exitEveryRule#0;class#ArithmeticWalker#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/razrabotkin/systematics/gen/ArithmeticParser.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="191">
-              <caret line="247" selection-start-line="247" selection-end-line="247" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/razrabotkin/systematics/Helpers/ClassHelper.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="122">
-              <caret line="14" selection-start-line="14" selection-end-line="14" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/razrabotkin/systematics/CreateTaskForm.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="201">
-              <caret line="95" column="8" lean-forward="true" selection-start-line="95" selection-start-column="8" selection-end-line="95" selection-end-column="8" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="docComment;method#handleTask#0;class#CreateTaskForm#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/razrabotkin/systematics/Helpers/ParseHelper.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="156">
-              <caret line="24" column="48" lean-forward="true" selection-start-line="24" selection-start-column="8" selection-end-line="24" selection-end-column="48" />
-              <folding>
-                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -147,9 +62,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>CTTex</find>
-      <find>rWrapped</find>
-      <find>arraylist</find>
       <find>wmlObjectFactory</find>
       <find>Document</find>
       <find>bold</find>
@@ -177,6 +89,9 @@
       <find>exitsi</find>
       <find>CurrentFactor</find>
       <find>&quot;-&quot;</find>
+      <find>CurrentEquation</find>
+      <find>TODO</find>
+      <find>current</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -250,8 +165,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -307,6 +220,8 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -318,7 +233,7 @@
     <property name="$PROJECT_DIR$/src/main/Arithmetic.g4::/output-dir" value="D:\version-control\ProjectS\src\main\java" />
     <property name="$PROJECT_DIR$/src/main/Arithmetic.g4::/package" value="com.razrabotkin.systematics.gen" />
     <property name="UI_DESIGNER_EDITOR_MODE.PaletteManager.SHOW" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1550179333585" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1550261944204" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/java/com/razrabotkin/systematics" />
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
@@ -394,7 +309,7 @@
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.21633889" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2193646" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -404,7 +319,7 @@
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32569557" />
       <window_info anchor="bottom" auto_hide="true" id="Run" order="2" type="SLIDING" weight="0.502455" />
-      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.39770868" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.39770868" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -498,18 +413,6 @@
           <line>306</line>
           <properties />
           <option name="timeStamp" value="73" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/razrabotkin/systematics/ArithmeticWalker.java</url>
-          <line>62</line>
-          <properties />
-          <option name="timeStamp" value="89" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/razrabotkin/systematics/ArithmeticWalker.java</url>
-          <line>53</line>
-          <properties />
-          <option name="timeStamp" value="125" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/razrabotkin/systematics/Helpers/ParseHelper.java</url>
@@ -761,8 +664,8 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/razrabotkin/systematics/App.form">
-      <provider selected="true" editor-type-id="ui-designer" />
       <provider editor-type-id="text-editor" />
+      <provider selected="true" editor-type-id="ui-designer" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/razrabotkin/systematics/DataModels/Tasks/TaskModel.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -866,13 +769,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/razrabotkin/systematics/com/razrabotkin/systematics/gen/ArithmeticBaseListener.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" column="23" lean-forward="true" selection-start-line="1" selection-start-column="23" selection-end-line="1" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/razrabotkin/systematics/com/razrabotkin/systematics/gen/ArithmeticBaseListener.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/com/razrabotkin/systematics/gen/Arithmetic.interp">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -948,7 +845,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/razrabotkin/systematics/DataModels/Tasks/QuadraticEquation.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
+        <state relative-caret-position="1037">
           <caret line="306" selection-start-line="306" selection-end-line="306" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -968,20 +865,24 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/com/razrabotkin/systematics/CreateTaskForm.form">
       <provider selected="true" editor-type-id="ui-designer" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/razrabotkin/systematics/Helpers/ParseHelper.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/razrabotkin/systematics/gen/ArithmeticParser.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="156">
-          <caret line="24" column="48" lean-forward="true" selection-start-line="24" selection-start-column="8" selection-end-line="24" selection-end-column="48" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="3536">
+          <caret line="247" selection-start-line="247" selection-end-line="247" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/razrabotkin/systematics/Helpers/ClassHelper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="14" selection-start-line="14" selection-end-line="14" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/razrabotkin/systematics/CreateTaskForm.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="201">
-          <caret line="95" column="8" lean-forward="true" selection-start-line="95" selection-start-column="8" selection-end-line="95" selection-end-column="8" />
+        <state relative-caret-position="1360">
+          <caret line="95" column="8" selection-start-line="95" selection-start-column="8" selection-end-line="95" selection-end-column="8" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="docComment;method#handleTask#0;class#CreateTaskForm#0" />
@@ -989,29 +890,40 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/razrabotkin/systematics/Helpers/ClassHelper.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/razrabotkin/systematics/Helpers/ParseHelper.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="122">
-          <caret line="14" selection-start-line="14" selection-end-line="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/razrabotkin/systematics/gen/ArithmeticParser.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="191">
-          <caret line="247" selection-start-line="247" selection-end-line="247" />
+        <state relative-caret-position="272">
+          <caret line="24" column="48" selection-start-line="24" selection-start-column="8" selection-end-line="24" selection-end-column="48" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/razrabotkin/systematics/ArithmeticWalker.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="96">
-          <caret line="173" column="118" selection-start-line="173" selection-start-column="118" selection-end-line="173" selection-end-column="118" />
+        <state relative-caret-position="-264">
+          <caret line="330" column="19" selection-start-line="330" selection-start-column="19" selection-end-line="330" selection-end-column="19" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#enterVariable#0;class#ArithmeticWalker#0" />
-            <element signature="method#exitVariable#0;class#ArithmeticWalker#0" />
+            <element signature="method#ArithmeticWalker#0;class#ArithmeticWalker#0" />
+            <element signature="method#enterEquation#0;class#ArithmeticWalker#0" />
+            <element signature="docComment;method#exitEquation#0;class#ArithmeticWalker#0" />
+            <element signature="docComment;method#enterExpression#0;class#ArithmeticWalker#0" />
+            <element signature="docComment;method#exitExpression#0;class#ArithmeticWalker#0" />
+            <element signature="docComment;method#exitTerm#0;class#ArithmeticWalker#0" />
+            <element signature="docComment;method#enterFactor#0;class#ArithmeticWalker#0" />
+            <element signature="method#enterFactor#0;class#ArithmeticWalker#0" />
+            <element signature="docComment;method#exitFactor#0;class#ArithmeticWalker#0" />
+            <element signature="method#enterSignedAtom#0;class#ArithmeticWalker#0" />
+            <element signature="docComment;method#exitSignedAtom#0;class#ArithmeticWalker#0" />
+            <element signature="method#exitSignedAtom#0;class#ArithmeticWalker#0" />
+            <element signature="docComment;method#enterAtom#0;class#ArithmeticWalker#0" />
+            <element signature="method#enterAtom#0;class#ArithmeticWalker#0" />
+            <element signature="docComment;method#exitAtom#0;class#ArithmeticWalker#0" />
+            <element signature="docComment;method#enterVariable#0;class#ArithmeticWalker#0" />
             <element signature="method#enterRelop#0;class#ArithmeticWalker#0" />
+            <element signature="method#exitRelop#0;class#ArithmeticWalker#0" />
             <element signature="method#visitTerminal#0;class#ArithmeticWalker#0" />
             <element signature="method#visitErrorNode#0;class#ArithmeticWalker#0" />
             <element signature="method#enterEveryRule#0;class#ArithmeticWalker#0" />

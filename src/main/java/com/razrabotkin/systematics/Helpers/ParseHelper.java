@@ -26,7 +26,7 @@ public class ParseHelper {
         ParseTreeWalker parseTreeWalker = new ParseTreeWalker();
         ArithmeticWalker arithmeticWalker = new ArithmeticWalker();
         parseTreeWalker.walk(arithmeticWalker, tree);
-        return arithmeticWalker.CurrentEquation;
+        return arithmeticWalker.Equation;
     }
 
     public ExpressionModel parseExpression(String expression){
@@ -37,6 +37,6 @@ public class ParseHelper {
         ParseTreeWalker parseTreeWalker = new ParseTreeWalker();
         ArithmeticWalker arithmeticWalker = new ArithmeticWalker();
         parseTreeWalker.walk(arithmeticWalker, tree);
-        return arithmeticWalker.CurrentExpression;
+        return arithmeticWalker.Expression;
     }
 }
