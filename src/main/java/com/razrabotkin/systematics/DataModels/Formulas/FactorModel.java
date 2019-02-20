@@ -65,7 +65,32 @@ public class FactorModel extends FormulaModel {
             }
             return Base.toString() + "^" + Exponent.toString();
         }
+
+        if (needParenthesis()){
+            return "(" + Base.toString() + ")";
+        }
+
         return Base.toString();
+    }
+
+    /**
+     * Определяет, нужно ли брать данный множитель в скобки в методе toString()
+     * @return Истина, если данный множитель нужно брать в скобки в методе toString(), иначе ложь
+     */
+    private boolean needParenthesis(){
+        // Множитель нужно брать в скобки в следующих случаях:
+        // 1. Когда он не единственный и не первый в массиве множителей члена
+        ClassHelper helper = new ClassHelper();
+
+        if (helper.isTypeOf(Parent, AtomModel.class)){
+            TermModel term = (TermModel) Parent;
+
+            if (term.Factors.size() > 1 && term.Factors.indexOf(this) != 0){
+                return true;
+            }
+        }
+
+        return false;
     }
 
     @Override

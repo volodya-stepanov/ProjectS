@@ -29,7 +29,7 @@ public class SignedAtomModel extends FormulaModel {
      * @return Истина, если данную формулу нужно брать в скобки, иначе ложь
      */
     private boolean needParenthesis(){
-        return isNegative() && Atom.isNumber() && Atom.getValue() < 0;
+        return isNegative() || Atom.isNumber() && Atom.getValue() < 0;
     }
 
     @Override
@@ -76,7 +76,7 @@ public class SignedAtomModel extends FormulaModel {
     }
 
     public FormulaModel copy(FormulaModel parent) {
-        SignedAtomModel signedAtom = new SignedAtomModel((FactorModel) parent);
+        SignedAtomModel signedAtom = new SignedAtomModel(parent);
 
         signedAtom.setNegative(IsNegative);
 

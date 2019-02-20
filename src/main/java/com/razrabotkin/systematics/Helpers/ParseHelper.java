@@ -10,8 +10,6 @@ import org.antlr.v4.runtime.CommonTokenStream;
 import org.antlr.v4.runtime.tree.ParseTree;
 import org.antlr.v4.runtime.tree.ParseTreeWalker;
 
-
-
 /**
  * Вспомогательный класс для выполнения функций парсинга
  */
@@ -22,7 +20,6 @@ public class ParseHelper {
         CommonTokenStream tokens = new CommonTokenStream(lexer);
         ArithmeticParser parser = new ArithmeticParser(tokens);
         ParseTree tree = parser.equation();   // Здесь переключаются правила!
-        System.out.println(tree.toStringTree());
         ParseTreeWalker parseTreeWalker = new ParseTreeWalker();
         ArithmeticWalker arithmeticWalker = new ArithmeticWalker();
         parseTreeWalker.walk(arithmeticWalker, tree);

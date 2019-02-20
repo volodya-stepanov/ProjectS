@@ -74,14 +74,18 @@ public class ArithmeticWalker implements ArithmeticListener {
         ExpressionModel expression = null;
 
         // Определяем родителя
-        if (Helper.isTypeOf(ctx.parent, ArithmeticParser.EquationContext.class)){
-            ArithmeticParser.EquationContext equationContext = (ArithmeticParser.EquationContext) ctx.parent;
-            EquationModel equation = (EquationModel) NodesHashMap.get(equationContext);
-            expression = new ExpressionModel(equation);
-        } else if (Helper.isTypeOf(ctx.parent, ArithmeticParser.AtomContext.class)){
-            ArithmeticParser.AtomContext atomContext = (ArithmeticParser.AtomContext) ctx.parent;
-            AtomModel atom = (AtomModel) NodesHashMap.get(atomContext);
-            expression = new ExpressionModel(atom);
+        if (ctx.parent != null) {
+            if (Helper.isTypeOf(ctx.parent, ArithmeticParser.EquationContext.class)) {
+                ArithmeticParser.EquationContext equationContext = (ArithmeticParser.EquationContext) ctx.parent;
+                EquationModel equation = (EquationModel) NodesHashMap.get(equationContext);
+                expression = new ExpressionModel(equation);
+            } else if (Helper.isTypeOf(ctx.parent, ArithmeticParser.AtomContext.class)) {
+                ArithmeticParser.AtomContext atomContext = (ArithmeticParser.AtomContext) ctx.parent;
+                AtomModel atom = (AtomModel) NodesHashMap.get(atomContext);
+                expression = new ExpressionModel(atom);
+            }
+        } else {
+            expression = new ExpressionModel(null);
         }
 
         // Помещаем уравнение в таблицу
@@ -122,12 +126,14 @@ public class ArithmeticWalker implements ArithmeticListener {
             }
 
             // Определяем родителя данного выражения и добавляем выражение в объект-родитель
-            if (Helper.isTypeOf(expression.getParent(), EquationModel.class)) {
-                EquationModel equation = (EquationModel) expression.getParent();
-                equation.Expressions.add(expression);
-            } else if (Helper.isTypeOf(expression.getParent(), AtomModel.class)) {
-                AtomModel atom = (AtomModel) expression.getParent();
-                atom.setExpression(expression);
+            if (expression.getParent() != null) {
+                if (Helper.isTypeOf(expression.getParent(), EquationModel.class)) {
+                    EquationModel equation = (EquationModel) expression.getParent();
+                    equation.Expressions.add(expression);
+                } else if (Helper.isTypeOf(expression.getParent(), AtomModel.class)) {
+                    AtomModel atom = (AtomModel) expression.getParent();
+                    atom.setExpression(expression);
+                }
             }
 
             // Записываем полученное выражение в поле-результат

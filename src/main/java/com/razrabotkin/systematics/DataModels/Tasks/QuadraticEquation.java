@@ -188,7 +188,7 @@ public class QuadraticEquation extends TaskModel{
                 if (helper.isTypeOf(obj, VariableModel.class)){
 
                     // Если эта переменная имеет степень
-                    if (firstFactor.getExponent()!=null){
+                    if (firstFactor.getExponent().getValue() != 1){
 
                         // Извлекаем показатель степени
                         NumberModel exponentNumberModel = (NumberModel)firstFactor.getExponent().getAtom().getExpression();
@@ -198,6 +198,11 @@ public class QuadraticEquation extends TaskModel{
 
                             // Коэффициент A равен 1
                             double coefA = 1;
+
+                            // Если само основание степени является отрицательным
+                            if (firstFactor.getBase().isNegative()){
+                                coefA = -coefA;
+                            }
 
                             // Если перед членом стоит минус, меняем знак коэффициента A
                             if (isNegative) {
