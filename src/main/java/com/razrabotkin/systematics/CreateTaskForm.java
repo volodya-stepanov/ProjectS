@@ -73,8 +73,7 @@ public class CreateTaskForm {
         QuadraticEquation equation = new QuadraticEquation(CurrentDocument, description, formulaString);
 
         // Парсим формулу и устанавливаем её документу
-        FormulaModel formula = parseFormula(formulaString);
-        equation.setFormula(formula);
+
         equation.solve();
         //equation.saveToDocument();
 

@@ -15,7 +15,7 @@ import java.util.ArrayList;
 public class QuadraticEquation extends TaskModel{
 
     /** Массив ответов на это уравнение */
-    private ArrayList<Double> Answers;
+    public ArrayList<Double> Answers;
 
     /** Для генерации формул */
     private ParseHelper Helper;
@@ -32,6 +32,8 @@ public class QuadraticEquation extends TaskModel{
         DisplayName = "Квадратное уравнение";
         Answers = new ArrayList<Double>();
         Helper = new ParseHelper();
+
+        Formula = Helper.parseEquation(formulaString);
     }
 
     @Override
@@ -72,6 +74,8 @@ public class QuadraticEquation extends TaskModel{
 
     @Override
     public void solve() {
+
+
         Formula.getVariablesHashMap().put("c", 0.0);
 
         findCoefficients();
@@ -285,6 +289,10 @@ public class QuadraticEquation extends TaskModel{
         return value;
     }
 
+    /**
+     * Находит единственный корень квадратного уравнения
+     * @return Значение корня
+     */
     private double findX() {
         EquationModel xFormula = Helper.parseEquation("x = -b/(2*a)");
 
@@ -308,6 +316,10 @@ public class QuadraticEquation extends TaskModel{
         return xFormula.Expressions.get(xFormula.Expressions.size()-1).getValue();
     }
 
+    /**
+     * Находит первый корень квадратного уравнения
+     * @return Значение корня X1
+     */
     private double findX1() {
         EquationModel x1Formula = Helper.parseEquation("x = (-b+sqrt(D))/(2*a)");
 
@@ -331,6 +343,10 @@ public class QuadraticEquation extends TaskModel{
         return x1Formula.Expressions.get(x1Formula.Expressions.size()-1).getValue();
     }
 
+    /**
+     * Находит второй корень квадратного уравнения
+     * @return Значение корня X1
+     */
     private double findX2() {
         EquationModel x2Formula = Helper.parseEquation("x = (-b-sqrt(D))/(2*a)");
 
@@ -352,243 +368,5 @@ public class QuadraticEquation extends TaskModel{
         SolutionBlocks.add(new FormulaBlock(x2Formula));
 
         return x2Formula.Expressions.get(x2Formula.Expressions.size()-1).getValue();
-    }
-
-    private EquationModel generateX1Formula() {
-        // Само уравнение "x1 = (-b + sqrt(D)) / (2 * a)"
-        EquationModel x1Formula = new EquationModel(null);
-        x1Formula.setVariablesHashMap(Formula.getVariablesHashMap());
-
-        // Левая часть
-        ExpressionModel expression1 = new ExpressionModel(x1Formula, "x", "1");
-        x1Formula.Expressions.add(expression1);
-
-        // Правая часть
-        ExpressionModel expression2 = new ExpressionModel(x1Formula);
-        expression2.setRelation(RelOpModel.Equals);
-        x1Formula.Expressions.add(expression2);
-
-        // Первый и единственный член: дробь
-        TermModel term2 = new TermModel(expression2);
-        expression2.Terms.add(term2);
-
-        // Первый "множитель" - числитель дроби
-        FactorModel factor3 = new FactorModel(term2);
-        term2.Factors.add(factor3);
-
-        SignedAtomModel signedAtom2 = new SignedAtomModel(factor3);
-        factor3.setBase(signedAtom2);
-
-        AtomModel atom2 = new AtomModel(signedAtom2);
-        signedAtom2.setAtom(atom2);
-
-        ExpressionModel expression3 = new ExpressionModel(atom2);
-        atom2.setExpression(expression3);
-
-        // Первый член "-b"
-        TermModel term3 = new TermModel(expression3);
-        expression3.Terms.add(term3);
-
-        // Член создаём с помощью метода setName, который автоматически выстраивает всю иерархию донизу, а в самом низу создаёт переменную с именем b
-        term3.setName("b");
-        // Выуживаем атом со знаком, чтобы установить ему знак минус
-        term3.Factors.get(0).getBase().setNegative(true);
-
-        // Второй член - "+ sqrt(D)"
-        TermModel term4 = new TermModel(expression3);
-        term4.setMathOperation(MathOpModel.Plus);
-        expression3.Terms.add(term4);
-
-        FactorModel factor4 = new FactorModel(term4);
-        term4.Factors.add(factor4);
-
-        SignedAtomModel signedAtom3 = new SignedAtomModel(factor4);
-        factor4.setBase(signedAtom3);
-
-        AtomModel atom1 = new AtomModel(signedAtom3);
-        signedAtom3.setAtom(atom1);
-
-        SquareRoot squareRoot1 = new SquareRoot(atom1, "D");
-        atom1.setExpression(squareRoot1);
-
-        // Второй "множитель" - знаменатель дроби
-        FactorModel factor5 = new FactorModel(term2);
-        factor5.setMathOperation(MathOpModel.Divide);
-        term2.Factors.add(factor5);
-
-        SignedAtomModel signedAtom4 = new SignedAtomModel(factor5);
-        factor5.setBase(signedAtom4);
-
-        AtomModel atom3 = new AtomModel(signedAtom4);
-        signedAtom4.setAtom(atom3);
-
-        ExpressionModel expression4 = new ExpressionModel(atom3);
-        atom3.setExpression(expression4);
-
-        // Первый и единственный член "2*a"
-        TermModel term5 = new TermModel(expression4);
-        expression4.Terms.add(term5);
-
-        FactorModel factor6 = new FactorModel(term5, 2);
-        term5.Factors.add(factor6);
-
-        FactorModel factor7 = new FactorModel(term5, "a");
-        factor7.setMathOperation(MathOpModel.Multiply);
-        term5.Factors.add(factor7);
-
-        return x1Formula;
-    }
-
-    private EquationModel generateX2Formula() {
-        // Само уравнение "x2 = (-b + sqrt(D)) / (2 * a)"
-        EquationModel x2Formula = new EquationModel(null);
-        x2Formula.setVariablesHashMap(Formula.getVariablesHashMap());
-
-        // Левая часть
-        ExpressionModel expression1 = new ExpressionModel(x2Formula, "x", "2");
-        x2Formula.Expressions.add(expression1);
-
-        // Правая часть
-        ExpressionModel expression2 = new ExpressionModel(x2Formula);
-        expression2.setRelation(RelOpModel.Equals);
-        x2Formula.Expressions.add(expression2);
-
-        // Первый и единственный член: дробь
-        TermModel term2 = new TermModel(expression2);
-        expression2.Terms.add(term2);
-
-        // Первый "множитель" - числитель дроби
-        FactorModel factor3 = new FactorModel(term2);
-        term2.Factors.add(factor3);
-
-        SignedAtomModel signedAtom2 = new SignedAtomModel(factor3);
-        factor3.setBase(signedAtom2);
-
-        AtomModel atom2 = new AtomModel(signedAtom2);
-        signedAtom2.setAtom(atom2);
-
-        ExpressionModel expression3 = new ExpressionModel(atom2);
-        atom2.setExpression(expression3);
-
-        // Первый член "-b"
-        TermModel term3 = new TermModel(expression3);
-        expression3.Terms.add(term3);
-
-        // Член создаём с помощью метода setName, который автоматически выстраивает всю иерархию донизу, а в самом низу создаёт переменную с именем b
-        term3.setName("b");
-        // Выуживаем атом со знаком, чтобы установить ему знак минус
-        term3.Factors.get(0).getBase().setNegative(true);
-
-        // Второй член - "+ sqrt(D)"
-        TermModel term4 = new TermModel(expression3);
-        term4.setMathOperation(MathOpModel.Minus);
-        expression3.Terms.add(term4);
-
-        FactorModel factor4 = new FactorModel(term4);
-        term4.Factors.add(factor4);
-
-        SignedAtomModel signedAtom3 = new SignedAtomModel(factor4);
-        factor4.setBase(signedAtom3);
-
-        AtomModel atom1 = new AtomModel(signedAtom3);
-        signedAtom3.setAtom(atom1);
-
-        SquareRoot squareRoot1 = new SquareRoot(atom1, "D");
-        atom1.setExpression(squareRoot1);
-
-        // Второй "множитель" - знаменатель дроби
-        FactorModel factor5 = new FactorModel(term2);
-        factor5.setMathOperation(MathOpModel.Divide);
-        term2.Factors.add(factor5);
-
-        SignedAtomModel signedAtom4 = new SignedAtomModel(factor5);
-        factor5.setBase(signedAtom4);
-
-        AtomModel atom3 = new AtomModel(signedAtom4);
-        signedAtom4.setAtom(atom3);
-
-        ExpressionModel expression4 = new ExpressionModel(atom3);
-        atom3.setExpression(expression4);
-
-        // Первый и единственный член "2*a"
-        TermModel term5 = new TermModel(expression4);
-        expression4.Terms.add(term5);
-
-        FactorModel factor6 = new FactorModel(term5, 2);
-        term5.Factors.add(factor6);
-
-        FactorModel factor7 = new FactorModel(term5, "a");
-        factor7.setMathOperation(MathOpModel.Multiply);
-        term5.Factors.add(factor7);
-
-        return x2Formula;
-    }
-
-    private EquationModel generateXFormula() {
-        // Само уравнение "x = (-b) / (2 * a)"
-        EquationModel x2Formula = new EquationModel(null);
-        x2Formula.setVariablesHashMap(Formula.getVariablesHashMap());
-
-        // Левая часть
-        ExpressionModel expression1 = new ExpressionModel(x2Formula, "x");
-        x2Formula.Expressions.add(expression1);
-
-        // Правая часть
-        ExpressionModel expression2 = new ExpressionModel(x2Formula);
-        expression2.setRelation(RelOpModel.Equals);
-        x2Formula.Expressions.add(expression2);
-
-        // Первый и единственный член: дробь
-        TermModel term2 = new TermModel(expression2);
-        expression2.Terms.add(term2);
-
-        // Первый "множитель" - числитель дроби
-        FactorModel factor3 = new FactorModel(term2);
-        term2.Factors.add(factor3);
-
-        SignedAtomModel signedAtom2 = new SignedAtomModel(factor3);
-        factor3.setBase(signedAtom2);
-
-        AtomModel atom2 = new AtomModel(signedAtom2);
-        signedAtom2.setAtom(atom2);
-
-        ExpressionModel expression3 = new ExpressionModel(atom2);
-        atom2.setExpression(expression3);
-
-        // Первый и единственный член "-b"
-        TermModel term3 = new TermModel(expression3);
-        expression3.Terms.add(term3);
-
-        // Член создаём с помощью метода setName, который автоматически выстраивает всю иерархию донизу, а в самом низу создаёт переменную с именем b
-        term3.setName("b");
-        // Выуживаем атом со знаком, чтобы установить ему знак минус
-        term3.Factors.get(0).getBase().setNegative(true);
-
-        // Второй "множитель" - знаменатель дроби
-        FactorModel factor5 = new FactorModel(term2);
-        factor5.setMathOperation(MathOpModel.Divide);
-        term2.Factors.add(factor5);
-
-        SignedAtomModel signedAtom4 = new SignedAtomModel(factor5);
-        factor5.setBase(signedAtom4);
-
-        AtomModel atom3 = new AtomModel(signedAtom4);
-        signedAtom4.setAtom(atom3);
-
-        ExpressionModel expression4 = new ExpressionModel(atom3);
-        atom3.setExpression(expression4);
-
-        // Первый и единственный член "2*a"
-        TermModel term5 = new TermModel(expression4);
-        expression4.Terms.add(term5);
-
-        FactorModel factor6 = new FactorModel(term5, 2);
-        term5.Factors.add(factor6);
-
-        FactorModel factor7 = new FactorModel(term5, "a");
-        factor7.setMathOperation(MathOpModel.Multiply);
-        term5.Factors.add(factor7);
-
-        return x2Formula;
     }
 }

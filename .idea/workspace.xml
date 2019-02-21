@@ -5,9 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f996e41e-f78d-442a-bace-c49e36561405" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/razrabotkin/systematics/DataModels/Tasks/QuadraticEquationTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/ParseHelperTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/ParseHelperTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/ParseHelperTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/ParseHelperTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/razrabotkin/systematics/CreateTaskForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/razrabotkin/systematics/CreateTaskForm.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/razrabotkin/systematics/DataModels/Tasks/QuadraticEquation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/razrabotkin/systematics/DataModels/Tasks/QuadraticEquation.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -19,81 +20,19 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/razrabotkin/systematics/ArithmeticWalker.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1020">
-              <caret line="73" selection-start-line="73" selection-end-line="73" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="method#ArithmeticWalker#0;class#ArithmeticWalker#0" />
-                <element signature="method#enterEquation#0;class#ArithmeticWalker#0" />
-                <element signature="docComment;method#exitEquation#0;class#ArithmeticWalker#0" />
-                <element signature="docComment;method#enterExpression#0;class#ArithmeticWalker#0" />
-                <element signature="docComment;method#exitExpression#0;class#ArithmeticWalker#0" />
-                <element signature="docComment;method#enterTerm#0;class#ArithmeticWalker#0" />
-                <element signature="docComment;method#exitTerm#0;class#ArithmeticWalker#0" />
-                <element signature="method#exitTerm#0;class#ArithmeticWalker#0" />
-                <element signature="docComment;method#enterFactor#0;class#ArithmeticWalker#0" />
-                <element signature="method#enterFactor#0;class#ArithmeticWalker#0" />
-                <element signature="docComment;method#exitFactor#0;class#ArithmeticWalker#0" />
-                <element signature="method#exitFactor#0;class#ArithmeticWalker#0" />
-                <element signature="docComment;method#enterSignedAtom#0;class#ArithmeticWalker#0" />
-                <element signature="method#enterSignedAtom#0;class#ArithmeticWalker#0" />
-                <element signature="docComment;method#exitSignedAtom#0;class#ArithmeticWalker#0" />
-                <element signature="method#exitSignedAtom#0;class#ArithmeticWalker#0" />
-                <element signature="docComment;method#enterAtom#0;class#ArithmeticWalker#0" />
-                <element signature="method#enterAtom#0;class#ArithmeticWalker#0" />
-                <element signature="docComment;method#exitAtom#0;class#ArithmeticWalker#0" />
-                <element signature="method#exitAtom#0;class#ArithmeticWalker#0" />
-                <element signature="docComment;method#enterScientific#0;class#ArithmeticWalker#0" />
-                <element signature="method#enterScientific#0;class#ArithmeticWalker#0" />
-                <element signature="docComment;method#exitScientific#0;class#ArithmeticWalker#0" />
-                <element signature="method#exitScientific#0;class#ArithmeticWalker#0" />
-                <element signature="docComment;method#enterVariable#0;class#ArithmeticWalker#0" />
-                <element signature="method#enterVariable#0;class#ArithmeticWalker#0" />
-                <element signature="docComment;method#exitVariable#0;class#ArithmeticWalker#0" />
-                <element signature="method#exitVariable#0;class#ArithmeticWalker#0" />
-                <element signature="method#enterRelop#0;class#ArithmeticWalker#0" />
-                <element signature="method#exitRelop#0;class#ArithmeticWalker#0" />
-                <element signature="docComment;method#enterSqrt#0;class#ArithmeticWalker#0" />
-                <element signature="method#enterSqrt#0;class#ArithmeticWalker#0" />
-                <element signature="docComment;method#exitSqrt#0;class#ArithmeticWalker#0" />
-                <element signature="method#exitSqrt#0;class#ArithmeticWalker#0" />
-                <element signature="method#visitTerminal#0;class#ArithmeticWalker#0" />
-                <element signature="method#visitErrorNode#0;class#ArithmeticWalker#0" />
-                <element signature="method#enterEveryRule#0;class#ArithmeticWalker#0" />
-                <element signature="method#exitEveryRule#0;class#ArithmeticWalker#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/test/java/ParseHelperTest.java">
+        <entry file="file://$PROJECT_DIR$/src/test/java/com/razrabotkin/systematics/DataModels/Tasks/QuadraticEquationTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="7" column="52" selection-start-line="7" selection-start-column="52" selection-end-line="7" selection-end-column="52" />
+            <state relative-caret-position="269">
+              <caret line="75" column="108" lean-forward="true" selection-start-line="75" selection-start-column="108" selection-end-line="75" selection-end-column="108" />
               <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="method#ParseHelperTest#0;class#ParseHelperTest#0" />
-                <element signature="method#parseEquation#0;class#ParseHelperTest#0" />
-                <element signature="method#parseVariable#0;class#ParseHelperTest#0" />
-                <element signature="method#parseNumber#0;class#ParseHelperTest#0" />
-                <element signature="method#parseSignedAtom#0;class#ParseHelperTest#0" />
-                <element signature="method#parseSignedAtom#1;class#ParseHelperTest#0" />
-                <element signature="method#parseFactorPower#1;class#ParseHelperTest#0" />
-                <element signature="method#parseExpression#0;class#ParseHelperTest#0" />
+                <element signature="docComment;method#solveEquationSimple#0;class#QuadraticEquationTest#0" />
+                <element signature="method#solveEquationSimple#0;class#QuadraticEquationTest#0" />
+                <element signature="docComment;method#solveEquationMainCoef1#0;class#QuadraticEquationTest#0" />
+                <element signature="method#solveEquationMainCoef1#0;class#QuadraticEquationTest#0" />
+                <element signature="docComment;method#solveEquationSimple#1;class#QuadraticEquationTest#0" />
+                <element signature="method#solveEquationSimple#1;class#QuadraticEquationTest#0" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="jar://$MAVEN_REPOSITORY$/junit/junit/4.13-beta-2/junit-4.13-beta-2.jar!/org/junit/internal/runners/model/ReflectiveCallable.class">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="17" selection-start-line="17" selection-end-line="17" />
             </state>
           </provider>
         </entry>
@@ -153,7 +92,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/DataModels/SolutionBlocks/SolutionBlock.java" />
         <option value="$PROJECT_DIR$/src/main/java/DataModels/SolutionBlocks/TextBlock.java" />
         <option value="$PROJECT_DIR$/src/main/java/DataModels/SolutionBlocks/FormulaBlock.java" />
         <option value="$PROJECT_DIR$/src/main/java/DataModels/Formulas/EquationModel.java" />
@@ -194,8 +132,6 @@
         <option value="$PROJECT_DIR$/src/main/java/com/razrabotkin/systematics/gen/ArithmeticListener.java" />
         <option value="$PROJECT_DIR$/src/main/Arithmetic.g4" />
         <option value="$PROJECT_DIR$/src/main/java/com/razrabotkin/systematics/DataModels/Formulas/SquareRoot.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/razrabotkin/systematics/CreateTaskForm.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/razrabotkin/systematics/DataModels/Tasks/QuadraticEquation.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/razrabotkin/systematics/CreateTaskForm.form" />
         <option value="$PROJECT_DIR$/src/main/java/com/razrabotkin/systematics/DataModels/Formulas/SignedAtomModel.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/razrabotkin/systematics/DataModels/Formulas/ExpressionModel.java" />
@@ -204,6 +140,9 @@
         <option value="$PROJECT_DIR$/src/main/java/com/razrabotkin/systematics/Helpers/ParseHelperTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/razrabotkin/systematics/ArithmeticWalker.java" />
         <option value="$PROJECT_DIR$/src/test/java/ParseHelperTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/razrabotkin/systematics/CreateTaskForm.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/razrabotkin/systematics/DataModels/Tasks/QuadraticEquation.java" />
+        <option value="$PROJECT_DIR$/src/test/java/com/razrabotkin/systematics/DataModels/Tasks/QuadraticEquationTest.java" />
       </list>
     </option>
   </component>
@@ -239,6 +178,30 @@
               <item name="ProjectS" type="b2602c69:ProjectViewProjectNode" />
               <item name="ProjectS" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ProjectS" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ProjectS" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="systematics" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ProjectS" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ProjectS" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="systematics" type="462c0819:PsiDirectoryNode" />
+              <item name="CreateTaskForm" type="e9f4de52:FormNode" />
+            </path>
+            <path>
+              <item name="ProjectS" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ProjectS" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="test" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -247,6 +210,14 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="test" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ProjectS" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ProjectS" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="Tasks" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -265,7 +236,7 @@
     <property name="$PROJECT_DIR$/src/main/Arithmetic.g4::/output-dir" value="D:\version-control\ProjectS\src\main\java" />
     <property name="$PROJECT_DIR$/src/main/Arithmetic.g4::/package" value="com.razrabotkin.systematics.gen" />
     <property name="UI_DESIGNER_EDITOR_MODE.PaletteManager.SHOW" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1550772831498" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1550778789796" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit4" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4" value="" />
     <property name="create.test.in.the.same.root" value="true" />
@@ -277,20 +248,21 @@
   </component>
   <component name="RecentsManager">
     <key name="CreateTestDialog.RecentsKey">
+      <recent name="com.razrabotkin.systematics.DataModels.Tasks" />
       <recent name="com.razrabotkin.systematics.Helpers" />
-    </key>
-    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
-      <recent name="" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\version-control\ProjectS\src\main\java" />
-    </key>
-    <key name="CreateTestDialog.Recents.Supers">
-      <recent name="" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\version-control\ProjectS\src\main" />
       <recent name="D:\version-control\ProjectS\src\main\java\com\razrabotkin\systematics" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="" />
+    </key>
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\version-control\ProjectS\src\main\java" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -305,7 +277,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.ParseHelperTest">
+  <component name="RunManager" selected="JUnit.QuadraticEquationTest">
     <configuration name="App (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.razrabotkin.systematics.App" />
       <module name="projects" />
@@ -348,8 +320,23 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="QuadraticEquationTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="projects" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.razrabotkin.systematics.DataModels.Tasks.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.razrabotkin.systematics.DataModels.Tasks" />
+      <option name="MAIN_CLASS_NAME" value="com.razrabotkin.systematics.DataModels.Tasks.QuadraticEquationTest" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.QuadraticEquationTest" />
         <item itemvalue="JUnit.ParseHelperTest" />
         <item itemvalue="JUnit.All in projects" />
         <item itemvalue="Application.App (1)" />
@@ -371,42 +358,42 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="ParseHelperTest - 2019.02.21 at 20h 16m 14s.xml">
-      <configuration name="ParseHelperTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="ParseHelperTest - 2019.02.21 at 20h 16m 42s.xml">
-      <configuration name="ParseHelperTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="ParseHelperTest - 2019.02.21 at 20h 17m 21s.xml">
-      <configuration name="ParseHelperTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="ParseHelperTest - 2019.02.21 at 20h 24m 53s.xml">
-      <configuration name="ParseHelperTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="ParseHelperTest - 2019.02.21 at 21h 04m 20s.xml">
-      <configuration name="ParseHelperTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="ParseHelperTest - 2019.02.21 at 21h 05m 11s.xml">
-      <configuration name="ParseHelperTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="ParseHelperTest - 2019.02.21 at 21h 07m 14s.xml">
-      <configuration name="ParseHelperTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="ParseHelperTest - 2019.02.21 at 21h 07m 39s.xml">
-      <configuration name="ParseHelperTest" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="ParseHelperTest - 2019.02.21 at 21h 08m 01s.xml">
       <configuration name="ParseHelperTest" configurationId="JUnit" />
     </history-entry>
     <history-entry file="ParseHelperTest - 2019.02.21 at 21h 12m 37s.xml">
       <configuration name="ParseHelperTest" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="QuadraticEquationTest - 2019.02.21 at 22h 37m 09s.xml">
+      <configuration name="QuadraticEquationTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="QuadraticEquationTest - 2019.02.21 at 22h 37m 56s.xml">
+      <configuration name="QuadraticEquationTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="QuadraticEquationTest - 2019.02.21 at 22h 38m 38s.xml">
+      <configuration name="QuadraticEquationTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="QuadraticEquationTest - 2019.02.21 at 22h 40m 42s.xml">
+      <configuration name="QuadraticEquationTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="QuadraticEquationTest - 2019.02.21 at 22h 45m 10s.xml">
+      <configuration name="QuadraticEquationTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="QuadraticEquationTest - 2019.02.21 at 22h 49m 00s.xml">
+      <configuration name="QuadraticEquationTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="QuadraticEquationTest - 2019.02.21 at 22h 50m 03s.xml">
+      <configuration name="QuadraticEquationTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="QuadraticEquationTest - 2019.02.21 at 22h 52m 07s.xml">
+      <configuration name="QuadraticEquationTest" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" weight="0.21331316" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.21331316" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -416,7 +403,7 @@
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32569557" />
       <window_info anchor="bottom" auto_hide="true" id="Run" order="2" type="SLIDING" weight="0.502455" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.39770868" />
+      <window_info anchor="bottom" id="Debug" order="3" visible="true" weight="0.39770868" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -482,12 +469,6 @@
           <option name="timeStamp" value="44" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/razrabotkin/systematics/DataModels/Tasks/QuadraticEquation.java</url>
-          <line>392</line>
-          <properties />
-          <option name="timeStamp" value="59" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/razrabotkin/systematics/App.java</url>
           <line>257</line>
           <properties />
@@ -495,9 +476,15 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/razrabotkin/systematics/DataModels/Tasks/QuadraticEquation.java</url>
-          <line>288</line>
+          <line>296</line>
           <properties />
           <option name="timeStamp" value="72" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/com/razrabotkin/systematics/DataModels/Tasks/QuadraticEquationTest.java</url>
+          <line>23</line>
+          <properties />
+          <option name="timeStamp" value="74" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
@@ -508,13 +495,6 @@
     </watches-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://$MAVEN_REPOSITORY$/org/docx4j/docx4j/6.1.1/docx4j-6.1.1.jar!/org/docx4j/math/CTText.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="22" column="1" lean-forward="true" selection-start-line="22" selection-start-column="1" selection-end-line="22" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/razrabotkin/systematics/DataModels/Formulas/MathOpModel.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-7">
@@ -669,56 +649,9 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/AppFrame.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/razrabotkin/systematics/DataModels/Objects/DocumentModel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="21" column="25" selection-start-line="21" selection-start-column="25" selection-end-line="21" selection-end-column="25" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="docComment;method#DocumentModel#0;class#DocumentModel#0" />
-            <element signature="docComment;method#DocumentModel#1;class#DocumentModel#0" />
-            <element signature="method#DocumentModel#1;class#DocumentModel#0" />
-            <element signature="docComment;method#create#0;class#DocumentModel#0" />
-            <element signature="method#create#0;class#DocumentModel#0" />
-            <element signature="docComment;method#createDocument#0;class#DocumentModel#0" />
-            <element signature="method#createDocument#0;class#DocumentModel#0" />
-            <element signature="docComment;method#addText#0;class#DocumentModel#0" />
-            <element signature="method#addText#0;class#DocumentModel#0" />
-            <element signature="docComment;method#addBreak#0;class#DocumentModel#0" />
-            <element signature="method#addBreak#0;class#DocumentModel#0" />
-            <element signature="method#addAnswer#0;class#DocumentModel#0" />
-            <element signature="docComment;method#addFormula#0;class#DocumentModel#0" />
-            <element signature="method#addFormula#0;class#DocumentModel#0" />
-            <element signature="docComment;method#save#0;class#DocumentModel#0" />
-            <element signature="method#save#0;class#DocumentModel#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/razrabotkin/systematics/App.form">
       <provider selected="true" editor-type-id="ui-designer" />
       <provider editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/razrabotkin/systematics/DataModels/Tasks/TaskModel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="697">
-          <caret line="58" selection-start-line="58" selection-end-line="58" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="docComment;method#TaskModel#0;class#TaskModel#0" />
-            <element signature="method#TaskModel#0;class#TaskModel#0" />
-            <element signature="docComment;method#solve#0;class#TaskModel#0" />
-            <element signature="method#solve#0;class#TaskModel#0" />
-            <element signature="docComment;method#saveToDocument#0;class#TaskModel#0" />
-            <element signature="docComment;method#getDescription#0;class#TaskModel#0" />
-            <element signature="docComment;method#setDescription#0;class#TaskModel#0" />
-            <element signature="docComment;method#getFormulaString#0;class#TaskModel#0" />
-            <element signature="docComment;method#setFormulaString#0;class#TaskModel#0" />
-            <element signature="docComment;method#setFormula#0;class#TaskModel#0" />
-            <element signature="docComment;method#getFormula#0;class#TaskModel#0" />
-          </folding>
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/gen/ArithmeticListener.java" />
     <entry file="file://$PROJECT_DIR$/src/main/gen/ArithmeticLexer.java" />
@@ -727,20 +660,6 @@
     <entry file="file://$PROJECT_DIR$/src/main/gen/ArithmeticBaseListener.java" />
     <entry file="file://$PROJECT_DIR$/src/main/gen/Arithmetic.interp" />
     <entry file="file://$PROJECT_DIR$/src/main/gen/ArithmeticBaseVisitor.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/razrabotkin/systematics/App.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2516">
-          <caret line="180" selection-start-line="180" selection-end-line="180" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#main#0;class#App#0" />
-            <element signature="method#refreshTree#0;class#App#0" />
-            <element signature="method#createTextPane#0;class#App#0" />
-            <element signature="method#fillTextPane#0;class#App#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/org/antlr/antlr4-runtime/4.7/antlr4-runtime-4.7.jar!/org/antlr/v4/runtime/tree/ParseTreeWalker.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="207">
@@ -827,37 +746,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3536">
           <caret line="247" selection-start-line="247" selection-end-line="247" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/razrabotkin/systematics/CreateTaskForm.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1360">
-          <caret line="95" column="8" selection-start-line="95" selection-start-column="8" selection-end-line="95" selection-end-column="8" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="docComment;method#handleTask#0;class#CreateTaskForm#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/razrabotkin/systematics/DataModels/Tasks/QuadraticEquation.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3791">
-          <caret line="271" selection-start-line="271" selection-end-line="271" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="docComment;method#QuadraticEquation#0;class#QuadraticEquation#0" />
-            <element signature="method#QuadraticEquation#0;class#QuadraticEquation#0" />
-            <element signature="method#saveToDocument#0;class#QuadraticEquation#0" />
-            <element signature="docComment;method#findCoefficients#0;class#QuadraticEquation#0" />
-            <element signature="docComment;method#findDiscriminant#0;class#QuadraticEquation#0" />
-            <element signature="method#findX#0;class#QuadraticEquation#0" />
-            <element signature="method#findX2#0;class#QuadraticEquation#0" />
-            <element signature="method#generateX1Formula#0;class#QuadraticEquation#0" />
-            <element signature="method#generateX2Formula#0;class#QuadraticEquation#0" />
-            <element signature="method#generateXFormula#0;class#QuadraticEquation#0" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1014,19 +902,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/junit/junit/4.13-beta-2/junit-4.13-beta-2.jar!/org/junit/internal/runners/model/ReflectiveCallable.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="17" selection-start-line="17" selection-end-line="17" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/ParseHelperTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="52" selection-start-line="7" selection-start-column="52" selection-end-line="7" selection-end-column="52" />
+        <state relative-caret-position="102">
+          <caret line="6" selection-start-line="6" selection-end-line="6" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="docComment;class#ParseHelperTest#0" />
             <element signature="method#ParseHelperTest#0;class#ParseHelperTest#0" />
             <element signature="method#parseEquation#0;class#ParseHelperTest#0" />
             <element signature="method#parseVariable#0;class#ParseHelperTest#0" />
@@ -1035,6 +917,123 @@
             <element signature="method#parseSignedAtom#1;class#ParseHelperTest#0" />
             <element signature="method#parseFactorPower#1;class#ParseHelperTest#0" />
             <element signature="method#parseExpression#0;class#ParseHelperTest#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/razrabotkin/systematics/App.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="416">
+          <caret line="268" column="17" selection-start-line="268" selection-start-column="17" selection-end-line="268" selection-end-column="17" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#main#0;class#App#0" />
+            <element signature="method#refreshTree#0;class#App#0" />
+            <element signature="method#createTextPane#0;class#App#0" />
+            <element signature="method#fillTextPane#0;class#App#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/razrabotkin/systematics/DataModels/Objects/DocumentModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="155">
+          <caret line="21" column="25" selection-start-line="21" selection-start-column="25" selection-end-line="21" selection-end-column="25" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="docComment;method#DocumentModel#0;class#DocumentModel#0" />
+            <element signature="docComment;method#DocumentModel#1;class#DocumentModel#0" />
+            <element signature="method#DocumentModel#1;class#DocumentModel#0" />
+            <element signature="docComment;method#create#0;class#DocumentModel#0" />
+            <element signature="method#create#0;class#DocumentModel#0" />
+            <element signature="docComment;method#createDocument#0;class#DocumentModel#0" />
+            <element signature="method#createDocument#0;class#DocumentModel#0" />
+            <element signature="docComment;method#addText#0;class#DocumentModel#0" />
+            <element signature="method#addText#0;class#DocumentModel#0" />
+            <element signature="docComment;method#addBreak#0;class#DocumentModel#0" />
+            <element signature="method#addBreak#0;class#DocumentModel#0" />
+            <element signature="docComment;method#addAnswer#0;class#DocumentModel#0" />
+            <element signature="method#addAnswer#0;class#DocumentModel#0" />
+            <element signature="docComment;method#addFormula#0;class#DocumentModel#0" />
+            <element signature="method#addFormula#0;class#DocumentModel#0" />
+            <element signature="docComment;method#save#0;class#DocumentModel#0" />
+            <element signature="method#save#0;class#DocumentModel#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/razrabotkin/systematics/DataModels/Tasks/TaskModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="353">
+          <caret line="58" selection-start-line="58" selection-end-line="58" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="docComment;method#TaskModel#0;class#TaskModel#0" />
+            <element signature="method#TaskModel#0;class#TaskModel#0" />
+            <element signature="docComment;method#solve#0;class#TaskModel#0" />
+            <element signature="method#solve#0;class#TaskModel#0" />
+            <element signature="docComment;method#saveToDocument#0;class#TaskModel#0" />
+            <element signature="docComment;method#getDescription#0;class#TaskModel#0" />
+            <element signature="docComment;method#setDescription#0;class#TaskModel#0" />
+            <element signature="docComment;method#getFormulaString#0;class#TaskModel#0" />
+            <element signature="docComment;method#setFormulaString#0;class#TaskModel#0" />
+            <element signature="docComment;method#setFormula#0;class#TaskModel#0" />
+            <element signature="docComment;method#getFormula#0;class#TaskModel#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/junit/junit/4.13-beta-2/junit-4.13-beta-2.jar!/org/junit/internal/runners/model/ReflectiveCallable.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="17" selection-start-line="17" selection-end-line="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/razrabotkin/systematics/CreateTaskForm.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="224">
+          <caret line="75" selection-start-line="75" selection-end-line="75" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="docComment;method#handleTask#0;class#CreateTaskForm#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/razrabotkin/systematics/DataModels/Tasks/QuadraticEquation.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="173">
+          <caret line="34" lean-forward="true" selection-start-line="34" selection-end-line="34" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="docComment;method#QuadraticEquation#0;class#QuadraticEquation#0" />
+            <element signature="method#saveToDocument#0;class#QuadraticEquation#0" />
+            <element signature="docComment;method#findCoefficients#0;class#QuadraticEquation#0" />
+            <element signature="method#findCoefficients#0;class#QuadraticEquation#0" />
+            <element signature="docComment;method#findDiscriminant#0;class#QuadraticEquation#0" />
+            <element signature="method#findDiscriminant#0;class#QuadraticEquation#0" />
+            <element signature="docComment;method#findX#0;class#QuadraticEquation#0" />
+            <element signature="method#findX#0;class#QuadraticEquation#0" />
+            <element signature="docComment;method#findX1#0;class#QuadraticEquation#0" />
+            <element signature="method#findX1#0;class#QuadraticEquation#0" />
+            <element signature="docComment;method#findX2#0;class#QuadraticEquation#0" />
+            <element signature="method#findX2#0;class#QuadraticEquation#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/razrabotkin/systematics/DataModels/Tasks/QuadraticEquationTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="269">
+          <caret line="75" column="108" lean-forward="true" selection-start-line="75" selection-start-column="108" selection-end-line="75" selection-end-column="108" />
+          <folding>
+            <element signature="docComment;method#solveEquationSimple#0;class#QuadraticEquationTest#0" />
+            <element signature="method#solveEquationSimple#0;class#QuadraticEquationTest#0" />
+            <element signature="docComment;method#solveEquationMainCoef1#0;class#QuadraticEquationTest#0" />
+            <element signature="method#solveEquationMainCoef1#0;class#QuadraticEquationTest#0" />
+            <element signature="docComment;method#solveEquationSimple#1;class#QuadraticEquationTest#0" />
+            <element signature="method#solveEquationSimple#1;class#QuadraticEquationTest#0" />
           </folding>
         </state>
       </provider>
