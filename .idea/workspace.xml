@@ -5,23 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f996e41e-f78d-442a-bace-c49e36561405" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/test/java/ParseHelperTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/razrabotkin/systematics/ArithmeticWalker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/razrabotkin/systematics/ArithmeticWalker.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/razrabotkin/systematics/CreateTaskForm.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/razrabotkin/systematics/CreateTaskForm.form" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/razrabotkin/systematics/DataModels/Formulas/FactorModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/razrabotkin/systematics/DataModels/Formulas/FactorModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/razrabotkin/systematics/DataModels/Formulas/SignedAtomModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/razrabotkin/systematics/DataModels/Formulas/SignedAtomModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/razrabotkin/systematics/DataModels/Tasks/QuadraticEquation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/razrabotkin/systematics/DataModels/Tasks/QuadraticEquation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/razrabotkin/systematics/Helpers/ParseHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/razrabotkin/systematics/Helpers/ParseHelper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/razrabotkin/systematics/ArithmeticWalker.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/razrabotkin/systematics/ArithmeticWalker.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/razrabotkin/systematics/CreateTaskForm$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/razrabotkin/systematics/CreateTaskForm$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/razrabotkin/systematics/CreateTaskForm$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/razrabotkin/systematics/CreateTaskForm$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/razrabotkin/systematics/CreateTaskForm.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/razrabotkin/systematics/CreateTaskForm.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/razrabotkin/systematics/DataModels/Formulas/FactorModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/razrabotkin/systematics/DataModels/Formulas/FactorModel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/razrabotkin/systematics/DataModels/Formulas/SignedAtomModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/razrabotkin/systematics/DataModels/Formulas/SignedAtomModel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/razrabotkin/systematics/DataModels/Tasks/QuadraticEquation.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/razrabotkin/systematics/DataModels/Tasks/QuadraticEquation.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/razrabotkin/systematics/Helpers/ParseHelper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/razrabotkin/systematics/Helpers/ParseHelper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/ParseHelperTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/ParseHelperTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/ParseHelperTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/ParseHelperTest.class" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -36,7 +22,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/razrabotkin/systematics/ArithmeticWalker.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="106">
+            <state relative-caret-position="1020">
               <caret line="73" selection-start-line="73" selection-end-line="73" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -86,13 +72,18 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/test/java/ParseHelperTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="61" column="83" lean-forward="true" selection-start-line="61" selection-start-column="83" selection-end-line="61" selection-end-column="83" />
+            <state relative-caret-position="119">
+              <caret line="7" column="52" selection-start-line="7" selection-start-column="52" selection-end-line="7" selection-end-column="52" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="method#ParseHelperTest#0;class#ParseHelperTest#0" />
                 <element signature="method#parseEquation#0;class#ParseHelperTest#0" />
+                <element signature="method#parseVariable#0;class#ParseHelperTest#0" />
+                <element signature="method#parseNumber#0;class#ParseHelperTest#0" />
+                <element signature="method#parseSignedAtom#0;class#ParseHelperTest#0" />
+                <element signature="method#parseSignedAtom#1;class#ParseHelperTest#0" />
+                <element signature="method#parseFactorPower#1;class#ParseHelperTest#0" />
                 <element signature="method#parseExpression#0;class#ParseHelperTest#0" />
-                <element signature="method#parseNumber#1;class#ParseHelperTest#0" />
               </folding>
             </state>
           </provider>
@@ -119,7 +110,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>double result = 0</find>
       <find>`</find>
       <find>generateX1Formula</find>
       <find>findRoots</find>
@@ -149,7 +139,12 @@
       <find>tostr</find>
       <find>need</find>
       <find>&quot;(&quot;</find>
+      <find>assert</find>
     </findStrings>
+    <replaceStrings>
+      <replace>Неверно определено</replace>
+      <replace>Неверно определён</replace>
+    </replaceStrings>
   </component>
   <component name="Git.Settings">
     <option name="ROOT_SYNC" value="DONT_SYNC" />
@@ -222,8 +217,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -259,6 +252,8 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -270,7 +265,7 @@
     <property name="$PROJECT_DIR$/src/main/Arithmetic.g4::/output-dir" value="D:\version-control\ProjectS\src\main\java" />
     <property name="$PROJECT_DIR$/src/main/Arithmetic.g4::/package" value="com.razrabotkin.systematics.gen" />
     <property name="UI_DESIGNER_EDITOR_MODE.PaletteManager.SHOW" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1550697828283" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1550772831498" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit4" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4" value="" />
     <property name="create.test.in.the.same.root" value="true" />
@@ -376,34 +371,34 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="ParseHelperTest - 2019.02.20 at 21h 36m 42s.xml">
+    <history-entry file="ParseHelperTest - 2019.02.21 at 20h 16m 14s.xml">
       <configuration name="ParseHelperTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="ParseHelperTest - 2019.02.21 at 00h 02m 07s.xml">
+    <history-entry file="ParseHelperTest - 2019.02.21 at 20h 16m 42s.xml">
       <configuration name="ParseHelperTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="ParseHelperTest - 2019.02.21 at 00h 03m 52s.xml">
+    <history-entry file="ParseHelperTest - 2019.02.21 at 20h 17m 21s.xml">
       <configuration name="ParseHelperTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="ParseHelperTest - 2019.02.21 at 00h 03m 56s.xml">
+    <history-entry file="ParseHelperTest - 2019.02.21 at 20h 24m 53s.xml">
       <configuration name="ParseHelperTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="ParseHelperTest - 2019.02.21 at 00h 04m 43s.xml">
+    <history-entry file="ParseHelperTest - 2019.02.21 at 21h 04m 20s.xml">
       <configuration name="ParseHelperTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="ParseHelperTest - 2019.02.21 at 00h 06m 31s.xml">
+    <history-entry file="ParseHelperTest - 2019.02.21 at 21h 05m 11s.xml">
       <configuration name="ParseHelperTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="ParseHelperTest - 2019.02.21 at 00h 06m 53s.xml">
+    <history-entry file="ParseHelperTest - 2019.02.21 at 21h 07m 14s.xml">
       <configuration name="ParseHelperTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="ParseHelperTest - 2019.02.21 at 00h 10m 06s.xml">
+    <history-entry file="ParseHelperTest - 2019.02.21 at 21h 07m 39s.xml">
       <configuration name="ParseHelperTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="ParseHelperTest - 2019.02.21 at 00h 10m 42s.xml">
+    <history-entry file="ParseHelperTest - 2019.02.21 at 21h 08m 01s.xml">
       <configuration name="ParseHelperTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="ParseHelperTest - 2019.02.21 at 00h 23m 57s.xml">
+    <history-entry file="ParseHelperTest - 2019.02.21 at 21h 12m 37s.xml">
       <configuration name="ParseHelperTest" configurationId="JUnit" />
     </history-entry>
   </component>
@@ -411,7 +406,7 @@
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.22844176" />
+      <window_info content_ui="combo" id="Project" order="0" weight="0.21331316" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -420,8 +415,8 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32569557" />
-      <window_info active="true" anchor="bottom" auto_hide="true" id="Run" order="2" type="SLIDING" visible="true" weight="0.502455" />
-      <window_info anchor="bottom" id="Debug" order="3" visible="true" weight="0.39770868" />
+      <window_info anchor="bottom" auto_hide="true" id="Run" order="2" type="SLIDING" weight="0.502455" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.39770868" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -971,16 +966,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/junit/junit/4.13-beta-2/junit-4.13-beta-2.jar!/org/junit/internal/runners/model/ReflectiveCallable.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="17" selection-start-line="17" selection-end-line="17" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/razrabotkin/systematics/ArithmeticWalker.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="106">
+        <state relative-caret-position="1020">
           <caret line="73" selection-start-line="73" selection-end-line="73" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -1026,15 +1014,27 @@
         </state>
       </provider>
     </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/junit/junit/4.13-beta-2/junit-4.13-beta-2.jar!/org/junit/internal/runners/model/ReflectiveCallable.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="17" selection-start-line="17" selection-end-line="17" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/ParseHelperTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="61" column="83" lean-forward="true" selection-start-line="61" selection-start-column="83" selection-end-line="61" selection-end-column="83" />
+        <state relative-caret-position="119">
+          <caret line="7" column="52" selection-start-line="7" selection-start-column="52" selection-end-line="7" selection-end-column="52" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="method#ParseHelperTest#0;class#ParseHelperTest#0" />
             <element signature="method#parseEquation#0;class#ParseHelperTest#0" />
+            <element signature="method#parseVariable#0;class#ParseHelperTest#0" />
+            <element signature="method#parseNumber#0;class#ParseHelperTest#0" />
+            <element signature="method#parseSignedAtom#0;class#ParseHelperTest#0" />
+            <element signature="method#parseSignedAtom#1;class#ParseHelperTest#0" />
+            <element signature="method#parseFactorPower#1;class#ParseHelperTest#0" />
             <element signature="method#parseExpression#0;class#ParseHelperTest#0" />
-            <element signature="method#parseNumber#1;class#ParseHelperTest#0" />
           </folding>
         </state>
       </provider>
