@@ -131,6 +131,18 @@ public class ArithmeticBaseListener implements ArithmeticListener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitSqrt(ArithmeticParser.SqrtContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterDerivative(ArithmeticParser.DerivativeContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitDerivative(ArithmeticParser.DerivativeContext ctx) { }
 
 	/**
 	 * {@inheritDoc}

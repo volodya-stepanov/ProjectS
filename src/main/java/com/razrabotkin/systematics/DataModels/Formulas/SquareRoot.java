@@ -43,12 +43,14 @@ public class SquareRoot extends ExpressionModel {
         return "sqrt(" + RadicalExpression.toString() + ")";
     }
 
+    // TODO: Возможно, сделать абстрактным, чтобы не приходилось каждый раз переопределять.
     @Override
     public ArrayList<JAXBElement> toOpenXML() {
         DocumentHelper helper = new DocumentHelper();
         return helper.createRadical(RadicalExpression.toOpenXML());
     }
 
+    // TODO: Возможно, сделать абстрактным, чтобы не приходилось каждый раз переопределять.
     @Override
     public boolean isNumber() {
         // Квадратный корень никогда не является числом

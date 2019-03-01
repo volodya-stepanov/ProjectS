@@ -3,22 +3,13 @@ package com.razrabotkin.systematics.DataModels.Tasks;
 import com.razrabotkin.systematics.DataModels.Formulas.*;
 import com.razrabotkin.systematics.DataModels.Objects.DocumentModel;
 import com.razrabotkin.systematics.DataModels.SolutionBlocks.FormulaBlock;
-import com.razrabotkin.systematics.DataModels.SolutionBlocks.SolutionBlock;
 import com.razrabotkin.systematics.DataModels.SolutionBlocks.TextBlock;
 import com.razrabotkin.systematics.Helpers.ClassHelper;
-import com.razrabotkin.systematics.Helpers.ParseHelper;
 
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
-import java.util.ArrayList;
 
 public class QuadraticEquation extends TaskModel{
-
-    /** Массив ответов на это уравнение */
-    public ArrayList<Double> Answers;
-
-    /** Для генерации формул */
-    private ParseHelper Helper;
 
     /**
      * Инициализирует экземпляр класса
@@ -30,52 +21,11 @@ public class QuadraticEquation extends TaskModel{
     public QuadraticEquation(DocumentModel document, String description, String formulaString) {
         super(document, description, formulaString);
         DisplayName = "Квадратное уравнение";
-        Answers = new ArrayList<Double>();
-        Helper = new ParseHelper();
-
         Formula = Helper.parseEquation(formulaString);
     }
 
     @Override
-    public void saveToDocument() {
-        if (Document.create()){
-            Document.addText(Description, true);
-            Document.addFormula(Formula);
-            Document.addText("Решение", true);
-
-            // Добавляем в документ каждый из блоков, находящихся в массиве SolutionBlocks
-            for (SolutionBlock solutionBlock : SolutionBlocks){
-
-                // Определяем, формулой или текстом является блок,
-                // и на основании этого добавляем его в документ тем или иным методом.
-                ClassHelper helper = new ClassHelper();
-                if (helper.isTypeOf(solutionBlock, TextBlock.class)){
-                    TextBlock textBlock = (TextBlock) solutionBlock;
-                    Document.addText(textBlock.getValue(), false);
-                } else if (helper.isTypeOf(solutionBlock, FormulaBlock.class)){
-                    FormulaBlock formulaBlock = (FormulaBlock) solutionBlock;
-                    Document.addFormula(formulaBlock.getFormula());
-                }
-            }
-
-            Document.addAnswer(Answer);
-
-            Document.addBreak();
-
-            if (Document.save()){
-                System.out.println("Документ сохранён");
-            } else {
-                System.out.println("Не удалось сохранить документ");
-            }
-        } else {
-            System.out.println("Не удалось создать документ");
-        }
-    }
-
-    @Override
     public void solve() {
-
-
         Formula.getVariablesHashMap().put("c", 0.0);
 
         findCoefficients();
@@ -85,14 +35,14 @@ public class QuadraticEquation extends TaskModel{
 
         if (discriminant > 0){
             SolutionBlocks.add(new TextBlock("Дискриминант больше нуля, следовательно, уравнение имеет два корня"));
-            double x1 = findX1();
-            double x2 = findX2();
+            ExpressionModel x1 = findX1();
+            ExpressionModel x2 = findX2();
 
             Answers.add(x1);
             Answers.add(x2);
         } else if (discriminant == 0){
             SolutionBlocks.add(new TextBlock("Дискриминант равен нулю, следовательно, уравнение имеет один корень"));
-            double x = findX();
+            ExpressionModel x = findX();
             Answers.add(x);
         } else {
             SolutionBlocks.add(new TextBlock("Дискриминант меньше нуля, следовательно, уравнение не имеет действительных корней"));
@@ -102,14 +52,14 @@ public class QuadraticEquation extends TaskModel{
         NumberFormat nf = new DecimalFormat("#.######");
 
         if (Answers.size() == 2){
-            String x1 = nf.format(Answers.get(0));
-            String x2 = nf.format(Answers.get(1));
-            Answer = "x1 = " + x1 + "; x2 = " + x2 + ".";
+            String x1 = nf.format(Answers.get(0).getValue());
+            String x2 = nf.format(Answers.get(1).getValue());
+            AnswerString = "x1 = " + x1 + "; x2 = " + x2 + ".";
         } else if (Answers.size() == 1) {
-            String x = nf.format(Answers.get(0));
-            Answer = "x1,2 = " + x + ".";
+            String x = nf.format(Answers.get(0).getValue());
+            AnswerString = "x1,2 = " + x + ".";
         } else {
-            Answer = "Нет корней.";
+            AnswerString = "Нет корней.";
         }
     }
 
@@ -143,7 +93,7 @@ public class QuadraticEquation extends TaskModel{
                 if (secondFactor.getExponent().getValue() == 2){
 
                     // Извлекаем показатель степени
-                    //NumberModel exponentNumberModel = (NumberModel)secondFactor.getExponent().getAtom().getExpression();
+                    //NumberModel exponentNumberModel = (NumberModel)secondFactor.getExponent().getAtom().getFunction();
 
                     // Если показатель степени равен двум
                     //if(exponentNumberModel.getName() == 2){
@@ -293,7 +243,7 @@ public class QuadraticEquation extends TaskModel{
      * Находит единственный корень квадратного уравнения
      * @return Значение корня
      */
-    private double findX() {
+    private ExpressionModel findX() {
         EquationModel xFormula = Helper.parseEquation("x = -b/(2*a)");
 
         // TODO: Некрасиво, что приходится перекидывать таблицу значений из одного уравнения в другое.
@@ -313,14 +263,14 @@ public class QuadraticEquation extends TaskModel{
 
         SolutionBlocks.add(new FormulaBlock(xFormula));
 
-        return xFormula.Expressions.get(xFormula.Expressions.size()-1).getValue();
+        return xFormula.Expressions.get(xFormula.Expressions.size()-1);
     }
 
     /**
      * Находит первый корень квадратного уравнения
      * @return Значение корня X1
      */
-    private double findX1() {
+    private ExpressionModel findX1() {
         EquationModel x1Formula = Helper.parseEquation("x = (-b+sqrt(D))/(2*a)");
 
         // TODO: Некрасиво, что приходится перекидывать таблицу значений из одного уравнения в другое.
@@ -340,14 +290,14 @@ public class QuadraticEquation extends TaskModel{
 
         SolutionBlocks.add(new FormulaBlock(x1Formula));
 
-        return x1Formula.Expressions.get(x1Formula.Expressions.size()-1).getValue();
+        return x1Formula.Expressions.get(x1Formula.Expressions.size()-1);
     }
 
     /**
      * Находит второй корень квадратного уравнения
      * @return Значение корня X1
      */
-    private double findX2() {
+    private ExpressionModel findX2() {
         EquationModel x2Formula = Helper.parseEquation("x = (-b-sqrt(D))/(2*a)");
 
         // TODO: Некрасиво, что приходится перекидывать таблицу значений из одного уравнения в другое.
@@ -367,6 +317,6 @@ public class QuadraticEquation extends TaskModel{
 
         SolutionBlocks.add(new FormulaBlock(x2Formula));
 
-        return x2Formula.Expressions.get(x2Formula.Expressions.size()-1).getValue();
+        return x2Formula.Expressions.get(x2Formula.Expressions.size()-1);
     }
 }

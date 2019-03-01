@@ -83,6 +83,10 @@ public class ArithmeticWalker implements ArithmeticListener {
                 ArithmeticParser.AtomContext atomContext = (ArithmeticParser.AtomContext) ctx.parent;
                 AtomModel atom = (AtomModel) NodesHashMap.get(atomContext);
                 expression = new ExpressionModel(atom);
+            } else if (Helper.isTypeOf(ctx.parent, ArithmeticParser.DerivativeContext.class)) {
+                ArithmeticParser.DerivativeContext derivativeContext = (ArithmeticParser.DerivativeContext) ctx.parent;
+                Derivative derivative = (Derivative) NodesHashMap.get(derivativeContext);
+                expression = new ExpressionModel(derivative);
             }
         } else {
             expression = new ExpressionModel(null);
@@ -133,6 +137,9 @@ public class ArithmeticWalker implements ArithmeticListener {
                 } else if (Helper.isTypeOf(expression.getParent(), AtomModel.class)) {
                     AtomModel atom = (AtomModel) expression.getParent();
                     atom.setExpression(expression);
+                } else if (Helper.isTypeOf(expression.getParent(), Derivative.class)) {
+                    Derivative derivative = (Derivative) expression.getParent();
+                    derivative.setFunction(expression);
                 }
             }
 
@@ -367,6 +374,29 @@ public class ArithmeticWalker implements ArithmeticListener {
         SquareRoot sqrt = (SquareRoot) NodesHashMap.get(ctx);
         AtomModel atom = (AtomModel) sqrt.getParent();
         atom.setExpression(sqrt);
+    }
+
+    /**
+     * Вход в производную
+     * @param ctx Производная в абстрактном синтаксическом дереве
+     */
+    public void enterDerivative(ArithmeticParser.DerivativeContext ctx) {
+        // Определяем родителя данной производной, создаём объектную модель производной с указанием этого родителя и помещаем производную в таблицу.
+        ArithmeticParser.AtomContext atomContext = (ArithmeticParser.AtomContext) ctx.parent;
+        AtomModel atom = (AtomModel) NodesHashMap.get(atomContext);
+        Derivative derivative = new Derivative(atom);
+        NodesHashMap.put(ctx, derivative);
+    }
+
+    /**
+     * Выход из производной
+     * @param ctx Производная в абстрактном синтаксическом дереве
+     */
+    public void exitDerivative(ArithmeticParser.DerivativeContext ctx) {
+        // Получаем модель производной из таблицы, определяем родителя данной производной и добавляем производную в атом-родитель
+        Derivative derivative = (Derivative) NodesHashMap.get(ctx);
+        AtomModel atom = (AtomModel) derivative.getParent();
+        atom.setExpression(derivative);
     }
 
     public void visitTerminal(TerminalNode terminalNode) {

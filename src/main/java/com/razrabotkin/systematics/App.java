@@ -257,7 +257,7 @@ public class App {
             }
 
             doc.insertString(doc.getLength(), "Ответ: ", headerSet);
-            doc.insertString(doc.getLength(), selectedTask.getAnswer(), bodySet);
+            doc.insertString(doc.getLength(), selectedTask.getAnswerString(), bodySet);
 
         } catch (BadLocationException e) {
             e.printStackTrace();

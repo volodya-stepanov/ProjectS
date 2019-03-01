@@ -96,14 +96,28 @@ public abstract class FormulaModel {
      * Возвращает уравнение, которое является родителем для данной формулы
      * @return Уравнение, которое является родителем для данной формулы
      */
-    protected EquationModel getEquation(){
+    protected EquationModel getParentEquation(){
         ClassHelper helper = new ClassHelper();
 
         if (helper.isTypeOf(Parent, EquationModel.class)) {
             return (EquationModel) Parent;
         }
 
-        return Parent.getEquation();
+        return Parent.getParentEquation();
+    }
+
+    /**
+     * Возвращает выражение самого верхнего уровня, которое является родителем для данной формулы
+     * @return Выражение самого верхнего уровня, которое является родителем для данной формулы
+     */
+    protected ExpressionModel getParentExpression(){
+        ClassHelper helper = new ClassHelper();
+
+        if (helper.isTypeOf(Parent, ExpressionModel.class)) {
+            return (ExpressionModel) Parent;
+        }
+
+        return Parent.getParentExpression();
     }
 
 

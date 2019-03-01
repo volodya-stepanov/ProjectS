@@ -116,7 +116,7 @@ public class SignedAtomModel extends FormulaModel {
 
     public double getValue() {
         if (isNumber()){
-            //NumberModel number = (NumberModel) Atom.getExpression();
+            //NumberModel number = (NumberModel) Atom.getFunction();
             double value = Atom.getValue();
             if (IsNegative){
                 //return -number.getValue();

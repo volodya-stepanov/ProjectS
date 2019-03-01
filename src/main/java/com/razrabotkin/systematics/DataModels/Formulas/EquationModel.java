@@ -129,7 +129,16 @@ public class EquationModel extends FormulaModel {
     }
 
     public void solve() {
+        while (!Expressions.get(Expressions.size()-1).isNumber() && !Expressions.get(Expressions.size()-1).isResult()) {
+            ExpressionModel lastExpression = Expressions.get(Expressions.size()-1);
 
+            // Копируем правую часть и добавляем её к уравнению
+            ExpressionModel newExpression = (ExpressionModel) lastExpression.copy(this);
+            newExpression.setRelation(RelOpModel.Equals);
+            newExpression.solve();
+
+            Expressions.add(newExpression);
+        }
     }
 
     protected double getValue() {

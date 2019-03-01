@@ -1,8 +1,14 @@
 package com.razrabotkin.systematics.DataModels.Tasks;
 
+import com.razrabotkin.systematics.DataModels.Formulas.ExpressionModel;
 import com.razrabotkin.systematics.DataModels.Formulas.FormulaModel;
 import com.razrabotkin.systematics.DataModels.Objects.DocumentModel;
+import com.razrabotkin.systematics.DataModels.SolutionBlocks.FormulaBlock;
 import com.razrabotkin.systematics.DataModels.SolutionBlocks.SolutionBlock;
+import com.razrabotkin.systematics.DataModels.SolutionBlocks.TextBlock;
+import com.razrabotkin.systematics.Helpers.ClassHelper;
+import com.razrabotkin.systematics.Helpers.ParseHelper;
+
 import java.util.ArrayList;
 
 /**
@@ -26,10 +32,16 @@ public abstract class TaskModel {
     protected DocumentModel Document;
 
     /** Ответ в виде строки для отображения и вставки в документ */
-    protected String Answer;
+    protected String AnswerString;
 
     /** Массив блоков решения для записи в документ */
     public ArrayList<SolutionBlock> SolutionBlocks;
+
+    /** Массив ответов на это уравнение */
+    public ArrayList<ExpressionModel> Answers;
+
+    /** Для генерации формул */
+    protected ParseHelper Helper;
 
     /**
      * Инициализирует экземпляр класса
@@ -41,8 +53,11 @@ public abstract class TaskModel {
         Document = document;
         Description = description;
         FormulaString = formulaString;
+        Helper = new ParseHelper();
+
 
         SolutionBlocks = new ArrayList<SolutionBlock>();
+        Answers = new ArrayList<ExpressionModel>();
     }
 
     /**
@@ -56,7 +71,38 @@ public abstract class TaskModel {
      * Выполняет запись задания и решения в документ
      */
     public void saveToDocument(){
+        if (Document.create()){
+            Document.addText(Description, true);
+            Document.addFormula(Formula);
+            Document.addText("Решение", true);
 
+            // Добавляем в документ каждый из блоков, находящихся в массиве SolutionBlocks
+            for (SolutionBlock solutionBlock : SolutionBlocks){
+
+                // Определяем, формулой или текстом является блок,
+                // и на основании этого добавляем его в документ тем или иным методом.
+                ClassHelper helper = new ClassHelper();
+                if (helper.isTypeOf(solutionBlock, TextBlock.class)){
+                    TextBlock textBlock = (TextBlock) solutionBlock;
+                    Document.addText(textBlock.getValue(), false);
+                } else if (helper.isTypeOf(solutionBlock, FormulaBlock.class)){
+                    FormulaBlock formulaBlock = (FormulaBlock) solutionBlock;
+                    Document.addFormula(formulaBlock.getFormula());
+                }
+            }
+
+            Document.addAnswer(AnswerString);
+
+            Document.addBreak();
+
+            if (Document.save()){
+                System.out.println("Документ сохранён");
+            } else {
+                System.out.println("Не удалось сохранить документ");
+            }
+        } else {
+            System.out.println("Не удалось создать документ");
+        }
     }
 
     @Override
@@ -101,16 +147,16 @@ public abstract class TaskModel {
      * Возвращает ответ в виде строки для отображения и вставки в документ
      * @return Ответ в виде строки для отображения и вставки в документ
      */
-    public String getAnswer() {
-        return Answer;
+    public String getAnswerString() {
+        return AnswerString;
     }
 
     /**
      * Задаёт ответ в виде строки для отображения и вставки в документ
-     * @param answer Ответ в виде строки для отображения и вставки в документ
+     * @param answerString Ответ в виде строки для отображения и вставки в документ
      */
-    public void setAnswer(String answer) {
-        Answer = answer;
+    public void setAnswerString(String answerString) {
+        AnswerString = answerString;
     }
 
     /**

@@ -225,4 +225,33 @@ public class ParseHelperTest {
         assertTrue("Член не распознан как число", term3.isNumber());
         assertEquals("Значение множителя неверно распознано", 10, term3.getValue(), 0.1);
     }
+
+    @org.junit.Test
+    public void parseDerivative() {
+        ExpressionModel expression = ParseHelper.parseExpression("(128)'");
+
+        assertEquals("Неверно определено количество членов в выражении", 1, expression.Terms.size());
+
+        TermModel term = expression.Terms.get(0);
+
+        assertEquals("Неверно определено количество множителей в члене", 1, term.Factors.size());
+
+        FactorModel factor = term.Factors.get(0);
+
+        SignedAtomModel signedAtom = factor.getBase();
+
+        assertFalse("Неверно определён знак атома со знаком", signedAtom.isNegative());
+
+        AtomModel atom = signedAtom.getAtom();
+        ExpressionModel atomExpression = atom.getExpression();
+
+        assertTrue("Выражение атома не распознано как производная", ClassHelper.isTypeOf(atomExpression, Derivative.class));
+
+        Derivative derivative = (Derivative) atomExpression;
+
+        ExpressionModel function = derivative.getFunction();
+
+        assertTrue("Функция производной не распознана как число", function.isNumber());
+        assertEquals("Значение функции произвводной неверно распознано", 128, function.getValue(), 0.1);
+    }
 }

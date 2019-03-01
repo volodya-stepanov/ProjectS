@@ -93,7 +93,7 @@ public class VariableModel extends ExpressionModel{
 
     public void solve(){
         // Получаем уравнение-родитель
-        EquationModel equation = getEquation();
+        EquationModel equation = getParentEquation();
 
         // Из таблицы переменных, которая в нем находится, пытаемся извлечь значение переменной по её имени
         Double value = equation.getVariablesHashMap().get(Name);
@@ -111,8 +111,8 @@ public class VariableModel extends ExpressionModel{
     }
 
     @Override
-    protected EquationModel getEquation() {
-        return super.getEquation(); // TODO: Возможно, этот метод вообще не нужен
+    protected EquationModel getParentEquation() {
+        return super.getParentEquation(); // TODO: Возможно, этот метод вообще не нужен
     }
 
     // Методы-мутаторы

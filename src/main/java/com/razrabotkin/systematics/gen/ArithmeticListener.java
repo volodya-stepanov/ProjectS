@@ -107,4 +107,14 @@ public interface ArithmeticListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitSqrt(ArithmeticParser.SqrtContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link ArithmeticParser#derivative}.
+	 * @param ctx the parse tree
+	 */
+	void enterDerivative(ArithmeticParser.DerivativeContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link ArithmeticParser#derivative}.
+	 * @param ctx the parse tree
+	 */
+	void exitDerivative(ArithmeticParser.DerivativeContext ctx);
 }

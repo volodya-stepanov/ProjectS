@@ -24,8 +24,8 @@ public class QuadraticEquationTest {
         quadraticEquation.solve();
 
         assertEquals("Неверно определено количество корней уравнения", 2, quadraticEquation.Answers.size());
-        assertEquals("Неверно определён корень уравнения", 1, quadraticEquation.Answers.get(0), 0.1);
-        assertEquals("Неверно определён корень уравнения", 0.4, quadraticEquation.Answers.get(1), 0.1);
+        assertEquals("Неверно определён корень уравнения", 1, quadraticEquation.Answers.get(0).getValue(), 0.1);
+        assertEquals("Неверно определён корень уравнения", 0.4, quadraticEquation.Answers.get(1).getValue(), 0.1);
     }
 
     /**
@@ -37,8 +37,8 @@ public class QuadraticEquationTest {
         quadraticEquation.solve();
 
         assertEquals("Неверно определено количество корней уравнения", 2, quadraticEquation.Answers.size());
-        assertEquals("Неверно определён корень уравнения", 2.0, quadraticEquation.Answers.get(0), 0.1);
-        assertEquals("Неверно определён корень уравнения", 5.0, quadraticEquation.Answers.get(1), 0.1);
+        assertEquals("Неверно определён корень уравнения", 2.0, quadraticEquation.Answers.get(0).getValue(), 0.1);
+        assertEquals("Неверно определён корень уравнения", 5.0, quadraticEquation.Answers.get(1).getValue(), 0.1);
     }
 
     /**
@@ -50,8 +50,8 @@ public class QuadraticEquationTest {
         quadraticEquation.solve();
 
         assertEquals("Неверно определено количество корней уравнения", 2, quadraticEquation.Answers.size());
-        assertEquals("Неверно определён корень уравнения", 1.0/3.0, quadraticEquation.Answers.get(0), 0.1);
-        assertEquals("Неверно определён корень уравнения", -0.5, quadraticEquation.Answers.get(1), 0.1);
+        assertEquals("Неверно определён корень уравнения", 1.0/3.0, quadraticEquation.Answers.get(0).getValue(), 0.1);
+        assertEquals("Неверно определён корень уравнения", -0.5, quadraticEquation.Answers.get(1).getValue(), 0.1);
     }
 
     /**

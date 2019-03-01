@@ -19,6 +19,9 @@ public class ExpressionModel extends FormulaModel{
     /** Операция отношения, стоящая перед выражением, если оно является частью уравнения */
     private RelOpModel Relation;
 
+    /** Признак того, что данное выражение является результатом решения задачи, идальше его решать не надо */
+    private boolean IsResult;
+
     /**
      * Инициализирует экземпляр класса
      * @param parent Родитель
@@ -27,6 +30,7 @@ public class ExpressionModel extends FormulaModel{
         super(parent);
         Terms = new ArrayList<TermModel>();
         Relation = RelOpModel.None;
+        IsResult = false;
     }
 
     public ExpressionModel(EquationModel parent, String name) {
@@ -237,5 +241,13 @@ public class ExpressionModel extends FormulaModel{
 
     public void setRelation(RelOpModel relation) {
         Relation = relation;
+    }
+
+    public boolean isResult() {
+        return IsResult;
+    }
+
+    public void setResult(boolean result) {
+        IsResult = result;
     }
 }
