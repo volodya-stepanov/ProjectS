@@ -65,6 +65,7 @@ atom
    | LPAREN expression RPAREN
    | sqrt
    | derivative
+   | exponentialFunction
    ;
 
 // Число в экспоненциальной записи
@@ -92,7 +93,13 @@ sqrt
 derivative
    : LPAREN expression RPAREN PRIME;
 
+// Экспонента: ключевое слово exp, открывающая скобка, атом со знаком, закрывающая скобка
+exponentialFunction : EXP LPAREN signedAtom RPAREN;
+
 // Правила лексера
+// Ключевое слово exp для экспоненциальной функции
+EXP : 'exp';
+
 // Квадратный корень
 SQRT
     : 'sqrt';

@@ -225,6 +225,10 @@ public class ArithmeticWalker implements ArithmeticListener {
             ArithmeticParser.SqrtContext sqrtContext = (ArithmeticParser.SqrtContext) ctx.parent;
             SquareRoot squareRoot = (SquareRoot) NodesHashMap.get(sqrtContext);
             signedAtom = new SignedAtomModel(squareRoot);
+        } else if (Helper.isTypeOf(ctx.parent, ArithmeticParser.ExponentialFunctionContext.class)){
+            ArithmeticParser.ExponentialFunctionContext exponentialFunctionContext = (ArithmeticParser.ExponentialFunctionContext) ctx.parent;
+            ExponentialFunction exponentialFunction = (ExponentialFunction) NodesHashMap.get(exponentialFunctionContext);
+            signedAtom = new SignedAtomModel(exponentialFunction);
         }
 
         NodesHashMap.put(ctx, signedAtom);
@@ -261,6 +265,9 @@ public class ArithmeticWalker implements ArithmeticListener {
         } else if (Helper.isTypeOf(signedAtom.getParent(), SquareRoot.class)) {
             SquareRoot sqrt = (SquareRoot) signedAtom.getParent();
             sqrt.setRadicalExpression(signedAtom);
+        } else if (Helper.isTypeOf(signedAtom.getParent(), ExponentialFunction.class)) {
+            ExponentialFunction exponentialFunction = (ExponentialFunction) signedAtom.getParent();
+            exponentialFunction.setExponent(signedAtom);
         }
     }
 
@@ -397,6 +404,27 @@ public class ArithmeticWalker implements ArithmeticListener {
         Derivative derivative = (Derivative) NodesHashMap.get(ctx);
         AtomModel atom = (AtomModel) derivative.getParent();
         atom.setExpression(derivative);
+    }
+
+    /**
+     * Вход в экспоненту
+     * @param ctx Экспонента в абстрактном синтаксическом дереве
+     */
+    public void enterExponentialFunction(ArithmeticParser.ExponentialFunctionContext ctx) {
+        ArithmeticParser.AtomContext atomContext = (ArithmeticParser.AtomContext) ctx.parent;
+        AtomModel atom = (AtomModel) NodesHashMap.get(atomContext);
+        ExponentialFunction exponentialFunction = new ExponentialFunction(atom);
+        NodesHashMap.put(ctx, exponentialFunction);
+    }
+
+    /**
+     * Выход из экспоненты
+     * @param ctx Экспонента в абстрактном синтаксическом дереве
+     */
+    public void exitExponentialFunction(ArithmeticParser.ExponentialFunctionContext ctx) {
+        ExponentialFunction exponentialFunction = (ExponentialFunction) NodesHashMap.get(ctx);
+        AtomModel atom = (AtomModel) exponentialFunction.getParent();
+        atom.setExpression(exponentialFunction);
     }
 
     public void visitTerminal(TerminalNode terminalNode) {

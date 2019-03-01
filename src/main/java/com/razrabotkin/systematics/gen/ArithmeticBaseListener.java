@@ -143,6 +143,18 @@ public class ArithmeticBaseListener implements ArithmeticListener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitDerivative(ArithmeticParser.DerivativeContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterExponentialFunction(ArithmeticParser.ExponentialFunctionContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitExponentialFunction(ArithmeticParser.ExponentialFunctionContext ctx) { }
 
 	/**
 	 * {@inheritDoc}

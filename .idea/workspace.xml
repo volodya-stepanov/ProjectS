@@ -5,20 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f996e41e-f78d-442a-bace-c49e36561405" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/razrabotkin/systematics/DataModels/Tasks/FindDerivative.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/razrabotkin/systematics/DataModels/Tasks/FindDerivativeTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/razrabotkin/systematics/DataModels/Formulas/ExponentialFunction.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/Arithmetic.g4" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Arithmetic.g4" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/razrabotkin/systematics/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/razrabotkin/systematics/App.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/razrabotkin/systematics/ArithmeticWalker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/razrabotkin/systematics/ArithmeticWalker.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/razrabotkin/systematics/DataModels/Formulas/EquationModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/razrabotkin/systematics/DataModels/Formulas/EquationModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/razrabotkin/systematics/DataModels/Formulas/ExpressionModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/razrabotkin/systematics/DataModels/Formulas/ExpressionModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/razrabotkin/systematics/DataModels/Formulas/Derivative.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/razrabotkin/systematics/DataModels/Formulas/Derivative.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/razrabotkin/systematics/DataModels/Formulas/FormulaModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/razrabotkin/systematics/DataModels/Formulas/FormulaModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/razrabotkin/systematics/DataModels/Formulas/SignedAtomModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/razrabotkin/systematics/DataModels/Formulas/SignedAtomModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/razrabotkin/systematics/DataModels/Formulas/SquareRoot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/razrabotkin/systematics/DataModels/Formulas/SquareRoot.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/razrabotkin/systematics/DataModels/Formulas/VariableModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/razrabotkin/systematics/DataModels/Formulas/VariableModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/razrabotkin/systematics/DataModels/Tasks/QuadraticEquation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/razrabotkin/systematics/DataModels/Tasks/QuadraticEquation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/razrabotkin/systematics/DataModels/Tasks/TaskModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/razrabotkin/systematics/DataModels/Tasks/TaskModel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/razrabotkin/systematics/gen/Arithmetic.interp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/razrabotkin/systematics/gen/Arithmetic.interp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/razrabotkin/systematics/gen/Arithmetic.tokens" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/razrabotkin/systematics/gen/Arithmetic.tokens" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/razrabotkin/systematics/gen/ArithmeticBaseListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/razrabotkin/systematics/gen/ArithmeticBaseListener.java" afterDir="false" />
@@ -28,17 +20,25 @@
       <change beforePath="$PROJECT_DIR$/src/main/java/com/razrabotkin/systematics/gen/ArithmeticListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/razrabotkin/systematics/gen/ArithmeticListener.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/razrabotkin/systematics/gen/ArithmeticParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/razrabotkin/systematics/gen/ArithmeticParser.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/ParseHelperTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/ParseHelperTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/razrabotkin/systematics/DataModels/Tasks/QuadraticEquationTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/razrabotkin/systematics/DataModels/Tasks/QuadraticEquationTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/META-INF/projects.kotlin_module" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/razrabotkin/systematics/App.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/razrabotkin/systematics/App.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/razrabotkin/systematics/DataModels/Formulas/EquationModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/razrabotkin/systematics/DataModels/Formulas/EquationModel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/razrabotkin/systematics/DataModels/Formulas/ExpressionModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/razrabotkin/systematics/DataModels/Formulas/ExpressionModel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/razrabotkin/systematics/ArithmeticWalker.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/razrabotkin/systematics/ArithmeticWalker.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/razrabotkin/systematics/DataModels/Formulas/Derivative.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/razrabotkin/systematics/DataModels/Formulas/Derivative.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/razrabotkin/systematics/DataModels/Formulas/FormulaModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/razrabotkin/systematics/DataModels/Formulas/FormulaModel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/razrabotkin/systematics/DataModels/Formulas/SquareRoot.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/razrabotkin/systematics/DataModels/Formulas/SquareRoot.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/razrabotkin/systematics/DataModels/Formulas/VariableModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/razrabotkin/systematics/DataModels/Formulas/VariableModel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/razrabotkin/systematics/DataModels/Tasks/QuadraticEquation.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/razrabotkin/systematics/DataModels/Tasks/QuadraticEquation.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/razrabotkin/systematics/DataModels/Tasks/TaskModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/razrabotkin/systematics/DataModels/Tasks/TaskModel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/razrabotkin/systematics/DataModels/Tasks/QuadraticEquationTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/razrabotkin/systematics/DataModels/Tasks/QuadraticEquationTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/razrabotkin/systematics/gen/ArithmeticBaseListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/razrabotkin/systematics/gen/ArithmeticBaseListener.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/razrabotkin/systematics/gen/ArithmeticLexer.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/razrabotkin/systematics/gen/ArithmeticLexer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/razrabotkin/systematics/gen/ArithmeticListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/razrabotkin/systematics/gen/ArithmeticListener.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/razrabotkin/systematics/gen/ArithmeticParser$AtomContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/razrabotkin/systematics/gen/ArithmeticParser$AtomContext.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/razrabotkin/systematics/gen/ArithmeticParser$DerivativeContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/razrabotkin/systematics/gen/ArithmeticParser$DerivativeContext.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/razrabotkin/systematics/gen/ArithmeticParser$EquationContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/razrabotkin/systematics/gen/ArithmeticParser$EquationContext.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/razrabotkin/systematics/gen/ArithmeticParser$ExpressionContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/razrabotkin/systematics/gen/ArithmeticParser$ExpressionContext.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/razrabotkin/systematics/gen/ArithmeticParser$FactorContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/razrabotkin/systematics/gen/ArithmeticParser$FactorContext.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/razrabotkin/systematics/gen/ArithmeticParser$RelopContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/razrabotkin/systematics/gen/ArithmeticParser$RelopContext.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/razrabotkin/systematics/gen/ArithmeticParser$ScientificContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/razrabotkin/systematics/gen/ArithmeticParser$ScientificContext.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/razrabotkin/systematics/gen/ArithmeticParser$SignedAtomContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/razrabotkin/systematics/gen/ArithmeticParser$SignedAtomContext.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/razrabotkin/systematics/gen/ArithmeticParser$SqrtContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/razrabotkin/systematics/gen/ArithmeticParser$SqrtContext.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/razrabotkin/systematics/gen/ArithmeticParser$TermContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/razrabotkin/systematics/gen/ArithmeticParser$TermContext.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/razrabotkin/systematics/gen/ArithmeticParser$VariableContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/razrabotkin/systematics/gen/ArithmeticParser$VariableContext.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/razrabotkin/systematics/gen/ArithmeticParser.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/razrabotkin/systematics/gen/ArithmeticParser.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/ParseHelperTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/ParseHelperTest.class" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -51,52 +51,10 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/razrabotkin/systematics/DataModels/Formulas/Derivative.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="197">
-              <caret line="240" column="38" selection-start-line="240" selection-start-column="38" selection-end-line="240" selection-end-column="38" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="docComment;method#Derivative#0;class#Derivative#0" />
-                <element signature="e#889#890#0" expanded="true" />
-                <element signature="e#944#945#0" expanded="true" />
-                <element signature="method#toOpenXML#0;class#Derivative#0" />
-                <element signature="method#isNumber#0;class#Derivative#0" />
-                <element signature="method#copy#0;class#Derivative#0" />
-                <element signature="docComment;method#isPowerFunction#0;class#Derivative#0" />
-                <element signature="method#isPowerFunction#0;class#Derivative#0" />
-                <element signature="method#isExponentialFunction#0;class#Derivative#0" />
-                <element signature="method#isSquareRoot#0;class#Derivative#0" />
-                <element signature="method#solve#0;class#Derivative#0" />
-                <element signature="method#findPowerFunctionDerivative#0;class#Derivative#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/razrabotkin/systematics/DataModels/Tasks/QuadraticEquation.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="223">
-              <caret line="95" column="106" selection-start-line="95" selection-start-column="106" selection-end-line="95" selection-end-column="106" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="docComment;method#QuadraticEquation#0;class#QuadraticEquation#0" />
-                <element signature="docComment;method#findCoefficients#0;class#QuadraticEquation#0" />
-                <element signature="docComment;method#findDiscriminant#0;class#QuadraticEquation#0" />
-                <element signature="docComment;method#findX#0;class#QuadraticEquation#0" />
-                <element signature="docComment;method#findX1#0;class#QuadraticEquation#0" />
-                <element signature="docComment;method#findX2#0;class#QuadraticEquation#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/test/java/ParseHelperTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="444">
-              <caret line="229" column="31" selection-start-line="229" selection-start-column="31" selection-end-line="229" selection-end-column="31" />
+            <state relative-caret-position="157">
+              <caret line="276" selection-start-line="276" selection-end-line="276" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="docComment;class#ParseHelperTest#0" />
@@ -108,8 +66,17 @@
                 <element signature="method#parseFactorPower#0;class#ParseHelperTest#0" />
                 <element signature="method#parseFactorMultiple#0;class#ParseHelperTest#0" />
                 <element signature="method#parseExpression#0;class#ParseHelperTest#0" />
-                <element signature="method#parseExpression#1;class#ParseHelperTest#0" />
+                <element signature="method#parseDerivative#0;class#ParseHelperTest#0" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/Arithmetic.g4">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="198">
+              <caret line="102" selection-start-line="102" selection-end-line="102" />
             </state>
           </provider>
         </entry>
@@ -119,16 +86,14 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="JUnit4 Test Class" />
+        <option value="Class" />
       </list>
     </option>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>factor6</find>
       <find>setn</find>
-      <find>toope</find>
       <find>CurrentDocument</find>
       <find>tree</find>
       <find>createTree</find>
@@ -156,6 +121,8 @@
       <find>getEqua</find>
       <find>sqrt</find>
       <find>Function</find>
+      <find>toope</find>
+      <find>entersi</find>
     </findStrings>
     <replaceStrings>
       <replace>Неверно определено</replace>
@@ -169,8 +136,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/DataModels/Formulas/RelOpModel.java" />
-        <option value="$PROJECT_DIR$/src/main/java/DataModels/Objects/DocumentHelper.java" />
         <option value="$PROJECT_DIR$/src/main/java/DataModels/Formulas/FormulaModel.java" />
         <option value="$PROJECT_DIR$/src/main/java/DataModels/Formulas/SignedAtomModel.java" />
         <option value="$PROJECT_DIR$/src/main/java/DataModels/Formulas/FactorModel.java" />
@@ -213,13 +178,15 @@
         <option value="$PROJECT_DIR$/src/main/java/com/razrabotkin/systematics/DataModels/Tasks/FindDerivative.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/razrabotkin/systematics/DataModels/Tasks/FindDerivativeTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/razrabotkin/systematics/DataModels/Formulas/ExpressionModel.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/razrabotkin/systematics/DataModels/Formulas/FormulaModel.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/razrabotkin/systematics/DataModels/Formulas/EquationModel.java" />
-        <option value="$PROJECT_DIR$/src/main/Arithmetic.g4" />
-        <option value="$PROJECT_DIR$/src/main/java/com/razrabotkin/systematics/ArithmeticWalker.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/razrabotkin/systematics/DataModels/Formulas/Derivative.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/razrabotkin/systematics/DataModels/Tasks/QuadraticEquation.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/razrabotkin/systematics/DataModels/Formulas/Exponent.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/razrabotkin/systematics/DataModels/Formulas/ExponentialFunction.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/razrabotkin/systematics/DataModels/Formulas/Derivative.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/razrabotkin/systematics/DataModels/Formulas/FormulaModel.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/razrabotkin/systematics/ArithmeticWalker.java" />
         <option value="$PROJECT_DIR$/src/test/java/ParseHelperTest.java" />
+        <option value="$PROJECT_DIR$/src/main/Arithmetic.g4" />
       </list>
     </option>
   </component>
@@ -296,7 +263,7 @@
     <property name="$PROJECT_DIR$/src/main/Arithmetic.g4::/output-dir" value="D:\version-control\ProjectS\src\main\java" />
     <property name="$PROJECT_DIR$/src/main/Arithmetic.g4::/package" value="com.razrabotkin.systematics.gen" />
     <property name="UI_DESIGNER_EDITOR_MODE.PaletteManager.SHOW" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1551476801810" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1551479809118" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit4" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4" value="" />
     <property name="create.test.in.the.same.root" value="true" />
@@ -337,7 +304,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.ParseHelperTest">
+  <component name="RunManager" selected="JUnit.ParseHelperTest.parseExponentialFunction">
     <configuration name="All in projects" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="projects" />
       <option name="PACKAGE_NAME" value="" />
@@ -390,27 +357,23 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="QuadraticEquationTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="ParseHelperTest.parseExponentialFunction" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="projects" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.razrabotkin.systematics.DataModels.Tasks.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.razrabotkin.systematics.DataModels.Tasks" />
-      <option name="MAIN_CLASS_NAME" value="com.razrabotkin.systematics.DataModels.Tasks.QuadraticEquationTest" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="ParseHelperTest" />
+      <option name="METHOD_NAME" value="parseExponentialFunction" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.ParseHelperTest.parseExponentialFunction" />
         <item itemvalue="JUnit.ParseHelperTest" />
         <item itemvalue="JUnit.FindDerivativeTest" />
         <item itemvalue="JUnit.FindDerivativeTest.powerFunction" />
         <item itemvalue="JUnit.All in projects" />
-        <item itemvalue="JUnit.QuadraticEquationTest" />
       </list>
     </recent_temporary>
   </component>
@@ -428,15 +391,6 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="FindDerivativeTest - 2019.02.28 at 21h 04m 53s.xml">
-      <configuration name="FindDerivativeTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="FindDerivativeTest - 2019.02.28 at 21h 05m 47s.xml">
-      <configuration name="FindDerivativeTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="FindDerivativeTest - 2019.02.28 at 21h 11m 31s.xml">
-      <configuration name="FindDerivativeTest" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="FindDerivativeTest - 2019.02.28 at 21h 13m 51s.xml">
       <configuration name="FindDerivativeTest" configurationId="JUnit" />
     </history-entry>
@@ -458,6 +412,15 @@
     <history-entry file="ParseHelperTest - 2019.03.01 at 23h 22m 33s.xml">
       <configuration name="ParseHelperTest" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="ParseHelperTest_parseExponentialFunction - 2019.03.02 at 01h 33m 36s.xml">
+      <configuration name="ParseHelperTest.parseExponentialFunction" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="ParseHelperTest_parseExponentialFunction - 2019.03.02 at 01h 34m 26s.xml">
+      <configuration name="ParseHelperTest.parseExponentialFunction" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="ParseHelperTest_parseExponentialFunction - 2019.03.02 at 01h 35m 26s.xml">
+      <configuration name="ParseHelperTest.parseExponentialFunction" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -472,7 +435,7 @@
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.21482602" />
+      <window_info content_ui="combo" id="Project" order="0" weight="0.49546143" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -577,6 +540,12 @@
           <properties />
           <option name="timeStamp" value="89" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/ParseHelperTest.java</url>
+          <line>276</line>
+          <properties />
+          <option name="timeStamp" value="96" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
     <watches-manager>
@@ -586,13 +555,6 @@
     </watches-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/razrabotkin/systematics/DataModels/Formulas/RelOpModel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="16" selection-start-line="7" selection-start-column="16" selection-end-line="7" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/razrabotkin/systematics/DataModels/Formulas/NumberModel.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="151">
@@ -851,27 +813,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/razrabotkin/systematics/DataModels/Formulas/FormulaModel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="174">
-          <caret line="119" selection-start-line="119" selection-end-line="119" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="docComment;method#FormulaModel#0;class#FormulaModel#0" />
-            <element signature="method#FormulaModel#0;class#FormulaModel#0" />
-            <element signature="docComment;method#toOpenXML#0;class#FormulaModel#0" />
-            <element signature="method#toOpenXML#0;class#FormulaModel#0" />
-            <element signature="docComment;method#isNumber#0;class#FormulaModel#0" />
-            <element signature="docComment;method#copy#0;class#FormulaModel#0" />
-            <element signature="docComment;method#canSolve#0;class#FormulaModel#0" />
-            <element signature="docComment;method#getEquation#0;class#FormulaModel#0" />
-            <element signature="method#getParentEquation#0;class#FormulaModel#0" />
-            <element signature="docComment;method#getValue#0;class#FormulaModel#0" />
-            <element signature="docComment;method#setValue#0;class#FormulaModel#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/razrabotkin/systematics/DataModels/Formulas/AtomModel.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="106">
@@ -950,23 +891,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/razrabotkin/systematics/DataModels/Formulas/ExpressionModel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="130">
-          <caret line="210" selection-start-line="210" selection-end-line="210" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="docComment;method#ExpressionModel#0;class#ExpressionModel#0" />
-            <element signature="method#ExpressionModel#1;class#ExpressionModel#0" />
-            <element signature="method#ExpressionModel#2;class#ExpressionModel#0" />
-            <element signature="method#toOpenXML#0;class#ExpressionModel#0" />
-            <element signature="method#isNumber#0;class#ExpressionModel#0" />
-            <element signature="method#copy#0;class#ExpressionModel#0" />
-            <element signature="method#getValue#0;class#ExpressionModel#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/razrabotkin/systematics/DataModels/Tasks/FindDerivative.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="238">
@@ -1014,17 +938,105 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/Arithmetic.g4">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/razrabotkin/systematics/DataModels/Tasks/QuadraticEquation.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="151">
-          <caret line="59" selection-start-line="59" selection-end-line="67" selection-end-column="4" />
+        <state relative-caret-position="223">
+          <caret line="95" column="106" selection-start-line="95" selection-start-column="106" selection-end-line="95" selection-end-column="106" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="docComment;method#QuadraticEquation#0;class#QuadraticEquation#0" />
+            <element signature="docComment;method#findCoefficients#0;class#QuadraticEquation#0" />
+            <element signature="docComment;method#findDiscriminant#0;class#QuadraticEquation#0" />
+            <element signature="docComment;method#findX#0;class#QuadraticEquation#0" />
+            <element signature="docComment;method#findX1#0;class#QuadraticEquation#0" />
+            <element signature="docComment;method#findX2#0;class#QuadraticEquation#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/razrabotkin/systematics/DataModels/Formulas/ExpressionModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="190">
+          <caret line="13" column="40" lean-forward="true" selection-start-line="13" selection-start-column="40" selection-end-line="13" selection-end-column="40" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="docComment;method#ExpressionModel#0;class#ExpressionModel#0" />
+            <element signature="method#ExpressionModel#1;class#ExpressionModel#0" />
+            <element signature="method#ExpressionModel#2;class#ExpressionModel#0" />
+            <element signature="method#toOpenXML#0;class#ExpressionModel#0" />
+            <element signature="method#isNumber#0;class#ExpressionModel#0" />
+            <element signature="method#copy#0;class#ExpressionModel#0" />
+            <element signature="method#getValue#0;class#ExpressionModel#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/razrabotkin/systematics/DataModels/Formulas/FormulaModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="377">
+          <caret line="36" selection-start-line="36" selection-end-line="36" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="docComment;method#toOpenXML#0;class#FormulaModel#0" />
+            <element signature="method#toOpenXML#0;class#FormulaModel#0" />
+            <element signature="docComment;method#isNumber#0;class#FormulaModel#0" />
+            <element signature="docComment;method#copy#0;class#FormulaModel#0" />
+            <element signature="docComment;method#canSolve#0;class#FormulaModel#0" />
+            <element signature="method#getParentEquation#0;class#FormulaModel#0" />
+            <element signature="docComment;method#getValue#0;class#FormulaModel#0" />
+            <element signature="docComment;method#setValue#0;class#FormulaModel#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/razrabotkin/systematics/DataModels/Formulas/Derivative.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="25" column="22" selection-start-line="25" selection-start-column="22" selection-end-line="25" selection-end-column="22" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="docComment;method#Derivative#0;class#Derivative#0" />
+            <element signature="e#656#657#0" expanded="true" />
+            <element signature="e#685#686#0" expanded="true" />
+            <element signature="e#889#890#0" expanded="true" />
+            <element signature="e#944#945#0" expanded="true" />
+            <element signature="method#isNumber#0;class#Derivative#0" />
+            <element signature="method#copy#0;class#Derivative#0" />
+            <element signature="docComment;method#isPowerFunction#0;class#Derivative#0" />
+            <element signature="method#isPowerFunction#0;class#Derivative#0" />
+            <element signature="method#isExponentialFunction#0;class#Derivative#0" />
+            <element signature="method#isSquareRoot#0;class#Derivative#0" />
+            <element signature="method#solve#0;class#Derivative#0" />
+            <element signature="method#findPowerFunctionDerivative#0;class#Derivative#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/razrabotkin/systematics/DataModels/Formulas/ExponentialFunction.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="227">
+          <caret line="48" column="44" selection-start-line="48" selection-start-column="44" selection-end-line="48" selection-end-column="44" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#277#278#0" expanded="true" />
+            <element signature="e#306#307#0" expanded="true" />
+            <element signature="method#copy#0;class#ExponentialFunction#0" />
+            <element signature="e#1117#1118#0" expanded="true" />
+            <element signature="e#1167#1168#0" expanded="true" />
+            <element signature="e#1197#1198#0" expanded="true" />
+            <element signature="e#1226#1227#0" expanded="true" />
+            <element signature="e#350#351#0" expanded="true" />
+            <element signature="e#381#382#0" expanded="true" />
+            <element signature="e#438#439#0" expanded="true" />
+            <element signature="e#473#474#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/razrabotkin/systematics/ArithmeticWalker.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="863">
-          <caret line="102" column="71" selection-start-line="102" selection-start-column="71" selection-end-line="102" selection-end-column="71" />
+        <state relative-caret-position="265">
+          <caret line="269" column="44" selection-start-line="269" selection-start-column="44" selection-end-line="269" selection-end-column="44" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#ArithmeticWalker#0;class#ArithmeticWalker#0" />
@@ -1043,9 +1055,7 @@
             <element signature="docComment;method#exitFactor#0;class#ArithmeticWalker#0" />
             <element signature="method#exitFactor#0;class#ArithmeticWalker#0" />
             <element signature="docComment;method#enterSignedAtom#0;class#ArithmeticWalker#0" />
-            <element signature="method#enterSignedAtom#0;class#ArithmeticWalker#0" />
             <element signature="docComment;method#exitSignedAtom#0;class#ArithmeticWalker#0" />
-            <element signature="method#exitSignedAtom#0;class#ArithmeticWalker#0" />
             <element signature="docComment;method#enterAtom#0;class#ArithmeticWalker#0" />
             <element signature="method#enterAtom#0;class#ArithmeticWalker#0" />
             <element signature="docComment;method#exitAtom#0;class#ArithmeticWalker#0" />
@@ -1069,48 +1079,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/razrabotkin/systematics/DataModels/Formulas/Derivative.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="197">
-          <caret line="240" column="38" selection-start-line="240" selection-start-column="38" selection-end-line="240" selection-end-column="38" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="docComment;method#Derivative#0;class#Derivative#0" />
-            <element signature="e#889#890#0" expanded="true" />
-            <element signature="e#944#945#0" expanded="true" />
-            <element signature="method#toOpenXML#0;class#Derivative#0" />
-            <element signature="method#isNumber#0;class#Derivative#0" />
-            <element signature="method#copy#0;class#Derivative#0" />
-            <element signature="docComment;method#isPowerFunction#0;class#Derivative#0" />
-            <element signature="method#isPowerFunction#0;class#Derivative#0" />
-            <element signature="method#isExponentialFunction#0;class#Derivative#0" />
-            <element signature="method#isSquareRoot#0;class#Derivative#0" />
-            <element signature="method#solve#0;class#Derivative#0" />
-            <element signature="method#findPowerFunctionDerivative#0;class#Derivative#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/razrabotkin/systematics/DataModels/Tasks/QuadraticEquation.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="223">
-          <caret line="95" column="106" selection-start-line="95" selection-start-column="106" selection-end-line="95" selection-end-column="106" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="docComment;method#QuadraticEquation#0;class#QuadraticEquation#0" />
-            <element signature="docComment;method#findCoefficients#0;class#QuadraticEquation#0" />
-            <element signature="docComment;method#findDiscriminant#0;class#QuadraticEquation#0" />
-            <element signature="docComment;method#findX#0;class#QuadraticEquation#0" />
-            <element signature="docComment;method#findX1#0;class#QuadraticEquation#0" />
-            <element signature="docComment;method#findX2#0;class#QuadraticEquation#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/ParseHelperTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="444">
-          <caret line="229" column="31" selection-start-line="229" selection-start-column="31" selection-end-line="229" selection-end-column="31" />
+        <state relative-caret-position="157">
+          <caret line="276" selection-start-line="276" selection-end-line="276" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="docComment;class#ParseHelperTest#0" />
@@ -1122,8 +1094,15 @@
             <element signature="method#parseFactorPower#0;class#ParseHelperTest#0" />
             <element signature="method#parseFactorMultiple#0;class#ParseHelperTest#0" />
             <element signature="method#parseExpression#0;class#ParseHelperTest#0" />
-            <element signature="method#parseExpression#1;class#ParseHelperTest#0" />
+            <element signature="method#parseDerivative#0;class#ParseHelperTest#0" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/Arithmetic.g4">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="102" selection-start-line="102" selection-end-line="102" />
         </state>
       </provider>
     </entry>

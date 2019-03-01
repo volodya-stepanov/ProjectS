@@ -17,10 +17,6 @@ public class Derivative extends ExpressionModel {
      */
     private ExpressionModel Function;
 
-    private ClassHelper ClassHelper;
-
-    private ParseHelper ParseHelper;
-
     /**
      * Инициализирует экземпляр класса
      *
@@ -28,8 +24,6 @@ public class Derivative extends ExpressionModel {
      */
     public Derivative(FormulaModel parent) {
         super(parent);
-        ClassHelper = new ClassHelper();
-        ParseHelper = new ParseHelper();
     }
 
     @Override
@@ -40,6 +34,7 @@ public class Derivative extends ExpressionModel {
     @Override
     public ArrayList<JAXBElement> toOpenXML() {
         DocumentHelper helper = new DocumentHelper();
+
         // Создаём массив элементов со скобками
         ArrayList<JAXBElement> arrayList = helper.createParenthesis(Function.toOpenXML());
 

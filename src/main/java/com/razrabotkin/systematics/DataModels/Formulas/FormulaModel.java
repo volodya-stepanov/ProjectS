@@ -1,6 +1,7 @@
 package com.razrabotkin.systematics.DataModels.Formulas;
 
 import com.razrabotkin.systematics.Helpers.ClassHelper;
+import com.razrabotkin.systematics.Helpers.ParseHelper;
 import com.sun.istack.internal.Nullable;
 import org.docx4j.math.CTR;
 import org.docx4j.wml.*;
@@ -21,6 +22,10 @@ public abstract class FormulaModel {
     /** Хэш-таблица для хранения значений переменных */
     protected HashMap<String, Double> VariablesHashMap;
 
+    protected ClassHelper ClassHelper;
+
+    protected com.razrabotkin.systematics.Helpers.ParseHelper ParseHelper;
+
     /**
      * Инициализирует экземпляр класса
      * @param parent Родитель - формула, в которую входит данная формула
@@ -28,6 +33,9 @@ public abstract class FormulaModel {
     protected FormulaModel(@Nullable FormulaModel parent) {
         VariablesHashMap = new HashMap<String, Double>();
         Parent = parent;
+
+        ClassHelper = new ClassHelper();
+        ParseHelper = new ParseHelper();
     }
 
     /**

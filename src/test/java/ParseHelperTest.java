@@ -254,4 +254,33 @@ public class ParseHelperTest {
         assertTrue("Функция производной не распознана как число", function.isNumber());
         assertEquals("Значение функции произвводной неверно распознано", 128, function.getValue(), 0.1);
     }
+
+    @org.junit.Test
+    public void parseExponentialFunction() {
+        ExpressionModel expression = ParseHelper.parseExpression("exp(64)");
+
+        assertEquals("Неверно определено количество членов в выражении", 1, expression.Terms.size());
+
+        TermModel term = expression.Terms.get(0);
+
+        assertEquals("Неверно определено количество множителей в члене", 1, term.Factors.size());
+
+        FactorModel factor = term.Factors.get(0);
+
+        SignedAtomModel signedAtom = factor.getBase();
+
+        assertFalse("Неверно определён знак атома со знаком", signedAtom.isNegative());
+
+        AtomModel atom = signedAtom.getAtom();
+        ExpressionModel atomExpression = atom.getExpression();
+
+        assertTrue("Выражение атома не распознано как экспонента", ClassHelper.isTypeOf(atomExpression, ExponentialFunction.class));
+
+        ExponentialFunction exponentialFunction = (ExponentialFunction) atomExpression;
+
+        SignedAtomModel exponent = exponentialFunction.getExponent();
+
+        assertTrue("Показатель экспоненциальной функции не распознан как число", exponent.isNumber());
+        assertEquals("Значение показателя экспоненциальной функции неверно распознано", 64, exponent.getValue(), 0.1);
+    }
 }
