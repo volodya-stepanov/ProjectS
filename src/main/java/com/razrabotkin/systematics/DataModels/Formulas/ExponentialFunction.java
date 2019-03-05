@@ -5,7 +5,7 @@ import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
 import javax.xml.bind.JAXBElement;
 import java.util.ArrayList;
-
+// TODO: Разобраться с показательной и экспоненциальной функциями!
 /**
  * Экспоненциальная функция
  */

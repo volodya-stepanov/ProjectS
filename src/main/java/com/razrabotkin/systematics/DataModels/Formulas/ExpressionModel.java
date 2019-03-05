@@ -53,20 +53,22 @@ public class ExpressionModel extends FormulaModel{
         // 2. Когда оно не единственное в массиве членов родительского выражения
         ClassHelper helper = new ClassHelper();
 
-        if (helper.isTypeOf(Parent, AtomModel.class)){
-            AtomModel atom = (AtomModel) Parent;
-            SignedAtomModel signedAtom = (SignedAtomModel) atom.getParent();
-            FactorModel factor = (FactorModel) signedAtom.getParent();
-            TermModel term = (TermModel) factor.getParent();
+        if (Parent != null) {
+            if (helper.isTypeOf(Parent, AtomModel.class)) {
+                AtomModel atom = (AtomModel) Parent;
+                SignedAtomModel signedAtom = (SignedAtomModel) atom.getParent();
+                FactorModel factor = (FactorModel) signedAtom.getParent();
+                TermModel term = (TermModel) factor.getParent();
 
-            if (term.Factors.size() > 1){
-                return true;
-            }
+                if (term.Factors.size() > 1) {
+                    return true;
+                }
 
-            ExpressionModel expression = (ExpressionModel) term.getParent();
+                ExpressionModel expression = (ExpressionModel) term.getParent();
 
-            if (expression.Terms.size() > 1){
-                return true;
+                if (expression.Terms.size() > 1) {
+                    return true;
+                }
             }
         }
 

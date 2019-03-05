@@ -63,7 +63,10 @@ public class Derivative extends ExpressionModel {
         if (isPowerFunction()
                 || isExponentialFunction()
                 || isPowerFunction()
-                || isSquareRoot()) {
+                || isSquareRoot()
+                || isLogarithm()
+
+        ) {
             return true;
         }
 
@@ -77,7 +80,7 @@ public class Derivative extends ExpressionModel {
      *
      * @return Истина, если функция является степенной, иначе ложь
      */
-    public boolean isPowerFunction() {
+    private boolean isPowerFunction() {
         if (Function.Terms.size() == 1) {
             TermModel term = Function.Terms.get(0);
 
@@ -103,7 +106,7 @@ public class Derivative extends ExpressionModel {
      *
      * @return Истина, если функция является показательной, иначе ложь
      */
-    public boolean isExponentialFunction() {
+    private boolean isExponentialFunction() {
         if (Function.Terms.size() == 1) {
             TermModel term = Function.Terms.get(0);
 
@@ -124,12 +127,30 @@ public class Derivative extends ExpressionModel {
         return false;
     }
 
+    private boolean isLogarithm() {
+        if (Function.Terms.size() == 1) {
+            TermModel term = Function.Terms.get(0);
+
+            if (term.Factors.size() == 1) {
+                FactorModel factor = term.Factors.get(0);
+                SignedAtomModel signedAtom = factor.getBase();
+                AtomModel atom = signedAtom.getAtom();
+
+                if (ClassHelper.isTypeOf(atom.getExpression(), Logarithm.class)) {
+                    return true;
+                }
+            }
+        }
+
+        return false;
+    }
+
     /**
      * Квадратный корень
      *
      * @return Истина, если функция является квадратным корнем, иначе ложь
      */
-    public boolean isSquareRoot() {
+    private boolean isSquareRoot() {
         if (Function.Terms.size() == 1) {
             TermModel term = Function.Terms.get(0);
 
@@ -148,6 +169,19 @@ public class Derivative extends ExpressionModel {
     }
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
     public void solve() {
         if (canSolve()) {
             if (Function.isNumber()) {
@@ -159,6 +193,8 @@ public class Derivative extends ExpressionModel {
                 findPowerFunctionDerivative();
             } else if (isExponentialFunction()) {
                 findExponentialFunctionDerivative();
+            } else if (isLogarithm()) {
+                findLogarithmDerivative();
             } else {
                 System.out.println("Программа не смогла вычислить значение производной");
             }
@@ -218,6 +254,38 @@ public class Derivative extends ExpressionModel {
         ExpressionModel parentExpression = resultExpression.getParentExpression();
         parentExpression.setResult(true);
 }
+
+    private void findLogarithmDerivative() {
+
+        // Извлекаем атом
+        TermModel term = Function.Terms.get(0);
+        FactorModel factor = term.Factors.get(0);
+        SignedAtomModel signedAtom = factor.getBase();
+        AtomModel atom = signedAtom.getAtom();
+
+        // Работаем с логарифмом
+        Logarithm logarithm = (Logarithm) atom.getExpression();
+
+        // Получаем основаниие
+        SignedAtomModel baseSignedAtom = logarithm.getBase();
+        double baseValue = baseSignedAtom.getValue();
+
+        // Определяем имя переменной в аргументе
+        SignedAtomModel exponentSignedAtom = logarithm.getArgument();
+        AtomModel argumentAtom = exponentSignedAtom.getAtom();
+        VariableModel argumentVariable = (VariableModel) argumentAtom.getExpression();
+        String argumentName = argumentVariable.getName();
+
+        // Создаём выражение-результат и подставляем его вместо текущей функции
+        ExpressionModel resultExpression = ParseHelper.parseExpression("1/(" + argumentName + "*ln(" + baseValue + "))");
+
+        AtomModel parent = (AtomModel) Parent;
+        resultExpression.setParent(parent);
+        parent.setExpression(resultExpression);
+
+        ExpressionModel parentExpression = resultExpression.getParentExpression();
+        parentExpression.setResult(true);
+    }
 
 
 
