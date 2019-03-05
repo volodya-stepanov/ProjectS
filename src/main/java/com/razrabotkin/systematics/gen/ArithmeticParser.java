@@ -17,33 +17,37 @@ public class ArithmeticParser extends Parser {
 	protected static final PredictionContextCache _sharedContextCache =
 		new PredictionContextCache();
 	public static final int
-		EXP=1, SQRT=2, VARIABLE=3, SCIENTIFIC_NUMBER=4, LPAREN=5, RPAREN=6, PLUS=7, 
-		MINUS=8, TIMES=9, DIV=10, GT=11, LT=12, EQ=13, POINT=14, POW=15, PRIME=16, 
-		WS=17;
+		SIN=1, COS=2, TAN=3, CTAN=4, LOG=5, LN=6, EXP=7, SQRT=8, VARIABLE=9, SCIENTIFIC_NUMBER=10, 
+		LPAREN=11, RPAREN=12, PLUS=13, MINUS=14, TIMES=15, DIV=16, GT=17, LT=18, 
+		EQ=19, POINT=20, POW=21, PRIME=22, COMMA=23, WS=24;
 	public static final int
 		RULE_equation = 0, RULE_expression = 1, RULE_term = 2, RULE_factor = 3, 
 		RULE_signedAtom = 4, RULE_atom = 5, RULE_scientific = 6, RULE_variable = 7, 
-		RULE_relop = 8, RULE_sqrt = 9, RULE_derivative = 10, RULE_exponentialFunction = 11;
+		RULE_relop = 8, RULE_sqrt = 9, RULE_derivative = 10, RULE_exponentialFunction = 11, 
+		RULE_logarithm = 12, RULE_naturalLogarithm = 13, RULE_sinus = 14, RULE_cosine = 15, 
+		RULE_tangent = 16, RULE_cotangent = 17;
 	private static String[] makeRuleNames() {
 		return new String[] {
 			"equation", "expression", "term", "factor", "signedAtom", "atom", "scientific", 
-			"variable", "relop", "sqrt", "derivative", "exponentialFunction"
+			"variable", "relop", "sqrt", "derivative", "exponentialFunction", "logarithm", 
+			"naturalLogarithm", "sinus", "cosine", "tangent", "cotangent"
 		};
 	}
 	public static final String[] ruleNames = makeRuleNames();
 
 	private static String[] makeLiteralNames() {
 		return new String[] {
-			null, "'exp'", "'sqrt'", null, null, "'('", "')'", "'+'", "'-'", "'*'", 
-			"'/'", "'>'", "'<'", "'='", "'.'", "'^'", "'''"
+			null, "'sin'", "'cos'", "'tan'", "'ctan'", "'log'", "'ln'", "'exp'", 
+			"'sqrt'", null, null, "'('", "')'", "'+'", "'-'", "'*'", "'/'", "'>'", 
+			"'<'", "'='", "'.'", "'^'", "'''", "','"
 		};
 	}
 	private static final String[] _LITERAL_NAMES = makeLiteralNames();
 	private static String[] makeSymbolicNames() {
 		return new String[] {
-			null, "EXP", "SQRT", "VARIABLE", "SCIENTIFIC_NUMBER", "LPAREN", "RPAREN", 
-			"PLUS", "MINUS", "TIMES", "DIV", "GT", "LT", "EQ", "POINT", "POW", "PRIME", 
-			"WS"
+			null, "SIN", "COS", "TAN", "CTAN", "LOG", "LN", "EXP", "SQRT", "VARIABLE", 
+			"SCIENTIFIC_NUMBER", "LPAREN", "RPAREN", "PLUS", "MINUS", "TIMES", "DIV", 
+			"GT", "LT", "EQ", "POINT", "POW", "PRIME", "COMMA", "WS"
 		};
 	}
 	private static final String[] _SYMBOLIC_NAMES = makeSymbolicNames();
@@ -127,11 +131,11 @@ public class ArithmeticParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(24);
+			setState(36);
 			expression();
-			setState(25);
+			setState(37);
 			relop();
-			setState(26);
+			setState(38);
 			expression();
 			}
 		}
@@ -182,15 +186,15 @@ public class ArithmeticParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(28);
+			setState(40);
 			term();
-			setState(33);
+			setState(45);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
 			while (_la==PLUS || _la==MINUS) {
 				{
 				{
-				setState(29);
+				setState(41);
 				_la = _input.LA(1);
 				if ( !(_la==PLUS || _la==MINUS) ) {
 				_errHandler.recoverInline(this);
@@ -200,11 +204,11 @@ public class ArithmeticParser extends Parser {
 					_errHandler.reportMatch(this);
 					consume();
 				}
-				setState(30);
+				setState(42);
 				term();
 				}
 				}
-				setState(35);
+				setState(47);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 			}
@@ -257,15 +261,15 @@ public class ArithmeticParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(36);
+			setState(48);
 			factor();
-			setState(41);
+			setState(53);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
 			while (_la==TIMES || _la==DIV) {
 				{
 				{
-				setState(37);
+				setState(49);
 				_la = _input.LA(1);
 				if ( !(_la==TIMES || _la==DIV) ) {
 				_errHandler.recoverInline(this);
@@ -275,11 +279,11 @@ public class ArithmeticParser extends Parser {
 					_errHandler.reportMatch(this);
 					consume();
 				}
-				setState(38);
+				setState(50);
 				factor();
 				}
 				}
-				setState(43);
+				setState(55);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 			}
@@ -328,21 +332,21 @@ public class ArithmeticParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(44);
+			setState(56);
 			signedAtom();
-			setState(49);
+			setState(61);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
 			while (_la==POW) {
 				{
 				{
-				setState(45);
+				setState(57);
 				match(POW);
-				setState(46);
+				setState(58);
 				signedAtom();
 				}
 				}
-				setState(51);
+				setState(63);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 			}
@@ -383,27 +387,33 @@ public class ArithmeticParser extends Parser {
 		SignedAtomContext _localctx = new SignedAtomContext(_ctx, getState());
 		enterRule(_localctx, 8, RULE_signedAtom);
 		try {
-			setState(57);
+			setState(69);
 			_errHandler.sync(this);
 			switch (_input.LA(1)) {
 			case PLUS:
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(52);
+				setState(64);
 				match(PLUS);
-				setState(53);
+				setState(65);
 				atom();
 				}
 				break;
 			case MINUS:
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(54);
+				setState(66);
 				match(MINUS);
-				setState(55);
+				setState(67);
 				atom();
 				}
 				break;
+			case SIN:
+			case COS:
+			case TAN:
+			case CTAN:
+			case LOG:
+			case LN:
 			case EXP:
 			case SQRT:
 			case VARIABLE:
@@ -411,7 +421,7 @@ public class ArithmeticParser extends Parser {
 			case LPAREN:
 				enterOuterAlt(_localctx, 3);
 				{
-				setState(56);
+				setState(68);
 				atom();
 				}
 				break;
@@ -451,6 +461,24 @@ public class ArithmeticParser extends Parser {
 		public ExponentialFunctionContext exponentialFunction() {
 			return getRuleContext(ExponentialFunctionContext.class,0);
 		}
+		public LogarithmContext logarithm() {
+			return getRuleContext(LogarithmContext.class,0);
+		}
+		public NaturalLogarithmContext naturalLogarithm() {
+			return getRuleContext(NaturalLogarithmContext.class,0);
+		}
+		public SinusContext sinus() {
+			return getRuleContext(SinusContext.class,0);
+		}
+		public CosineContext cosine() {
+			return getRuleContext(CosineContext.class,0);
+		}
+		public TangentContext tangent() {
+			return getRuleContext(TangentContext.class,0);
+		}
+		public CotangentContext cotangent() {
+			return getRuleContext(CotangentContext.class,0);
+		}
 		public AtomContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
@@ -469,53 +497,95 @@ public class ArithmeticParser extends Parser {
 		AtomContext _localctx = new AtomContext(_ctx, getState());
 		enterRule(_localctx, 10, RULE_atom);
 		try {
-			setState(68);
+			setState(86);
 			_errHandler.sync(this);
 			switch ( getInterpreter().adaptivePredict(_input,4,_ctx) ) {
 			case 1:
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(59);
+				setState(71);
 				scientific();
 				}
 				break;
 			case 2:
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(60);
+				setState(72);
 				variable();
 				}
 				break;
 			case 3:
 				enterOuterAlt(_localctx, 3);
 				{
-				setState(61);
+				setState(73);
 				match(LPAREN);
-				setState(62);
+				setState(74);
 				expression();
-				setState(63);
+				setState(75);
 				match(RPAREN);
 				}
 				break;
 			case 4:
 				enterOuterAlt(_localctx, 4);
 				{
-				setState(65);
+				setState(77);
 				sqrt();
 				}
 				break;
 			case 5:
 				enterOuterAlt(_localctx, 5);
 				{
-				setState(66);
+				setState(78);
 				derivative();
 				}
 				break;
 			case 6:
 				enterOuterAlt(_localctx, 6);
 				{
-				setState(67);
+				setState(79);
 				exponentialFunction();
+				}
+				break;
+			case 7:
+				enterOuterAlt(_localctx, 7);
+				{
+				setState(80);
+				logarithm();
+				}
+				break;
+			case 8:
+				enterOuterAlt(_localctx, 8);
+				{
+				setState(81);
+				naturalLogarithm();
+				}
+				break;
+			case 9:
+				enterOuterAlt(_localctx, 9);
+				{
+				setState(82);
+				sinus();
+				}
+				break;
+			case 10:
+				enterOuterAlt(_localctx, 10);
+				{
+				setState(83);
+				cosine();
+				}
+				break;
+			case 11:
+				enterOuterAlt(_localctx, 11);
+				{
+				setState(84);
+				tangent();
+				}
+				break;
+			case 12:
+				enterOuterAlt(_localctx, 12);
+				{
+				setState(85);
+				cotangent();
 				}
 				break;
 			}
@@ -553,7 +623,7 @@ public class ArithmeticParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(70);
+			setState(88);
 			match(SCIENTIFIC_NUMBER);
 			}
 		}
@@ -590,7 +660,7 @@ public class ArithmeticParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(72);
+			setState(90);
 			match(VARIABLE);
 			}
 		}
@@ -630,7 +700,7 @@ public class ArithmeticParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(74);
+			setState(92);
 			_la = _input.LA(1);
 			if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << GT) | (1L << LT) | (1L << EQ))) != 0)) ) {
 			_errHandler.recoverInline(this);
@@ -680,13 +750,13 @@ public class ArithmeticParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(76);
+			setState(94);
 			match(SQRT);
-			setState(77);
+			setState(95);
 			match(LPAREN);
-			setState(78);
+			setState(96);
 			signedAtom();
-			setState(79);
+			setState(97);
 			match(RPAREN);
 			}
 		}
@@ -728,13 +798,13 @@ public class ArithmeticParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(81);
+			setState(99);
 			match(LPAREN);
-			setState(82);
+			setState(100);
 			expression();
-			setState(83);
+			setState(101);
 			match(RPAREN);
-			setState(84);
+			setState(102);
 			match(PRIME);
 			}
 		}
@@ -776,13 +846,309 @@ public class ArithmeticParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(86);
+			setState(104);
 			match(EXP);
-			setState(87);
+			setState(105);
 			match(LPAREN);
-			setState(88);
+			setState(106);
 			signedAtom();
-			setState(89);
+			setState(107);
+			match(RPAREN);
+			}
+		}
+		catch (RecognitionException re) {
+			_localctx.exception = re;
+			_errHandler.reportError(this, re);
+			_errHandler.recover(this, re);
+		}
+		finally {
+			exitRule();
+		}
+		return _localctx;
+	}
+
+	public static class LogarithmContext extends ParserRuleContext {
+		public TerminalNode LOG() { return getToken(ArithmeticParser.LOG, 0); }
+		public TerminalNode LPAREN() { return getToken(ArithmeticParser.LPAREN, 0); }
+		public List<SignedAtomContext> signedAtom() {
+			return getRuleContexts(SignedAtomContext.class);
+		}
+		public SignedAtomContext signedAtom(int i) {
+			return getRuleContext(SignedAtomContext.class,i);
+		}
+		public TerminalNode COMMA() { return getToken(ArithmeticParser.COMMA, 0); }
+		public TerminalNode RPAREN() { return getToken(ArithmeticParser.RPAREN, 0); }
+		public LogarithmContext(ParserRuleContext parent, int invokingState) {
+			super(parent, invokingState);
+		}
+		@Override public int getRuleIndex() { return RULE_logarithm; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof ArithmeticListener ) ((ArithmeticListener)listener).enterLogarithm(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof ArithmeticListener ) ((ArithmeticListener)listener).exitLogarithm(this);
+		}
+	}
+
+	public final LogarithmContext logarithm() throws RecognitionException {
+		LogarithmContext _localctx = new LogarithmContext(_ctx, getState());
+		enterRule(_localctx, 24, RULE_logarithm);
+		try {
+			enterOuterAlt(_localctx, 1);
+			{
+			setState(109);
+			match(LOG);
+			setState(110);
+			match(LPAREN);
+			setState(111);
+			signedAtom();
+			setState(112);
+			match(COMMA);
+			setState(113);
+			signedAtom();
+			setState(114);
+			match(RPAREN);
+			}
+		}
+		catch (RecognitionException re) {
+			_localctx.exception = re;
+			_errHandler.reportError(this, re);
+			_errHandler.recover(this, re);
+		}
+		finally {
+			exitRule();
+		}
+		return _localctx;
+	}
+
+	public static class NaturalLogarithmContext extends ParserRuleContext {
+		public TerminalNode LN() { return getToken(ArithmeticParser.LN, 0); }
+		public TerminalNode LPAREN() { return getToken(ArithmeticParser.LPAREN, 0); }
+		public SignedAtomContext signedAtom() {
+			return getRuleContext(SignedAtomContext.class,0);
+		}
+		public TerminalNode RPAREN() { return getToken(ArithmeticParser.RPAREN, 0); }
+		public NaturalLogarithmContext(ParserRuleContext parent, int invokingState) {
+			super(parent, invokingState);
+		}
+		@Override public int getRuleIndex() { return RULE_naturalLogarithm; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof ArithmeticListener ) ((ArithmeticListener)listener).enterNaturalLogarithm(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof ArithmeticListener ) ((ArithmeticListener)listener).exitNaturalLogarithm(this);
+		}
+	}
+
+	public final NaturalLogarithmContext naturalLogarithm() throws RecognitionException {
+		NaturalLogarithmContext _localctx = new NaturalLogarithmContext(_ctx, getState());
+		enterRule(_localctx, 26, RULE_naturalLogarithm);
+		try {
+			enterOuterAlt(_localctx, 1);
+			{
+			setState(116);
+			match(LN);
+			setState(117);
+			match(LPAREN);
+			setState(118);
+			signedAtom();
+			setState(119);
+			match(RPAREN);
+			}
+		}
+		catch (RecognitionException re) {
+			_localctx.exception = re;
+			_errHandler.reportError(this, re);
+			_errHandler.recover(this, re);
+		}
+		finally {
+			exitRule();
+		}
+		return _localctx;
+	}
+
+	public static class SinusContext extends ParserRuleContext {
+		public TerminalNode SIN() { return getToken(ArithmeticParser.SIN, 0); }
+		public TerminalNode LPAREN() { return getToken(ArithmeticParser.LPAREN, 0); }
+		public SignedAtomContext signedAtom() {
+			return getRuleContext(SignedAtomContext.class,0);
+		}
+		public TerminalNode RPAREN() { return getToken(ArithmeticParser.RPAREN, 0); }
+		public SinusContext(ParserRuleContext parent, int invokingState) {
+			super(parent, invokingState);
+		}
+		@Override public int getRuleIndex() { return RULE_sinus; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof ArithmeticListener ) ((ArithmeticListener)listener).enterSinus(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof ArithmeticListener ) ((ArithmeticListener)listener).exitSinus(this);
+		}
+	}
+
+	public final SinusContext sinus() throws RecognitionException {
+		SinusContext _localctx = new SinusContext(_ctx, getState());
+		enterRule(_localctx, 28, RULE_sinus);
+		try {
+			enterOuterAlt(_localctx, 1);
+			{
+			setState(121);
+			match(SIN);
+			setState(122);
+			match(LPAREN);
+			setState(123);
+			signedAtom();
+			setState(124);
+			match(RPAREN);
+			}
+		}
+		catch (RecognitionException re) {
+			_localctx.exception = re;
+			_errHandler.reportError(this, re);
+			_errHandler.recover(this, re);
+		}
+		finally {
+			exitRule();
+		}
+		return _localctx;
+	}
+
+	public static class CosineContext extends ParserRuleContext {
+		public TerminalNode COS() { return getToken(ArithmeticParser.COS, 0); }
+		public TerminalNode LPAREN() { return getToken(ArithmeticParser.LPAREN, 0); }
+		public SignedAtomContext signedAtom() {
+			return getRuleContext(SignedAtomContext.class,0);
+		}
+		public TerminalNode RPAREN() { return getToken(ArithmeticParser.RPAREN, 0); }
+		public CosineContext(ParserRuleContext parent, int invokingState) {
+			super(parent, invokingState);
+		}
+		@Override public int getRuleIndex() { return RULE_cosine; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof ArithmeticListener ) ((ArithmeticListener)listener).enterCosine(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof ArithmeticListener ) ((ArithmeticListener)listener).exitCosine(this);
+		}
+	}
+
+	public final CosineContext cosine() throws RecognitionException {
+		CosineContext _localctx = new CosineContext(_ctx, getState());
+		enterRule(_localctx, 30, RULE_cosine);
+		try {
+			enterOuterAlt(_localctx, 1);
+			{
+			setState(126);
+			match(COS);
+			setState(127);
+			match(LPAREN);
+			setState(128);
+			signedAtom();
+			setState(129);
+			match(RPAREN);
+			}
+		}
+		catch (RecognitionException re) {
+			_localctx.exception = re;
+			_errHandler.reportError(this, re);
+			_errHandler.recover(this, re);
+		}
+		finally {
+			exitRule();
+		}
+		return _localctx;
+	}
+
+	public static class TangentContext extends ParserRuleContext {
+		public TerminalNode TAN() { return getToken(ArithmeticParser.TAN, 0); }
+		public TerminalNode LPAREN() { return getToken(ArithmeticParser.LPAREN, 0); }
+		public SignedAtomContext signedAtom() {
+			return getRuleContext(SignedAtomContext.class,0);
+		}
+		public TerminalNode RPAREN() { return getToken(ArithmeticParser.RPAREN, 0); }
+		public TangentContext(ParserRuleContext parent, int invokingState) {
+			super(parent, invokingState);
+		}
+		@Override public int getRuleIndex() { return RULE_tangent; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof ArithmeticListener ) ((ArithmeticListener)listener).enterTangent(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof ArithmeticListener ) ((ArithmeticListener)listener).exitTangent(this);
+		}
+	}
+
+	public final TangentContext tangent() throws RecognitionException {
+		TangentContext _localctx = new TangentContext(_ctx, getState());
+		enterRule(_localctx, 32, RULE_tangent);
+		try {
+			enterOuterAlt(_localctx, 1);
+			{
+			setState(131);
+			match(TAN);
+			setState(132);
+			match(LPAREN);
+			setState(133);
+			signedAtom();
+			setState(134);
+			match(RPAREN);
+			}
+		}
+		catch (RecognitionException re) {
+			_localctx.exception = re;
+			_errHandler.reportError(this, re);
+			_errHandler.recover(this, re);
+		}
+		finally {
+			exitRule();
+		}
+		return _localctx;
+	}
+
+	public static class CotangentContext extends ParserRuleContext {
+		public TerminalNode CTAN() { return getToken(ArithmeticParser.CTAN, 0); }
+		public TerminalNode LPAREN() { return getToken(ArithmeticParser.LPAREN, 0); }
+		public SignedAtomContext signedAtom() {
+			return getRuleContext(SignedAtomContext.class,0);
+		}
+		public TerminalNode RPAREN() { return getToken(ArithmeticParser.RPAREN, 0); }
+		public CotangentContext(ParserRuleContext parent, int invokingState) {
+			super(parent, invokingState);
+		}
+		@Override public int getRuleIndex() { return RULE_cotangent; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof ArithmeticListener ) ((ArithmeticListener)listener).enterCotangent(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof ArithmeticListener ) ((ArithmeticListener)listener).exitCotangent(this);
+		}
+	}
+
+	public final CotangentContext cotangent() throws RecognitionException {
+		CotangentContext _localctx = new CotangentContext(_ctx, getState());
+		enterRule(_localctx, 34, RULE_cotangent);
+		try {
+			enterOuterAlt(_localctx, 1);
+			{
+			setState(136);
+			match(CTAN);
+			setState(137);
+			match(LPAREN);
+			setState(138);
+			signedAtom();
+			setState(139);
 			match(RPAREN);
 			}
 		}
@@ -798,29 +1164,42 @@ public class ArithmeticParser extends Parser {
 	}
 
 	public static final String _serializedATN =
-		"\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3\23^\4\2\t\2\4\3\t"+
-		"\3\4\4\t\4\4\5\t\5\4\6\t\6\4\7\t\7\4\b\t\b\4\t\t\t\4\n\t\n\4\13\t\13\4"+
-		"\f\t\f\4\r\t\r\3\2\3\2\3\2\3\2\3\3\3\3\3\3\7\3\"\n\3\f\3\16\3%\13\3\3"+
-		"\4\3\4\3\4\7\4*\n\4\f\4\16\4-\13\4\3\5\3\5\3\5\7\5\62\n\5\f\5\16\5\65"+
-		"\13\5\3\6\3\6\3\6\3\6\3\6\5\6<\n\6\3\7\3\7\3\7\3\7\3\7\3\7\3\7\3\7\3\7"+
-		"\5\7G\n\7\3\b\3\b\3\t\3\t\3\n\3\n\3\13\3\13\3\13\3\13\3\13\3\f\3\f\3\f"+
-		"\3\f\3\f\3\r\3\r\3\r\3\r\3\r\3\r\2\2\16\2\4\6\b\n\f\16\20\22\24\26\30"+
-		"\2\5\3\2\t\n\3\2\13\f\3\2\r\17\2[\2\32\3\2\2\2\4\36\3\2\2\2\6&\3\2\2\2"+
-		"\b.\3\2\2\2\n;\3\2\2\2\fF\3\2\2\2\16H\3\2\2\2\20J\3\2\2\2\22L\3\2\2\2"+
-		"\24N\3\2\2\2\26S\3\2\2\2\30X\3\2\2\2\32\33\5\4\3\2\33\34\5\22\n\2\34\35"+
-		"\5\4\3\2\35\3\3\2\2\2\36#\5\6\4\2\37 \t\2\2\2 \"\5\6\4\2!\37\3\2\2\2\""+
-		"%\3\2\2\2#!\3\2\2\2#$\3\2\2\2$\5\3\2\2\2%#\3\2\2\2&+\5\b\5\2\'(\t\3\2"+
-		"\2(*\5\b\5\2)\'\3\2\2\2*-\3\2\2\2+)\3\2\2\2+,\3\2\2\2,\7\3\2\2\2-+\3\2"+
-		"\2\2.\63\5\n\6\2/\60\7\21\2\2\60\62\5\n\6\2\61/\3\2\2\2\62\65\3\2\2\2"+
-		"\63\61\3\2\2\2\63\64\3\2\2\2\64\t\3\2\2\2\65\63\3\2\2\2\66\67\7\t\2\2"+
-		"\67<\5\f\7\289\7\n\2\29<\5\f\7\2:<\5\f\7\2;\66\3\2\2\2;8\3\2\2\2;:\3\2"+
-		"\2\2<\13\3\2\2\2=G\5\16\b\2>G\5\20\t\2?@\7\7\2\2@A\5\4\3\2AB\7\b\2\2B"+
-		"G\3\2\2\2CG\5\24\13\2DG\5\26\f\2EG\5\30\r\2F=\3\2\2\2F>\3\2\2\2F?\3\2"+
-		"\2\2FC\3\2\2\2FD\3\2\2\2FE\3\2\2\2G\r\3\2\2\2HI\7\6\2\2I\17\3\2\2\2JK"+
-		"\7\5\2\2K\21\3\2\2\2LM\t\4\2\2M\23\3\2\2\2NO\7\4\2\2OP\7\7\2\2PQ\5\n\6"+
-		"\2QR\7\b\2\2R\25\3\2\2\2ST\7\7\2\2TU\5\4\3\2UV\7\b\2\2VW\7\22\2\2W\27"+
-		"\3\2\2\2XY\7\3\2\2YZ\7\7\2\2Z[\5\n\6\2[\\\7\b\2\2\\\31\3\2\2\2\7#+\63"+
-		";F";
+		"\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3\32\u0090\4\2\t\2"+
+		"\4\3\t\3\4\4\t\4\4\5\t\5\4\6\t\6\4\7\t\7\4\b\t\b\4\t\t\t\4\n\t\n\4\13"+
+		"\t\13\4\f\t\f\4\r\t\r\4\16\t\16\4\17\t\17\4\20\t\20\4\21\t\21\4\22\t\22"+
+		"\4\23\t\23\3\2\3\2\3\2\3\2\3\3\3\3\3\3\7\3.\n\3\f\3\16\3\61\13\3\3\4\3"+
+		"\4\3\4\7\4\66\n\4\f\4\16\49\13\4\3\5\3\5\3\5\7\5>\n\5\f\5\16\5A\13\5\3"+
+		"\6\3\6\3\6\3\6\3\6\5\6H\n\6\3\7\3\7\3\7\3\7\3\7\3\7\3\7\3\7\3\7\3\7\3"+
+		"\7\3\7\3\7\3\7\3\7\5\7Y\n\7\3\b\3\b\3\t\3\t\3\n\3\n\3\13\3\13\3\13\3\13"+
+		"\3\13\3\f\3\f\3\f\3\f\3\f\3\r\3\r\3\r\3\r\3\r\3\16\3\16\3\16\3\16\3\16"+
+		"\3\16\3\16\3\17\3\17\3\17\3\17\3\17\3\20\3\20\3\20\3\20\3\20\3\21\3\21"+
+		"\3\21\3\21\3\21\3\22\3\22\3\22\3\22\3\22\3\23\3\23\3\23\3\23\3\23\3\23"+
+		"\2\2\24\2\4\6\b\n\f\16\20\22\24\26\30\32\34\36 \"$\2\5\3\2\17\20\3\2\21"+
+		"\22\3\2\23\25\2\u008d\2&\3\2\2\2\4*\3\2\2\2\6\62\3\2\2\2\b:\3\2\2\2\n"+
+		"G\3\2\2\2\fX\3\2\2\2\16Z\3\2\2\2\20\\\3\2\2\2\22^\3\2\2\2\24`\3\2\2\2"+
+		"\26e\3\2\2\2\30j\3\2\2\2\32o\3\2\2\2\34v\3\2\2\2\36{\3\2\2\2 \u0080\3"+
+		"\2\2\2\"\u0085\3\2\2\2$\u008a\3\2\2\2&\'\5\4\3\2\'(\5\22\n\2()\5\4\3\2"+
+		")\3\3\2\2\2*/\5\6\4\2+,\t\2\2\2,.\5\6\4\2-+\3\2\2\2.\61\3\2\2\2/-\3\2"+
+		"\2\2/\60\3\2\2\2\60\5\3\2\2\2\61/\3\2\2\2\62\67\5\b\5\2\63\64\t\3\2\2"+
+		"\64\66\5\b\5\2\65\63\3\2\2\2\669\3\2\2\2\67\65\3\2\2\2\678\3\2\2\28\7"+
+		"\3\2\2\29\67\3\2\2\2:?\5\n\6\2;<\7\27\2\2<>\5\n\6\2=;\3\2\2\2>A\3\2\2"+
+		"\2?=\3\2\2\2?@\3\2\2\2@\t\3\2\2\2A?\3\2\2\2BC\7\17\2\2CH\5\f\7\2DE\7\20"+
+		"\2\2EH\5\f\7\2FH\5\f\7\2GB\3\2\2\2GD\3\2\2\2GF\3\2\2\2H\13\3\2\2\2IY\5"+
+		"\16\b\2JY\5\20\t\2KL\7\r\2\2LM\5\4\3\2MN\7\16\2\2NY\3\2\2\2OY\5\24\13"+
+		"\2PY\5\26\f\2QY\5\30\r\2RY\5\32\16\2SY\5\34\17\2TY\5\36\20\2UY\5 \21\2"+
+		"VY\5\"\22\2WY\5$\23\2XI\3\2\2\2XJ\3\2\2\2XK\3\2\2\2XO\3\2\2\2XP\3\2\2"+
+		"\2XQ\3\2\2\2XR\3\2\2\2XS\3\2\2\2XT\3\2\2\2XU\3\2\2\2XV\3\2\2\2XW\3\2\2"+
+		"\2Y\r\3\2\2\2Z[\7\f\2\2[\17\3\2\2\2\\]\7\13\2\2]\21\3\2\2\2^_\t\4\2\2"+
+		"_\23\3\2\2\2`a\7\n\2\2ab\7\r\2\2bc\5\n\6\2cd\7\16\2\2d\25\3\2\2\2ef\7"+
+		"\r\2\2fg\5\4\3\2gh\7\16\2\2hi\7\30\2\2i\27\3\2\2\2jk\7\t\2\2kl\7\r\2\2"+
+		"lm\5\n\6\2mn\7\16\2\2n\31\3\2\2\2op\7\7\2\2pq\7\r\2\2qr\5\n\6\2rs\7\31"+
+		"\2\2st\5\n\6\2tu\7\16\2\2u\33\3\2\2\2vw\7\b\2\2wx\7\r\2\2xy\5\n\6\2yz"+
+		"\7\16\2\2z\35\3\2\2\2{|\7\3\2\2|}\7\r\2\2}~\5\n\6\2~\177\7\16\2\2\177"+
+		"\37\3\2\2\2\u0080\u0081\7\4\2\2\u0081\u0082\7\r\2\2\u0082\u0083\5\n\6"+
+		"\2\u0083\u0084\7\16\2\2\u0084!\3\2\2\2\u0085\u0086\7\5\2\2\u0086\u0087"+
+		"\7\r\2\2\u0087\u0088\5\n\6\2\u0088\u0089\7\16\2\2\u0089#\3\2\2\2\u008a"+
+		"\u008b\7\6\2\2\u008b\u008c\7\r\2\2\u008c\u008d\5\n\6\2\u008d\u008e\7\16"+
+		"\2\2\u008e%\3\2\2\2\7/\67?GX";
 	public static final ATN _ATN =
 		new ATNDeserializer().deserialize(_serializedATN.toCharArray());
 	static {

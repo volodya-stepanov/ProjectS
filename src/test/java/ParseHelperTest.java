@@ -270,8 +270,8 @@ public class ParseHelperTest {
         SignedAtomModel signedAtom = factor.getBase();
 
         assertFalse("Неверно определён знак атома со знаком", signedAtom.isNegative());
-
         AtomModel atom = signedAtom.getAtom();
+
         ExpressionModel atomExpression = atom.getExpression();
 
         assertTrue("Выражение атома не распознано как экспонента", ClassHelper.isTypeOf(atomExpression, ExponentialFunction.class));
@@ -283,4 +283,185 @@ public class ParseHelperTest {
         assertTrue("Показатель экспоненциальной функции не распознан как число", exponent.isNumber());
         assertEquals("Значение показателя экспоненциальной функции неверно распознано", 64, exponent.getValue(), 0.1);
     }
+
+    @org.junit.Test
+    public void parseLogarithm() {
+        ExpressionModel expression = ParseHelper.parseExpression("log(3, 9)");
+
+        assertEquals("Неверно определено количество членов в выражении", 1, expression.Terms.size());
+
+        TermModel term = expression.Terms.get(0);
+
+        assertEquals("Неверно определено количество множителей в члене", 1, term.Factors.size());
+
+        FactorModel factor = term.Factors.get(0);
+
+        SignedAtomModel signedAtom = factor.getBase();
+
+        assertFalse("Неверно определён знак атома со знаком", signedAtom.isNegative());
+        AtomModel atom = signedAtom.getAtom();
+
+        ExpressionModel atomExpression = atom.getExpression();
+
+        assertTrue("Выражение атома не распознано как логарифм", ClassHelper.isTypeOf(atomExpression, Logarithm.class));
+
+        Logarithm logarithm = (Logarithm) atomExpression;
+
+        SignedAtomModel base = logarithm.getBase();
+
+        assertTrue("Основание логарифма не распознано как число", base.isNumber());
+        assertEquals("Значение основания логарифма неверно распознано", 3, base.getValue(), 0.1);
+
+        SignedAtomModel argument = logarithm.getArgument();
+
+        assertTrue("Аргумент логарифма не распознан как число", argument.isNumber());
+        assertEquals("Значение аргумента логарифма неверно распознано", 9, argument.getValue(), 0.1);
+    }
+
+    @org.junit.Test
+    public void parseNaturalLogarithm() {
+        ExpressionModel expression = ParseHelper.parseExpression("ln(15)");
+
+        assertEquals("Неверно определено количество членов в выражении", 1, expression.Terms.size());
+
+        TermModel term = expression.Terms.get(0);
+
+        assertEquals("Неверно определено количество множителей в члене", 1, term.Factors.size());
+
+        FactorModel factor = term.Factors.get(0);
+
+        SignedAtomModel signedAtom = factor.getBase();
+
+        assertFalse("Неверно определён знак атома со знаком", signedAtom.isNegative());
+        AtomModel atom = signedAtom.getAtom();
+
+        ExpressionModel atomExpression = atom.getExpression();
+
+        assertTrue("Выражение атома не распознано как логарифм", ClassHelper.isTypeOf(atomExpression, NaturalLogarithm.class));
+
+        NaturalLogarithm naturalLogarithm = (NaturalLogarithm) atomExpression;
+
+        SignedAtomModel argument = naturalLogarithm.getArgument();
+
+        assertTrue("Аргумент натурального логарифма не распознан как число", argument.isNumber());
+        assertEquals("Значение аргумента натурального логарифма неверно распознано", 15, argument.getValue(), 0.1);
+    }
+
+    @org.junit.Test
+    public void parseSinus() {
+        ExpressionModel expression = ParseHelper.parseExpression("sin(10)");
+
+        assertEquals("Неверно определено количество членов в выражении", 1, expression.Terms.size());
+
+        TermModel term = expression.Terms.get(0);
+
+        assertEquals("Неверно определено количество множителей в члене", 1, term.Factors.size());
+
+        FactorModel factor = term.Factors.get(0);
+
+        SignedAtomModel signedAtom = factor.getBase();
+
+        assertFalse("Неверно определён знак атома со знаком", signedAtom.isNegative());
+        AtomModel atom = signedAtom.getAtom();
+
+        ExpressionModel atomExpression = atom.getExpression();
+
+        assertTrue("Выражение атома не распознано как тригонометрическая функция", ClassHelper.isTypeOf(atomExpression, Sinus.class));
+
+        Sinus sinus = (Sinus) atomExpression;
+
+        SignedAtomModel argument = sinus.getArgument();
+
+        assertTrue("Аргумент тригонометрической функции не распознан как число", argument.isNumber());
+        assertEquals("Значение аргумента тригонометрической функции неверно распознано", 10, argument.getValue(), 0.1);
+    }
+
+    @org.junit.Test
+    public void parseCosine() {
+        ExpressionModel expression = ParseHelper.parseExpression("cos(10)");
+
+        assertEquals("Неверно определено количество членов в выражении", 1, expression.Terms.size());
+
+        TermModel term = expression.Terms.get(0);
+
+        assertEquals("Неверно определено количество множителей в члене", 1, term.Factors.size());
+
+        FactorModel factor = term.Factors.get(0);
+
+        SignedAtomModel signedAtom = factor.getBase();
+
+        assertFalse("Неверно определён знак атома со знаком", signedAtom.isNegative());
+        AtomModel atom = signedAtom.getAtom();
+
+        ExpressionModel atomExpression = atom.getExpression();
+
+        assertTrue("Выражение атома не распознано как тригонометрическая функция", ClassHelper.isTypeOf(atomExpression, Cosine.class));
+
+        Cosine cosine = (Cosine) atomExpression;
+
+        SignedAtomModel argument = cosine.getArgument();
+
+        assertTrue("Аргумент тригонометрической функции не распознан как число", argument.isNumber());
+        assertEquals("Значение аргумента тригонометрической функции неверно распознано", 10, argument.getValue(), 0.1);
+    }
+
+    @org.junit.Test
+    public void parseTangent() {
+        ExpressionModel expression = ParseHelper.parseExpression("tan(10)");
+
+        assertEquals("Неверно определено количество членов в выражении", 1, expression.Terms.size());
+
+        TermModel term = expression.Terms.get(0);
+
+        assertEquals("Неверно определено количество множителей в члене", 1, term.Factors.size());
+
+        FactorModel factor = term.Factors.get(0);
+
+        SignedAtomModel signedAtom = factor.getBase();
+
+        assertFalse("Неверно определён знак атома со знаком", signedAtom.isNegative());
+        AtomModel atom = signedAtom.getAtom();
+
+        ExpressionModel atomExpression = atom.getExpression();
+
+        assertTrue("Выражение атома не распознано как тригонометрическая функция", ClassHelper.isTypeOf(atomExpression, Tangent.class));
+
+        Tangent tangent = (Tangent) atomExpression;
+
+        SignedAtomModel argument = tangent.getArgument();
+
+        assertTrue("Аргумент тригонометрической функции не распознан как число", argument.isNumber());
+        assertEquals("Значение аргумента тригонометрической функции неверно распознано", 10, argument.getValue(), 0.1);
+    }
+
+    @org.junit.Test
+    public void parseCotangent() {
+        ExpressionModel expression = ParseHelper.parseExpression("ctan(10)");
+
+        assertEquals("Неверно определено количество членов в выражении", 1, expression.Terms.size());
+
+        TermModel term = expression.Terms.get(0);
+
+        assertEquals("Неверно определено количество множителей в члене", 1, term.Factors.size());
+
+        FactorModel factor = term.Factors.get(0);
+
+        SignedAtomModel signedAtom = factor.getBase();
+
+        assertFalse("Неверно определён знак атома со знаком", signedAtom.isNegative());
+        AtomModel atom = signedAtom.getAtom();
+
+        ExpressionModel atomExpression = atom.getExpression();
+
+        assertTrue("Выражение атома не распознано как тригонометрическая функция", ClassHelper.isTypeOf(atomExpression, Cotangent.class));
+
+        Cotangent cotangent = (Cotangent) atomExpression;
+
+        SignedAtomModel argument = cotangent.getArgument();
+
+        assertTrue("Аргумент тригонометрической функции не распознан как число", argument.isNumber());
+        assertEquals("Значение аргумента тригонометрической функции неверно распознано", 10, argument.getValue(), 0.1);
+    }
+
+
 }

@@ -127,4 +127,64 @@ public interface ArithmeticListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitExponentialFunction(ArithmeticParser.ExponentialFunctionContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link ArithmeticParser#logarithm}.
+	 * @param ctx the parse tree
+	 */
+	void enterLogarithm(ArithmeticParser.LogarithmContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link ArithmeticParser#logarithm}.
+	 * @param ctx the parse tree
+	 */
+	void exitLogarithm(ArithmeticParser.LogarithmContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link ArithmeticParser#naturalLogarithm}.
+	 * @param ctx the parse tree
+	 */
+	void enterNaturalLogarithm(ArithmeticParser.NaturalLogarithmContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link ArithmeticParser#naturalLogarithm}.
+	 * @param ctx the parse tree
+	 */
+	void exitNaturalLogarithm(ArithmeticParser.NaturalLogarithmContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link ArithmeticParser#sinus}.
+	 * @param ctx the parse tree
+	 */
+	void enterSinus(ArithmeticParser.SinusContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link ArithmeticParser#sinus}.
+	 * @param ctx the parse tree
+	 */
+	void exitSinus(ArithmeticParser.SinusContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link ArithmeticParser#cosine}.
+	 * @param ctx the parse tree
+	 */
+	void enterCosine(ArithmeticParser.CosineContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link ArithmeticParser#cosine}.
+	 * @param ctx the parse tree
+	 */
+	void exitCosine(ArithmeticParser.CosineContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link ArithmeticParser#tangent}.
+	 * @param ctx the parse tree
+	 */
+	void enterTangent(ArithmeticParser.TangentContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link ArithmeticParser#tangent}.
+	 * @param ctx the parse tree
+	 */
+	void exitTangent(ArithmeticParser.TangentContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link ArithmeticParser#cotangent}.
+	 * @param ctx the parse tree
+	 */
+	void enterCotangent(ArithmeticParser.CotangentContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link ArithmeticParser#cotangent}.
+	 * @param ctx the parse tree
+	 */
+	void exitCotangent(ArithmeticParser.CotangentContext ctx);
 }

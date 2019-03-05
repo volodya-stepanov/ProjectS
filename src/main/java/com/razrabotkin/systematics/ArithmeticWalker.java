@@ -229,6 +229,30 @@ public class ArithmeticWalker implements ArithmeticListener {
             ArithmeticParser.ExponentialFunctionContext exponentialFunctionContext = (ArithmeticParser.ExponentialFunctionContext) ctx.parent;
             ExponentialFunction exponentialFunction = (ExponentialFunction) NodesHashMap.get(exponentialFunctionContext);
             signedAtom = new SignedAtomModel(exponentialFunction);
+        } else if (Helper.isTypeOf(ctx.parent, ArithmeticParser.LogarithmContext.class)){
+            ArithmeticParser.LogarithmContext logarithmContext = (ArithmeticParser.LogarithmContext) ctx.parent;
+            Logarithm logarithm = (Logarithm) NodesHashMap.get(logarithmContext);
+            signedAtom = new SignedAtomModel(logarithm);
+        } else if (Helper.isTypeOf(ctx.parent, ArithmeticParser.NaturalLogarithmContext.class)){
+            ArithmeticParser.NaturalLogarithmContext naturalLogarithmContext = (ArithmeticParser.NaturalLogarithmContext) ctx.parent;
+            NaturalLogarithm naturalLogarithm = (NaturalLogarithm) NodesHashMap.get(naturalLogarithmContext);
+            signedAtom = new SignedAtomModel(naturalLogarithm);
+        } else if (Helper.isTypeOf(ctx.parent, ArithmeticParser.SinusContext.class)){
+            ArithmeticParser.SinusContext sinusContext = (ArithmeticParser.SinusContext) ctx.parent;
+            Sinus sinus = (Sinus) NodesHashMap.get(sinusContext);
+            signedAtom = new SignedAtomModel(sinus);
+        } else if (Helper.isTypeOf(ctx.parent, ArithmeticParser.CosineContext.class)){
+            ArithmeticParser.CosineContext cosineContext = (ArithmeticParser.CosineContext) ctx.parent;
+            Cosine cosine = (Cosine) NodesHashMap.get(cosineContext);
+            signedAtom = new SignedAtomModel(cosine);
+        } else if (Helper.isTypeOf(ctx.parent, ArithmeticParser.TangentContext.class)){
+            ArithmeticParser.TangentContext tangentContext = (ArithmeticParser.TangentContext) ctx.parent;
+            Tangent tangent = (Tangent) NodesHashMap.get(tangentContext);
+            signedAtom = new SignedAtomModel(tangent);
+        } else if (Helper.isTypeOf(ctx.parent, ArithmeticParser.CotangentContext.class)){
+            ArithmeticParser.CotangentContext cotangentContext = (ArithmeticParser.CotangentContext) ctx.parent;
+            Cotangent cotangent = (Cotangent) NodesHashMap.get(cotangentContext);
+            signedAtom = new SignedAtomModel(cotangent);
         }
 
         NodesHashMap.put(ctx, signedAtom);
@@ -268,6 +292,29 @@ public class ArithmeticWalker implements ArithmeticListener {
         } else if (Helper.isTypeOf(signedAtom.getParent(), ExponentialFunction.class)) {
             ExponentialFunction exponentialFunction = (ExponentialFunction) signedAtom.getParent();
             exponentialFunction.setExponent(signedAtom);
+        } else if (Helper.isTypeOf(signedAtom.getParent(), Logarithm.class)) {
+            Logarithm logarithm = (Logarithm) signedAtom.getParent();
+
+            if (logarithm.getBase() == null) {
+                logarithm.setBase(signedAtom);
+            } else {
+                logarithm.setArgument(signedAtom);
+            }
+        } else if (Helper.isTypeOf(signedAtom.getParent(), NaturalLogarithm.class)) {
+            NaturalLogarithm naturalLogarithm = (NaturalLogarithm) signedAtom.getParent();
+            naturalLogarithm.setArgument(signedAtom);
+        } else if (Helper.isTypeOf(signedAtom.getParent(), Sinus.class)) {
+            Sinus sinus = (Sinus) signedAtom.getParent();
+            sinus.setArgument(signedAtom);
+        } else if (Helper.isTypeOf(signedAtom.getParent(), Cosine.class)) {
+            Cosine cosine = (Cosine) signedAtom.getParent();
+            cosine.setArgument(signedAtom);
+        } else if (Helper.isTypeOf(signedAtom.getParent(), Tangent.class)) {
+            Tangent tangent = (Tangent) signedAtom.getParent();
+            tangent.setArgument(signedAtom);
+        } else if (Helper.isTypeOf(signedAtom.getParent(), Cotangent.class)) {
+            Cotangent cotangent = (Cotangent) signedAtom.getParent();
+            cotangent.setArgument(signedAtom);
         }
     }
 
@@ -425,6 +472,84 @@ public class ArithmeticWalker implements ArithmeticListener {
         ExponentialFunction exponentialFunction = (ExponentialFunction) NodesHashMap.get(ctx);
         AtomModel atom = (AtomModel) exponentialFunction.getParent();
         atom.setExpression(exponentialFunction);
+    }
+
+    public void enterLogarithm(ArithmeticParser.LogarithmContext ctx) {
+        ArithmeticParser.AtomContext atomContext = (ArithmeticParser.AtomContext) ctx.parent;
+        AtomModel atom = (AtomModel) NodesHashMap.get(atomContext);
+        Logarithm logarithm = new Logarithm(atom);
+        NodesHashMap.put(ctx, logarithm);
+    }
+
+    public void exitLogarithm(ArithmeticParser.LogarithmContext ctx) {
+        Logarithm logarithm = (Logarithm) NodesHashMap.get(ctx);
+        AtomModel atom = (AtomModel) logarithm.getParent();
+        atom.setExpression(logarithm);
+    }
+
+    public void enterNaturalLogarithm(ArithmeticParser.NaturalLogarithmContext ctx) {
+        ArithmeticParser.AtomContext atomContext = (ArithmeticParser.AtomContext) ctx.parent;
+        AtomModel atom = (AtomModel) NodesHashMap.get(atomContext);
+        NaturalLogarithm naturalLogarithm = new NaturalLogarithm(atom);
+        NodesHashMap.put(ctx, naturalLogarithm);
+    }
+
+    public void exitNaturalLogarithm(ArithmeticParser.NaturalLogarithmContext ctx) {
+        NaturalLogarithm naturalLogarithm = (NaturalLogarithm) NodesHashMap.get(ctx);
+        AtomModel atom = (AtomModel) naturalLogarithm.getParent();
+        atom.setExpression(naturalLogarithm);
+    }
+
+    public void enterSinus(ArithmeticParser.SinusContext ctx) {
+        ArithmeticParser.AtomContext atomContext = (ArithmeticParser.AtomContext) ctx.parent;
+        AtomModel atom = (AtomModel) NodesHashMap.get(atomContext);
+        Sinus sinus = new Sinus(atom);
+        NodesHashMap.put(ctx, sinus);
+    }
+
+    public void exitSinus(ArithmeticParser.SinusContext ctx) {
+        Sinus sinus = (Sinus) NodesHashMap.get(ctx);
+        AtomModel atom = (AtomModel) sinus.getParent();
+        atom.setExpression(sinus);
+    }
+
+    public void enterCosine(ArithmeticParser.CosineContext ctx) {
+        ArithmeticParser.AtomContext atomContext = (ArithmeticParser.AtomContext) ctx.parent;
+        AtomModel atom = (AtomModel) NodesHashMap.get(atomContext);
+        Cosine cosine = new Cosine(atom);
+        NodesHashMap.put(ctx, cosine);
+    }
+
+    public void exitCosine(ArithmeticParser.CosineContext ctx) {
+        Cosine cosine = (Cosine) NodesHashMap.get(ctx);
+        AtomModel atom = (AtomModel) cosine.getParent();
+        atom.setExpression(cosine);
+    }
+
+    public void enterTangent(ArithmeticParser.TangentContext ctx) {
+        ArithmeticParser.AtomContext atomContext = (ArithmeticParser.AtomContext) ctx.parent;
+        AtomModel atom = (AtomModel) NodesHashMap.get(atomContext);
+        Tangent tangent = new Tangent(atom);
+        NodesHashMap.put(ctx, tangent);
+    }
+
+    public void exitTangent(ArithmeticParser.TangentContext ctx) {
+        Tangent tangent = (Tangent) NodesHashMap.get(ctx);
+        AtomModel atom = (AtomModel) tangent.getParent();
+        atom.setExpression(tangent);
+    }
+
+    public void enterCotangent(ArithmeticParser.CotangentContext ctx) {
+        ArithmeticParser.AtomContext atomContext = (ArithmeticParser.AtomContext) ctx.parent;
+        AtomModel atom = (AtomModel) NodesHashMap.get(atomContext);
+        Cotangent cotangent = new Cotangent(atom);
+        NodesHashMap.put(ctx, cotangent);
+    }
+
+    public void exitCotangent(ArithmeticParser.CotangentContext ctx) {
+        Cotangent cotangent = (Cotangent) NodesHashMap.get(ctx);
+        AtomModel atom = (AtomModel) cotangent.getParent();
+        atom.setExpression(cotangent);
     }
 
     public void visitTerminal(TerminalNode terminalNode) {

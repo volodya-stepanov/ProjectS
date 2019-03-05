@@ -1,8 +1,6 @@
 package com.razrabotkin.systematics.DataModels.Formulas;
 
-import com.razrabotkin.systematics.Helpers.ClassHelper;
 import com.razrabotkin.systematics.Helpers.DocumentHelper;
-import com.razrabotkin.systematics.Helpers.ParseHelper;
 
 import javax.xml.bind.JAXBElement;
 import java.util.ArrayList;
