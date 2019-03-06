@@ -65,6 +65,12 @@ public class Derivative extends ExpressionModel {
                 || isPowerFunction()
                 || isSquareRoot()
                 || isLogarithm()
+                || isNaturalLogarithm()
+                || isEulerFunction()
+                || isSinus()
+                || isCosine()
+                || isTangent()
+                || isCotangent()
 
         ) {
             return true;
@@ -102,7 +108,7 @@ public class Derivative extends ExpressionModel {
     }
 
     /**
-     * Показательная функция
+     * Показательная функция (a^x). Из-за трудностей перевода показательная функция здесь названа экспоненциальной, а экспоненциальная - Эйлеровой
      *
      * @return Истина, если функция является показательной, иначе ложь
      */
@@ -120,6 +126,29 @@ public class Derivative extends ExpressionModel {
                     if (ClassHelper.isTypeOf(atom.getExpression(), VariableModel.class)) {
                         return true;
                     }
+                }
+            }
+        }
+
+        return false;
+    }
+
+    /**
+     * Экспоненциальная функция (e^x). Из-за трудностей перевода показательная функция здесь названа экспоненциальной, а экспоненциальная - Эйлеровой
+     *
+     * @return Истина, если функция является экспоненциальной, иначе ложь
+     */
+    private boolean isEulerFunction() {
+        if (Function.Terms.size() == 1) {
+            TermModel term = Function.Terms.get(0);
+
+            if (term.Factors.size() == 1) {
+                FactorModel factor = term.Factors.get(0);
+                SignedAtomModel signedAtom = factor.getBase();
+                AtomModel atom = signedAtom.getAtom();
+
+                if (ClassHelper.isTypeOf(atom.getExpression(), ExponentialFunction.class)) {
+                    return true;
                 }
             }
         }
@@ -145,6 +174,24 @@ public class Derivative extends ExpressionModel {
         return false;
     }
 
+    private boolean isNaturalLogarithm() {
+        if (Function.Terms.size() == 1) {
+            TermModel term = Function.Terms.get(0);
+
+            if (term.Factors.size() == 1) {
+                FactorModel factor = term.Factors.get(0);
+                SignedAtomModel signedAtom = factor.getBase();
+                AtomModel atom = signedAtom.getAtom();
+
+                if (ClassHelper.isTypeOf(atom.getExpression(), NaturalLogarithm.class)) {
+                    return true;
+                }
+            }
+        }
+
+        return false;
+    }
+
     /**
      * Квадратный корень
      *
@@ -156,7 +203,7 @@ public class Derivative extends ExpressionModel {
 
             if (term.Factors.size() == 1) {
                 FactorModel factor = term.Factors.get(0);
-                SignedAtomModel signedAtom = factor.getExponent();
+                SignedAtomModel signedAtom = factor.getBase();
                 AtomModel atom = signedAtom.getAtom();
 
                 if (ClassHelper.isTypeOf(atom.getExpression(), SquareRoot.class)) {
@@ -167,6 +214,95 @@ public class Derivative extends ExpressionModel {
 
         return false;
     }
+
+    private boolean isSinus() {
+        if (Function.Terms.size() == 1) {
+            TermModel term = Function.Terms.get(0);
+
+            if (term.Factors.size() == 1) {
+                FactorModel factor = term.Factors.get(0);
+                SignedAtomModel signedAtom = factor.getBase();
+                AtomModel atom = signedAtom.getAtom();
+
+                if (ClassHelper.isTypeOf(atom.getExpression(), Sinus.class)) {
+                    return true;
+                }
+            }
+        }
+
+        return false;
+    }
+
+    private boolean isCosine() {
+        if (Function.Terms.size() == 1) {
+            TermModel term = Function.Terms.get(0);
+
+            if (term.Factors.size() == 1) {
+                FactorModel factor = term.Factors.get(0);
+                SignedAtomModel signedAtom = factor.getBase();
+                AtomModel atom = signedAtom.getAtom();
+
+                if (ClassHelper.isTypeOf(atom.getExpression(), Cosine.class)) {
+                    return true;
+                }
+            }
+        }
+
+        return false;
+    }
+
+    private boolean isTangent() {
+        if (Function.Terms.size() == 1) {
+            TermModel term = Function.Terms.get(0);
+
+            if (term.Factors.size() == 1) {
+                FactorModel factor = term.Factors.get(0);
+                SignedAtomModel signedAtom = factor.getBase();
+                AtomModel atom = signedAtom.getAtom();
+
+                if (ClassHelper.isTypeOf(atom.getExpression(), Tangent.class)) {
+                    return true;
+                }
+            }
+        }
+
+        return false;
+    }
+
+    private boolean isCotangent() {
+        if (Function.Terms.size() == 1) {
+            TermModel term = Function.Terms.get(0);
+
+            if (term.Factors.size() == 1) {
+                FactorModel factor = term.Factors.get(0);
+                SignedAtomModel signedAtom = factor.getBase();
+                AtomModel atom = signedAtom.getAtom();
+
+                if (ClassHelper.isTypeOf(atom.getExpression(), Cotangent.class)) {
+                    return true;
+                }
+            }
+        }
+
+        return false;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -193,9 +329,32 @@ public class Derivative extends ExpressionModel {
                 findPowerFunctionDerivative();
             } else if (isExponentialFunction()) {
                 findExponentialFunctionDerivative();
-            } else if (isLogarithm()) {
+            }
+            else if (isLogarithm()) {
                 findLogarithmDerivative();
-            } else {
+            }
+            else if (isNaturalLogarithm()) {
+                findNaturalLogarithmDerivative();
+            }
+            else if (isEulerFunction()) {
+                findEulerFunctionDerivative();
+            }
+            else if (isSquareRoot()) {
+                findSquareRootDerivative();
+            }
+            else if (isSinus()) {
+                findSinusDerivative();
+            }
+            else if (isCosine()) {
+                findCosineDerivative();
+            }
+            else if (isTangent()) {
+                findTangentDerivative();
+            }
+            else if (isCotangent()) {
+                findCotangentDerivative();
+            }
+            else {
                 System.out.println("Программа не смогла вычислить значение производной");
             }
         }
@@ -235,17 +394,16 @@ public class Derivative extends ExpressionModel {
 
         // Определяем значение основания степени
         SignedAtomModel baseSignedAtom = factor.getBase();
-        double exponentValue = baseSignedAtom.getValue();
+        double baseValue = baseSignedAtom.getValue();
 
         // Определяем имя переменной в показателе степени
         SignedAtomModel exponentSignedAtom = factor.getExponent();
         AtomModel exponentAtom = exponentSignedAtom.getAtom();
         VariableModel exponentVariable = (VariableModel) exponentAtom.getExpression();
-        String baseName = exponentVariable.getName();
+        String exponentName = exponentVariable.getName();
 
         // Создаём выражение-результат и подставляем его вместо текущей функции
-        // TODO: Добавить логарифм натуральный
-        ExpressionModel resultExpression = ParseHelper.parseExpression(exponentValue + "*" + baseName + "^" + (exponentValue - 1));
+        ExpressionModel resultExpression = ParseHelper.parseExpression(baseValue + "^" + exponentName + "*ln(" + baseValue + ")");
 
         AtomModel parent = (AtomModel) Parent;
         resultExpression.setParent(parent);
@@ -286,6 +444,204 @@ public class Derivative extends ExpressionModel {
         ExpressionModel parentExpression = resultExpression.getParentExpression();
         parentExpression.setResult(true);
     }
+
+    private void findNaturalLogarithmDerivative() {
+
+        // Извлекаем атом
+        TermModel term = Function.Terms.get(0);
+        FactorModel factor = term.Factors.get(0);
+        SignedAtomModel signedAtom = factor.getBase();
+        AtomModel atom = signedAtom.getAtom();
+
+        // Работаем с логарифмом
+        NaturalLogarithm naturalLogarithm = (NaturalLogarithm) atom.getExpression();
+
+        // Определяем имя переменной в аргументе
+        SignedAtomModel exponentSignedAtom = naturalLogarithm.getArgument();
+        AtomModel argumentAtom = exponentSignedAtom.getAtom();
+        VariableModel argumentVariable = (VariableModel) argumentAtom.getExpression();
+        String argumentName = argumentVariable.getName();
+
+        // Создаём выражение-результат и подставляем его вместо текущей функции
+        ExpressionModel resultExpression = ParseHelper.parseExpression("1/" + argumentName);
+
+        AtomModel parent = (AtomModel) Parent;
+        resultExpression.setParent(parent);
+        parent.setExpression(resultExpression);
+
+        ExpressionModel parentExpression = resultExpression.getParentExpression();
+        parentExpression.setResult(true);
+    }
+
+    private void findEulerFunctionDerivative() {
+
+        // Извлекаем атом
+        TermModel term = Function.Terms.get(0);
+        FactorModel factor = term.Factors.get(0);
+        SignedAtomModel signedAtom = factor.getBase();
+        AtomModel atom = signedAtom.getAtom();
+
+        // Работаем с логарифмом
+        ExponentialFunction exponentialFunction = (ExponentialFunction) atom.getExpression();
+
+        // Определяем имя переменной в показатее степени
+        SignedAtomModel exponentSignedAtom = exponentialFunction.getExponent();
+        AtomModel argumentAtom = exponentSignedAtom.getAtom();
+        VariableModel exponentVariable = (VariableModel) argumentAtom.getExpression();
+        String argumentName = exponentVariable.getName();
+
+        // Создаём выражение-результат и подставляем его вместо текущей функции
+        ExpressionModel resultExpression = ParseHelper.parseExpression("exp(" + argumentName + ")");
+
+        AtomModel parent = (AtomModel) Parent;
+        resultExpression.setParent(parent);
+        parent.setExpression(resultExpression);
+
+        ExpressionModel parentExpression = resultExpression.getParentExpression();
+        parentExpression.setResult(true);
+    }
+
+    private void findSquareRootDerivative() {
+
+        // Извлекаем атом
+        TermModel term = Function.Terms.get(0);
+        FactorModel factor = term.Factors.get(0);
+        SignedAtomModel signedAtom = factor.getBase();
+        AtomModel atom = signedAtom.getAtom();
+
+        // Работаем с квадратным корнем
+        SquareRoot squareRoot = (SquareRoot) atom.getExpression();
+
+        // Определяем имя переменной в аргументе
+        SignedAtomModel exponentSignedAtom = squareRoot.getRadicalExpression();
+        AtomModel argumentAtom = exponentSignedAtom.getAtom();
+        VariableModel argumentVariable = (VariableModel) argumentAtom.getExpression();
+        String argumentName = argumentVariable.getName();
+
+        // Создаём выражение-результат и подставляем его вместо текущей функции
+        ExpressionModel resultExpression = ParseHelper.parseExpression("1/(2*sqrt(" + argumentName + "))");
+
+        AtomModel parent = (AtomModel) Parent;
+        resultExpression.setParent(parent);
+        parent.setExpression(resultExpression);
+
+        ExpressionModel parentExpression = resultExpression.getParentExpression();
+        parentExpression.setResult(true);
+    }
+
+    private void findSinusDerivative() {
+
+        // Извлекаем атом
+        TermModel term = Function.Terms.get(0);
+        FactorModel factor = term.Factors.get(0);
+        SignedAtomModel signedAtom = factor.getBase();
+        AtomModel atom = signedAtom.getAtom();
+
+        // Работаем с синусом
+        Sinus sinus = (Sinus) atom.getExpression();
+
+        // Определяем имя переменной в аргументе
+        SignedAtomModel exponentSignedAtom = sinus.getArgument();
+        AtomModel argumentAtom = exponentSignedAtom.getAtom();
+        VariableModel argumentVariable = (VariableModel) argumentAtom.getExpression();
+        String argumentName = argumentVariable.getName();
+
+        // Создаём выражение-результат и подставляем его вместо текущей функции
+        ExpressionModel resultExpression = ParseHelper.parseExpression("cos(" + argumentName + ")");
+
+        AtomModel parent = (AtomModel) Parent;
+        resultExpression.setParent(parent);
+        parent.setExpression(resultExpression);
+
+        ExpressionModel parentExpression = resultExpression.getParentExpression();
+        parentExpression.setResult(true);
+    }
+
+    private void findCosineDerivative() {
+
+        // Извлекаем атом
+        TermModel term = Function.Terms.get(0);
+        FactorModel factor = term.Factors.get(0);
+        SignedAtomModel signedAtom = factor.getBase();
+        AtomModel atom = signedAtom.getAtom();
+
+        // Работаем с косинусом
+        Cosine cosine = (Cosine) atom.getExpression();
+
+        // Определяем имя переменной в аргументе
+        SignedAtomModel exponentSignedAtom = cosine.getArgument();
+        AtomModel argumentAtom = exponentSignedAtom.getAtom();
+        VariableModel argumentVariable = (VariableModel) argumentAtom.getExpression();
+        String argumentName = argumentVariable.getName();
+
+        // Создаём выражение-результат и подставляем его вместо текущей функции
+        ExpressionModel resultExpression = ParseHelper.parseExpression("-sin(" + argumentName + ")");
+
+        AtomModel parent = (AtomModel) Parent;
+        resultExpression.setParent(parent);
+        parent.setExpression(resultExpression);
+
+        ExpressionModel parentExpression = resultExpression.getParentExpression();
+        parentExpression.setResult(true);
+    }
+
+    private void findTangentDerivative() {
+
+        // Извлекаем атом
+        TermModel term = Function.Terms.get(0);
+        FactorModel factor = term.Factors.get(0);
+        SignedAtomModel signedAtom = factor.getBase();
+        AtomModel atom = signedAtom.getAtom();
+
+        // Работаем с тангенсом
+        Tangent tangent = (Tangent) atom.getExpression();
+
+        // Определяем имя переменной в аргументе
+        SignedAtomModel exponentSignedAtom = tangent.getArgument();
+        AtomModel argumentAtom = exponentSignedAtom.getAtom();
+        VariableModel argumentVariable = (VariableModel) argumentAtom.getExpression();
+        String argumentName = argumentVariable.getName();
+
+        // Создаём выражение-результат и подставляем его вместо текущей функции
+        ExpressionModel resultExpression = ParseHelper.parseExpression("1/cos(" + argumentName + ")^2");
+
+        AtomModel parent = (AtomModel) Parent;
+        resultExpression.setParent(parent);
+        parent.setExpression(resultExpression);
+
+        ExpressionModel parentExpression = resultExpression.getParentExpression();
+        parentExpression.setResult(true);
+    }
+
+    private void findCotangentDerivative() {
+
+        // Извлекаем атом
+        TermModel term = Function.Terms.get(0);
+        FactorModel factor = term.Factors.get(0);
+        SignedAtomModel signedAtom = factor.getBase();
+        AtomModel atom = signedAtom.getAtom();
+
+        // Работаем с котангенсом
+        Cotangent cotangent = (Cotangent) atom.getExpression();
+
+        // Определяем имя переменной в аргументе
+        SignedAtomModel exponentSignedAtom = cotangent.getArgument();
+        AtomModel argumentAtom = exponentSignedAtom.getAtom();
+        VariableModel argumentVariable = (VariableModel) argumentAtom.getExpression();
+        String argumentName = argumentVariable.getName();
+
+        // Создаём выражение-результат и подставляем его вместо текущей функции
+        ExpressionModel resultExpression = ParseHelper.parseExpression("-1/sin(" + argumentName + ")^2");
+
+        AtomModel parent = (AtomModel) Parent;
+        resultExpression.setParent(parent);
+        parent.setExpression(resultExpression);
+
+        ExpressionModel parentExpression = resultExpression.getParentExpression();
+        parentExpression.setResult(true);
+    }
+
+
 
 
 

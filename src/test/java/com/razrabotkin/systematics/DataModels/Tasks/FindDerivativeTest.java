@@ -38,7 +38,35 @@ public class FindDerivativeTest {
         FindDerivative findDerivative = new FindDerivative(Document, Description, "x^3");
         findDerivative.solve();
 
-        assertEquals("Неверно вычислена производная", 0, findDerivative.Answers.get(0).getValue(), 0.1);
+        String expectedAnswer = ParseHelper.parseExpression("3*x^2").toString();
+        String actualAnswer = findDerivative.Answers.get(0).toString();
+
+        assertEquals("Неверно вычислена производная", expectedAnswer, actualAnswer);
+    }
+
+    /**
+     * Показательная функция
+     */
+    @Test
+    public void exponentFunction(){
+        FindDerivative findDerivative = new FindDerivative(Document, Description, "3^x");
+        findDerivative.solve();
+
+        String expectedAnswer = ParseHelper.parseExpression("3^x*ln(3)").toString();
+        String actualAnswer = findDerivative.Answers.get(0).toString();
+
+        assertEquals("Неверно вычислена производная", expectedAnswer, actualAnswer);
+    }
+
+    @Test
+    public void eulerFunction(){
+        FindDerivative findDerivative = new FindDerivative(Document, Description, "exp(x)");
+        findDerivative.solve();
+
+        String expectedAnswer = ParseHelper.parseExpression("e^x").toString();
+        String actualAnswer = findDerivative.Answers.get(0).toString();
+
+        assertEquals("Неверно вычислена производная", expectedAnswer, actualAnswer);
     }
 
     @Test
@@ -47,6 +75,72 @@ public class FindDerivativeTest {
         findDerivative.solve();
 
         String expectedAnswer = ParseHelper.parseExpression("1/(x*ln(14))").toString();
+        String actualAnswer = findDerivative.Answers.get(0).toString();
+
+        assertEquals("Неверно вычислена производная", expectedAnswer, actualAnswer);
+    }
+
+    @Test
+    public void naturalLogarithm(){
+        FindDerivative findDerivative = new FindDerivative(Document, Description, "ln(x)");
+        findDerivative.solve();
+
+        String expectedAnswer = ParseHelper.parseExpression("1/x").toString();
+        String actualAnswer = findDerivative.Answers.get(0).toString();
+
+        assertEquals("Неверно вычислена производная", expectedAnswer, actualAnswer);
+    }
+
+    @Test
+    public void sinus(){
+        FindDerivative findDerivative = new FindDerivative(Document, Description, "sin(x)");
+        findDerivative.solve();
+
+        String expectedAnswer = ParseHelper.parseExpression("cos(x)").toString();
+        String actualAnswer = findDerivative.Answers.get(0).toString();
+
+        assertEquals("Неверно вычислена производная", expectedAnswer, actualAnswer);
+    }
+
+    @Test
+    public void cosine(){
+        FindDerivative findDerivative = new FindDerivative(Document, Description, "cos(x)");
+        findDerivative.solve();
+
+        String expectedAnswer = ParseHelper.parseExpression("-sin(x)").toString();
+        String actualAnswer = findDerivative.Answers.get(0).toString();
+
+        assertEquals("Неверно вычислена производная", expectedAnswer, actualAnswer);
+    }
+
+    @Test
+    public void sqrt(){
+        FindDerivative findDerivative = new FindDerivative(Document, Description, "sqrt(x)");
+        findDerivative.solve();
+
+        String expectedAnswer = ParseHelper.parseExpression("1/(2*sqrt(x))").toString();
+        String actualAnswer = findDerivative.Answers.get(0).toString();
+
+        assertEquals("Неверно вычислена производная", expectedAnswer, actualAnswer);
+    }
+
+    @Test
+    public void tangent(){
+        FindDerivative findDerivative = new FindDerivative(Document, Description, "tan(x)");
+        findDerivative.solve();
+
+        String expectedAnswer = ParseHelper.parseExpression("1/cos(x)^2").toString();
+        String actualAnswer = findDerivative.Answers.get(0).toString();
+
+        assertEquals("Неверно вычислена производная", expectedAnswer, actualAnswer);
+    }
+
+    @Test
+    public void cotangent(){
+        FindDerivative findDerivative = new FindDerivative(Document, Description, "ctan(x)");
+        findDerivative.solve();
+
+        String expectedAnswer = ParseHelper.parseExpression("-1/sin(x)^2").toString();
         String actualAnswer = findDerivative.Answers.get(0).toString();
 
         assertEquals("Неверно вычислена производная", expectedAnswer, actualAnswer);
