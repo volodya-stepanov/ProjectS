@@ -20,6 +20,9 @@ public class ArithmeticWalker implements ArithmeticListener {
     /** Выражение, полученное в результате парсинга */
     public ExpressionModel Expression;
 
+    /** Член, полученный в результате парсинга */
+    public TermModel Term;
+
     /** Для определения классов объектов */
     private ClassHelper Helper;
 
@@ -183,8 +186,12 @@ public class ArithmeticWalker implements ArithmeticListener {
         }
 
         // Определяем родителя данного члена и добавляем член в выражение-родитель
-        ExpressionModel expression = (ExpressionModel) term.getParent();
-        expression.Terms.add(term);
+        if (term.getParent() != null) {
+            ExpressionModel expression = (ExpressionModel) term.getParent();
+            expression.Terms.add(term);
+        }
+
+        Term = term;
     }
 
     /**

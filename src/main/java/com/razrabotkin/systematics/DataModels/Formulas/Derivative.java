@@ -320,10 +320,11 @@ public class Derivative extends ExpressionModel {
 
     public void solve() {
         if (canSolve()) {
+            // Если перед нами элементарная функция
             if (Function.isNumber()) {
                 AtomModel parent = (AtomModel) Parent;
                 NumberModel number = new NumberModel(parent, 0);
-                number.setResult(true);
+                // number.setResult(true);
                 parent.setExpression(number);
             } else if (isPowerFunction()) {
                 findPowerFunctionDerivative();
@@ -358,6 +359,65 @@ public class Derivative extends ExpressionModel {
                 System.out.println("Программа не смогла вычислить значение производной");
             }
         }
+        // Если перед нами производная суммы
+        else if (Function.Terms.size() > 1){
+            // Берём родительский атом этой производной
+            AtomModel atom = (AtomModel) Parent;
+
+            // Создаём выражение, которое будет содержать сумму производных
+            ExpressionModel newExpression = new ExpressionModel(atom);
+
+            for (TermModel term : Function.Terms){
+                TermModel newTerm = ParseHelper.parseTerm("(" + term.toString() + ")'");
+                newTerm.setParent(newExpression);
+                newTerm.setMathOperation(term.getMathOperation());
+                newExpression.Terms.add(newTerm);
+            }
+
+            atom.setExpression(newExpression);
+        }
+        // Усли перед нами производная произведения или частного
+        else {
+            // Берём родительский атом этой производной
+            AtomModel atom = (AtomModel) Parent;
+
+            // Создаём выражение, которое будет содержать формулу для вычисления производной произведения
+            ExpressionModel newExpression = new ExpressionModel(atom);
+
+            // Проверяем количество множителей в произведении
+            if (Function.Terms.get(0).Factors.size() == 2){
+
+                FactorModel factor1 = Function.Terms.get(0).Factors.get(0);
+                FactorModel factor2 = Function.Terms.get(0).Factors.get(1);
+
+                // Произвная произведения
+                if (factor2.getMathOperation() == MathOpModel.Multiply){
+                    TermModel term1 = ParseHelper.parseTerm("(" + factor1.toString() + ")'*" + factor2.toString());
+                    term1.setParent(newExpression);
+                    term1.setMathOperation(MathOpModel.None);
+                    newExpression.Terms.add(term1);
+
+                    TermModel term2 = ParseHelper.parseTerm(factor1.toString() + "*(" + factor2.toString() + ")'");
+                    term2.setParent(newExpression);
+                    term2.setMathOperation(MathOpModel.Plus);
+                    newExpression.Terms.add(term2);
+                }
+                // Производная частного
+                else if (factor2.getMathOperation() == MathOpModel.Divide){
+                    TermModel term = ParseHelper.parseTerm("((" + factor1.toString() + ")'*" + factor2.toString() + "-" + factor1.toString() + "*(" + factor2.toString() + ")')/(" + factor2.toString() + ")^2");
+                    term.setParent(newExpression);
+                    term.setMathOperation(MathOpModel.None);
+                    newExpression.Terms.add(term);
+                } else {
+                    System.out.println("Перед вторым множителем в произведении не стоит знак умножения или деления");
+                }
+
+            } else {
+                System.out.println("Количество множителей в произведении, производную которого нужно вычислить, больше двух");
+            }
+
+            atom.setExpression(newExpression);
+        }
     }
 
     // Методы, находящие производные элементарных функций
@@ -384,7 +444,7 @@ public class Derivative extends ExpressionModel {
         parent.setExpression(resultExpression);
 
         ExpressionModel parentExpression = resultExpression.getParentExpression();
-        parentExpression.setResult(true);
+        // parentExpression.setResult(true);
 }
 
     private void findExponentialFunctionDerivative() {
@@ -410,7 +470,7 @@ public class Derivative extends ExpressionModel {
         parent.setExpression(resultExpression);
 
         ExpressionModel parentExpression = resultExpression.getParentExpression();
-        parentExpression.setResult(true);
+        // parentExpression.setResult(true);
 }
 
     private void findLogarithmDerivative() {
@@ -442,7 +502,7 @@ public class Derivative extends ExpressionModel {
         parent.setExpression(resultExpression);
 
         ExpressionModel parentExpression = resultExpression.getParentExpression();
-        parentExpression.setResult(true);
+        // parentExpression.setResult(true);
     }
 
     private void findNaturalLogarithmDerivative() {
@@ -470,7 +530,7 @@ public class Derivative extends ExpressionModel {
         parent.setExpression(resultExpression);
 
         ExpressionModel parentExpression = resultExpression.getParentExpression();
-        parentExpression.setResult(true);
+        // parentExpression.setResult(true);
     }
 
     private void findEulerFunctionDerivative() {
@@ -498,7 +558,7 @@ public class Derivative extends ExpressionModel {
         parent.setExpression(resultExpression);
 
         ExpressionModel parentExpression = resultExpression.getParentExpression();
-        parentExpression.setResult(true);
+        // parentExpression.setResult(true);
     }
 
     private void findSquareRootDerivative() {
@@ -526,7 +586,7 @@ public class Derivative extends ExpressionModel {
         parent.setExpression(resultExpression);
 
         ExpressionModel parentExpression = resultExpression.getParentExpression();
-        parentExpression.setResult(true);
+        // parentExpression.setResult(true);
     }
 
     private void findSinusDerivative() {
@@ -554,7 +614,7 @@ public class Derivative extends ExpressionModel {
         parent.setExpression(resultExpression);
 
         ExpressionModel parentExpression = resultExpression.getParentExpression();
-        parentExpression.setResult(true);
+        // parentExpression.setResult(true);
     }
 
     private void findCosineDerivative() {
@@ -582,7 +642,7 @@ public class Derivative extends ExpressionModel {
         parent.setExpression(resultExpression);
 
         ExpressionModel parentExpression = resultExpression.getParentExpression();
-        parentExpression.setResult(true);
+        // parentExpression.setResult(true);
     }
 
     private void findTangentDerivative() {
@@ -610,7 +670,7 @@ public class Derivative extends ExpressionModel {
         parent.setExpression(resultExpression);
 
         ExpressionModel parentExpression = resultExpression.getParentExpression();
-        parentExpression.setResult(true);
+        // parentExpression.setResult(true);
     }
 
     private void findCotangentDerivative() {
@@ -638,7 +698,7 @@ public class Derivative extends ExpressionModel {
         parent.setExpression(resultExpression);
 
         ExpressionModel parentExpression = resultExpression.getParentExpression();
-        parentExpression.setResult(true);
+        // parentExpression.setResult(true);
     }
 
 

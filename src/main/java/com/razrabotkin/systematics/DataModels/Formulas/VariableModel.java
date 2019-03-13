@@ -107,6 +107,10 @@ public class VariableModel extends ExpressionModel{
             // TODO: Если значение отрицательное, необходимо взять основание степени в скобки!
         } else {
             System.out.println("Не удалось найти значение переменной в таблице");
+
+            // Если это сделать не удалось, находим родительское выражение и обозначаем его как результат
+            ExpressionModel parentExpression = getParentExpression();
+            parentExpression.setResult(true);
         }
     }
 

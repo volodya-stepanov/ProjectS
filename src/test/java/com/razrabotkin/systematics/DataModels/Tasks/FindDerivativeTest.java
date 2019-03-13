@@ -19,6 +19,7 @@ public class FindDerivativeTest {
         ParseHelper= new ParseHelper();
     }
 
+    // Производные элементарных функций
     /**
      * Константа (число)
      */
@@ -146,5 +147,37 @@ public class FindDerivativeTest {
         assertEquals("Неверно вычислена производная", expectedAnswer, actualAnswer);
     }
 
+    // Производные, вычисляемые по правилам дифференцирования
+    @Test
+    public void summ(){
+        FindDerivative findDerivative = new FindDerivative(Document, Description, "x^2-5");
+        findDerivative.solve();
 
+        String expectedAnswer = "2*x";
+        String actualAnswer = findDerivative.Answers.get(0).toString();
+
+        assertEquals("Неверно вычислена производная", expectedAnswer, actualAnswer);
+    }
+
+    @Test
+    public void production(){
+        FindDerivative findDerivative = new FindDerivative(Document, Description, "x^2*3^x");
+        findDerivative.solve();
+
+        String expectedAnswer = "2*x";
+        String actualAnswer = findDerivative.Answers.get(0).toString();
+
+        assertEquals("Неверно вычислена производная", expectedAnswer, actualAnswer);
+    }
+
+    @Test
+    public void quotient(){
+        FindDerivative findDerivative = new FindDerivative(Document, Description, "x^2/(2*x+1)");
+        findDerivative.solve();
+
+        String expectedAnswer = "2*x";
+        String actualAnswer = findDerivative.Answers.get(0).toString();
+
+        assertEquals("Неверно вычислена производная", expectedAnswer, actualAnswer);
+    }
 }

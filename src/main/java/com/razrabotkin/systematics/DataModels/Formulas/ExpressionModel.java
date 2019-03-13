@@ -168,7 +168,7 @@ public class ExpressionModel extends FormulaModel{
     }
 
     public FormulaModel copy(FormulaModel parent) {
-        ExpressionModel expression = new ExpressionModel(Parent);
+        ExpressionModel expression = new ExpressionModel(parent);
         expression.setRelation(Relation);
 
         for (TermModel term : Terms){
@@ -181,6 +181,7 @@ public class ExpressionModel extends FormulaModel{
     public boolean canSolve() {
         boolean canSolve = true;
 
+        // Если все члены выражения являются числами, его можно решить
         for (TermModel term : Terms){
             if (!term.isNumber()){
                 canSolve = false;
@@ -191,7 +192,25 @@ public class ExpressionModel extends FormulaModel{
         return canSolve;
     }
 
+    /**
+     * Определяет, является ли хотя бы один член выражения нулём
+     * @return Истина, если хотя бы один член выражения является нулём, иначе ложь
+     */
+    private boolean hasZeros() {
+        for (TermModel term : Terms){
+            if (term.isNumber() && term.getValue() == 0){
+                return true;
+            }
+        }
+
+        return false;
+    }
+
     public void solve() {
+        if (hasZeros()){
+            removeZeros();
+        }
+
         if(canSolve()){
             double result = Terms.get(0).getValue();
 
@@ -208,6 +227,19 @@ public class ExpressionModel extends FormulaModel{
         } else {
             for(TermModel term : Terms){
                 term.solve();
+            }
+        }
+    }
+
+    /**
+     * Удаляет нулевые члены из выражения
+     */
+    private void removeZeros() {
+        for (int i = Terms.size() - 1; i >= 0; i--){
+            TermModel term = Terms.get(i);
+
+            if (term.isNumber() && term.getValue() == 0){
+                Terms.remove(term);
             }
         }
     }

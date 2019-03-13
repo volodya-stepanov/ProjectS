@@ -3,6 +3,7 @@ package com.razrabotkin.systematics.Helpers;
 import com.razrabotkin.systematics.DataModels.Formulas.EquationModel;
 import com.razrabotkin.systematics.DataModels.Formulas.ExpressionModel;
 import com.razrabotkin.systematics.ArithmeticWalker;
+import com.razrabotkin.systematics.DataModels.Formulas.TermModel;
 import com.razrabotkin.systematics.gen.ArithmeticLexer;
 import com.razrabotkin.systematics.gen.ArithmeticParser;
 import org.antlr.v4.runtime.CharStreams;
@@ -35,5 +36,16 @@ public class ParseHelper {
         ArithmeticWalker arithmeticWalker = new ArithmeticWalker();
         parseTreeWalker.walk(arithmeticWalker, tree);
         return arithmeticWalker.Expression;
+    }
+
+    public TermModel parseTerm(String term){
+        ArithmeticLexer lexer = new ArithmeticLexer(CharStreams.fromString(term));
+        CommonTokenStream tokens = new CommonTokenStream(lexer);
+        ArithmeticParser parser = new ArithmeticParser(tokens);
+        ParseTree tree = parser.term();   // Здесь переключаются правила!
+        ParseTreeWalker parseTreeWalker = new ParseTreeWalker();
+        ArithmeticWalker arithmeticWalker = new ArithmeticWalker();
+        parseTreeWalker.walk(arithmeticWalker, tree);
+        return arithmeticWalker.Term;
     }
 }

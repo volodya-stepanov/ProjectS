@@ -122,7 +122,13 @@ public abstract class FormulaModel {
         ClassHelper helper = new ClassHelper();
 
         if (helper.isTypeOf(Parent, ExpressionModel.class)) {
-            return (ExpressionModel) Parent;
+            ExpressionModel expression = (ExpressionModel) Parent;
+
+            if (expression.getParent() == null){
+                return expression;
+            } else if (helper.isTypeOf(expression.getParent(), EquationModel.class)){
+                return expression;
+            }
         }
 
         return Parent.getParentExpression();
