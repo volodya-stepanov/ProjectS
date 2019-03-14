@@ -136,6 +136,17 @@ public class TermModel extends FormulaModel {
         return Factors.size() == 1 && Factors.get(0).isNumber();
     }
 
+    @Override
+    public boolean isResult() {
+        for (FactorModel factor : Factors){
+            if (!factor.isResult()){
+                return false;
+            }
+        }
+
+        return true;
+    }
+
     public FormulaModel copy(FormulaModel parent) {
         TermModel term = new TermModel((ExpressionModel) parent);
         term.setMathOperation(MathOperation);

@@ -75,6 +75,11 @@ public class SignedAtomModel extends FormulaModel {
         return Atom.isNumber();
     }
 
+    @Override
+    public boolean isResult() {
+        return Atom.isResult();
+    }
+
     public FormulaModel copy(FormulaModel parent) {
         SignedAtomModel signedAtom = new SignedAtomModel(parent);
 

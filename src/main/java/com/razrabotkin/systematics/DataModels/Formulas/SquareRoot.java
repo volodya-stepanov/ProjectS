@@ -57,6 +57,22 @@ public class SquareRoot extends ExpressionModel {
         return false;
     }
 
+    @Override
+    public boolean isResult() {
+        // Если аргумет дальше вычислить уже нельзя, но при этом он является числом, значит,
+        // значение функции ещё можно вычислить.
+        // Во всех остальных случаях значение вычислить уже нельзя, значит, это результат.
+        if (RadicalExpression.isResult()){
+            if (RadicalExpression.isNumber()){
+                return false;
+            } else {
+                return true;
+            }
+        } else {
+            return false;
+        }
+    }
+
     public FormulaModel copy(FormulaModel parent) {
         SquareRoot squareRoot = new SquareRoot(parent);
 

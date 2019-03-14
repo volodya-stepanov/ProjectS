@@ -48,6 +48,13 @@ public class Derivative extends ExpressionModel {
         return false;
     }
 
+    @Override
+    public boolean isResult() {
+        // Производная никогда н являеся результатом,
+        // так как её всегда можно вычислить
+        return false;
+    }
+
     public FormulaModel copy(FormulaModel parent) {
         Derivative derivative = new Derivative(parent);
         derivative.setFunction((ExpressionModel) Function.copy(derivative));

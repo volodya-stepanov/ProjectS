@@ -167,6 +167,17 @@ public class ExpressionModel extends FormulaModel{
         return Terms.size() == 1 && Terms.get(0).isNumber();
     }
 
+    @Override
+    public boolean isResult() {
+        for (TermModel term : Terms){
+            if (!term.isResult()){
+                return false;
+            }
+        }
+
+        return true;
+    }
+
     public FormulaModel copy(FormulaModel parent) {
         ExpressionModel expression = new ExpressionModel(parent);
         expression.setRelation(Relation);
@@ -277,11 +288,11 @@ public class ExpressionModel extends FormulaModel{
         Relation = relation;
     }
 
-    public boolean isResult() {
-        return IsResult;
-    }
-
-    public void setResult(boolean result) {
-        IsResult = result;
-    }
+//    public boolean isResult() {
+//        return IsResult;
+//    }
+//
+//    public void setResult(boolean result) {
+//        IsResult = result;
+//    }
 }

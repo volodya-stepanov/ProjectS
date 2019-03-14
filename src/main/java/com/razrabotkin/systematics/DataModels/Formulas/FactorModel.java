@@ -153,6 +153,11 @@ public class FactorModel extends FormulaModel {
         return false;
     }
 
+    @Override
+    public boolean isResult() {
+        return Base.isResult() && Exponent.isResult();
+    }
+
     public FormulaModel copy(FormulaModel parent) {
         FactorModel factor = new FactorModel((TermModel) parent);
 

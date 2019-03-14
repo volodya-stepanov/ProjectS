@@ -33,6 +33,22 @@ public class Cosine extends ExpressionModel{
     }
 
     @Override
+    public boolean isResult() {
+        // Если аргумет дальше вычислить уже нельзя, но при этом он является числом, значит,
+        // значение функции ещё можно вычислить.
+        // Во всех остальных случаях значение вычислить уже нельзя, значит, это результат.
+        if (Argument.isResult()){
+            if (Argument.isNumber()){
+                return false;
+            } else {
+                return true;
+            }
+        } else {
+            return false;
+        }
+    }
+
+    @Override
     public FormulaModel copy(FormulaModel parent) {
         Cosine cosine = new Cosine(parent);
         cosine.setArgument((SignedAtomModel) Argument.copy(cosine));

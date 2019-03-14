@@ -33,6 +33,22 @@ public class ExponentialFunction extends ExpressionModel{
     }
 
     @Override
+    public boolean isResult() {
+        // Если показатель степени дальше вычислить уже нельзя, но при этом он является числом, значит,
+        // значение функции ещё можно вычислить.
+        // Во всех остальных случаях значение вычислить уже нельзя, значит, это результат.
+        if (Exponent.isResult()){
+            if (Exponent.isNumber()){
+                return false;
+            } else {
+                return true;
+            }
+        } else {
+            return false;
+        }
+    }
+
+    @Override
     public FormulaModel copy(FormulaModel parent) {
         ExponentialFunction exponentialFunction =   new ExponentialFunction(parent);
         exponentialFunction.setExponent((SignedAtomModel) Exponent.copy(exponentialFunction));

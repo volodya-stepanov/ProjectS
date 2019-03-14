@@ -33,6 +33,11 @@ public class AtomModel extends FormulaModel {
         return Expression.isNumber();
     }
 
+    @Override
+    public boolean isResult() {
+        return Expression.isResult();
+    }
+
     public FormulaModel copy(FormulaModel parent) {
         AtomModel atom = new AtomModel((SignedAtomModel) parent);
 

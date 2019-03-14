@@ -81,6 +81,22 @@ public class VariableModel extends ExpressionModel{
         return false;
     }
 
+    @Override
+    public boolean isResult() {
+        // Получаем уравнение-родитель
+        EquationModel equation = getParentEquation();
+
+        // Из таблицы переменных, которая в нем находится, пытаемся извлечь значение переменной по её имени
+        Double value = equation.getVariablesHashMap().get(Name);
+
+        // Если это сделать удалось,
+        if (value != null){
+            return false;
+        } else {
+            return true;
+        }
+    }
+
     public FormulaModel copy(FormulaModel parent) {
         VariableModel variable = new VariableModel((AtomModel) parent, Name);
 
@@ -109,8 +125,8 @@ public class VariableModel extends ExpressionModel{
             System.out.println("Не удалось найти значение переменной в таблице");
 
             // Если это сделать не удалось, находим родительское выражение и обозначаем его как результат
-            ExpressionModel parentExpression = getParentExpression();
-            parentExpression.setResult(true);
+//            ExpressionModel parentExpression = getParentExpression();
+//            parentExpression.setResult(true);
         }
     }
 

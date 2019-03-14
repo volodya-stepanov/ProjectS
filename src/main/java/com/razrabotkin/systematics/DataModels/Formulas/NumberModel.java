@@ -43,6 +43,11 @@ public class NumberModel extends ExpressionModel{
         return true;
     }
 
+    @Override
+    public boolean isResult() {
+        return true;
+    }
+
     public FormulaModel copy(FormulaModel parent) {
         NumberModel number = new NumberModel((AtomModel) parent, mValue);
 
