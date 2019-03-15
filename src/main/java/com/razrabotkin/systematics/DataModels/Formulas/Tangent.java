@@ -49,6 +49,11 @@ public class Tangent extends ExpressionModel{
     }
 
     @Override
+    public boolean isVariable() {
+        return false;
+    }
+
+    @Override
     public FormulaModel copy(FormulaModel parent) {
         Tangent tangent = new Tangent(parent);
         tangent.setArgument((SignedAtomModel) Argument.copy(tangent));

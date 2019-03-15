@@ -1,6 +1,7 @@
 package com.razrabotkin.systematics.DataModels.Formulas;
 
 import com.razrabotkin.systematics.Helpers.ClassHelper;
+import com.razrabotkin.systematics.Helpers.ParseHelper;
 import org.docx4j.math.CTR;
 import org.docx4j.wml.*;
 
@@ -168,6 +169,11 @@ public class ExpressionModel extends FormulaModel{
     }
 
     @Override
+    public boolean isVariable() {
+        return Terms.size() == 1 && Terms.get(0).isVariable();
+    }
+
+    @Override
     public boolean isResult() {
         for (TermModel term : Terms){
             if (!term.isResult()){
@@ -178,6 +184,12 @@ public class ExpressionModel extends FormulaModel{
         return true;
     }
 
+    /**
+     * Копирует данное выражение путём создания нового экземпляра данного класса с тем же родителем.
+     * Все данные, хранящиеся в данном выражении, рекурсивно копируются аналогичным способом
+     * @param parent Родитель
+     * @return Скопированное выражение
+     */
     public FormulaModel copy(FormulaModel parent) {
         ExpressionModel expression = new ExpressionModel(parent);
         expression.setRelation(Relation);
@@ -187,6 +199,18 @@ public class ExpressionModel extends FormulaModel{
         }
 
         return expression;
+    }
+
+    /**
+     * Копирует данное выражение путём парсинга его строкового представления
+     * @param parent Родитель
+     * @return Скопированное выражение
+     */
+    public ExpressionModel copyParse(FormulaModel parent){
+        com.razrabotkin.systematics.Helpers.ParseHelper parseHelper = new ParseHelper();
+        ExpressionModel resultExpression = parseHelper.parseExpression(this.toString());
+        resultExpression.setParent(parent);
+        return resultExpression;
     }
 
     public boolean canSolve() {

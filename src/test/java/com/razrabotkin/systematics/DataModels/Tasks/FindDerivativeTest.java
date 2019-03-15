@@ -147,6 +147,17 @@ public class FindDerivativeTest {
         assertEquals("Неверно вычислена производная", expectedAnswer, actualAnswer);
     }
 
+    @Test
+    public void binomial(){
+        FindDerivative findDerivative = new FindDerivative(Document, Description, "3*x-5");
+        findDerivative.solve();
+
+        String expectedAnswer = "3";
+        String actualAnswer = findDerivative.Answers.get(0).toString();
+
+        assertEquals("Неверно вычислена производная", expectedAnswer, actualAnswer);
+    }
+
     // Производные, вычисляемые по правилам дифференцирования
     @Test
     public void summ(){

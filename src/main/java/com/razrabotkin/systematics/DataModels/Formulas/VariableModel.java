@@ -82,6 +82,11 @@ public class VariableModel extends ExpressionModel{
     }
 
     @Override
+    public boolean isVariable() {
+        return true;
+    }
+
+    @Override
     public boolean isResult() {
         // Получаем уравнение-родитель
         EquationModel equation = getParentEquation();

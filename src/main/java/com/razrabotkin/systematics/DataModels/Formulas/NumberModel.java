@@ -44,6 +44,11 @@ public class NumberModel extends ExpressionModel{
     }
 
     @Override
+    public boolean isVariable() {
+        return false;
+    }
+
+    @Override
     public boolean isResult() {
         return true;
     }

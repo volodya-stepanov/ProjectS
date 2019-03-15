@@ -34,6 +34,11 @@ public class AtomModel extends FormulaModel {
     }
 
     @Override
+    public boolean isVariable() {
+        return Expression.isVariable();
+    }
+
+    @Override
     public boolean isResult() {
         return Expression.isResult();
     }

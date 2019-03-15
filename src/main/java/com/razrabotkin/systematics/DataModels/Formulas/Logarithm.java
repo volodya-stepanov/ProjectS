@@ -36,6 +36,11 @@ public class Logarithm extends ExpressionModel{
     }
 
     @Override
+    public boolean isVariable() {
+        return false;
+    }
+
+    @Override
     public boolean isResult() {
         // Если аргумет дальше вычислить уже нельзя, но при этом он является числом, значит,
         // значение функции ещё можно вычислить.

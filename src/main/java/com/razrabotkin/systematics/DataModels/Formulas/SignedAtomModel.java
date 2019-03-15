@@ -76,6 +76,11 @@ public class SignedAtomModel extends FormulaModel {
     }
 
     @Override
+    public boolean isVariable() {
+        return Atom.isVariable();
+    }
+
+    @Override
     public boolean isResult() {
         return Atom.isResult();
     }

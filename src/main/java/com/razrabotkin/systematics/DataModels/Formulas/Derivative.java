@@ -49,6 +49,11 @@ public class Derivative extends ExpressionModel {
     }
 
     @Override
+    public boolean isVariable() {
+        return false;
+    }
+
+    @Override
     public boolean isResult() {
         // Производная никогда н являеся результатом,
         // так как её всегда можно вычислить
@@ -78,6 +83,7 @@ public class Derivative extends ExpressionModel {
                 || isCosine()
                 || isTangent()
                 || isCotangent()
+                || isBinomial()
 
         ) {
             return true;
@@ -294,6 +300,63 @@ public class Derivative extends ExpressionModel {
         return false;
     }
 
+    /**
+     * Двучлен типа kx + b
+     * @return Истина, если функция является двучленом типа kx + b, иначе ложь
+     */
+    private boolean isBinomial() {
+        boolean condition1 = false;
+        boolean condition2 = false;
+
+        if (Function.Terms.size() == 2) {
+            TermModel term1 = Function.Terms.get(0);
+            TermModel term2 = Function.Terms.get(1);
+
+            if (term1.Factors.size() == 1) {
+                FactorModel factor = term1.Factors.get(0);
+
+                if (factor.isVariable()){
+                    condition1 = true;
+                }
+            } else
+                if (term1.Factors.size() == 2){
+                FactorModel factor1 = term1.Factors.get(0);
+                FactorModel factor2 = term1.Factors.get(1);
+
+                if (factor1.isNumber() && factor2.isVariable()){
+                    condition1 = true;
+                }
+            }
+
+            if (term2.isNumber()){
+                condition2 = true;
+            }
+        }
+        else if (Function.Terms.size() == 1) {
+            TermModel term = Function.Terms.get(0);
+
+            if (term.Factors.size() == 1) {
+                FactorModel factor = term.Factors.get(0);
+
+                if (factor.isVariable()){
+                    condition1 = true;
+                }
+            } else
+            if (term.Factors.size() == 2){
+                FactorModel factor1 = term.Factors.get(0);
+                FactorModel factor2 = term.Factors.get(1);
+
+                if (factor1.isNumber() && factor2.isVariable()){
+                    condition1 = true;
+                }
+            }
+
+            condition2 = true;
+        }
+
+        return condition1 && condition2;
+    }
+
 
 
 
@@ -361,6 +424,9 @@ public class Derivative extends ExpressionModel {
             }
             else if (isCotangent()) {
                 findCotangentDerivative();
+            }
+            else if (isBinomial()) {
+                findBinomialDerivative();
             }
             else {
                 System.out.println("Программа не смогла вычислить значение производной");
@@ -708,7 +774,26 @@ public class Derivative extends ExpressionModel {
         // parentExpression.setResult(true);
     }
 
+    private void findBinomialDerivative() {
 
+        double result = 0;
+
+        TermModel term = Function.Terms.get(0);
+
+        if (term.Factors.size() == 1) {
+            result = 1;
+        } else if (term.Factors.size() == 2) {
+            FactorModel factor1 = term.Factors.get(0);
+            result = factor1.getValue();
+        }
+
+        // Создаём выражение-результат и подставляем его вместо текущей функции
+        ExpressionModel resultExpression = ParseHelper.parseExpression(String.valueOf(result));
+
+        AtomModel parent = (AtomModel) Parent;
+        resultExpression.setParent(parent);
+        parent.setExpression(resultExpression);
+    }
 
 
 

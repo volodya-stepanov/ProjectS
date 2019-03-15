@@ -154,6 +154,23 @@ public class FactorModel extends FormulaModel {
     }
 
     @Override
+    public boolean isVariable() {
+        // Множитель является числом тогда, когда основание степени является числом,
+        // а показатель степени либо отсутствует, либо тоже является числом и равен единице
+        if (Base.isVariable()){
+            if (Exponent == null) {
+                return true;
+            } else if (Exponent.isNumber()){
+                NumberModel number = (NumberModel) Exponent.getAtom().getExpression();
+                if (number.getValue() == 1){
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+    @Override
     public boolean isResult() {
         return Base.isResult() && Exponent.isResult();
     }

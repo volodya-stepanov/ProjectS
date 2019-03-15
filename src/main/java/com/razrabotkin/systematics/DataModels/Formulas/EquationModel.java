@@ -133,7 +133,8 @@ public class EquationModel extends FormulaModel {
             ExpressionModel lastExpression = Expressions.get(Expressions.size()-1);
 
             // Копируем правую часть и добавляем её к уравнению
-            ExpressionModel newExpression = (ExpressionModel) lastExpression.copy(this);
+//            ExpressionModel newExpression = (ExpressionModel) lastExpression.copy(this);
+            ExpressionModel newExpression = lastExpression.copyParse(this);
             newExpression.setRelation(RelOpModel.Equals);
             newExpression.solve();
 

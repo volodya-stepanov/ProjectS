@@ -137,6 +137,12 @@ public class TermModel extends FormulaModel {
     }
 
     @Override
+    public boolean isVariable() {
+        // Произведение считается числом тогда, когда оно имеет только один множитель, и он является числом
+        return Factors.size() == 1 && Factors.get(0).isVariable();
+    }
+
+    @Override
     public boolean isResult() {
         for (FactorModel factor : Factors){
             if (!factor.isResult()){
