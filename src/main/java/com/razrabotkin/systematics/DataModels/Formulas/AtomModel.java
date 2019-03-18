@@ -118,4 +118,9 @@ public class AtomModel extends FormulaModel {
             variable.setName(name, index);
         }
     }
+
+    public String getName(){
+        VariableModel variable = (VariableModel) Expression;
+        return variable.getName();
+    }
 }

@@ -2,6 +2,7 @@ package com.razrabotkin.systematics.DataModels.Formulas;
 
 import com.razrabotkin.systematics.Helpers.DocumentHelper;
 import com.razrabotkin.systematics.Helpers.ClassHelper;
+import com.razrabotkin.systematics.Helpers.ParseHelper;
 
 import javax.xml.bind.JAXBElement;
 import java.util.ArrayList;
@@ -210,7 +211,13 @@ public class FactorModel extends FormulaModel {
             // Вычисляем степень и устанавливаем основанию новое значение, а показателю - единицу
             Base.setValue(Math.pow(baseValue, exponentValue));
             Exponent.setValue(1);
-        } else {
+        }
+
+        else if (canSimplify()){
+            simplify();
+        }
+
+        else {
             Base.solve();
 
             if (Exponent != null){
@@ -219,9 +226,90 @@ public class FactorModel extends FormulaModel {
         }
     }
 
+    public boolean canSimplify(){
+        if (isSquareOfSum()){
+            return true;
+        }
+
+        return false;
+    }
+
+    private boolean isSquareOfSum() {
+        AtomModel atom = Base.getAtom();
+        ExpressionModel baseExpression = atom.getExpression();
+
+        if (baseExpression.Terms.size() == 2 && Exponent.isNumber() && Exponent.getValue() == 2){
+            return true;
+        }
+
+        return false;
+    }
 
 
+    public void simplify() {
+       if (isSquareOfSum()) {
+            simplifySquareOfSum();
+        }
+    }
 
+    private void simplifySquareOfSum() {
+        // Получаем коэффициенты перед членами и название переменной
+        double coef1 = 0, coef2 = 0;
+        String variableName = "";
+        MathOpModel mathOperation = MathOpModel.None;
+
+        AtomModel atom = Base.getAtom();
+        ExpressionModel baseExpression = atom.getExpression();
+
+        // Получаем коэффициент перед первым членом
+        TermModel term1 = baseExpression.Terms.get(0);
+        if (term1.Factors.size() == 2) {
+            if (term1.Factors.get(0).isNumber()) {
+                coef1 = term1.Factors.get(0).getValue();
+            } else {
+                System.out.println("Первый член выражения, возводимого в квадрат, состоит из двух множителей, но его первый множитель - не число");
+            }
+
+            if (term1.Factors.get(1).isVariable()) {
+                variableName = term1.Factors.get(1).getName();
+            } else {
+                System.out.println("Первый член выражения, возводимого в квадрат, состоит из двух множителей, но его второй множитель - не переменная");
+            }
+        } else if (term1.Factors.size() == 1) {
+            if (term1.Factors.get(0).isVariable()) {
+                coef1 = 1;
+                variableName = term1.Factors.get(0).getName();
+            } else {
+                System.out.println("Первый член выражения, возводимого в квадрат, состоит из одного множителя, но это не переменная");
+            }
+        }
+
+        // Получаем коэффициент перед вторым членом
+        TermModel term2 = baseExpression.Terms.get(1);
+        if (term2.Factors.get(0).isNumber()) {
+            coef2 = term2.Factors.get(0).getValue();
+
+            mathOperation = term2.getMathOperation();
+        } else {
+            System.out.println("Первый член выражения, возводимого в квадрат, состоит одного множителя, но это не число");
+        }
+
+        // Составляем формулу
+        ParseHelper parseHelper = new ParseHelper();
+
+        String expressionStr = Math.pow(coef1, 2) + "*" + variableName + "^2";
+        if (mathOperation == MathOpModel.Plus){
+            expressionStr += "+";
+        } else if (mathOperation == MathOpModel.Minus) {
+            expressionStr += "-";
+        }
+        expressionStr += (2 * coef1 * coef2) + "*" + variableName + "+" + Math.pow(coef2, 2);
+        ExpressionModel expression = parseHelper.parseExpression(expressionStr);
+        expression.setParent(atom);
+        atom.setExpression(expression);
+
+        Exponent.setValue(1);
+    }
 
     // Методы-мутаторы
     /**
@@ -298,5 +386,9 @@ public class FactorModel extends FormulaModel {
 
         Base.setName(name, index);
         Exponent.setValue(1);
+    }
+
+    public String getName(){
+        return Base.getName();
     }
 }

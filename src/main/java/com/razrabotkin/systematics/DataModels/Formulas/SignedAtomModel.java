@@ -167,4 +167,8 @@ public class SignedAtomModel extends FormulaModel {
         Atom.setName(name, index);
         IsNegative = false;
     }
+
+    public String getName(){
+        return Atom.getName();
+    }
 }
