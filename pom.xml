@@ -35,6 +35,13 @@
             <version>RELEASE</version>
             <scope>compile</scope>
         </dependency>
+
+        <!--Для мастера-->
+        <dependency>
+            <groupId>com.github.cjwizard</groupId>
+            <artifactId>cjwizard</artifactId>
+            <version>1.0.9</version>
+        </dependency>
     </dependencies>
 
     <build>

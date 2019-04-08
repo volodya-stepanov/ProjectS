@@ -191,11 +191,35 @@ public class TermModel extends FormulaModel {
             }
 
             setValue(result);
-        } else {
+        }
+
+        if(canSimplify()){
+            //simplify();
+        }
+
+        else {
             for(FactorModel factor : Factors){
                 factor.solve();
             }
         }
+    }
+
+    private boolean canSimplify() {
+        return canOpenBrackets();
+    }
+
+    private boolean canOpenBrackets() {
+        // Упростить произведение мы можем только в том случае, если один из его мнодителей - выражение в скобках (содержащее два члена).
+
+        for(FactorModel factor : Factors){
+            AtomModel atom = factor.getBase().getAtom();
+            ExpressionModel expression = atom.getExpression();
+            if (expression.Terms.size() > 1){
+                return true;
+            }
+        }
+
+        return false;
     }
 
     // Методы-мутаторы
