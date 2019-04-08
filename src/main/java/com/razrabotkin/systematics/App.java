@@ -171,7 +171,13 @@ public class App {
     }
 
     private void createTask() {
-        CreateTaskForm form = new CreateTaskForm(App.this);
+        //CreateTaskForm form = new CreateTaskForm(App.this);
+
+        CreateTaskWizard wizard = new CreateTaskWizard();
+        wizard.setSize(new Dimension(600, 300));
+        wizard.setModalityType(Dialog.ModalityType.APPLICATION_MODAL); // prevent user from doing something else
+        wizard.setLocationRelativeTo(null);
+        wizard.setVisible(true);
     }
 
     private void createTree(){
